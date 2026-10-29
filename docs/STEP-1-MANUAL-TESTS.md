@@ -16,3 +16,14 @@ Run `npm run dev` and open http://127.0.0.1:4173.
 12. **No APIs:** inspect browser Network after interacting. Only local HTML, CSS and JavaScript files should load; changing filters should make no network requests.
 
 Merge only after user confirmation. Target branch: dev.
+
+## User-added countries and subjects
+
+1. Add Japan under New country and Physics under New subject. Confirm each appears once, selected. Click Find programs and confirm the summary includes the additions.
+2. Deselect all original countries and subjects, keeping only Japan and Physics. Submit and confirm a clear empty result without invented programs or dates.
+3. Try blank input and ` japan ` after adding Japan. Confirm a helpful message and no duplicate. Repeat for subjects.
+4. Add `New   Zealand` and confirm it appears as `New Zealand`.
+5. Press Enter in either New field to add an option. Confirm it does not submit Find programs.
+6. Reload the page. Added options should remain available, unchecked; default selections return. Entries are browser-local and do not sync across devices.
+7. Test long names and 320px width. Labels should wrap and Add buttons remain usable.
+8. With browser storage disabled, add an option and confirm the session-only message and usable checkbox.

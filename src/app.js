@@ -1,11 +1,23 @@
 import { choiceField, programCard, deadlineStage, element } from './components.js';
 import { programs, filterPrograms } from './data.js';
+import { defaults, loadCustomOptions, storageKey, validateOption } from './preferences.js';
 
 const form = document.querySelector('#preferences');
 const filterContainer = document.querySelector('#filters');
+let storage;
+try { storage = window.localStorage; } catch { /* Session-only fallback. */ }
+const custom = loadCustomOptions(storage);
+function addOption(name, raw) {
+  const result = validateOption(raw, [...defaults[name], ...custom[name]]);
+  if (!result.value) return result;
+  custom[name].push(result.value);
+  let saved = false;
+  try { storage.setItem(storageKey, JSON.stringify(custom)); saved = true; } catch { /* Keep the option usable for this session. */ }
+  return { value: result.value, message: saved ? 'Added and selected. Saved in this browser. Click Find programs to apply.' : 'Added and selected for this session only; browser storage is unavailable. Click Find programs to apply.' };
+}
 [
-  { name: 'countries', label: 'Study destinations', options: ['Canada', 'United Kingdom'], selected: ['Canada', 'United Kingdom'], multiple: true },
-  { name: 'subjects', label: 'Subjects', options: ['Computer Science', 'Business'], selected: ['Computer Science'], multiple: true },
+  { name: 'countries', label: 'Study destinations', options: [...defaults.countries, ...custom.countries], selected: ['Canada', 'United Kingdom'], multiple: true, onAdd: value => addOption('countries', value) },
+  { name: 'subjects', label: 'Subjects', options: [...defaults.subjects, ...custom.subjects], selected: ['Computer Science'], multiple: true, onAdd: value => addOption('subjects', value) },
   { name: 'degree', label: 'Degree level', options: ['Bachelor’s', 'Master’s', 'PhD'], selected: ['Master’s'] },
   { name: 'intake', label: 'Target intake', options: ['Autumn 2027', 'Spring 2028'], selected: ['Autumn 2027'] },
 ].forEach(config => filterContainer.append(choiceField(config)));
