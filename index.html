@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore sample programs and their admission timelines.">
+  <title>Admissions Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="container"><p class="eyebrow">ADMISSIONS EXPLORER</p><h1>Your next intake,<br>stage by stage.</h1><p>Discover programs. See the dates that matter.</p></div>
+  </header>
+  <main class="container">
+    <p class="demo-banner"><strong>Concept preview</strong> · Fictional institutions and illustrative dates. No live admissions data.</p>
+    <form id="preferences" class="preferences" aria-label="Program preferences">
+      <div class="filters" id="filters"></div>
+      <div class="form-footer"><p>Select one or more countries and subjects.</p><button type="submit" class="primary-button">Find programs <span aria-hidden="true">→</span></button></div>
+      <p id="form-error" class="error" role="alert" hidden></p>
+    </form>
+    <p class="context-note">Applicant context is not collected in this step. Applicant categories remain unconfirmed; study destination does not determine citizenship or residency.</p>
+    <div class="dashboard">
+      <section aria-labelledby="programs-title"><div class="section-heading"><h2 id="programs-title">Matching programs</h2><span id="result-count"></span></div><p id="result-summary" class="muted"></p><div id="programs"></div></section>
+      <section class="timeline-panel" aria-labelledby="timeline-title"><div id="timeline" aria-live="polite"></div></section>
+    </div>
+    <p id="results-announcement" class="sr-only" role="status"></p>
+  </main>
+  <footer class="container">Step 1 · Dashboard shell · Sample data only</footer>
+</body>
+</html>
