@@ -6,22 +6,61 @@ export function element(tag, className, text) {
 }
 
 // Shared input component for all dashboard preferences.
-export function choiceField({ name, label, options, selected, multiple = false }) {
+export function choiceField({ name, label, options, selected, multiple = false, onAdd }) {
   const group = element('fieldset', 'choice-field');
   group.append(element('legend', '', label));
   const choices = element('div', 'choices');
-  options.forEach(value => {
+  function appendChoice(value, checked) {
     const row = element('label', 'choice');
     const input = document.createElement('input');
     input.type = multiple ? 'checkbox' : 'radio';
     input.name = name;
     input.value = value;
-    input.checked = selected.includes(value);
+    input.checked = checked;
     row.append(input, element('span', '', value));
     choices.append(row);
-  });
+  }
+  options.forEach(value => appendChoice(value, selected.includes(value)));
   group.append(choices);
+  if (onAdd) group.append(addOptionControl({ name, label: name === 'countries' ? 'country' : 'subject', onAdd(value) {
+    const result = onAdd(value);
+    if (result.value) appendChoice(result.value, true);
+    return result;
+  } }));
   return group;
+}
+
+export function addOptionControl({ name, label, onAdd }) {
+  const container = element('div', 'add-option');
+  const inputLabel = element('label', 'add-label', `New ${label}`);
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.id = `new-${name}`;
+  input.maxLength = 80;
+  input.autocomplete = 'off';
+  inputLabel.htmlFor = input.id;
+  const row = element('div', 'add-row');
+  const button = element('button', 'add-button', 'Add');
+  button.type = 'button';
+  button.setAttribute('aria-label', `Add ${label}`);
+  const message = element('p', 'add-message');
+  message.id = `${input.id}-message`;
+  message.setAttribute('role', 'status');
+  input.setAttribute('aria-describedby', message.id);
+  function add() {
+    const result = onAdd(input.value);
+    message.textContent = result.message;
+    input.setAttribute('aria-invalid', String(!result.value));
+    if (result.value) input.value = '';
+    input.focus();
+  }
+  button.addEventListener('click', add);
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Enter') { event.preventDefault(); add(); }
+  });
+  row.append(input, button);
+  container.append(inputLabel, row, message);
+  return container;
 }
 
 export function programCard(program, selected, onSelect) {
