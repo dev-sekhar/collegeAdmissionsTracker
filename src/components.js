@@ -5,6 +5,26 @@ export function element(tag, className, text) {
   return node;
 }
 
+export function sourceLink(label, href) {
+  const link = element('a', '', label);
+  link.href = href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+  return link;
+}
+
+export function discoveryPanel() {
+  const panel = element('section', 'discovery-panel');
+  panel.setAttribute('aria-labelledby', 'discovery-title');
+  panel.innerHTML = `
+    <h2 id="discovery-title">Institution &amp; program discovery</h2>
+    <p class="muted">Browser collection runs locally. Download your search request, then run the command shown below. Reload after collection to view its results. No external APIs are used.</p>
+    <div class="discovery-actions"><button id="download-request" type="button" class="add-button">Download discovery request</button><label><input type="checkbox" id="use-discovery"> Show discovered programs</label></div>
+    <code>npm run discover -- "path/to/discovery-request.json"</code>
+    <p id="discovery-status" role="status" class="muted">Loading local catalogue…</p>
+    <div id="coverage"></div>
+    <details><summary>Institution directory &amp; source issues</summary><div id="institutions"></div></details>`;
+  return panel;
+}
+
 // Shared input component for all dashboard preferences.
 export function choiceField({ name, label, options, selected, multiple = false, onAdd }) {
   const group = element('fieldset', 'choice-field');
@@ -67,7 +87,7 @@ export function programCard(program, selected, onSelect) {
   const button = element('button', 'program-card');
   button.type = 'button';
   button.setAttribute('aria-pressed', String(selected));
-  button.append(element('span', 'program-country', program.country), element('strong', '', program.institution), element('span', '', program.title), element('span', 'muted', `${program.degree} · ${program.intake}`));
+  button.append(element('span', 'program-country', program.country), element('strong', '', program.institution), element('span', '', program.title), element('span', 'muted', `${program.degree} · ${program.sourceUrl ? `${program.campus || 'Campus unconfirmed'} · Intake unconfirmed` : program.intake}`));
   button.addEventListener('click', onSelect);
   return button;
 }
