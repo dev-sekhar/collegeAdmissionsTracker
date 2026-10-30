@@ -6,11 +6,15 @@ Requires Node.js 18+ and Microsoft Edge installed locally. Run `npm install` onc
 
 1. Start the dashboard with `npm run dev`.
 2. Select countries, subjects, degree and intake.
-3. Choose **Download discovery request**. This exports those preferences as a local JSON file.
-4. Run `npm run discover -- "C:/path/to/discovery-request.json"` in this project folder. For the initial six-country Computer Science master's search, use `npm run discover -- discovery-example.json`.
-5. Reload the dashboard. **Show discovered programs** switches between the collected catalogue and fictional samples.
+3. Choose **Find programs** with Show discovered programs selected. The local controller runs discovery, stage collection and source verification in sequence. The page shows progress and refreshes when the run ends. A run may take several minutes.
+4. To search another month, use Search a different intake month. A requested month is not evidence that a program offers it.
+5. Download discovery request and the CLI commands remain available for manual collection. Show discovered programs switches between real collected records and fictional samples.
 
-Collection is launched through the command line in this step. The dashboard reads its output as a static local file; there is no HTTP API for starting collection. There is no hosted service or account setup.
+The loopback server has a same-origin local job-control route; it invokes fixed local scripts without a shell. No external service APIs, hosted service or account setup are used. Only public destination/subject/degree/intake fields enter the job file. Applicant context stays in the browser. The controller permits one run at a time and stops a phase after twelve minutes; there is no automatic retry of blocked sites.
+
+Undergraduate catalogue entry points now include NUS Computing, NTU Computing, SMU Computing, Twente, UCL, Saarland, Waterloo and Monash. These are source configurations, not preloaded program results: each match requires a fresh page heading and degree passage. Catalogue availability and layouts can prevent matches. Institution records identify whether directory corroboration was captured; configured official catalogues can still be checked when a directory is blocked.
+
+New subject names are matched against the configured catalogues. Newly added countries without trusted source configuration are explicitly marked Source setup needed. This remains bounded discovery, not an exhaustive worldwide search. Program intake evidence, unconfirmed intakes and alternatives appear separately. Only explicit start-month/year statements on the program page count as intake evidence; generic calendars and application dates do not establish a program intake.
 
 ## Current coverage
 

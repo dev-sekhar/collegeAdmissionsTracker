@@ -2,6 +2,10 @@
 export function extractHtmlEvidence() {
   const root=document.querySelector('main, #main-content, #main, .unit-content')||document.body;
   const blocks=[];
+  for(const term of root.querySelectorAll('dt')){
+    const definition=term.nextElementSibling;
+    if(definition?.tagName==='DD')blocks.push({type:'text',text:`${term.innerText} ${definition.innerText}`.replace(/\s+/gu,' ').trim(),context:document.querySelector('h1')?.textContent||document.title});
+  }
   for(const row of root.querySelectorAll('.views-row')) {
     const intake=row.querySelector('h4')?.textContent?.trim();
     if(!intake||!/intake/i.test(intake))continue;
@@ -23,5 +27,5 @@ export function extractHtmlEvidence() {
     const text=node.innerText?.trim();
     if(text&&text.length<1600)blocks.push({type:'text',text,context:document.querySelector('h1')?.textContent||document.title});
   }
-  return {blocks,links:[...root.querySelectorAll('a[href]')].map(a=>({href:a.href,text:a.textContent.trim()})),headings:[...document.querySelectorAll('h1')].map(h=>h.textContent.trim())};
+  return {blocks,links:[...root.querySelectorAll('a[href]')].map(a=>({href:a.href,text:a.textContent.trim()})),headings:[...[...document.querySelectorAll('h1')].map(h=>h.textContent.trim()),document.title.split('|')[0].trim()]};
 }
