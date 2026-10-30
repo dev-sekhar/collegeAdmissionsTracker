@@ -21,6 +21,9 @@ export function discoveryPanel() {
     <code>npm run discover -- "path/to/discovery-request.json"</code>
     <p class="muted">Collect admission-stage dates after discovery:</p>
     <code>npm run collect-deadlines</code>
+    <p class="muted">Recheck official sources before treating dates as verified:</p>
+    <code>npm run verify-deadlines</code>
+    <p id="verification-status" role="status" class="muted">Loading source checks…</p>
     <p id="deadline-status" role="status" class="muted">Loading local stage evidence…</p>
     <p id="discovery-status" role="status" class="muted">Loading local catalogue…</p>
     <div id="coverage"></div>
@@ -28,29 +31,33 @@ export function discoveryPanel() {
   return panel;
 }
 
-export function collectedDeadlinePanel(entry, intake, stages) {
+export function collectedDeadlinePanel(entry, intake, stages, checks) {
   const panel = element('section', 'collected-deadlines');
   panel.setAttribute('aria-label', 'Collected admission-stage evidence');
   panel.append(element('h3', '', 'Admission-stage evidence'));
-  if (!entry || entry.requestedIntake !== intake) {
-    panel.append(element('p', 'muted', entry ? `Evidence was collected for ${entry.requestedIntake}. Collect again for ${intake}; no dates are shown for this selection.` : 'Stage dates have not been collected for this program. Run the collection command, then reload.'));
+  if (!entry) {
+    panel.append(element('p', 'muted', 'Stage dates have not been collected for this program. Run the collection command, then reload.'));
     return panel;
   }
-  panel.append(element('p', 'review-notice', 'Needs verification · Collected source text is not yet an applicable admission deadline. Check the published intake, year, round and applicant category.'));
+  const assessed=assessRecords(entry.candidates,checks,intake);
+  const verified=assessed.filter(record=>record.assessment.status==='Source verified').length;
+  const targetIntake=publishedIntake(intake);
+  const excluded=assessed.filter(record=>targetIntake&&record.assessment.sourceIntake&&record.assessment.sourceIntake!==targetIntake);
+  panel.append(element('p','verification-summary',`${verified} source-verified records · ${assessed.length-verified-excluded.length} need review · ${excluded.length} for other intakes`));
+  panel.append(element('p', 'review-notice', 'Source verified means the official publication was rechecked for this exact intake. Your applicant category, admission round where unspecified, and cutoff timezone remain unconfirmed. No eligibility decision is made.'));
   const list = element('ol', 'collected-stage-list');
   for (const [id, name] of stages) {
     const row = element('li');
-    const records = entry.candidates.filter(record => record.stage === id);
+    const records = assessed.filter(record => record.stage === id && !excluded.includes(record));
     row.append(element('h4', '', name));
-    if (!records.length) row.append(element('p', 'muted', 'No date collected from the checked sources.'));
+    if (!records.length) row.append(element('p', 'muted', entry.candidates.some(record=>record.stage===id) ? 'No collected record for this selected intake.' : 'No date collected from the checked sources.'));
     for (const record of records) {
-      const detail = element('details', 'date-record');
-      detail.append(element('summary', '', `${record.value.length>160 ? `${record.value.slice(0,160)}…` : record.value} · ${record.context || 'Intake not specified'} · ${record.applicantCategory}`), element('p', 'muted', `Needs verification · ${record.kind}`), element('p', 'date-evidence', record.evidence), element('p', 'muted', `Collected ${new Date(record.checkedAt).toLocaleString()} · ${record.extraction} · Cutoff timezone not established`), sourceLink('Official source ↗',record.sourceUrl));
-      row.append(detail);
+      row.append(verifiedDateRecord(record));
     }
     list.append(row);
   }
   panel.append(list);
+  if(excluded.length){const other=element('details','evidence');other.append(element('summary','',`${excluded.length} records excluded: different intake`));excluded.forEach(record=>other.append(verifiedDateRecord(record)));panel.append(other);}
   if (entry.sources.length) {
     const sources = element('details', 'evidence'); sources.append(element('summary','','Sources checked'));
     entry.sources.forEach(source=>{const p=element('p');p.append(sourceLink(source.url,source.url));sources.append(p);});panel.append(sources);
@@ -59,20 +66,25 @@ export function collectedDeadlinePanel(entry, intake, stages) {
   return panel;
 }
 
+export function verifiedDateRecord(record) {
+  const detail=element('details','date-record');
+  detail.append(element('summary','',`${record.assessment.status} · ${record.value.length>160?`${record.value.slice(0,160)}…`:record.value} · ${record.context||'Intake not specified'} · ${record.applicantCategory}${record.assessment.round?` · ${record.assessment.round}`:''}`),element('p','muted',record.assessment.reason),element('p','date-evidence',record.evidence),element('p','muted',`Collected ${new Date(record.checkedAt).toLocaleString()} · Source recheck: ${record.assessment.checkedAt?new Date(record.assessment.checkedAt).toLocaleString():'Not checked'} · ${record.extraction} · Cutoff timezone not established`),sourceLink('Official source ↗',record.sourceUrl));
+  return detail;
+}
+
+export function choiceOption({name,value,checked=false,multiple=false}) {
+  const row=element('label','choice');const input=document.createElement('input');
+  input.type=multiple?'checkbox':'radio';input.name=name;input.value=value;input.checked=checked;
+  row.append(input,element('span','',value));return row;
+}
+
 // Shared input component for all dashboard preferences.
 export function choiceField({ name, label, options, selected, multiple = false, onAdd }) {
   const group = element('fieldset', 'choice-field');
   group.append(element('legend', '', label));
   const choices = element('div', 'choices');
   function appendChoice(value, checked) {
-    const row = element('label', 'choice');
-    const input = document.createElement('input');
-    input.type = multiple ? 'checkbox' : 'radio';
-    input.name = name;
-    input.value = value;
-    input.checked = checked;
-    row.append(input, element('span', '', value));
-    choices.append(row);
+    choices.append(choiceOption({name,value,checked,multiple}));
   }
   options.forEach(value => appendChoice(value, selected.includes(value)));
   group.append(choices);
@@ -139,3 +151,4 @@ export function deadlineStage(stage) {
   item.append(content, date);
   return item;
 }
+import { assessRecords, publishedIntake } from './verification.js';

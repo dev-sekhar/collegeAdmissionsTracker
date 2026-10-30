@@ -7,7 +7,8 @@
     "dev": "node scripts/serve.mjs",
     "test": "node --test",
     "discover": "node scripts/discover.mjs",
-    "collect-deadlines": "node scripts/collect-deadlines.mjs"
+    "collect-deadlines": "node scripts/collect-deadlines.mjs",
+    "verify-deadlines": "node scripts/verify-deadlines.mjs"
   },
   "dependencies": {
     "playwright": "1.64.1"
