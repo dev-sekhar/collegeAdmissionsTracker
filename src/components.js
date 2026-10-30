@@ -16,7 +16,7 @@ export function discoveryPanel() {
   panel.setAttribute('aria-labelledby', 'discovery-title');
   panel.innerHTML = `
     <h2 id="discovery-title">Institution &amp; program discovery</h2>
-    <p class="muted">Browser collection runs locally. Download your search request, then run the command shown below. Reload after collection to view its results. No external APIs are used.</p>
+    <p class="muted">Find programs runs fresh local browser discovery, collects admission evidence and rechecks official sources. Coverage is bounded to configured public catalogues; an empty result does not establish that no programs exist. No external service APIs are used.</p>
     <div class="discovery-actions"><button id="download-request" type="button" class="add-button">Download discovery request</button><label><input type="checkbox" id="use-discovery"> Show discovered programs</label></div>
     <code>npm run discover -- "path/to/discovery-request.json"</code>
     <p class="muted">Collect admission-stage dates after discovery:</p>
@@ -26,6 +26,7 @@ export function discoveryPanel() {
     <p id="verification-status" role="status" class="muted">Loading source checks…</p>
     <p id="deadline-status" role="status" class="muted">Loading local stage evidence…</p>
     <p id="discovery-status" role="status" class="muted">Loading local catalogue…</p>
+    <div id="collection-progress"></div>
     <div id="coverage"></div>
     <details><summary>Institution directory &amp; source issues</summary><div id="institutions"></div></details>`;
   return panel;
@@ -36,7 +37,7 @@ export function collectedDeadlinePanel(entry, intake, stages, checks, applicantC
   panel.setAttribute('aria-label', 'Collected admission-stage evidence');
   panel.append(element('h3', '', 'Admission-stage evidence'));
   if (!entry) {
-    panel.append(element('p', 'muted', 'Stage dates have not been collected for this program. Run the collection command, then reload.'));
+    panel.append(element('p', 'muted', emptyStage(entry)));
     return panel;
   }
   const assessed=assessRecords(entry.candidates,checks,intake);
@@ -50,7 +51,7 @@ export function collectedDeadlinePanel(entry, intake, stages, checks, applicantC
     const row = element('li');
     const records = assessed.filter(record => record.stage === id && !excluded.includes(record));
     row.append(element('h4', '', name));
-    if (!records.length) row.append(element('p', 'muted', entry.candidates.some(record=>record.stage===id) ? 'No collected record for this selected intake.' : 'No date collected from the checked sources.'));
+    if (!records.length) row.append(element('p', 'muted', emptyStage(entry,id)));
     for (const record of records) {
       row.append(verifiedDateRecord(record,applicantContext));
     }
@@ -154,3 +155,26 @@ export function deadlineStage(stage) {
 }
 import { assessRecords, publishedIntake } from './verification.js';
 import {categoryNote,localDeadline} from './applicant.js';
+import {emptyStage,intakeGroup} from './coverage.js';
+
+export function programIntakePanel(entry,target){
+  const panel=element('details','evidence');panel.append(element('summary','',intakeGroup(entry,target)));
+  panel.append(element('p','muted','Program start evidence is separate from deadline verification. A request or university-wide calendar does not establish this program’s intake.'));
+  for(const item of entry?.intakes||[]){const row=element('p','',`${item.intake}: ${item.text} · Collected ${new Date(item.checkedAt).toLocaleString()} `);row.append(sourceLink('Official intake passage',item.sourceUrl));panel.append(row);}
+  return panel;
+}
+
+export function collectionProgress(job){
+  const panel=element('section','collection-progress');panel.setAttribute('aria-label','Collection progress');
+  const status=element('p','',`${job.status} · ${job.phase||'Waiting'}${job.startedAt?` · Started ${new Date(job.startedAt).toLocaleString()}`:''}`);status.setAttribute('role','status');panel.append(status);
+  if(job.request)panel.append(element('p','muted',`${job.request.countries.join(', ')} · ${job.request.subjects.join(', ')} · ${job.request.degree} · ${job.request.intake}`));
+  if(job.status==='running')panel.append(element('p','muted','Collection is running. Results below are from previous local reports until this run finishes.'));
+  if(job.status==='completed')panel.append(element('p','muted','Collection finished. Coverage remains partial; inspect source issues and unconfirmed intakes before relying on a date.'));
+  if(job.logs?.length){const detail=element('details');detail.append(element('summary','','Collection log'));detail.append(element('pre','collection-log',job.logs.join('\n')));panel.append(detail);}
+  return panel;
+}
+export function intakeMonthField(onChange){
+  const field=element('label','context-field','Search a different intake month');field.id='search-month-field';
+  const input=document.createElement('input');input.type='month';input.id='search-intake-month';input.min='2026-01';input.max='2040-12';
+  input.addEventListener('change',()=>{if(input.value)onChange(input.value);});field.append(input);return field;
+}

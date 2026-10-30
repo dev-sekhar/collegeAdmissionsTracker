@@ -58,7 +58,7 @@ export function subjectMatches(title, subject) {
 export function degreeFromTitle(title) {
   if (/\b(master|msc|meng|mba|mphil)\b|\bM\.Sc\./iu.test(title)) return 'Master’s';
   if (/\b(doctor of philosophy|phd|ph\.d\.)\b/iu.test(title)) return 'PhD';
-  if (/\b(bachelor|bsc|beng)\b/iu.test(title)) return 'Bachelor’s';
+  if (/\b(bachelor|bsc|beng)\b|\bB\.Sc\./iu.test(title)) return 'Bachelor’s';
   return null;
 }
 export function validateRequest(request) {
@@ -69,6 +69,13 @@ export function validateRequest(request) {
       || request[key].some(value => typeof value !== 'string' || !value.trim() || value.length > 80)) throw Error(`Invalid ${key}. Select 1–30 names of up to 80 characters.`);
   }
   return request;
+}
+export function programEvidence(headings,pageTitle,mainText,subjects,degree){
+  const titles=[...headings,pageTitle.split('|')[0]].map(text=>text.replace(/\s+/gu,' ').trim());
+  const heading=titles.find(text=>subjects.some(subject=>subjectMatches(text,subject))&&(!degreeFromTitle(text)||degreeFromTitle(text)===degree));
+  if(!heading)return null;
+  const degreePassage=degreeFromTitle(heading)===degree?heading:mainText.slice(0,12000).split('\n').find(line=>degreeFromTitle(line)===degree)?.trim();
+  return degreePassage?{heading,degreePassage}:null;
 }
 export function matchesDiscovery(program, preferences) {
   return preferences.countries.map(countryName).includes(program.country) && program.subjects.some(subject => preferences.subjects.includes(subject)) && program.degree === preferences.degree;

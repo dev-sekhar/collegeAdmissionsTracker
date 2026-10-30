@@ -6,10 +6,12 @@ import {extractHtmlEvidence} from './html-evidence.mjs';
 import {extractCandidates} from '../src/deadlines.js';
 import {recordKey,programSourceScope} from '../src/verification.js';
 import {canonicalUrl} from '../src/discovery.js';
+import {trustedDomains} from '../src/catalogue-sources.js';
+import {withIntakeContext} from '../src/coverage.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const catalogue=JSON.parse(await readFile(path.join(root,'data/latest.json'),'utf8'));
 const deadlines=JSON.parse(await readFile(path.join(root,'data/deadlines.json'),'utf8'));
-const domains=['ubc.ca','nus.edu.sg','anu.edu.au','tum.de','utwente.nl'];
+const domains=trustedDomains;
 const domain=url=>{try{const u=new URL(url);return u.protocol==='https:'&&domains.find(d=>u.hostname===d||u.hostname.endsWith(`.${d}`));}catch{return null;}};
 const report={version:1,startedAt:new Date().toISOString(),programs:[]};
 const browser=await chromium.launch({channel:'msedge',headless:true});
@@ -26,7 +28,7 @@ async function fresh(url) {
   if(domain(page.url())!==domain(url))throw Error('Unexpected source redirect.');
   if(/just a moment|verify you are human|access denied/iu.test((await page.locator('body').innerText()).slice(0,1500)))throw Error('Access check encountered; no bypass attempted.');
   const content=await page.evaluate(extractHtmlEvidence);
-  const result={...content,sourceUrl:page.url(),checkedAt:new Date().toISOString(),extraction:'HTML'};
+  const result=withIntakeContext({...content,sourceUrl:page.url(),checkedAt:new Date().toISOString(),extraction:'HTML'});
   result.keys=new Set(extractCandidates(result.blocks,result).map(recordKey));
   cache.set(canonical,result);return result;
 }

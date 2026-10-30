@@ -108,3 +108,18 @@ Status: implemented in PR #15; awaiting preview approval before merging.
 Validation: 26 automated tests pass. Desktop checks cover confirmation, cross-country context, opt-in saving/restoration, clearing, invalid timezone rejection and preservation of date-only evidence. All current collected records lack a convertible explicit cutoff; conversion across dates and daylight-saving zones is covered with synthetic automated examples. Mobile acceptance remains manual.
 
 See STEP-5-MANUAL-TESTS.md. Skill assessment: this is still project-specific; recommend keeping the rules here rather than creating a new skill, subject to user confirmation. Citizenship casing defect is tracked in issue #16 and fixed in this PR.
+## Step 6 — Fresh discovery from dashboard selections
+
+Status: implemented in draft PR #17, awaiting review and merge approval.
+
+Find programs now starts a local browser run using the selected destinations, subjects, degree and intake. It discovers programs, collects admission-stage evidence and rechecks sources in sequence. Progress and collection logs remain visible; the dashboard refreshes after completion. A reload resumes an active run, and only one run can be active in this server.
+
+Undergraduate catalogue coverage has been added for selected institutions across the six configured countries, including Singapore's NUS, NTU and SMU. Results still require fresh source evidence; adding an option alone never creates a program or deadline. New countries without trusted sources say Source setup needed. Configured catalogues may be checked even when directory corroboration fails; institution records identify that distinction.
+
+A separate month input supports future searches without claiming that a program offers the requested intake. Results distinguish published program intake evidence, unconfirmed intakes and alternative published intakes. Empty stages explain whether collection has not run, sources were incomplete, or no date was captured. The collector follows up to seven official pages per program, excludes scholarship/accommodation/financial-aid links and never guesses missing dates.
+
+The local controller receives only public search fields and invokes fixed scripts without a shell. Applicant context is not included. No external service APIs are used. See STEP-6-MANUAL-TESTS.md and DISCOVERY.md for limits and review checks. Skill assessment: recommend project documentation while source rules evolve; no skill created without confirmation.
+
+Validation: 34 automated tests pass. Browser checks confirm a real Singapore undergraduate search and restoration of an active six-country search after reload. Cross-origin and non-JSON job submissions return HTTP 403. Subset refresh preserves still-known, unselected program evidence with its original timestamps. Computer Science aliases include related computing degrees; each card retains its actual program title.
+
+Live six-country discovery found 30 program pages. A corrected UK keyword search added UCL Computer Science BSc, giving 31 catalogue matches. Collection retained 14 stage-date statements; none passed source verification for August 2027. These are program matches with incomplete deadline evidence, not confirmed August admission opportunities. UCL date collection received HTTP 403 despite successful program discovery; issue #23 remains open and the timeline reports Source unavailable or incomplete. The labelled-field and same-page intake association rules are covered by synthetic tests; the blocked UCL collector could not exercise them end to end. Mobile acceptance remains manual.

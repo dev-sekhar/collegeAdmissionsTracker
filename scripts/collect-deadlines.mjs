@@ -8,19 +8,27 @@ import { fileURLToPath } from 'node:url';
 import { extractCandidates } from '../src/deadlines.js';
 import { canonicalUrl, validateRequest, matchesDiscovery } from '../src/discovery.js';
 import { extractHtmlEvidence } from './html-evidence.mjs';
+import {trustedDomains} from '../src/catalogue-sources.js';
+import {intakeEvidence,retainedEvidence,withIntakeContext} from '../src/coverage.js';
 const execute = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));
 const catalogue = JSON.parse(await readFile(path.join(root, 'data/latest.json'), 'utf8'));
-if (catalogue.version !== 1 || !catalogue.programs?.length) throw Error('Run discovery before collecting deadlines.');
+if (catalogue.version !== 1 || !Array.isArray(catalogue.programs)) throw Error('Run discovery before collecting deadlines.');
 const request = process.argv[2] ? validateRequest(JSON.parse(await readFile(path.resolve(process.argv[2]),'utf8'))) : catalogue.request;
 const startedAt = new Date().toISOString();
 const run = { version: 1, startedAt, programs: [], failures: [] };
+const selectedPrograms=catalogue.programs.filter(program=>matchesDiscovery(program,request));
+const selectedIds=new Set(selectedPrograms.map(program=>program.id));
+try{
+  const previous=JSON.parse(await readFile(path.join(root,'data/deadlines.json'),'utf8'));
+  run.programs=retainedEvidence(previous,catalogue,selectedIds);
+  run.retainedPrograms=run.programs.length;
+}catch{run.retainedPrograms=0;}
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const context = await browser.newContext({ acceptDownloads: true });
 const page = await context.newPage();
 page.setDefaultTimeout(10000);
 const cache = new Map();
-const trustedDomains = ['ubc.ca','nus.edu.sg','anu.edu.au','tum.de','utwente.nl'];
 const baseDomain = url => trustedDomains.find(domain => new URL(url).hostname === domain || new URL(url).hostname.endsWith(`.${domain}`));
 await mkdir(path.join(root,'data/deadline-files'),{recursive:true});
 async function pdfText(url) {
@@ -57,26 +65,29 @@ async function collect(url) {
   const text = await page.locator('body').innerText();
   if (/just a moment|verify you are human|performing security verification|access denied/iu.test(text.slice(0,1800))) throw Error('Access check encountered; no bypass attempted.');
   const content = await page.evaluate(extractHtmlEvidence);
-  const result = {...content,checkedAt:new Date().toISOString(),sourceUrl:page.url(),extraction:'HTML'};
+  const result = withIntakeContext({...content,checkedAt:new Date().toISOString(),sourceUrl:page.url(),extraction:'HTML'});
   cache.set(url,result); return result;
 }
 try {
-  for (const program of catalogue.programs.filter(program=>matchesDiscovery(program,request))) {
+  for (const program of selectedPrograms) {
     console.log(`Collecting admission stages: ${program.institution} / ${program.title}`);
-    const entry = { programId:program.id,programUrl:program.sourceUrl,title:program.title,requestedIntake:request.intake,candidates:[],sources:[],failures:[] };
+    const entry = { programId:program.id,programUrl:program.sourceUrl,title:program.title,requestedIntake:request.intake,candidates:[],intakes:[],sources:[],failures:[] };
     run.programs.push(entry);
     try {
       const first = await collect(program.sourceUrl);
       const links = first.links.filter(link=>{
         const url=canonicalUrl(link.href);
-        return url && baseDomain(url)===baseDomain(program.sourceUrl) && /(application information|application deadline|application dates|admission.*deadline|how to apply|application period)/iu.test(link.text) && !/scholarship|funding|undergraduate/iu.test(link.text);
+        return url && baseDomain(url)===baseDomain(program.sourceUrl) && /(appl|admission|enrol|intake|calendar|important dates)/iu.test(link.text) && !/scholarship|funding|accommodation|financial aid/iu.test(link.text) && !(program.degree!=='Bachelor’s'&&/undergraduate/iu.test(link.text));
       }).sort((a,b)=>Number(/application information/iu.test(b.text))-Number(/application information/iu.test(a.text)));
-      const urls = [...new Set([program.sourceUrl,...links.map(link=>canonicalUrl(link.href))])].slice(0,3);
+      const urls = [...new Set([program.sourceUrl,...links.map(link=>canonicalUrl(link.href))])].slice(0,7);
       for (const url of urls) {
         try {
           const source = await collect(url);
           entry.sources.push({url:source.sourceUrl,checkedAt:source.checkedAt,extraction:source.extraction});
           entry.candidates.push(...extractCandidates(source.blocks,source));
+          entry.intakes.push(...intakeEvidence(source.blocks,source,program.sourceUrl));
+          // One additional link depth, bounded to seven pages for this program.
+          for(const link of source.links){const next=canonicalUrl(link.href);if(next&&baseDomain(next)===baseDomain(program.sourceUrl)&&/application|important dates|admission|apply|calendar/iu.test(link.text)&&!/scholarship|funding|accommodation|financial aid|graduate/iu.test(link.text.replace(/undergraduate/giu,''))&&!urls.includes(next)&&urls.length<7)urls.push(next);}
         } catch(error) { entry.failures.push({url,reason:error.message}); }
       }
       const unique = new Map(entry.candidates.map(candidate=>[JSON.stringify([candidate.stage,candidate.value,candidate.context,candidate.applicantCategory,candidate.sourceUrl]),candidate]));
