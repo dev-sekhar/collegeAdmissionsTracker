@@ -9,7 +9,7 @@ import { extractCandidates } from '../src/deadlines.js';
 import { canonicalUrl, validateRequest, matchesDiscovery } from '../src/discovery.js';
 import { extractHtmlEvidence } from './html-evidence.mjs';
 import {trustedDomains} from '../src/catalogue-sources.js';
-import {intakeEvidence,retainedEvidence} from '../src/coverage.js';
+import {intakeEvidence,retainedEvidence,withIntakeContext} from '../src/coverage.js';
 const execute = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));
 const catalogue = JSON.parse(await readFile(path.join(root, 'data/latest.json'), 'utf8'));
@@ -65,7 +65,7 @@ async function collect(url) {
   const text = await page.locator('body').innerText();
   if (/just a moment|verify you are human|performing security verification|access denied/iu.test(text.slice(0,1800))) throw Error('Access check encountered; no bypass attempted.');
   const content = await page.evaluate(extractHtmlEvidence);
-  const result = {...content,checkedAt:new Date().toISOString(),sourceUrl:page.url(),extraction:'HTML'};
+  const result = withIntakeContext({...content,checkedAt:new Date().toISOString(),sourceUrl:page.url(),extraction:'HTML'});
   cache.set(url,result); return result;
 }
 try {

@@ -5,7 +5,7 @@ import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createJobs} from '../scripts/local-jobs.mjs';
-import {intakeEvidence,intakeGroup,emptyStage,retainedEvidence} from '../src/coverage.js';
+import {intakeEvidence,intakeGroup,emptyStage,retainedEvidence,withIntakeContext} from '../src/coverage.js';
 import {sourceDomain} from '../src/catalogue-sources.js';
 import {programEvidence} from '../src/discovery.js';
 
@@ -45,6 +45,7 @@ test('intake evidence needs an explicit year and program source; application dat
   const intakes=intakeEvidence(blocks,source,url);assert.equal(intakes.length,1);
   assert.deepEqual(intakeEvidence(blocks,{...source,sourceUrl:'https://www.nus.edu.sg/calendar'},url),[]);
   assert.equal(intakeGroup({intakes},'August 2027'),'Published intake evidence');
+  assert.equal(intakeGroup({intakes},''),'Published intake evidence');
   assert.equal(intakeGroup({intakes},'September 2027'),'Alternative published intake');
   assert.equal(intakeGroup({},'August 2027'),'Intake awaiting confirmation');
 });
@@ -52,6 +53,13 @@ test('missing evidence separates not checked, incomplete sources and date not fo
   assert.match(emptyStage(null,'application'),/Not checked/);
   assert.match(emptyStage({candidates:[],failures:[{reason:'403'}]},'application'),/Source unavailable/);
   assert.match(emptyStage({candidates:[],failures:[]},'application'),/Date not found/);
+});
+test('same-page intake enrichment uses a unique published start, never a deadline year or ambiguous starts',()=>{
+  const base={sourceUrl:'https://official/program',blocks:[{type:'text',text:'Start date: September 2027',context:'Computer Science'},{type:'text',text:'Application deadline: 13 January 2027',context:'Computer Science'}]};
+  assert.match(withIntakeContext(base).blocks[1].context,/September 2027 Intake/);
+  assert.equal(withIntakeContext({...base,blocks:base.blocks.slice(1)}).blocks[0].context,'Computer Science');
+  const ambiguous={...base,blocks:[...base.blocks,{text:'Start date: January 2028'}]};
+  assert.equal(withIntakeContext(ambiguous),ambiguous);
 });
 test('subset refresh retains only still-known unselected program evidence without changing timestamps',()=>{
   const previous={programs:[{programId:'retained',programUrl:'https://official/keep',checkedAt:'old'},{programId:'selected',programUrl:'https://official/new'},{programId:'changed',programUrl:'https://official/old'},{programId:'removed',programUrl:'https://official/gone'}]};

@@ -2,6 +2,10 @@
 export function extractHtmlEvidence() {
   const root=document.querySelector('main, #main-content, #main, .unit-content')||document.body;
   const blocks=[];
+  for(const value of root.querySelectorAll('[aria-labelledby]')){
+    const label=(value.getAttribute('aria-labelledby')||'').split(/\s+/u).map(id=>document.getElementById(id)?.textContent||'').join(' ').trim();
+    if(/start|intake|application|deadline|enrol|deposit|interview|test|document/iu.test(label)&&value.innerText?.trim())blocks.push({type:'field',label,value:value.innerText.trim(),text:`${label}: ${value.innerText.trim()}`,context:document.querySelector('h1')?.textContent||document.title});
+  }
   for(const term of root.querySelectorAll('dt')){
     const definition=term.nextElementSibling;
     if(definition?.tagName==='DD')blocks.push({type:'text',text:`${term.innerText} ${definition.innerText}`.replace(/\s+/gu,' ').trim(),context:document.querySelector('h1')?.textContent||document.title});

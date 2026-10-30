@@ -90,12 +90,12 @@ try {
         });
         if (!institution) { report.failures.push({ country, url: adapter.url, reason: 'Institution not found in the directory; catalogue not trusted.' }); continue; }
         try {
-          const queue = [adapter.url]; const visited = new Set(); const programLinks = new Map();
+          const queue = adapter.keyword?request.subjects.slice(0,5).map(subject=>({url:adapter.url,subject})):[{url:adapter.url}]; const visited = new Set(); const programLinks = new Map();
           // Bounded HTML pagination. Never query a site's hidden endpoints.
           while (queue.length && visited.size < 5) {
-            const url = queue.shift();
-            if (visited.has(url)) continue;
-            visited.add(url);
+            const {url,subject}=queue.shift();const key=`${url}|${subject||''}`;
+            if (visited.has(key)) continue;
+            visited.add(key);
             const evidence = await visit(url, adapter.selector);
             if ((sourceDomain(evidence.url)||new URL(evidence.url).hostname) !== (sourceDomain(adapter.url)||new URL(adapter.url).hostname)) throw Error('Unexpected catalogue redirect.');
             if (adapter.search) {
@@ -103,6 +103,13 @@ try {
               await page.locator('#btnSearchCatalogue').click();
               await page.locator('h1').filter({ hasText: 'Search results for' }).waitFor({ state: 'visible' });
               await page.locator('table a[href*="/program/"]').filter({ hasText: /Master|Bachelor|Doctor/ }).first().waitFor({ state: 'attached' });
+            }
+            if(adapter.keyword&&subject){
+              try{
+                await page.locator(adapter.keyword).fill(subject);await page.locator(adapter.keyword).press('Enter');
+                const escaped=subject.replace(/[.*+?^${}()|[\]\\]/gu,'\\$&');
+                await page.locator(`a[href*="${adapter.programPath}"]`).filter({hasText:new RegExp(escaped,'iu')}).first().waitFor({state:'attached',timeout:15000});
+              }catch(error){report.failures.push({country,url,reason:`Keyword search for ${subject}: ${error.message}`});continue;}
             }
             const rows = await page.locator(adapter.selector).evaluateAll(nodes => nodes.map(a => ({ text: a.querySelector('.studyfinder__programme__title__text') ? `${a.querySelector('.studyfinder__programme__title__text').textContent} ${a.querySelector('.degree')?.textContent || ''}` : (a.innerText || a.textContent)?.trim(), href: a.href })));
             for (const row of rows) {
@@ -113,9 +120,9 @@ try {
                 if (!current || row.text.length > current.text.length) programLinks.set(href, { ...row, href, catalogueUrl: page.url(), checkedAt: evidence.checkedAt });
               }
             }
-            const nextLink=page.getByRole('link',{name:'Next page',exact:true});
+            const nextLink=page.getByRole('link',{name:/^(Next page|Next)$/iu});
             const next=await nextLink.count()?await nextLink.first().getAttribute('href'):null;
-            if (next) { const href = new URL(next, evidence.url); if (href.hostname === new URL(adapter.url).hostname && href.pathname === new URL(adapter.url).pathname) queue.push(href.href); }
+            if (next) { const href = new URL(next, evidence.url); if (href.hostname === new URL(adapter.url).hostname && href.pathname === new URL(adapter.url).pathname) queue.push({url:href.href}); }
           }
           coverage.cataloguesChecked++;
           let detailVisits = 0;
