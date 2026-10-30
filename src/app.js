@@ -10,7 +10,7 @@ let storage;
 try { storage = window.localStorage; } catch { /* Session-only fallback. */ }
 const custom = loadCustomOptions(storage);
 function addOption(name, raw) {
-  const result = validateOption(raw, [...defaults[name], ...custom[name]]);
+  const result = validateOption(raw, [...defaults[name], ...custom[name]], name);
   if (!result.value) return result;
   custom[name].push(result.value);
   let saved = false;
