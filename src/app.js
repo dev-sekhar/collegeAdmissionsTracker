@@ -4,6 +4,8 @@ import { defaults, loadCustomOptions, storageKey, validateOption } from './prefe
 import { matchesDiscovery, countryName, degreeFromTitle } from './discovery.js';
 import { admissionStages } from './deadlines.js';
 import { publishedIntake } from './verification.js';
+import {applicantPanel} from './applicant-panel.js';
+import {loadProfile,emptyProfile,applyContext,profileStorageKey} from './applicant.js';
 
 const form = document.querySelector('#preferences');
 const filterContainer = document.querySelector('#filters');
@@ -11,6 +13,10 @@ document.querySelector('#discovery-mount').append(discoveryPanel());
 let storage;
 try { storage = window.localStorage; } catch { /* Session-only fallback. */ }
 const custom = loadCustomOptions(storage);
+const localTimezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';
+const loadedApplicant=loadProfile(storage,localTimezone);
+let applicantProfile=loadedApplicant.profile;
+let rememberApplicant=loadedApplicant.remember;
 function addOption(name, raw) {
   const result = validateOption(raw, [...defaults[name], ...custom[name]], name);
   if (!result.value) return result;
@@ -129,7 +135,7 @@ function renderTimeline() {
     container.append(sourceLink('Official program page ↗', program.sourceUrl));
     const entry=deadlineReport?.programs.find(entry=>entry.programId===program.id && entry.programUrl===program.sourceUrl);
     const checks=verificationReport?.programs.find(result=>result.programId===program.id&&result.programUrl===program.sourceUrl)?.checks;
-    container.append(collectedDeadlinePanel(entry,appliedPreferences.intake,admissionStages,checks));
+    container.append(collectedDeadlinePanel(entry,appliedPreferences.intake,admissionStages,checks,{profile:applicantProfile,program,entry}));
     const evidence = element('details', 'evidence');
     const degreeText = program.degreeEvidence || program.evidence;
     const degreePassage = degreeText.split('\n').find(line => degreeFromTitle(line) === program.degree)?.trim() || degreeText;
@@ -145,6 +151,25 @@ function renderTimeline() {
   evidence.append(element('summary', '', 'Evidence and verification'), element('p', 'muted', 'These are fictional examples, with no source evidence or verification date. Later steps will show official source links, supporting passages and the last successful check. No cutoff times or timezone conversions are inferred.'));
   container.append(evidence);
 }
+function renderApplicantPanel(forceOpen=false){
+  const mount=document.querySelector('#applicant-context-mount');
+  const open=forceOpen||Boolean(mount.querySelector('details')?.open);
+  const selected=matches.find(item=>item.id===selectedId);
+  const program=selected?.sourceUrl?selected:null;
+  const entry=deadlineReport?.programs.find(entry=>entry.programId===program?.id&&entry.programUrl===program?.sourceUrl);
+  mount.replaceChildren(applicantPanel({profile:applicantProfile,remember:rememberApplicant,program,entry,open,onApply(input,remember){
+    const next=applyContext(applicantProfile,input,program,entry);
+    applicantProfile=next;rememberApplicant=remember;
+    let saved=false;
+    try{if(remember){storage.setItem(profileStorageKey,JSON.stringify({version:1,profile:next}));saved=true;}else storage.removeItem(profileStorageKey);}catch{/* Context remains usable in this tab. */}
+    renderTimeline();
+    return remember?(saved?'Applied and saved in this browser. Category is your declaration, not an eligibility decision.':'Applied for this session; browser storage is unavailable.'):'Applied for this session only. Context is not sent with discovery requests.';
+  },onClear(){
+    applicantProfile=emptyProfile(localTimezone);rememberApplicant=false;
+    try{storage.removeItem(profileStorageKey);}catch{/* No accessible saved context. */}
+    renderTimeline();renderApplicantPanel(true);
+  }}));
+}
 function renderCards() {
   const list = document.querySelector('#programs');
   list.replaceChildren();
@@ -153,9 +178,11 @@ function renderCards() {
     // Preserve keyboard focus by updating button state in place.
     [...list.children].forEach((card, i) => card.setAttribute('aria-pressed', String(matches[i].id === selectedId)));
     renderTimeline();
+    renderApplicantPanel();
   })));
   if (!matches.length) list.append(element('p', 'empty-state', discoveryToggle.checked ? 'No collected program matches these preferences. Coverage is partial; this does not mean no programs exist. Download a new request to search your updated preferences.' : 'No sample programs match these preferences. Try another subject, degree or intake.'));
   renderTimeline();
+  renderApplicantPanel();
 }
 function search(event) {
   event?.preventDefault();
@@ -175,7 +202,7 @@ function search(event) {
   const discovered = discoveryToggle.checked && catalogue;
   matches = discovered ? catalogue.programs.filter(program => matchesDiscovery(program, preferences)) : filterPrograms(programs, preferences);
   document.querySelector('.demo-banner').textContent = discovered ? 'Real source records · Partial coverage. Only records marked Source verified passed publication checks for the selected intake. Personal applicability remains unconfirmed.' : 'Concept preview · Fictional institutions and illustrative dates. No live admissions data.';
-  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 4 · Official source verification · Applicant applicability unconfirmed' : 'Admissions Explorer · Fictional sample programs and dates';
+  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 5 · Optional applicant context · Classification is self-declared' : 'Admissions Explorer · Fictional sample programs and dates';
   if (discovered) {
     const missing = countries.filter(country => !catalogue.coverage.some(item => item.country === countryName(country)));
     const notes = document.querySelector('#coverage');

@@ -31,7 +31,7 @@ export function discoveryPanel() {
   return panel;
 }
 
-export function collectedDeadlinePanel(entry, intake, stages, checks) {
+export function collectedDeadlinePanel(entry, intake, stages, checks, applicantContext) {
   const panel = element('section', 'collected-deadlines');
   panel.setAttribute('aria-label', 'Collected admission-stage evidence');
   panel.append(element('h3', '', 'Admission-stage evidence'));
@@ -52,12 +52,12 @@ export function collectedDeadlinePanel(entry, intake, stages, checks) {
     row.append(element('h4', '', name));
     if (!records.length) row.append(element('p', 'muted', entry.candidates.some(record=>record.stage===id) ? 'No collected record for this selected intake.' : 'No date collected from the checked sources.'));
     for (const record of records) {
-      row.append(verifiedDateRecord(record));
+      row.append(verifiedDateRecord(record,applicantContext));
     }
     list.append(row);
   }
   panel.append(list);
-  if(excluded.length){const other=element('details','evidence');other.append(element('summary','',`${excluded.length} records excluded: different intake`));excluded.forEach(record=>other.append(verifiedDateRecord(record)));panel.append(other);}
+  if(excluded.length){const other=element('details','evidence');other.append(element('summary','',`${excluded.length} records excluded: different intake`));excluded.forEach(record=>other.append(verifiedDateRecord(record,applicantContext)));panel.append(other);}
   if (entry.sources.length) {
     const sources = element('details', 'evidence'); sources.append(element('summary','','Sources checked'));
     entry.sources.forEach(source=>{const p=element('p');p.append(sourceLink(source.url,source.url));sources.append(p);});panel.append(sources);
@@ -66,9 +66,10 @@ export function collectedDeadlinePanel(entry, intake, stages, checks) {
   return panel;
 }
 
-export function verifiedDateRecord(record) {
+export function verifiedDateRecord(record,applicantContext) {
   const detail=element('details','date-record');
   detail.append(element('summary','',`${record.assessment.status} · ${record.value.length>160?`${record.value.slice(0,160)}…`:record.value} · ${record.context||'Intake not specified'} · ${record.applicantCategory}${record.assessment.round?` · ${record.assessment.round}`:''}`),element('p','muted',record.assessment.reason),element('p','date-evidence',record.evidence),element('p','muted',`Collected ${new Date(record.checkedAt).toLocaleString()} · Source recheck: ${record.assessment.checkedAt?new Date(record.assessment.checkedAt).toLocaleString():'Not checked'} · ${record.extraction} · Cutoff timezone not established`),sourceLink('Official source ↗',record.sourceUrl));
+  if(applicantContext){detail.append(element('p','applicant-record-note',categoryNote(record,applicantContext.profile,applicantContext.program,applicantContext.entry)),element('p','muted',localDeadline(record,applicantContext.profile.timezone)));}
   return detail;
 }
 
@@ -152,3 +153,4 @@ export function deadlineStage(stage) {
   return item;
 }
 import { assessRecords, publishedIntake } from './verification.js';
+import {categoryNote,localDeadline} from './applicant.js';
