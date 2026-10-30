@@ -72,10 +72,10 @@ export function verifiedDateRecord(record) {
   return detail;
 }
 
-export function choiceOption({name,value,checked=false,multiple=false}) {
+export function choiceOption({name,value,label=value,checked=false,multiple=false}) {
   const row=element('label','choice');const input=document.createElement('input');
   input.type=multiple?'checkbox':'radio';input.name=name;input.value=value;input.checked=checked;
-  row.append(input,element('span','',value));return row;
+  row.append(input,element('span','',label));return row;
 }
 
 // Shared input component for all dashboard preferences.

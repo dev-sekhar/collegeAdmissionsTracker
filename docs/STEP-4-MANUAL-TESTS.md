@@ -19,7 +19,7 @@ The source evidence fingerprint includes stage, value, intake context, applicant
 3. Select Singapore, Computer Science, Master's and August 2027. Select NUS Computer Science Specialisation. Confirm the opening and closing records show Source verified with the original source passage and recheck time.
 4. Select Canada and September 2027. Confirm UBC's application, transcript and referee records retain Canadian/International categories and do not conflict solely because their document types or categories differ.
 5. Inspect the excluded-record disclosure. UBC's January 2028 records must not appear as September 2027 deadlines. Select January 2028 and confirm the groups reverse.
-6. Select Autumn 2027. Confirm no date becomes source verified by assuming it means August or September. The records should request an exact intake selection.
+6. Confirm Autumn 2027 is absent from discovered mode when published month choices exist. Choose an exact month explicitly. Toggle to fictional samples and back; confirm the discovered month selection is restored. Seasonal labels remain available only in the separate sample view or when no published months have been collected.
 7. Confirm a program with no collected dates stays explicit about missing collection and never receives a verified date.
 8. Verify the applicant-category warning remains visible. Selecting a destination country must never select a citizenship/residency category automatically.
 9. Use the automated regression tests for blocked/changed/stale sources, invalid calendar dates, old cycles, conflicting same-scope dates, document-type separation, distinct applicant categories and labelled rounds. A missing proof or changed passage must remain unverified.
