@@ -72,7 +72,7 @@ Initial live HTML collection checked 13 programs and retained 26 unverified reco
 
 ## Step 4 — Verify published source records
 
-Status: implemented on a feature branch; awaiting user review before merging.
+Status: reviewed and merged into dev.
 
 - Revisit the current official program page and its linked date source, then reproduce the exact stage/date/intake/category evidence.
 - Offer exact start-month selections from published evidence. Do not guess what a seasonal intake means.
@@ -93,3 +93,18 @@ Skill assessment: retain project documentation for now; no new skill created.
 When published start months are available, discovered programs no longer list Autumn 2027 beside those months. The form asks for an explicit published intake instead of guessing a month. Exact-month selections are preserved when switching views. Autumn remains only in the separate fictional sample view. Spring 2028 is unchanged. A request cannot be downloaded without an intake selection.
 
 Manual checks: reload discovered mode and confirm Autumn is absent; choose a published month and confirm verification still works; toggle to samples and back and confirm the exact-month choice is restored. No separate skill is recommended for this small UI correction.
+
+## Step 5 — Optional applicant context and display timezone
+
+Status: implemented in PR #15; awaiting preview approval before merging.
+
+- Enter multiple citizenships, country of residence and residency status separately. These details never automatically decide an applicant category.
+- Declare one of a selected program's published categories after checking its official rules. Other categories stay visible. Matching annotations are self-declared, not independent eligibility verification.
+- Changes to identity or residency invalidate earlier category declarations. Declarations apply only to their own program and published category list.
+- Use an IANA display timezone. A date changes timezone only when its source text contains a full timestamp and explicit UTC offset. Date-only evidence stays unchanged.
+- Context stays in the current page unless Remember applicant context in this browser is selected. Clear removes that saved context. Discovery request files do not contain it.
+- Shared field and applicant-panel components standardize the new controls.
+
+Validation: 26 automated tests pass. Desktop checks cover confirmation, cross-country context, opt-in saving/restoration, clearing, invalid timezone rejection and preservation of date-only evidence. All current collected records lack a convertible explicit cutoff; conversion across dates and daylight-saving zones is covered with synthetic automated examples. Mobile acceptance remains manual.
+
+See STEP-5-MANUAL-TESTS.md. Skill assessment: this is still project-specific; recommend keeping the rules here rather than creating a new skill, subject to user confirmation. Citizenship casing defect is tracked in issue #16 and fixed in this PR.
