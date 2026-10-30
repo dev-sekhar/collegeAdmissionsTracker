@@ -51,3 +51,21 @@ Live Computer Science master's check: 246 directory-listed institutions and 13 p
 Holland and The Netherlands now use the existing Netherlands option. Old saved aliases no longer create extra checkboxes, and adding an alias explains that the destination already exists. Subjects are unaffected. No separate skill is recommended for this small preference correction.
 
 Manual checks: reload a browser with Holland saved; confirm only Netherlands appears. Try adding Holland, The Netherlands and Netherlands; confirm no extra option is created. Add a different country and confirm it still persists.
+
+## Step 3 — Admission-stage evidence collection
+
+Status: implemented and checked against live HTML sources; awaiting user review before merging. PDF/OCR extraction still needs a live document check.
+
+- Collect opening, application, document, test, interview, offer, deposit and enrolment date evidence from official program pages and linked admission notices.
+- Keep raw date text, intake context, applicant category, source passage and collection time. Transcript and referee records remain distinguishable within Supporting documents.
+- Show missing, relative and unpublished source records without inventing dates or years.
+- Label all collected records Needs verification. Stage 4 will determine whether a record applies to the requested intake and applicant category.
+- Keep previously collected evidence out of a different requested-intake view.
+- Support bounded text extraction and OCR for linked admission PDFs when local tools are installed. PDF/OCR evidence requires visual review.
+- Keep source failures and historical reports available locally. No external service APIs are used.
+
+See STEP-3-MANUAL-TESTS.md for commands, limits and acceptance checks. New panel and evidence rendering use shared components.
+
+Skill assessment: keep project documentation until verification rules stabilize; no new skill created without confirmation.
+
+Initial live HTML collection checked 13 programs and retained 26 unverified records across eight programs. No records were found in the bounded checked sources for the other five programs; this does not establish that their deadlines are unpublished. Fourteen automated tests passed, including alias deduplication, applicant/intake separation, opening/closing tables, relative rules, webinar exclusion and rejection of month/year intake labels as day dates. Desktop browser checks passed; mobile remains a manual check because the preview viewport override did not apply during this run.
