@@ -3,3 +3,6 @@ discovery-request*.json
 data/runs/
 data/latest.json
 data/*.tmp
+data/deadlines.json
+data/deadline-runs/
+data/deadline-files/

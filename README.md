@@ -17,3 +17,5 @@ Use **New country** or **New subject** and **Add** to create extra options. They
 See [the feature record](docs/FEATURES.md) and [manual tests](docs/STEP-1-MANUAL-TESTS.md).
 
 Step 2 adds local browser discovery and a separate real-program catalogue, with partial source coverage for Canada, the UK, Singapore, Australia, the Netherlands and Germany. See [discovery setup and limitations](docs/DISCOVERY.md) and [step 2 tests](docs/STEP-2-MANUAL-TESTS.md). No external APIs or deadline extraction are included.
+
+Step 3 adds `npm run collect-deadlines` to collect admission-stage evidence from the local catalogue's official sources. Reload to view records marked **Needs verification**. These are collected source statements, not yet verified applicable deadlines. See [step 3 setup, limitations and manual tests](docs/STEP-3-MANUAL-TESTS.md).

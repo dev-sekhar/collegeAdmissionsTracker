@@ -1,7 +1,8 @@
-import { choiceField, programCard, deadlineStage, element, discoveryPanel, sourceLink } from './components.js';
+import { choiceField, programCard, deadlineStage, element, discoveryPanel, sourceLink, collectedDeadlinePanel } from './components.js';
 import { programs, filterPrograms } from './data.js';
 import { defaults, loadCustomOptions, storageKey, validateOption } from './preferences.js';
 import { matchesDiscovery, countryName, degreeFromTitle } from './discovery.js';
+import { admissionStages } from './deadlines.js';
 
 const form = document.querySelector('#preferences');
 const filterContainer = document.querySelector('#filters');
@@ -27,6 +28,7 @@ function addOption(name, raw) {
 let selectedId;
 let matches = [];
 let catalogue = null;
+let deadlineReport = null;
 let appliedPreferences;
 const discoveryToggle = document.querySelector('#use-discovery');
 discoveryToggle.disabled = true;
@@ -67,6 +69,19 @@ async function loadCatalogue() {
     search();
   } catch { status.textContent = 'The local catalogue could not be read. Run discovery again; sample programs remain available.'; }
 }
+async function loadDeadlines() {
+  const status = document.querySelector('#deadline-status');
+  try {
+    const response = await fetch('./data/deadlines.json', { cache:'no-store' });
+    if (!response.ok) { status.textContent='No stage evidence collected yet. Run collect-deadlines after discovery.'; return; }
+    const report=await response.json();
+    if (report.version!==1 || !Array.isArray(report.programs)) throw Error('Invalid stage evidence');
+    deadlineReport=report;
+    const count=report.programs.reduce((sum,entry)=>sum+entry.candidates.length,0);
+    status.textContent=`${count} unverified stage-date records for ${report.programs.length} programs · Collected ${new Date(report.finishedAt).toLocaleString()}. Applicability review is the next step.`;
+    renderTimeline();
+  } catch { status.textContent='Stage evidence could not be loaded. Run the collector again; discovery remains available.'; }
+}
 function renderTimeline() {
   const container = document.querySelector('#timeline');
   const program = matches.find(item => item.id === selectedId);
@@ -80,8 +95,10 @@ function renderTimeline() {
   const heading = element('h2', '', program.institution);
   heading.id = 'timeline-title';
   if (program.sourceUrl) {
-    container.append(element('p', 'eyebrow accent', 'DISCOVERED PROGRAM'), heading, element('p', 'program-subtitle', `${program.title} · ${program.campus ? `${program.campus} campus` : 'Campus unconfirmed'}`), element('p', 'category-note', `Requested intake: ${appliedPreferences.intake} · Availability unconfirmed`), element('p', '', 'Admission stages and deadlines have not been collected. This program page does not yet establish availability for the requested intake.'));
+    container.append(element('p', 'eyebrow accent', 'DISCOVERED PROGRAM'), heading, element('p', 'program-subtitle', `${program.title} · ${program.campus ? `${program.campus} campus` : 'Campus unconfirmed'}`), element('p', 'category-note', `Requested intake: ${appliedPreferences.intake} · Availability unconfirmed`));
     container.append(sourceLink('Official program page ↗', program.sourceUrl));
+    const entry=deadlineReport?.programs.find(entry=>entry.programId===program.id && entry.programUrl===program.sourceUrl);
+    container.append(collectedDeadlinePanel(entry,appliedPreferences.intake,admissionStages));
     const evidence = element('details', 'evidence');
     const degreeText = program.degreeEvidence || program.evidence;
     const degreePassage = degreeText.split('\n').find(line => degreeFromTitle(line) === program.degree)?.trim() || degreeText;
@@ -126,7 +143,7 @@ function search(event) {
   const discovered = discoveryToggle.checked && catalogue;
   matches = discovered ? catalogue.programs.filter(program => matchesDiscovery(program, preferences)) : filterPrograms(programs, preferences);
   document.querySelector('.demo-banner').textContent = discovered ? 'Discovery catalogue · Real source records with partial coverage. Intake availability and admission deadlines remain unconfirmed.' : 'Concept preview · Fictional institutions and illustrative dates. No live admissions data.';
-  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 2 · Local discovery catalogue · Intake and deadlines unconfirmed' : 'Admissions Explorer · Fictional sample programs and dates';
+  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 3 · Collected stage evidence · Applicability not verified' : 'Admissions Explorer · Fictional sample programs and dates';
   if (discovered) {
     const missing = countries.filter(country => !catalogue.coverage.some(item => item.country === countryName(country)));
     const notes = document.querySelector('#coverage');
@@ -142,3 +159,4 @@ function search(event) {
 form.addEventListener('submit', search);
 search();
 loadCatalogue();
+loadDeadlines();
