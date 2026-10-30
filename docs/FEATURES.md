@@ -87,3 +87,9 @@ See STEP-4-MANUAL-TESTS.md for setup, acceptance checks and scope limits. No ext
 Live source rechecks reproduce 24 published records with exact intake contexts: ten across NUS August 2027 programs, seven for UBC September 2027 and seven for UBC January 2028. Two German records remain in intake review. Desktop browser checks confirm exact-month selection, source evidence, other-intake exclusion and zero source-verified records for ambiguous seasonal selections. Coverage is limited to the collected sources; these are not personal eligibility decisions. PDF visual review and mobile acceptance remain manual.
 
 Skill assessment: retain project documentation for now; no new skill created.
+
+## Remove duplicate Autumn intake
+
+When published start months are available, discovered programs no longer list Autumn 2027 beside those months. The form asks for an explicit published intake instead of guessing a month. Exact-month selections are preserved when switching views. Autumn remains only in the separate fictional sample view. Spring 2028 is unchanged. A request cannot be downloaded without an intake selection.
+
+Manual checks: reload discovered mode and confirm Autumn is absent; choose a published month and confirm verification still works; toggle to samples and back and confirm the exact-month choice is restored. No separate skill is recommended for this small UI correction.

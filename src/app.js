@@ -34,6 +34,21 @@ let verificationReport = null;
 let appliedPreferences;
 const discoveryToggle = document.querySelector('#use-discovery');
 discoveryToggle.disabled = true;
+let intakeMode='sample';
+const modeIntakes={sample:'Autumn 2027',discovered:''};
+function syncIntakeChoices(){
+  const mode=discoveryToggle.checked?'discovered':'sample';
+  const group=document.querySelector('input[name="intake"]').closest('fieldset');
+  modeIntakes[intakeMode]=group.querySelector('input:checked')?.value||'';
+  const published=[...new Set((deadlineReport?.programs||[]).flatMap(entry=>entry.candidates.map(record=>publishedIntake(record.context))).filter(Boolean))].sort((a,b)=>Date.parse(`1 ${a}`)-Date.parse(`1 ${b}`));
+  const options=mode==='discovered'&&published.length?['','Spring 2028',...published]:['Autumn 2027','Spring 2028'];
+  let selected=modeIntakes[mode];
+  if(!options.includes(selected))selected=mode==='sample'?'Autumn 2027':'';
+  const existing=[...group.querySelectorAll('input')].map(input=>input.value);
+  if(JSON.stringify(existing)!==JSON.stringify(options))group.querySelector('.choices').replaceChildren(...options.map(value=>choiceOption({name:'intake',value,label:value||'Choose a published intake',checked:value===selected})));
+  else if(intakeMode!==mode)group.querySelectorAll('input').forEach(input=>{input.checked=input.value===selected;});
+  modeIntakes[mode]=selected;intakeMode=mode;
+}
 function currentPreferences() {
   const values = new FormData(form);
   return { countries: values.getAll('countries'), subjects: values.getAll('subjects'), degree: values.get('degree'), intake: values.get('intake') };
@@ -41,6 +56,7 @@ function currentPreferences() {
 document.querySelector('#download-request').addEventListener('click', () => {
   const request = currentPreferences();
   if (!request.countries.length || !request.subjects.length) { search(); return; }
+  if(!request.intake){const error=document.querySelector('#form-error');error.textContent='Choose an intake before downloading a discovery request.';error.hidden=false;return;}
   const url = URL.createObjectURL(new Blob([JSON.stringify(request, null, 2)], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = 'discovery-request.json'; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
@@ -79,14 +95,9 @@ async function loadDeadlines() {
     const report=await response.json();
     if (report.version!==1 || !Array.isArray(report.programs)) throw Error('Invalid stage evidence');
     deadlineReport=report;
-    const intakeGroup=document.querySelector('input[name="intake"]').closest('fieldset');
-    const known=new Set([...intakeGroup.querySelectorAll('input')].map(input=>input.value));
-    const published=[...new Set(report.programs.flatMap(entry=>entry.candidates.map(record=>publishedIntake(record.context))).filter(Boolean))].sort((a,b)=>Date.parse(`1 ${a}`)-Date.parse(`1 ${b}`));
-    published.filter(value=>!known.has(value)).forEach(value=>intakeGroup.querySelector('.choices').append(choiceOption({name:'intake',value})));
-    if(published.length)intakeGroup.append(element('p','muted','Choose a published start month to verify the exact intake. Seasons are not mapped automatically.'));
     const count=report.programs.reduce((sum,entry)=>sum+entry.candidates.length,0);
     status.textContent=`${count} collected stage-date records for ${report.programs.length} programs · Collected ${new Date(report.finishedAt).toLocaleString()}. Source verification is assessed per selected intake.`;
-    renderTimeline();
+    search();
   } catch { status.textContent='Stage evidence could not be loaded. Run the collector again; discovery remains available.'; }
 }
 async function loadVerification(){
@@ -114,7 +125,7 @@ function renderTimeline() {
   const heading = element('h2', '', program.institution);
   heading.id = 'timeline-title';
   if (program.sourceUrl) {
-    container.append(element('p', 'eyebrow accent', 'DISCOVERED PROGRAM'), heading, element('p', 'program-subtitle', `${program.title} · ${program.campus ? `${program.campus} campus` : 'Campus unconfirmed'}`), element('p', 'category-note', `Requested intake: ${appliedPreferences.intake} · Availability unconfirmed`));
+    container.append(element('p', 'eyebrow accent', 'DISCOVERED PROGRAM'), heading, element('p', 'program-subtitle', `${program.title} · ${program.campus ? `${program.campus} campus` : 'Campus unconfirmed'}`), element('p', 'category-note', `Requested intake: ${appliedPreferences.intake||'Not selected'} · Availability unconfirmed`));
     container.append(sourceLink('Official program page ↗', program.sourceUrl));
     const entry=deadlineReport?.programs.find(entry=>entry.programId===program.id && entry.programUrl===program.sourceUrl);
     const checks=verificationReport?.programs.find(result=>result.programId===program.id&&result.programUrl===program.sourceUrl)?.checks;
@@ -148,6 +159,7 @@ function renderCards() {
 }
 function search(event) {
   event?.preventDefault();
+  syncIntakeChoices();
   const values = new FormData(form);
   const countries = values.getAll('countries');
   const subjects = values.getAll('subjects');
@@ -172,7 +184,7 @@ function search(event) {
   }
   if (!matches.some(program => program.id === selectedId)) selectedId = matches[0]?.id;
   document.querySelector('#result-count').textContent = `${matches.length} ${discovered ? 'discovered' : 'sample'} ${matches.length === 1 ? 'program' : 'programs'}`;
-  document.querySelector('#result-summary').textContent = `${countries.join(' + ')} · ${subjects.join(', ')} · ${values.get('degree')} · ${values.get('intake')}`;
+  document.querySelector('#result-summary').textContent = `${countries.join(' + ')} · ${subjects.join(', ')} · ${values.get('degree')} · ${values.get('intake')||'Choose an intake'}`;
   document.querySelector('#results-announcement').textContent = `${matches.length} ${discovered ? 'discovered' : 'sample'} programs found.`;
   renderCards();
 }
