@@ -1,0 +1,5 @@
+node_modules/
+discovery-request*.json
+data/runs/
+data/latest.json
+data/*.tmp

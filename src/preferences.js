@@ -1,5 +1,5 @@
 export const storageKey = 'admissions-custom-options-v1';
-export const defaults = { countries: ['Canada', 'United Kingdom'], subjects: ['Computer Science', 'Business'] };
+export const defaults = { countries: ['Canada', 'United Kingdom', 'Singapore', 'Australia', 'Netherlands', 'Germany'], subjects: ['Computer Science', 'Business'] };
 export function normalizeOption(value) {
   return typeof value === 'string' ? value.trim().replace(/\s+/gu, ' ') : '';
 }

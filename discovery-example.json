@@ -1,0 +1,6 @@
+{
+  "countries": ["Canada", "United Kingdom", "Singapore", "Australia", "Netherlands", "Germany"],
+  "subjects": ["Computer Science"],
+  "degree": "Master’s",
+  "intake": "Autumn 2027"
+}

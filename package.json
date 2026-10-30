@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/serve.mjs",
-    "test": "node --test"
+    "test": "node --test",
+    "discover": "node scripts/discover.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.64.1"
   }
 }

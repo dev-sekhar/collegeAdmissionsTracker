@@ -1,8 +1,8 @@
 # Admissions Explorer
 
-Step 1 of the college admissions tracker: a dashboard shell with **fictional sample institutions and dates**. It does not discover institutions, fetch deadlines, call APIs, or determine applicant eligibility.
+The college admissions tracker includes a dashboard shell with **fictional sample institutions and dates**, plus a separate local browser discovery workflow for real institution and program records. It does not fetch deadlines or determine applicant eligibility, and uses no external service APIs.
 
-Requires Node.js 18 or later. No packages need installing.
+Requires Node.js 18 or later. For browser discovery, run `npm install` and have Microsoft Edge installed. The dashboard alone has no runtime package dependencies.
 
 ```sh
 npm run dev
@@ -15,3 +15,5 @@ Select countries, subjects, degree and intake, then choose **Find programs**. Se
 Use **New country** or **New subject** and **Add** to create extra options. They are saved in this browser, selected when added, and applied with Find programs. Reloading restores the available options with default selections. New options do not fetch or generate programs.
 
 See [the feature record](docs/FEATURES.md) and [manual tests](docs/STEP-1-MANUAL-TESTS.md).
+
+Step 2 adds local browser discovery and a separate real-program catalogue, with partial source coverage for Canada, the UK, Singapore, Australia, the Netherlands and Germany. See [discovery setup and limitations](docs/DISCOVERY.md) and [step 2 tests](docs/STEP-2-MANUAL-TESTS.md). No external APIs or deadline extraction are included.
