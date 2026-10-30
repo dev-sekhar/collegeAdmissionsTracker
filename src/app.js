@@ -1,8 +1,9 @@
-import { choiceField, programCard, deadlineStage, element, discoveryPanel, sourceLink, collectedDeadlinePanel } from './components.js';
+import { choiceField, programCard, deadlineStage, element, discoveryPanel, sourceLink, collectedDeadlinePanel, choiceOption } from './components.js';
 import { programs, filterPrograms } from './data.js';
 import { defaults, loadCustomOptions, storageKey, validateOption } from './preferences.js';
 import { matchesDiscovery, countryName, degreeFromTitle } from './discovery.js';
 import { admissionStages } from './deadlines.js';
+import { publishedIntake } from './verification.js';
 
 const form = document.querySelector('#preferences');
 const filterContainer = document.querySelector('#filters');
@@ -29,6 +30,7 @@ let selectedId;
 let matches = [];
 let catalogue = null;
 let deadlineReport = null;
+let verificationReport = null;
 let appliedPreferences;
 const discoveryToggle = document.querySelector('#use-discovery');
 discoveryToggle.disabled = true;
@@ -56,7 +58,7 @@ async function loadCatalogue() {
     catalogue = data;
     discoveryToggle.disabled = false;
     discoveryToggle.checked = true;
-    status.textContent = `${data.institutions.length} directory-listed institutions · ${data.programs.length} program matches collected · Last run ${new Date(data.finishedAt).toLocaleString()}. Collected subjects: ${data.request.subjects.join(', ')} · ${data.request.degree}. Partial coverage; recognition, intake availability and deadlines are not verified.`;
+    status.textContent = `${data.institutions.length} directory-listed institutions · ${data.programs.length} program matches collected · Last run ${new Date(data.finishedAt).toLocaleString()}. Collected subjects: ${data.request.subjects.join(', ')} · ${data.request.degree}. Partial discovery coverage; see each record for its source-verification status. Recognition and personal applicability are not assessed.`;
     const coverage = document.querySelector('#coverage');
     data.coverage.forEach(item => coverage.append(element('p', 'coverage-item', `${item.country}: ${item.status} · ${item.institutions} institutions · ${item.cataloguesChecked} catalogues checked. ${item.scope || ''} ${item.note || ''}`)));
     const institutions = document.querySelector('#institutions');
@@ -77,10 +79,27 @@ async function loadDeadlines() {
     const report=await response.json();
     if (report.version!==1 || !Array.isArray(report.programs)) throw Error('Invalid stage evidence');
     deadlineReport=report;
+    const intakeGroup=document.querySelector('input[name="intake"]').closest('fieldset');
+    const known=new Set([...intakeGroup.querySelectorAll('input')].map(input=>input.value));
+    const published=[...new Set(report.programs.flatMap(entry=>entry.candidates.map(record=>publishedIntake(record.context))).filter(Boolean))].sort((a,b)=>Date.parse(`1 ${a}`)-Date.parse(`1 ${b}`));
+    published.filter(value=>!known.has(value)).forEach(value=>intakeGroup.querySelector('.choices').append(choiceOption({name:'intake',value})));
+    if(published.length)intakeGroup.append(element('p','muted','Choose a published start month to verify the exact intake. Seasons are not mapped automatically.'));
     const count=report.programs.reduce((sum,entry)=>sum+entry.candidates.length,0);
-    status.textContent=`${count} unverified stage-date records for ${report.programs.length} programs · Collected ${new Date(report.finishedAt).toLocaleString()}. Applicability review is the next step.`;
+    status.textContent=`${count} collected stage-date records for ${report.programs.length} programs · Collected ${new Date(report.finishedAt).toLocaleString()}. Source verification is assessed per selected intake.`;
     renderTimeline();
   } catch { status.textContent='Stage evidence could not be loaded. Run the collector again; discovery remains available.'; }
+}
+async function loadVerification(){
+  const status=document.querySelector('#verification-status');
+  try{
+    const response=await fetch('./data/verification.json',{cache:'no-store'});
+    if(!response.ok){status.textContent='No source recheck report yet. Run verify-deadlines; collected dates remain unverified.';return;}
+    const report=await response.json();
+    if(report.version!==1||!Array.isArray(report.programs))throw Error('Invalid source checks');
+    verificationReport=report;
+    status.textContent=`Official-source rechecks completed ${new Date(report.finishedAt).toLocaleString()}. Checks expire after 7 days; select an exact published intake to assess records.`;
+    renderTimeline();
+  }catch{status.textContent='Source checks could not be read. Records remain unverified.';}
 }
 function renderTimeline() {
   const container = document.querySelector('#timeline');
@@ -98,7 +117,8 @@ function renderTimeline() {
     container.append(element('p', 'eyebrow accent', 'DISCOVERED PROGRAM'), heading, element('p', 'program-subtitle', `${program.title} · ${program.campus ? `${program.campus} campus` : 'Campus unconfirmed'}`), element('p', 'category-note', `Requested intake: ${appliedPreferences.intake} · Availability unconfirmed`));
     container.append(sourceLink('Official program page ↗', program.sourceUrl));
     const entry=deadlineReport?.programs.find(entry=>entry.programId===program.id && entry.programUrl===program.sourceUrl);
-    container.append(collectedDeadlinePanel(entry,appliedPreferences.intake,admissionStages));
+    const checks=verificationReport?.programs.find(result=>result.programId===program.id&&result.programUrl===program.sourceUrl)?.checks;
+    container.append(collectedDeadlinePanel(entry,appliedPreferences.intake,admissionStages,checks));
     const evidence = element('details', 'evidence');
     const degreeText = program.degreeEvidence || program.evidence;
     const degreePassage = degreeText.split('\n').find(line => degreeFromTitle(line) === program.degree)?.trim() || degreeText;
@@ -142,8 +162,8 @@ function search(event) {
   appliedPreferences = preferences;
   const discovered = discoveryToggle.checked && catalogue;
   matches = discovered ? catalogue.programs.filter(program => matchesDiscovery(program, preferences)) : filterPrograms(programs, preferences);
-  document.querySelector('.demo-banner').textContent = discovered ? 'Discovery catalogue · Real source records with partial coverage. Intake availability and admission deadlines remain unconfirmed.' : 'Concept preview · Fictional institutions and illustrative dates. No live admissions data.';
-  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 3 · Collected stage evidence · Applicability not verified' : 'Admissions Explorer · Fictional sample programs and dates';
+  document.querySelector('.demo-banner').textContent = discovered ? 'Real source records · Partial coverage. Only records marked Source verified passed publication checks for the selected intake. Personal applicability remains unconfirmed.' : 'Concept preview · Fictional institutions and illustrative dates. No live admissions data.';
+  document.querySelector('#data-mode-footer').textContent = discovered ? 'Step 4 · Official source verification · Applicant applicability unconfirmed' : 'Admissions Explorer · Fictional sample programs and dates';
   if (discovered) {
     const missing = countries.filter(country => !catalogue.coverage.some(item => item.country === countryName(country)));
     const notes = document.querySelector('#coverage');
@@ -160,3 +180,4 @@ form.addEventListener('submit', search);
 search();
 loadCatalogue();
 loadDeadlines();
+loadVerification();

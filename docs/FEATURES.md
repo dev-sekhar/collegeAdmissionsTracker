@@ -30,7 +30,7 @@ Skill assessment: the shared add-option component belongs in this project; no se
 
 ## Step 2 — Institution and program discovery
 
-Status: implemented and checked against live sources; awaiting user review before merging into dev.
+Status: reviewed and merged into dev.
 
 - Export selected countries, subjects, degree and intake as a local discovery request.
 - Run a local browser collector against configured institution directories and program catalogues, with no external APIs.
@@ -54,7 +54,7 @@ Manual checks: reload a browser with Holland saved; confirm only Netherlands app
 
 ## Step 3 — Admission-stage evidence collection
 
-Status: implemented and checked against live HTML sources; awaiting user review before merging. PDF/OCR extraction still needs a live document check.
+Status: reviewed and merged into dev. PDF/OCR extraction still needs a live document check.
 
 - Collect opening, application, document, test, interview, offer, deposit and enrolment date evidence from official program pages and linked admission notices.
 - Keep raw date text, intake context, applicant category, source passage and collection time. Transcript and referee records remain distinguishable within Supporting documents.
@@ -69,3 +69,21 @@ See STEP-3-MANUAL-TESTS.md for commands, limits and acceptance checks. New panel
 Skill assessment: keep project documentation until verification rules stabilize; no new skill created without confirmation.
 
 Initial live HTML collection checked 13 programs and retained 26 unverified records across eight programs. No records were found in the bounded checked sources for the other five programs; this does not establish that their deadlines are unpublished. Fourteen automated tests passed, including alias deduplication, applicant/intake separation, opening/closing tables, relative rules, webinar exclusion and rejection of month/year intake labels as day dates. Desktop browser checks passed; mobile remains a manual check because the preview viewport override did not apply during this run.
+
+## Step 4 — Verify published source records
+
+Status: implemented on a feature branch; awaiting user review before merging.
+
+- Revisit the current official program page and its linked date source, then reproduce the exact stage/date/intake/category evidence.
+- Offer exact start-month selections from published evidence. Do not guess what a seasonal intake means.
+- Mark a publication Source verified only when its scope, freshness, date and exact intake checks pass.
+- Keep applicant eligibility and unspecified rounds or cutoff times unconfirmed.
+- Flag changed, blocked, stale, conflicting, invalid, out-of-cycle and incomplete evidence for review.
+- Keep other-intake records in a separate disclosure. Separate transcript/referee deadlines and applicant categories during conflict detection.
+- Preserve local verification history and keep PDF/OCR evidence pending visual review.
+
+See STEP-4-MANUAL-TESTS.md for setup, acceptance checks and scope limits. No external service APIs are used. Twenty-one automated tests cover collection and verification behavior.
+
+Live source rechecks reproduce 24 published records with exact intake contexts: ten across NUS August 2027 programs, seven for UBC September 2027 and seven for UBC January 2028. Two German records remain in intake review. Desktop browser checks confirm exact-month selection, source evidence, other-intake exclusion and zero source-verified records for ambiguous seasonal selections. Coverage is limited to the collected sources; these are not personal eligibility decisions. PDF visual review and mobile acceptance remain manual.
+
+Skill assessment: retain project documentation for now; no new skill created.

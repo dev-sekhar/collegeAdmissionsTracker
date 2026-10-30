@@ -6,3 +6,5 @@ data/*.tmp
 data/deadlines.json
 data/deadline-runs/
 data/deadline-files/
+data/verification.json
+data/verification-runs/

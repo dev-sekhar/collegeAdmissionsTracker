@@ -9,7 +9,7 @@ http.createServer(async (request, response) => {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
     const relative = path.relative(root, file);
-    const allowed = ['index.html','styles.css','data/latest.json','data/deadlines.json'].includes(relative.replaceAll('\\', '/')) || relative.replaceAll('\\', '/').startsWith('src/');
+    const allowed = ['index.html','styles.css','data/latest.json','data/deadlines.json','data/verification.json'].includes(relative.replaceAll('\\', '/')) || relative.replaceAll('\\', '/').startsWith('src/');
     if (!allowed || relative.startsWith('..') || path.isAbsolute(relative) || !mime[path.extname(file)]) {
       response.writeHead(404).end('Not found'); return;
     }

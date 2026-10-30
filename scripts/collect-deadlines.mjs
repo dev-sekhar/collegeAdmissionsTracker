@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractCandidates } from '../src/deadlines.js';
 import { canonicalUrl, validateRequest, matchesDiscovery } from '../src/discovery.js';
+import { extractHtmlEvidence } from './html-evidence.mjs';
 const execute = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));
 const catalogue = JSON.parse(await readFile(path.join(root, 'data/latest.json'), 'utf8'));
@@ -55,35 +56,7 @@ async function collect(url) {
   if (baseDomain(page.url())!==baseDomain(url)) throw Error('Unexpected source redirect.');
   const text = await page.locator('body').innerText();
   if (/just a moment|verify you are human|performing security verification|access denied/iu.test(text.slice(0,1800))) throw Error('Access check encountered; no bypass attempted.');
-  const content = await page.evaluate(()=>{
-    const root = document.querySelector('main, #main-content, #main, .unit-content') || document.body;
-    const blocks = [];
-    // UBC fields explicitly associate each date with its intake and applicant category.
-    for (const row of root.querySelectorAll('.views-row')) {
-      const intake = row.querySelector('h4')?.textContent?.trim();
-      if (!intake || !/intake/i.test(intake)) continue;
-      let category = 'Not specified';
-      for (const child of row.children) {
-        if (child.querySelector('h5')) category = child.querySelector('h5').textContent.trim();
-        const label = child.querySelector('.views-label')?.textContent.trim();
-        const value = child.querySelector('.field-content')?.textContent.trim();
-        if (label && value) blocks.push({type:'field',label,value,context:intake,category});
-      }
-    }
-    for (const table of root.querySelectorAll('table')) {
-      const rows = [...table.querySelectorAll('tr')].map(row=>[...row.querySelectorAll(':scope > th,:scope > td')].map(cell=>cell.innerText.trim()));
-      const headerIndex = rows.findIndex(cells=>cells.some(cell=>/opening date|closing date|application deadline|intake/i.test(cell)));
-      if (headerIndex >= 0) for (const cells of rows.slice(headerIndex+1)) blocks.push({type:'table',headers:rows[headerIndex],cells,context:table.querySelector('caption')?.textContent || 'Table context requires review'});
-    }
-    for (const node of root.querySelectorAll('p,li,tr')) {
-      // Keep a compact semantic block; never the whole page as date evidence.
-      if (node.closest('header,nav,footer') || node.querySelector('p,li,table')) continue;
-      const text = node.innerText?.trim();
-      if (text && text.length<1600) blocks.push({type:'text',text,context:document.querySelector('h1')?.textContent || document.title});
-    }
-    const links = [...root.querySelectorAll('a[href]')].map(a=>({href:a.href,text:a.textContent.trim()}));
-    return { blocks, links };
-  });
+  const content = await page.evaluate(extractHtmlEvidence);
   const result = {...content,checkedAt:new Date().toISOString(),sourceUrl:page.url(),extraction:'HTML'};
   cache.set(url,result); return result;
 }
