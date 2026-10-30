@@ -11,3 +11,9 @@ test('restores valid custom entries and tolerates invalid or blocked storage', (
   assert.deepEqual(loadCustomOptions(storage), { countries: ['Japan'], subjects: ['Physics'] });
   assert.deepEqual(loadCustomOptions({ getItem() { throw Error('blocked'); } }), { countries: [], subjects: [] });
 });
+test('country aliases cannot be added twice or restored as separate countries', () => {
+  for (const alias of ['Holland', ' holland ', 'The Netherlands', 'Netherlands']) assert.equal(validateOption(alias, ['Netherlands'], 'countries').value, undefined);
+  const saved = { getItem: () => JSON.stringify({ countries: ['Holland', 'The Netherlands', 'Japan'], subjects: ['Dutch Studies'] }) };
+  assert.deepEqual(loadCustomOptions(saved), { countries: ['Japan'], subjects: ['Dutch Studies'] });
+  assert.equal(validateOption('Holland', [], 'subjects').value, 'Holland');
+});
