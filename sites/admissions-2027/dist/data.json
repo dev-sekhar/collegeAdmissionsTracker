@@ -1,0 +1,2145 @@
+[
+  {
+    "country": "Canada",
+    "university": "Simon Fraser University",
+    "degree": "BA / BSc Economics",
+    "structure": "Economics major; Criminology minor subject to declaration requirements and degree-plan approval",
+    "subjects": "Economics,Criminology",
+    "steps": "EducationPlannerBC → academic and English evidence → programme declaration after enrolment",
+    "dates": "1 Oct 2026 – 31 Jan 2027",
+    "start": "Fall 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sfu.ca/students/admission/apply/",
+    "id": "1",
+    "awardingCountry": "Canada",
+    "awardingUniversity": "Simon Fraser University",
+    "provider": "Simon Fraser University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sfu.ca/students/admission/apply/"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Minor declaration and full degree plan require approval.",
+        "source": "https://www.sfu.ca/students/calendar/2027/spring/programs/criminology/minor.html"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": [
+      "Criminology"
+    ]
+  },
+  {
+    "country": "Canada",
+    "university": "Simon Fraser University",
+    "degree": "BA Criminology",
+    "structure": "Criminology major; joint majors with Psychology, Sociology or Anthropology",
+    "subjects": "Criminology",
+    "steps": "EducationPlannerBC → documents → admission → programme declaration",
+    "dates": "1 Oct 2026 – 31 Jan 2027",
+    "start": "Fall 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sfu.ca/fass/departments-programs/criminology/",
+    "id": "2",
+    "awardingCountry": "Canada",
+    "awardingUniversity": "Simon Fraser University",
+    "provider": "Simon Fraser University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sfu.ca/fass/departments-programs/criminology/"
+      },
+      {
+        "majors": [
+          "Criminology",
+          "Sociology"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sfu.ca/students/calendar/2026/fall/programs/sociology-and-criminology/joint-major/bachelor-of-arts.html"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Sociology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Canada",
+    "university": "University of Toronto — Mississauga",
+    "degree": "Honours BA",
+    "structure": "Economics major/minor; Criminology, Law & Society major/minor. Combined plan to confirm",
+    "subjects": "Economics,Criminology",
+    "steps": "OUAC → applicant portal and documents → first-year programme-entry requirements",
+    "dates": "7 Nov recommended early date; 15 Jan 2027 deadline",
+    "start": "September 2027; exact date TBC",
+    "status": "Check combination",
+    "language": "English",
+    "url": "https://www.utm.utoronto.ca/future-students/admissions/dates-deadlines",
+    "id": "3",
+    "awardingCountry": "Canada",
+    "awardingUniversity": "University of Toronto",
+    "provider": "University of Toronto — Mississauga",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Criminology, Law & Society"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Both majors are listed. Credit overlap, programme admission and complete degree plan need checking.",
+        "source": "https://www.utm.utoronto.ca/registrar/program-selection/list"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminology, Law & Society",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "One major + two minors is a published degree structure; this named plan still needs admission and credit-overlap checks.",
+        "source": "https://utm.calendar.utoronto.ca/program-selection"
+      },
+      {
+        "majors": [
+          "Criminology, Law & Society"
+        ],
+        "minors": [
+          "Economics",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Confirm admission to all programmes and credit overlap.",
+        "source": "https://www.utm.utoronto.ca/registrar/program-selection/list"
+      }
+    ],
+    "majors": [
+      "Criminology, Law & Society",
+      "Economics"
+    ],
+    "minors": [
+      "Criminology, Law & Society",
+      "Economics",
+      "Sociology"
+    ]
+  },
+  {
+    "country": "Canada",
+    "university": "University of Toronto — St. George",
+    "degree": "Honours BA",
+    "structure": "Criminology and Sociolegal Studies major; Economics minor separately available. Combined plan to confirm",
+    "subjects": "Economics,Criminology",
+    "steps": "OUAC → applicant portal and documents → programme-entry requirements",
+    "dates": "2027 faculty deadline TBC",
+    "start": "September 2027; exact date TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://artsci.calendar.utoronto.ca/program/asmaj0826",
+    "id": "4",
+    "awardingCountry": "Canada",
+    "awardingUniversity": "University of Toronto",
+    "provider": "University of Toronto — St. George",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology and Sociolegal Studies"
+        ],
+        "minors": [
+          "Economics",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "One major + two minors completes the structure. Confirm each programme, admission and credit overlap.",
+        "source": "https://sidneysmithcommons.artsci.utoronto.ca/what-is-a-post-and-how-do-i-get-one/"
+      }
+    ],
+    "majors": [
+      "Criminology and Sociolegal Studies"
+    ],
+    "minors": [
+      "Economics",
+      "Sociology"
+    ]
+  },
+  {
+    "country": "United Kingdom",
+    "university": "London School of Economics and Political Science",
+    "degree": "BSc Economics",
+    "structure": "Standalone Economics degree",
+    "subjects": "Economics",
+    "steps": "UCAS → qualifications, statement responses and reference → meet offer conditions",
+    "dates": "Submit from 1 Sep 2026; deadline 13 Jan 2027, 18:00 UK time",
+    "start": "27 September 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics",
+    "id": "5",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "London School of Economics and Political Science",
+    "provider": "London School of Economics and Political Science",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.lse.ac.uk/study-at-lse/undergraduate/bsc-economics"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "University of Leeds",
+    "degree": "BSc Economics",
+    "structure": "Standalone Economics degree",
+    "subjects": "Economics",
+    "steps": "UCAS → qualifications, statement responses and reference → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "2027 entry published; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://courses.leeds.ac.uk/f836/economics-bsc",
+    "id": "6",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of Leeds",
+    "provider": "University of Leeds",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://courses.leeds.ac.uk/f836/economics-bsc"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "University of York",
+    "degree": "BSc Economics",
+    "structure": "Standalone Economics degree",
+    "subjects": "Economics",
+    "steps": "UCAS → supporting information → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "2027–28 entry; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.york.ac.uk/study/undergraduate/courses/bsc-economics/",
+    "id": "7",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of York",
+    "provider": "University of York",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.york.ac.uk/study/undergraduate/courses/bsc-economics/"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "University of Bath",
+    "degree": "BSc (Hons) Criminology",
+    "structure": "Standalone Criminology degree",
+    "subjects": "Criminology",
+    "steps": "UCAS → supporting information → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "September 2027; welcome week 20 Sep",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.bath.ac.uk/courses/undergraduate-2027/criminology/bsc-criminology/",
+    "id": "8",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of Bath",
+    "provider": "University of Bath",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.bath.ac.uk/courses/undergraduate-2027/criminology/bsc-criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "University of Southampton",
+    "degree": "BSc (Hons) Criminology",
+    "structure": "Standalone Criminology degree",
+    "subjects": "Criminology",
+    "steps": "UCAS → supporting information → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "2027–28 entry; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.southampton.ac.uk/courses/criminology-degree-bsc",
+    "id": "9",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of Southampton",
+    "provider": "University of Southampton",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.southampton.ac.uk/courses/criminology-degree-bsc"
+      }
+    ],
+    "majors": [
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "Lancaster University",
+    "degree": "BA (Hons) Sociology and Criminology",
+    "structure": "Joint degree",
+    "subjects": "Criminology",
+    "steps": "UCAS → supporting information → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "2027 entry published; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.lancaster.ac.uk/study/undergraduate/courses/sociology-and-criminology-ba-hons-lm39/2027/",
+    "id": "10",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "Lancaster University",
+    "provider": "Lancaster University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Sociology",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.lancaster.ac.uk/study/undergraduate/courses/sociology-and-criminology-ba-hons-lm39/2027/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Sociology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "Lancaster University",
+    "degree": "BA (Hons) Criminology and Psychology",
+    "structure": "Joint degree",
+    "subjects": "Criminology",
+    "steps": "UCAS → supporting information → meet offer conditions",
+    "dates": "1 Sep 2026 – 13 Jan 2027, 18:00 UK time (equal consideration)",
+    "start": "2027 entry published; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://a11y.www.lancs.ac.uk/study/undergraduate/courses/criminology-and-psychology-ba-hons-cl86/2027/",
+    "id": "11",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "Lancaster University",
+    "provider": "Lancaster University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology",
+          "Psychology"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://a11y.www.lancs.ac.uk/study/undergraduate/courses/criminology-and-psychology-ba-hons-cl86/2027/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Psychology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "National University of Singapore",
+    "degree": "BSocSci (Honours)",
+    "structure": "Economics major; open Criminal Justice, Psychology, Sociology and Political Science minors; second majors also available. Named plans require credit and prerequisite checks.",
+    "subjects": "Economics,Criminal Justice",
+    "steps": "NUS application → Humanities and Sciences / Economics preference → qualification documents → fee",
+    "dates": "16 Dec 2026 – 17 Feb 2027 (international qualifications except IB)",
+    "start": "August 2027; orientation 2–7 Aug",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.nus.edu.sg/oam/admissions/important-dates",
+    "id": "12",
+    "awardingCountry": "Singapore",
+    "awardingUniversity": "National University of Singapore",
+    "provider": "National University of Singapore",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.nus.edu.sg/oam/admissions/important-dates"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Psychology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Psychology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Psychology",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Psychology",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Sociology",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Psychology",
+          "Sociology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Psychology",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminal Justice",
+          "Sociology",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Psychology",
+          "Sociology",
+          "Political Science"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Open minors and multiple-minor policy published. Confirm prerequisites, distinct units, workload and 2027 cohort rules; three minors may need extra units.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/minor-programmes"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Psychology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Second major is open; complete plan subject to degree and overlap requirements.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/double-major-programmes"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Psychology"
+        ],
+        "minors": [
+          "Criminal Justice"
+        ],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Confirm combined credit requirements and workload; extra units may be needed.",
+        "source": "https://fass.nus.edu.sg/wp-content/uploads/2025/08/Orientation-Questions-18-August-2025.pdf"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Sociology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Second major is open; complete plan subject to degree and overlap requirements.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/double-major-programmes"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Sociology"
+        ],
+        "minors": [
+          "Criminal Justice"
+        ],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Confirm combined credit requirements and workload; extra units may be needed.",
+        "source": "https://fass.nus.edu.sg/wp-content/uploads/2025/08/Orientation-Questions-18-August-2025.pdf"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Political Science"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Second major is open; complete plan subject to degree and overlap requirements.",
+        "source": "https://www.nus.edu.sg/registrar/academic-information-policies/undergraduate-students/special-programmes/double-major-programmes"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Political Science"
+        ],
+        "minors": [
+          "Criminal Justice"
+        ],
+        "kind": "double",
+        "evidence": "Plan approval required",
+        "note": "Confirm combined credit requirements and workload; extra units may be needed.",
+        "source": "https://fass.nus.edu.sg/wp-content/uploads/2025/08/Orientation-Questions-18-August-2025.pdf"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Political Science",
+      "Psychology",
+      "Sociology"
+    ],
+    "minors": [
+      "Criminal Justice",
+      "Political Science",
+      "Psychology",
+      "Sociology"
+    ]
+  },
+  {
+    "country": "Singapore",
+    "university": "Nanyang Technological University, Singapore",
+    "degree": "BSocSci (Honours) in Economics",
+    "structure": "Single Economics major, or published Economics and Psychology double-major route; select correct application programme.",
+    "subjects": "Economics",
+    "steps": "India Standard XII application → documents → actual board results within 3 days of release",
+    "dates": "Opens 15 Oct 2026; 19 Mar 2027 on admissions schedule—check qualification portal",
+    "start": "August 2027, indicative",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
+    "id": "13",
+    "awardingCountry": "Singapore",
+    "awardingUniversity": "Nanyang Technological University, Singapore",
+    "provider": "Nanyang Technological University, Singapore",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Psychology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.ntu.edu.sg/sss/admissions/undergraduate-education/economics/DM-with-economics"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Psychology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Singapore Management University",
+    "degree": "BSc Economics",
+    "structure": "Economics degree",
+    "subjects": "Economics",
+    "steps": "SMU application → academic documents and required tests → assessment if invited",
+    "dates": "2027 window TBC; retrieved pages include previous-cycle dates",
+    "start": "Annual August intake; 2027 date TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://economics.smu.edu.sg/bachelor-science-economics",
+    "id": "14",
+    "awardingCountry": "Singapore",
+    "awardingUniversity": "Singapore Management University",
+    "provider": "Singapore Management University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://economics.smu.edu.sg/bachelor-science-economics"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Singapore University of Social Sciences",
+    "degree": "Bachelor of Public Safety and Security",
+    "structure": "Public Safety and Security major with Criminology plus another approved minor (e.g. Crisis Management or Psychosocial Intervention); complete plan to confirm.",
+    "subjects": "Criminology",
+    "steps": "Online application → documents → interview/tests → accept and matriculate",
+    "dates": "19 Nov 2026 – 19 Mar 2027; interviews 18 Jan – 8 Jun 2027",
+    "start": "July 2027 intake; semester starts 10 Aug 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.suss.edu.sg/admissions/application-process/how-to-apply/full-time-undergraduate-application-guide",
+    "id": "15",
+    "awardingCountry": "Singapore",
+    "awardingUniversity": "Singapore University of Social Sciences",
+    "provider": "Singapore University of Social Sciences",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Public Safety and Security"
+        ],
+        "minors": [
+          "Criminology",
+          "Crisis Management"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Criminology and Crisis Management are recommended minors. Confirm the full two-minor plan and credit requirements with SUSS.",
+        "source": "https://www.suss.edu.sg/programmes/detail/ft-bachelor-of-public-safety-and-security"
+      },
+      {
+        "majors": [
+          "Public Safety and Security"
+        ],
+        "minors": [
+          "Criminology",
+          "Psychosocial Intervention"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Confirm complete two-minor plan and credit requirements with SUSS.",
+        "source": "https://www.suss.edu.sg/programmes/detail/ft-bachelor-of-public-safety-and-security"
+      }
+    ],
+    "majors": [
+      "Public Safety and Security"
+    ],
+    "minors": [
+      "Criminology",
+      "Crisis Management",
+      "Psychosocial Intervention"
+    ]
+  },
+  {
+    "country": "Australia",
+    "university": "The University of Sydney",
+    "degree": "Bachelor of Economics",
+    "structure": "Criminology minor explicitly available within this degree",
+    "subjects": "Economics,Criminology",
+    "steps": "Direct international application → academic/English evidence → offer conditions → enrol",
+    "dates": "2027 opening and deadlines TBC",
+    "start": "Specific 2027 intake dates TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://www.sydney.edu.au/arts/schools/school-of-social-and-political-sciences/sociology-and-criminology.html",
+    "id": "16",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "The University of Sydney",
+    "provider": "The University of Sydney",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminology"
+        ],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sydney.edu.au/arts/schools/school-of-social-and-political-sciences/sociology-and-criminology.html"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": [
+      "Criminology"
+    ]
+  },
+  {
+    "country": "Australia",
+    "university": "The University of Melbourne",
+    "degree": "Bachelor of Arts",
+    "structure": "Economics and Criminology double major; individual majors also available",
+    "subjects": "Economics,Criminology",
+    "steps": "Direct international application → documents → offer → Arts major plan",
+    "dates": "2027 deadlines TBC",
+    "start": "February / July pattern; 2027 availability TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://study.unimelb.edu.au/find/courses/major/economics/structure",
+    "id": "17",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "The University of Melbourne",
+    "provider": "The University of Melbourne",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://study.unimelb.edu.au/find/courses/major/economics/structure"
+      },
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://study.unimelb.edu.au/find/courses/major/economics/structure"
+      },
+      {
+        "majors": [
+          "Economics",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://study.unimelb.edu.au/find/courses/major/economics/structure"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Australia",
+    "university": "The University of Melbourne",
+    "degree": "Bachelor of Commerce",
+    "structure": "Economics major",
+    "subjects": "Economics",
+    "steps": "Direct international application → documents → offer conditions → select major",
+    "dates": "2027 deadlines TBC",
+    "start": "Specific 2027 intake dates TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://study.unimelb.edu.au/find/courses/major/economics/",
+    "id": "18",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "The University of Melbourne",
+    "provider": "The University of Melbourne",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://study.unimelb.edu.au/find/courses/major/economics/"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Australia",
+    "university": "Monash University",
+    "degree": "Bachelor of Economics",
+    "structure": "Economics degree and specialisations",
+    "subjects": "Economics",
+    "steps": "Direct international application → documents → offer conditions → accept",
+    "dates": "2027 deadlines TBC; 2027 entry requirements published",
+    "start": "February / July / November listed; availability to confirm",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://www.monash.edu/study/courses/find-a-course/economics-b2031?international=true",
+    "id": "19",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Monash University",
+    "provider": "Monash University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.monash.edu/study/courses/find-a-course/economics-b2031?international=true"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Australia",
+    "university": "Monash University",
+    "degree": "Bachelor of Criminology",
+    "structure": "Standalone Criminology degree",
+    "subjects": "Criminology",
+    "steps": "Direct international application → documents → offer conditions → accept",
+    "dates": "2027 deadlines TBC; 2027 entry requirements published",
+    "start": "2027 start date TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://www.monash.edu/study/courses/find-a-course/criminology-a2008?international=true",
+    "id": "20",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Monash University",
+    "provider": "Monash University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.monash.edu/study/courses/find-a-course/criminology-a2008?international=true"
+      }
+    ],
+    "majors": [
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Australia",
+    "university": "Monash University",
+    "degree": "Bachelor of Arts; PPE / Arts route",
+    "structure": "Criminology major/minor; also listed in Politics, Philosophy and Economics / Arts route",
+    "subjects": "Economics,Criminology",
+    "steps": "Choose exact degree → direct application → confirm major/minor course plan",
+    "dates": "2027 deadlines and combined course plan TBC",
+    "start": "Specific 2027 intake TBC",
+    "status": "Check combination",
+    "language": "English",
+    "url": "https://www.monash.edu/study/courses/majors-minors-specialisations/majors/criminology-xm0008",
+    "id": "21",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Monash University",
+    "provider": "Monash University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.monash.edu/study/courses/majors-minors-specialisations/majors/criminology-xm0008"
+      },
+      {
+        "majors": [
+          "Psychology"
+        ],
+        "minors": [
+          "Criminology"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Criminology major/minor is listed for Arts. Named Psychology major plan needs course approval.",
+        "source": "https://www.monash.edu/study/courses/majors-minors-specialisations/majors/criminology-xm0008"
+      },
+      {
+        "majors": [
+          "Politics, Philosophy and Economics",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double-degree",
+        "evidence": "Plan approval required",
+        "note": "PPE/Arts is a double-degree route. PPE is an integrated degree, not three independent majors; confirm the Arts Criminology selection.",
+        "source": "https://www.monash.edu/study/courses/majors-minors-specialisations/majors/criminology-xm0008"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Politics, Philosophy and Economics",
+      "Psychology"
+    ],
+    "minors": [
+      "Criminology"
+    ]
+  },
+  {
+    "country": "Australia",
+    "university": "Australian National University",
+    "degree": "Bachelor of Arts / Bachelor of Criminology",
+    "structure": "Four-year double degree; Arts specialisation to confirm",
+    "subjects": "Criminology",
+    "steps": "International application → academic/English evidence → offer → approved study plan",
+    "dates": "2027 deadlines TBC; channel depends on qualification",
+    "start": "2027 programme published; exact start TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://programsandcourses.anu.edu.au/2027/program/bcrim-barts",
+    "id": "22",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Australian National University",
+    "provider": "Australian National University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Arts (specialisation to confirm)",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double-degree",
+        "evidence": "Documented route",
+        "note": "Two degrees; Arts subject not yet verified.",
+        "source": "https://programsandcourses.anu.edu.au/2027/program/bcrim-barts"
+      }
+    ],
+    "majors": [
+      "Arts (specialisation to confirm)",
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Netherlands",
+    "university": "Utrecht University",
+    "degree": "BSc Economics and Business Economics",
+    "structure": "Dedicated Introduction to Criminology for Economics students minor; minor language to confirm",
+    "subjects": "Economics,Criminology",
+    "steps": "Studielink → university application/documents → matching if applicable → minor later",
+    "dates": "Opens 1 Oct; non-EU deadline 1 Apr; confirm 2027 portal",
+    "start": "September 2027",
+    "status": "Check combination",
+    "language": "English; minor language TBC",
+    "url": "https://students.uu.nl/en/academics/minors/introduction-to-criminology-for-economics-students",
+    "id": "23",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "Utrecht University",
+    "provider": "Utrecht University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://students.uu.nl/en/academics/minors/introduction-to-criminology-for-economics-students"
+      },
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Criminology"
+        ],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "Minor is explicitly offered for Economics students; teaching language and future-year availability need confirmation.",
+        "source": "https://students.uu.nl/en/academics/minors/introduction-to-criminology-for-economics-students"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": [
+      "Criminology"
+    ]
+  },
+  {
+    "country": "Netherlands",
+    "university": "Erasmus University Rotterdam",
+    "degree": "International Bachelor Economics and Business Economics",
+    "structure": "Economics and Business Economics",
+    "subjects": "Economics",
+    "steps": "Studielink → EUR portal, documents and fee → selection → ranking → accept",
+    "dates": "15 Jan 2027 deadline; ranking 15 Apr; accept offer within 2 weeks",
+    "start": "September 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application",
+    "id": "24",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "Erasmus University Rotterdam",
+    "provider": "Erasmus University Rotterdam",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Business Economics"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application"
+      }
+    ],
+    "majors": [
+      "Business Economics",
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Netherlands",
+    "university": "University of Amsterdam",
+    "degree": "BSc Economics and Business Economics — English track",
+    "structure": "Economics / Business Economics route",
+    "subjects": "Economics",
+    "steps": "Studielink → SIS application → selection test → ranking → accept",
+    "dates": "15 Jan 2027 selection deadline; SIS within 14 days of registration; tests 20 Feb / 3 Mar; ranking 15 Apr",
+    "start": "September 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.uva.nl/en/programmes/bachelors/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track.html",
+    "id": "25",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "University of Amsterdam",
+    "provider": "University of Amsterdam",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.uva.nl/en/programmes/bachelors/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track.html"
+      },
+      {
+        "majors": [
+          "Business Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.uva.nl/en/programmes/bachelors/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track.html"
+      }
+    ],
+    "majors": [
+      "Business Economics",
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Netherlands",
+    "university": "Maastricht University",
+    "degree": "Economics and Business Economics",
+    "structure": "Economics and Business Economics",
+    "subjects": "Economics",
+    "steps": "Studielink → MyApplication documents and International Classroom Essay → selection → enrol",
+    "dates": "Opens 1 Oct 2026; early essay 15 Jan 2027; final application/tasks 15 Mar 2027",
+    "start": "September 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements",
+    "id": "26",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "Maastricht University",
+    "provider": "Maastricht University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements"
+      },
+      {
+        "majors": [
+          "Business Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements"
+      }
+    ],
+    "majors": [
+      "Business Economics",
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Netherlands",
+    "university": "Tilburg University",
+    "degree": "BSc Economics",
+    "structure": "Economics degree",
+    "subjects": "Economics",
+    "steps": "Studielink → OSIRIS documents and fee → admission → matching",
+    "dates": "Non-EEA deadline 1 Apr; confirm 2027 cycle",
+    "start": "End of August usual start; 2027 exact date TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://www.tilburguniversity.edu/education/bachelors-programs/economics/application",
+    "id": "27",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "Tilburg University",
+    "provider": "Tilburg University",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.tilburguniversity.edu/education/bachelors-programs/economics/application"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Netherlands",
+    "university": "Erasmus University Rotterdam",
+    "degree": "Bachelor Criminologie",
+    "structure": "Standalone Criminology degree",
+    "subjects": "Criminology",
+    "steps": "Check Dutch eligibility → programme registration → selection",
+    "dates": "2027–28 selection schedule published; exact deadlines not verified here",
+    "start": "2027–28 intake; exact date TBC",
+    "status": "To verify",
+    "language": "Dutch",
+    "url": "https://www.eur.nl/bachelor/criminologie/inschrijven",
+    "id": "28",
+    "awardingCountry": "Netherlands",
+    "awardingUniversity": "Erasmus University Rotterdam",
+    "provider": "Erasmus University Rotterdam",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.eur.nl/bachelor/criminologie/inschrijven"
+      }
+    ],
+    "majors": [
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Germany",
+    "university": "University of Bonn",
+    "degree": "BSc Economics",
+    "structure": "Economics degree",
+    "subjects": "Economics",
+    "steps": "Check school qualification recognition and languages → university portal → documents",
+    "dates": "2027 non-EU opening/deadline TBC",
+    "start": "Winter semester; 2027 exact date TBC",
+    "status": "To verify",
+    "language": "German",
+    "url": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/economics-bsc",
+    "id": "29",
+    "awardingCountry": "Germany",
+    "awardingUniversity": "University of Bonn",
+    "provider": "University of Bonn",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.uni-bonn.de/en/studying/degree-programs/degree-programs-a-z/economics-bsc"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Germany",
+    "university": "University of Mannheim",
+    "degree": "Bachelor’s in Economics",
+    "structure": "Economics degree; German proficiency required",
+    "subjects": "Economics",
+    "steps": "Check qualification recognition and German → university application → documents",
+    "dates": "2027 opening/deadline TBC",
+    "start": "Fall semester; 2027 exact date TBC",
+    "status": "To verify",
+    "language": "German and English",
+    "url": "https://www.uni-mannheim.de/en/academics/before-your-studies/programs/economics/",
+    "id": "30",
+    "awardingCountry": "Germany",
+    "awardingUniversity": "University of Mannheim",
+    "provider": "University of Mannheim",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.uni-mannheim.de/en/academics/before-your-studies/programs/economics/"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Germany",
+    "university": "University of Erfurt",
+    "degree": "BA — Economics, Law and Social Sciences",
+    "structure": "Economics concentration as major or minor in a two-subject degree",
+    "subjects": "Economics",
+    "steps": "Choose major/minor → international portal → qualification and language documents",
+    "dates": "International page lists 15 July winter deadline; confirm 2027 cycle",
+    "start": "Winter semester; 2027 exact date TBC",
+    "status": "To verify",
+    "language": "German",
+    "url": "https://www.uni-erfurt.de/en/studies/course-offerings/bachelor/economics-law-and-social-sciences-economics-concentration",
+    "id": "31",
+    "awardingCountry": "Germany",
+    "awardingUniversity": "University of Erfurt",
+    "provider": "University of Erfurt",
+    "delivery": "Domestic institution",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [
+          "Law"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Two-subject structure is published; confirm the specific subject combination.",
+        "source": "https://www.uni-erfurt.de/en/faculty-of-economics-law-and-social-sciences/studies/before-studying/possible-combinations"
+      },
+      {
+        "majors": [
+          "Political Science"
+        ],
+        "minors": [
+          "Economics"
+        ],
+        "kind": "single",
+        "evidence": "Plan approval required",
+        "note": "Economics minor within the social-science concentration; complete study plan to confirm.",
+        "source": "https://www.uni-erfurt.de/en/faculty-of-economics-law-and-social-sciences/studies/before-studying/possible-combinations"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Political Science"
+    ],
+    "minors": [
+      "Economics",
+      "Law"
+    ]
+  },
+  {
+    "country": "Singapore",
+    "university": "University of London — SIM Global Education",
+    "degree": "BSc (Honours) Economics",
+    "structure": "University of London award, taught at SIM. Economics degree.",
+    "subjects": "Economics",
+    "steps": "SIM application → qualification and English evidence → offer → student-pass process",
+    "dates": "Published closing date 1 Feb 2027 for international applicants; confirm exact selected intake",
+    "start": "August / September 2027 listed; confirm selected cohort",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics",
+    "id": "32",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of London",
+    "provider": "SIM Global Education",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "University of London — SIM Global Education",
+    "degree": "BSc (Honours) Economics and Management",
+    "structure": "University of London award, taught at SIM. Named combined degree; not classified as two independently selectable majors.",
+    "subjects": "Economics",
+    "steps": "SIM application → qualification and English evidence → offer → student-pass process",
+    "dates": "Published closing date 1 Feb 2027 for international applicants; confirm exact selected intake",
+    "start": "August / September 2027 listed; confirm selected cohort",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management",
+    "id": "33",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of London",
+    "provider": "SIM Global Education",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Management"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Management"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "University of London — SIM Global Education",
+    "degree": "BSc (Honours) Economics and Politics",
+    "structure": "University of London award, taught at SIM. Named combined degree; not classified as two independently selectable majors.",
+    "subjects": "Economics",
+    "steps": "SIM application → qualification and English evidence → offer → student-pass process",
+    "dates": "Published closing date 1 Feb 2027 for international applicants; confirm exact selected intake",
+    "start": "August / September 2027 listed; confirm selected cohort",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics",
+    "id": "34",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of London",
+    "provider": "SIM Global Education",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Political Science"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Political Science"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "University of London — SIM Global Education",
+    "degree": "BSc (Honours) Economics and Finance",
+    "structure": "University of London award, taught at SIM. Named combined degree; not classified as two independently selectable majors.",
+    "subjects": "Economics",
+    "steps": "SIM application → qualification and English evidence → offer → student-pass process",
+    "dates": "Published closing date 1 Feb 2027 for international applicants; confirm exact selected intake",
+    "start": "August / September 2027 listed; confirm selected cohort",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance",
+    "id": "35",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "University of London",
+    "provider": "SIM Global Education",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Finance"
+        ],
+        "minors": [],
+        "kind": "joint",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Finance"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "University at Buffalo, State University of New York — SIM",
+    "degree": "BA Economics and Psychology",
+    "structure": "Explicit Economics and Psychology double major; University at Buffalo award at SIM.",
+    "subjects": "Economics,Psychology",
+    "steps": "SIM application → academic/English evidence → offer → student-pass process",
+    "dates": "International deadlines: Jan intake 30 Nov 2026; May intake 29 Mar 2027 (opens 15 Dec 2026); Aug intake 28 Jun 2027",
+    "start": "18 Jan / 24 May / 23 Aug 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics-and-psychology",
+    "id": "36",
+    "awardingCountry": "United States",
+    "awardingUniversity": "University at Buffalo, State University of New York",
+    "provider": "SIM Global Education",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics",
+          "Psychology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics-and-psychology"
+      }
+    ],
+    "majors": [
+      "Economics",
+      "Psychology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Criminology in Criminal Behaviour",
+    "structure": "Single Criminal Behaviour major in Criminology. Entry/advanced-standing requirements must be checked for an Indian school-leaver.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → verify school-leaver pathway/advanced standing and full-time international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "37",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Criminal Behaviour"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminal Behaviour"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Accounting and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "38",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Accounting",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Accounting",
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Banking and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "39",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Banking",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Banking",
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Business Law and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "40",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Business Law",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Business Law",
+      "Criminology"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Finance and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "41",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Finance",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Finance"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Human Resources Management and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "42",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Human Resources Management",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Human Resources Management"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Business — Management and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "43",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Management",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Management"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Information Technology — Cyber Security and Forensics and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "44",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Cyber Security and Forensics",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Cyber Security and Forensics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Singapore",
+    "university": "Murdoch University — Kaplan Singapore",
+    "degree": "Bachelor of Psychology — Psychological Science and Criminology",
+    "structure": "Named double-major combination delivered through Kaplan. Check school-leaver entry/pathway and international full-time eligibility.",
+    "subjects": "Criminology",
+    "steps": "Kaplan application → confirm entry/pathway and international eligibility → documents → offer",
+    "dates": "Specific 2027 deadlines TBC",
+    "start": "January / May / August pattern; 2027 cohorts TBC",
+    "status": "To verify",
+    "language": "English",
+    "url": "https://murdoch.kaplan.com.sg/criminology/",
+    "id": "45",
+    "awardingCountry": "Australia",
+    "awardingUniversity": "Murdoch University",
+    "provider": "Kaplan Singapore",
+    "delivery": "Partner-delivered foreign degree",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Psychological Science",
+          "Criminology"
+        ],
+        "minors": [],
+        "kind": "double",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://murdoch.kaplan.com.sg/criminology/"
+      }
+    ],
+    "majors": [
+      "Criminology",
+      "Psychological Science"
+    ],
+    "minors": []
+  },
+  {
+    "country": "United Kingdom",
+    "university": "Northeastern University London",
+    "degree": "BSc (Hons) Economics",
+    "structure": "UK-awarded degree in the US-origin Northeastern network; not a US degree by default.",
+    "subjects": "Economics",
+    "steps": "UCAS (1EC0) or direct university application → academic/English evidence → meet offer conditions",
+    "dates": "UCAS equal-consideration deadline 13 Jan 2027; direct dates to confirm",
+    "start": "September 2027",
+    "status": "Published",
+    "language": "English",
+    "url": "https://www.nulondon.ac.uk/degrees/undergraduate/economics/",
+    "id": "46",
+    "awardingCountry": "United Kingdom",
+    "awardingUniversity": "Northeastern University London",
+    "provider": "Northeastern University London",
+    "delivery": "International university network",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "single",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://www.nulondon.ac.uk/degrees/undergraduate/economics/"
+      }
+    ],
+    "networkCountry": "United States",
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  },
+  {
+    "country": "Germany",
+    "university": "Bard College Berlin",
+    "degree": "BA Economics, Politics, and Social Thought",
+    "structure": "Economics concentration in an interdisciplinary BA. US Bard affiliation and dual-accreditation context; not a generic Economics/Criminology double major.",
+    "subjects": "Economics",
+    "steps": "Bard Berlin application → academic documents, writing and English evidence → selection",
+    "dates": "Fall 2027 Early Action: 1 Nov 2026, 23:59 applicant local time; later rounds to confirm",
+    "start": "Fall 2027; exact date TBC",
+    "status": "Published",
+    "language": "English",
+    "url": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/",
+    "id": "47",
+    "awardingCountry": "Germany / United States",
+    "awardingUniversity": "Bard College Berlin",
+    "provider": "Bard College Berlin",
+    "delivery": "International university network",
+    "checked": "2026-10-30",
+    "plans": [
+      {
+        "majors": [
+          "Economics"
+        ],
+        "minors": [],
+        "kind": "concentration",
+        "evidence": "Documented route",
+        "note": "",
+        "source": "https://berlin.bard.edu/academics/economics-politics-and-social-thought/"
+      }
+    ],
+    "majors": [
+      "Economics"
+    ],
+    "minors": []
+  }
+]

@@ -93,3 +93,15 @@ Skill assessment: retain project documentation for now; no new skill created.
 When published start months are available, discovered programs no longer list Autumn 2027 beside those months. The form asks for an explicit published intake instead of guessing a month. Exact-month selections are preserved when switching views. Autumn remains only in the separate fictional sample view. Spring 2028 is unchanged. A request cannot be downloaded without an intake selection.
 
 Manual checks: reload discovered mode and confirm Autumn is absent; choose a published month and confirm verification still works; toggle to samples and back and confirm the exact-month choice is restored. No separate skill is recommended for this small UI correction.
+
+## Import the 2027 University Admissions Explorer
+
+Status: source imported on a feature branch; awaiting review before merging.
+
+- Preserve the existing ChatGPT Site under `sites/admissions-2027/` as a standalone companion to the root tracker.
+- Include its 47-route snapshot, country/subject selection, exact study-plan matching, shortlist and CSV export.
+- Document local preview, matching checks and manual review steps in the companion README.
+- Record the proposed directory-based crawler in `CRAWLER-PLAN.md`. It remains unimplemented in this Site; root local collectors are separate.
+- Do not change the tracker application or its existing discovery pipeline. GitHub import does not deploy the Site.
+
+Validation: matching checks and JavaScript syntax checks passed for the imported source. See the companion README for six manual checks. No new UI behaviour was introduced by this import. No separate reusable skill is recommended for a source import.
