@@ -1,0 +1,84 @@
+[
+  {
+    "country": "Singapore",
+    "scope": "Targeted campus and partner review",
+    "finding": "Added SIM / University of London, SIM / University at Buffalo and Murdoch / Kaplan routes. JCU Singapore and Curtin Singapore catalogues were checked; matching Economics/Criminology majors were not confirmed there. Their Australian catalogues are not treated as Singapore availability.",
+    "links": [
+      [
+        "Murdoch Singapore course list",
+        "https://www.murdoch.edu.au/tne/partnerships/courses-degree-structures-and-handbook"
+      ],
+      [
+        "SIM / University of London",
+        "https://www.lse.ac.uk/study-at-lse/global-programmes/find-your-local-teaching-centre/singapore-institute-of-management-sim"
+      ],
+      [
+        "JCU Singapore catalogue",
+        "https://www.jcu.edu.sg/courses-and-study/course-level/undergraduate-your-first-degree"
+      ],
+      [
+        "Curtin Singapore catalogue",
+        "https://www.curtin.edu.sg/courses/undergraduate/bachelor-of-commerce/"
+      ]
+    ]
+  },
+  {
+    "country": "United Kingdom",
+    "scope": "Targeted international-network review",
+    "finding": "Added Northeastern University London Economics, with 2027 entry published. UK awarding institution and US network origin are shown separately.",
+    "links": [
+      [
+        "Northeastern London Economics",
+        "https://www.nulondon.ac.uk/degrees/undergraduate/economics/"
+      ]
+    ]
+  },
+  {
+    "country": "Germany",
+    "scope": "Targeted international-network review",
+    "finding": "Added Bard College Berlin Economics concentration. Lancaster Leipzig catalogue was sampled; Economics modules alone were not counted as an Economics major.",
+    "links": [
+      [
+        "Bard Berlin programme",
+        "https://berlin.bard.edu/academics/economics-politics-and-social-thought/"
+      ],
+      [
+        "Lancaster Leipzig catalogue",
+        "https://www.lancasterleipzig.de/study/undergraduate/courses/"
+      ]
+    ]
+  },
+  {
+    "country": "Netherlands",
+    "scope": "Limited campus sample; incomplete",
+    "finding": "Webster Leiden catalogue was sampled. Its global Economics minor was not confirmed for delivery in Leiden, so no matching foreign-campus route is added on that basis. This does not establish that no other options exist.",
+    "links": [
+      [
+        "Webster Leiden undergraduate catalogue",
+        "https://www.webster.nl/academics/undergraduate.php"
+      ]
+    ]
+  },
+  {
+    "country": "Canada",
+    "scope": "Limited campus sample; incomplete",
+    "finding": "Northeastern Toronto was checked and describes graduate programmes. No matching bachelor’s route was confirmed in that sample. Other foreign institutions have not been comprehensively reviewed.",
+    "links": [
+      [
+        "Northeastern Toronto programmes",
+        "https://toronto.northeastern.edu/programs/"
+      ]
+    ]
+  },
+  {
+    "country": "Australia",
+    "scope": "Limited campus sample; incomplete",
+    "finding": "Carnegie Mellon Australia programme pages reviewed describe master’s study. No matching undergraduate Economics/Criminology route was confirmed in that sample. Other overseas providers have not been comprehensively reviewed.",
+    "links": [
+      [
+        "Carnegie Mellon Australia programmes",
+        "https://australia.cmu.edu/programs"
+      ]
+    ]
+  }
+]

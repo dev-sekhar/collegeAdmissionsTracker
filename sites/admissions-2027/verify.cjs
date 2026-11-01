@@ -1,0 +1,27 @@
+const assert=require('node:assert/strict');const fs=require('node:fs');const M=require('./dist/match.js');const data=JSON.parse(fs.readFileSync('./dist/data.json'));
+const find=f=>M.filterRoutes(data,f);const ids=f=>find(f).map(r=>r.id);
+assert.equal(data.length,47);assert.equal(new Set(data.map(r=>r.id)).size,47);
+assert.equal(new Set(data.map(r=>r.country)).size,6);
+assert(ids({country:'Australia',majors:['Economics'],minors:['Criminology']}).includes('16'),'Sydney Economics major + Criminology minor');
+assert(ids({country:'Australia',majors:['Economics','Criminology'],structure:'double'}).includes('17'),'Melbourne double major');
+assert(!ids({country:'Australia',majors:['Economics','Criminology'],structure:'double'}).includes('16'),'Do not promote Sydney minor to major');
+assert(ids({country:'Canada',majors:['Economics'],minors:['Criminology, Law & Society','Sociology'],minorNumber:'2'}).includes('3'),'Canada multiple-minor candidate');
+assert(ids({country:'Singapore',majors:['Public Safety and Security'],minors:['Criminology','Crisis Management'],minorNumber:'2'}).includes('15'),'SUSS role-aware multiple minors');
+assert(!ids({country:'Singapore',majors:['Economics'],minors:['Criminology']}).includes('12'),'Do not equate Criminal Justice and Criminology');
+assert(ids({country:'Singapore',majors:['Economics'],minors:['Criminal Justice','Psychology'],minorNumber:'2'}).includes('12'),'NUS two-minor candidate');
+assert(!ids({country:'Singapore',majors:['Economics'],minors:['Criminal Justice','Psychology'],documentedOnly:true}).includes('12'),'Exclude unconfirmed named combinations in strict mode');
+assert(!ids({majors:['Economics','Economics']}).includes('15'));
+assert.equal(find({majors:['Economics'],minors:['Economics']}).length,0,'Reject same-subject major/minor');
+assert.equal(find({country:'Germany',delivery:'Partner-delivered foreign degree'}).length,0,'No unsupported foreign-campus matches');
+assert.equal(find({country:'Singapore',awardingCountry:'United Kingdom',delivery:'international'}).length,4,'SIM London routes studied in Singapore');
+assert.equal(find({country:'United Kingdom',awardingCountry:'Australia'}).length,0,'Do not infer study country from awarding institution');
+assert(find({country:'United Kingdom',structure:'joint',majors:['Sociology','Criminology']}).some(r=>r.university==='Lancaster University'));
+assert(!find({country:'United Kingdom',structure:'double',majors:['Sociology','Criminology']}).some(r=>r.university==='Lancaster University'),'Joint degree is not silently double-major');
+assert(!find({country:'Canada',majors:['Economics'],minors:['Criminology, Law & Society','Psychology']}).some(r=>r.id==='3'),'Never combine separate plan components');
+for(const r of data){assert(r.plans.length);assert(r.awardingCountry);assert(r.delivery);for(const p of r.plans){assert(p.source.startsWith('https://'));assert(p.majors.length);assert(!p.majors.some(s=>p.minors.includes(s)));}}
+assert(find({countries:['Singapore','Australia'],subjects:['Economics','Criminology'],subjectMode:'any'}).every(r=>['Singapore','Australia'].includes(r.country)),'Multiple countries are an OR selection');
+assert.equal(find({countries:['Australia'],subjects:['Economics','Criminology'],subjectMode:'all',majors:['Economics'],minors:['Criminology']}).length,1,'Country, both interests and exact roles combine');
+assert.equal(find({countries:['Ireland'],subjects:['Economics']}).length,0,'An added country never fabricates university records');
+assert.equal(find({subjects:['Unlisted subject']}).length,0,'Unlisted subjects produce no saved result');
+assert(!ids({subjects:['Criminal Justice'],subjectMode:'all'}).includes('15'),'Related subject labels are not conflated');
+console.log('Passed: 47 routes, six countries; subject roles, multiple minors, exact plan matching, delivery locations and evidence modes.');
