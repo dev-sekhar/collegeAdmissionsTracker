@@ -1,0 +1,11 @@
+# Fictional university and programs for the dashboard preview.
+id: linden
+name: Linden University
+country: Germany
+city: Bonn
+programs:
+  - id: linden-cs
+    name: BSc Informatics
+    degree: Bachelor’s
+    subjects:
+      - Computer Science

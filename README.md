@@ -1,23 +1,41 @@
-# Admissions Explorer
+# Admissions Atlas — static dummy-data dashboard
 
-The college admissions tracker includes a dashboard shell with **fictional sample institutions and dates**, plus a separate local browser discovery workflow for real institution and program records. It does not fetch deadlines or determine applicant eligibility, and uses no external service APIs.
+A new static admissions dashboard built from manually authored YAML and generated JSON. All universities, programs, dates and evidence in this version are fictional. No real admissions research, background collection, accounts or external service APIs are used by the dashboard.
 
-Requires Node.js 18 or later. For browser discovery, run `npm install` and have Microsoft Edge installed. The dashboard alone has no runtime package dependencies.
+## Run the preview
+
+Requires Node.js 22 and npm.
 
 ```sh
+npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:4173. Run `npm test` for the program filtering checks. The server is intended for local preview only.
+Open http://127.0.0.1:4173/. If another preview already uses that port, set ADMISSIONS_PORT=4180 before starting. The current review preview is at http://127.0.0.1:4180/.
 
-Select countries, subjects, degree and intake, then choose **Find programs**. Select a program to view its sample admission stages. Some combinations intentionally have no sample programs.
+```sh
+npm run build:data   # YAML → validated, tracked JSON
+npm run check:data   # fail if tracked JSON differs from YAML
+npm test            # catalogue rules plus retained regression tests
+npm run build       # generate data and a self-contained dist/ directory
+```
 
-Use **New country** or **New subject** and **Add** to create extra options. They are saved in this browser, selected when added, and applied with Find programs. Reloading restores the available options with default selections. New options do not fetch or generate programs.
+The browser loads only dist/ HTML, CSS, JavaScript and generated JSON. dist/ can be served by any static web server. Source YAML, local research history and previous collection endpoints are not served.
 
-See [the feature record](docs/FEATURES.md) and [manual tests](docs/STEP-1-MANUAL-TESTS.md).
+## Maintain the data
 
-Step 2 adds local browser discovery and a separate real-program catalogue, with partial source coverage for Canada, the UK, Singapore, Australia, the Netherlands and Germany. See [discovery setup and limitations](docs/DISCOVERY.md) and [step 2 tests](docs/STEP-2-MANUAL-TESTS.md). No external APIs or deadline extraction are included.
+- data/universities/*.yaml: university details and programs.
+- data/admissions/<university>/<program>/<cycle>.yaml: annual intake, applicant routes, eight stages and evidence.
+- data/generated/catalogue.json: generated output; regenerate rather than editing it.
 
-Step 3 adds `npm run collect-deadlines` to collect admission-stage evidence from the local catalogue's official sources. Reload to view records marked **Needs verification**. These are collected source statements, not yet verified applicable deadlines. See [step 3 setup, limitations and manual tests](docs/STEP-3-MANUAL-TESTS.md).
+The sample set contains six fictional universities, eight programs and eight admission cycles. The default Computer Science/Bachelor’s view shows six programs. One Singapore program includes two explicit dummy applicant routes with different application windows.
 
-Step 4 adds `npm run verify-deadlines` to recheck official sources. Choose an exact published intake month to assess Source verified records, other-intake exclusions, source failures and review states. Publication verification does not establish personal eligibility. See [step 4 manual tests and limits](docs/STEP-4-MANUAL-TESTS.md).
+Countries and subjects can be added as session filters. Adding an option does not create a university, program or deadline: add the matching YAML records and rebuild. No destinations selected means all destinations; no subjects selected means all subjects. Holland is treated as Netherlands.
+
+Read [the data authoring guide](docs/YAML-DATA.md), [manual review checks](docs/YAML-STATIC-MANUAL-TESTS.md) and [running feature record](docs/FEATURES.md).
+
+## Scope of this rebuild
+
+This branch starts from dev and replaces the active dashboard and preview workflow from scratch. Earlier discovery scripts and their tests remain as historical source but are not exposed by this app or its npm commands. The browser-automation dependency has been removed. Pending PRs #15 and #17 are independent and have not been merged into this rebuild.
+
+Only dummy content is accepted by the current compiler. A future real-data workflow needs separately reviewed source and verification rules. This version includes no scholarships, accommodation, financial-aid deadlines, budgeting, grade/test-score filters or shortlist comparison.

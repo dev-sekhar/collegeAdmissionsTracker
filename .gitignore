@@ -1,4 +1,7 @@
 node_modules/
+dist/
+data/generated/*.tmp
+data/local-request.json
 discovery-request*.json
 data/runs/
 data/latest.json

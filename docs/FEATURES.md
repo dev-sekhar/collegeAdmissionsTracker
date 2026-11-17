@@ -93,3 +93,18 @@ Skill assessment: retain project documentation for now; no new skill created.
 When published start months are available, discovered programs no longer list Autumn 2027 beside those months. The form asks for an explicit published intake instead of guessing a month. Exact-month selections are preserved when switching views. Autumn remains only in the separate fictional sample view. Spring 2028 is unchanged. A request cannot be downloaded without an intake selection.
 
 Manual checks: reload discovered mode and confirm Autumn is absent; choose a published month and confirm verification still works; toggle to samples and back and confirm the exact-month choice is restored. No separate skill is recommended for this small UI correction.
+## Static rebuild — curated YAML to JSON
+
+Status: draft PR #25, based on dev. Pending preview/manual-test approval. The pending discovery and applicant-context PRs are not included.
+
+The active dashboard has been rebuilt around a static, manually maintained catalogue. University/program details live in YAML, with separate annual admission files. A build validates the records and generates the JSON the page displays. Six fictional universities and eight programs demonstrate the workflow; the initial Computer Science/Bachelor’s view contains six programs. All institutions, dates and evidence are visibly labelled dummy data.
+
+Users can filter by destination, subject, degree and exact intake, select a program and view eight admission stages. One sample program demonstrates two explicitly selected applicant routes. Dates can be fixed, a date window or a relative rule. Missing stages explain not researched, not yet published, source unavailable or needs review. Countries and subjects remain addable as session filters; YAML records are needed to supply actual catalogue entries.
+
+Shared filter, selector, card, badge, metric and timeline components keep the interface consistent. The static preview serves only built assets and generated JSON. It exposes no collection endpoint, source YAML or prior research reports. The old browser-automation dependency and npm collection commands are removed from the active workflow; historical source files remain outside the static build.
+
+Validation rejects malformed/duplicate YAML, dangling or duplicate IDs, bad dates, reversed date windows, incomplete stage lists, unknown fields and dummy records claiming verified information. Generated JSON is tracked; a consistency command and CI detect stale output. Source passages remain readable but are explicitly fictional and unchecked.
+
+The authoring guide is YAML-DATA.md; acceptance checks are YAML-STATIC-MANUAL-TESTS.md. Skill assessment: retain project documentation for the first dummy-data workflow, subject to user confirmation. No new skill created.
+
+Validation: the static build, generated-JSON consistency check and all 30 automated tests pass (nine new catalogue tests plus retained regression tests). HTTP checks confirm the preview and generated JSON return 200, while source YAML and the previous collection endpoint return 404. Dependency installation reports zero known vulnerabilities. Browser interaction was interrupted by activity in the user's native browser; visual, keyboard and mobile acceptance remain manual. The new preview is available locally on port 4180 and has been requested in the Codex browser panel.
