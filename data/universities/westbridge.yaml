@@ -1,0 +1,11 @@
+# Fictional university and programs for the dashboard preview.
+id: westbridge
+name: Westbridge University
+country: United Kingdom
+city: Bristol
+programs:
+  - id: westbridge-cs
+    name: BSc Computer Science
+    degree: Bachelor’s
+    subjects:
+      - Computer Science
