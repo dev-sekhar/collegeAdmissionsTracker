@@ -55,4 +55,8 @@ Real source URLs must be HTTPS on an approved institution domain (NUS, NTU, SMU,
 
 University records can contain qsRanking with edition, rank (a string preserving ties or bands), status (verified or not-verified), institution, url, checkedAt and notes. Use the official www.topuniversities.com HTTPS source. Unverified ranks must be null. State the awarding university for overseas awards delivered through SIM or Kaplan. Do not copy a regional, subject, member-institution or teaching provider ranking into an overall world rank.
 
+## Indian applicant matching rules
+
+data/applicant-rules/*.yaml holds shared institution/year policies with named programme and route references, explicit board/citizenship/PR/results conditions, checked official evidence and verification status. Only one verified matching rule can select a personalised timeline; the app never falls back to the first route. Named state boards need exact state:board-name keys and independent source review. See INDIAN-APPLICANT-ROUTES.md for the schema explanation, supported scope and manual tests. Applicant details are transient browser memory; YAML contains rules, not users' personal data.
+
 For unverified intake months, use month: null, not an invented August date. The page labels this explicitly; exact-month filters exclude unknown months. Different confirmed intakes in one year require separate files, such as 2027-08.yaml and 2027-09.yaml. The original eight stages are required; decision and appeal are optional additional stages. Dates with conditional wording should be read with that wording, which is displayed alongside real stages. Timed cutoffs remain in wording and are not timezone-converted.

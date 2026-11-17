@@ -3,7 +3,7 @@ import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 const root=fileURLToPath(new URL('../dist/',import.meta.url));
-const allowed=new Set(['index.html','styles.css','src/static-app.js','src/static-components.js','src/catalogue-model.js','data/generated/catalogue.json']);
+const allowed=new Set(['index.html','styles.css','src/static-app.js','src/static-components.js','src/catalogue-model.js','src/applicant-routes.js','data/generated/catalogue.json']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8'};
 const port=Number(process.env.ADMISSIONS_PORT||4173);
 http.createServer(async(request,response)=>{

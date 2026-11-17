@@ -24,7 +24,7 @@ function deadline(value,where){
   else if(value.kind==='relative'){keys(value,['kind','rule'],where);text(value.rule,`${where}.rule`);}
   else throw Error(`${where}: unsupported deadline kind`);
 }
-export function compileCatalogue(universityDocuments,admissionDocuments){
+export function compileCatalogue(universityDocuments,admissionDocuments,applicantPolicies=[]){
   const universities=[];const programs=[];const admissions=[];
   for(const [index,doc] of universityDocuments.entries()){
     const where=`university[${index}]`;keys(doc,['id','name','country','city','programs','qsRanking'],where);id(doc.id,where);text(doc.name,where);text(doc.country,where);text(doc.city,where);list(doc.programs,`${where}.programs`);
@@ -52,8 +52,29 @@ export function compileCatalogue(universityDocuments,admissionDocuments){
   }
   unique(admissions.map(item=>`${item.programId}:${item.cycle}:${intakeKey(item.intake)}`),'admission cycles');
   requireThat(programs.every(program=>admissions.some(item=>item.programId===program.id)),'Every program needs an admission cycle');
+  validateApplicantPolicies(applicantPolicies,universities,programs,admissions);
   const modes=new Set(admissions.map(item=>item.dataType||'dummy'));
-  return {schemaVersion:1,mode:modes.size>1?'mixed':[...modes][0]||'dummy',universities:universities.sort((a,b)=>a.id.localeCompare(b.id)),programs:programs.sort((a,b)=>a.id.localeCompare(b.id)),admissions:admissions.sort((a,b)=>`${a.programId}:${a.cycle}:${intakeKey(a.intake)}`.localeCompare(`${b.programId}:${b.cycle}:${intakeKey(b.intake)}`))};
+  return {schemaVersion:1,mode:modes.size>1?'mixed':[...modes][0]||'dummy',applicantPolicies,universities:universities.sort((a,b)=>a.id.localeCompare(b.id)),programs:programs.sort((a,b)=>a.id.localeCompare(b.id)),admissions:admissions.sort((a,b)=>`${a.programId}:${a.cycle}:${intakeKey(a.intake)}`.localeCompare(`${b.programId}:${b.cycle}:${intakeKey(b.intake)}`))};
+}
+function validateApplicantPolicies(policies,universities,programs,admissions){
+  requireThat(Array.isArray(policies),'Applicant policies must be a list');unique(policies.map(p=>`${p.universityId}:${p.cycle}`),'Applicant policies');
+  for(const policy of policies){
+    keys(policy,['universityId','cycle','rules','sources'],'applicantPolicy');
+    requireThat(universities.some(u=>u.id===policy.universityId&&u.country==='Singapore'),'applicantPolicy: unknown Singapore university');
+    requireThat(Number.isInteger(policy.cycle)&&policy.cycle>=2027,'applicantPolicy: invalid cycle');list(policy.sources,'applicantPolicy.sources');list(policy.rules,'applicantPolicy.rules');
+    unique(policy.sources.map(s=>s.id),'applicantPolicy.sources');unique(policy.rules.map(r=>r.id),'applicantPolicy.rules');
+    for(const source of policy.sources){keys(source,['id','url','passage','checkedAt'],'policy.source');id(source.id,'policy.source.id');officialUrl(source.url);text(source.passage,'policy.source.passage');requireThat(validDate(source.checkedAt),'Policy source needs a valid check date');}
+    for(const rule of policy.rules){
+      keys(rule,['id','routeId','programIds','boards','citizenships','singaporePr','results','status','sourceIds','notes','instructions'],'applicantRule');id(rule.id,'applicantRule.id');id(rule.routeId,'applicantRule.routeId');
+      for(const field of ['programIds','boards','citizenships','singaporePr','results','sourceIds']){list(rule[field],`applicantRule.${field}`);unique(rule[field],`applicantRule.${field}`);}
+      requireThat(rule.boards.every(b=>['cbse','isc'].includes(b)||(typeof b==='string'&&/^state:[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(b))),'applicantRule: use explicit CBSE, ISC or named state-board keys; no board wildcard');
+      requireThat(rule.citizenships.every(c=>c==='India')&&rule.singaporePr.every(v=>['yes','no'].includes(v))&&rule.results.every(v=>['pending','available'].includes(v)),'applicantRule: invalid applicant conditions');
+      requireThat(['verified','needs-review'].includes(rule.status),'applicantRule: invalid status');text(rule.notes,'applicantRule.notes');
+      keys(rule.instructions,['pending','available'],'applicantRule.instructions');for(const result of rule.results)text(rule.instructions[result],`instructions.${result}`);
+      requireThat(rule.sourceIds.every(id=>policy.sources.some(s=>s.id===id)),'applicantRule: unknown source');
+      for(const programId of rule.programIds){requireThat(programs.some(p=>p.id===programId&&p.universityId===policy.universityId&&p.degree==='Bachelor’s'),'applicantRule: wrong programme scope');const cycles=admissions.filter(a=>a.programId===programId&&a.cycle===policy.cycle);requireThat(cycles.length>0&&cycles.every(a=>a.dataType==='real'&&a.routes.some(r=>r.id===rule.routeId)),'applicantRule: unavailable route or cycle');}
+    }
+  }
 }
 const officialHosts=['nus.edu.sg','ntu.edu.sg','smu.edu.sg','suss.edu.sg','sim.edu.sg','kaplan.com.sg','buffalo.edu'];
 function validateRanking(ranking){
@@ -69,7 +90,7 @@ function validateRanking(ranking){
 }
 export const rankingLabel=ranking=>`QS World ${ranking.edition} · ${ranking.status==='verified'?`#${ranking.rank}`:'Rank not verified'}`;
 function officialUrl(value){let url;try{url=new URL(value);}catch{throw Error('Invalid official source URL');}requireThat(url.protocol==='https:'&&!url.username&&!url.password&&officialHosts.some(host=>url.hostname===host||url.hostname.endsWith(`.${host}`)),'Real evidence must use an approved official institution HTTPS domain');}
-export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
+export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,applicantPolicy:catalogue.applicantPolicies?.find(p=>p.universityId===university.id&&p.cycle===admission.cycle),key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
 export function filterRows(rows,filters){return rows.filter(row=>(!filters.countries.length||filters.countries.includes(row.country))&&(!filters.subjects.length||row.subjects.some(s=>filters.subjects.includes(s)))&&(!filters.degree||row.degree===filters.degree)&&(!filters.intake||intakeKey(row.admission.intake)===filters.intake));}
 export const intakeKey=intake=>`${intake.year}-${intake.month===null?'unknown':String(intake.month).padStart(2,'0')}`;
 export const intakeLabel=intake=>intake.month===null?`${intake.year} · intake month not verified`:new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(intake.year,intake.month-1,1)));

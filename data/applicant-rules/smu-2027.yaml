@@ -1,0 +1,34 @@
+universityId: sg-smu
+cycle: 2027
+sources:
+  - id: indian-qualification
+    url: https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications
+    checkedAt: '2026-11-17'
+    passage: The Indian Standard 12 section names CBSE, ISC and other state board examinations. It distinguishes completed full results from predicted or most recent school results. For AY2027/28, final results follow within three working days of release. Named state-board mappings and PR-specific conditions were not independently established for this feature.
+rules:
+  - id: indian-cbse-isc-non-pr
+    routeId: international-other
+    programIds: [smu-economics, smu-economics-data-science]
+    boards: [cbse, isc]
+    citizenships: [India]
+    singaporePr: ['no']
+    results: [pending, available]
+    status: verified
+    sourceIds: [indian-qualification]
+    notes: The published Indian qualification section explicitly includes CBSE and ISC. Required standardised scores still apply. This matches an application timeline, not academic eligibility.
+    instructions:
+      pending: Submit school-attested predicted or most recent results; applicable predicted scores are due 31 March 2027. Upload actual final results within 3 working days of release.
+      available: Submit the available Indian Standard 12 full results with your application; required standardised scores remain due by the published deadline.
+  - id: indian-cbse-isc-pr-review
+    routeId: international-other
+    programIds: [smu-economics, smu-economics-data-science]
+    boards: [cbse, isc]
+    citizenships: [India]
+    singaporePr: ['yes']
+    results: [pending, available]
+    status: needs-review
+    sourceIds: [indian-qualification]
+    notes: PR-specific applicant conditions have not been independently verified in this rule set. No non-PR timeline is substituted. Check SMU's official instructions.
+    instructions:
+      pending: Confirm the Singapore PR instructions with SMU before using an applicant timeline.
+      available: Confirm the Singapore PR instructions with SMU before using an applicant timeline.
