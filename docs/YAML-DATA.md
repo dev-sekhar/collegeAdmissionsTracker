@@ -59,4 +59,12 @@ University records can contain qsRanking with edition, rank (a string preserving
 
 data/applicant-rules/*.yaml holds shared institution/year policies with named programme and route references, explicit board/citizenship/PR/results conditions, checked official evidence and verification status. Only one verified matching rule can select a personalised timeline; the app never falls back to the first route. Named state boards need exact state:board-name keys and independent source review. See INDIAN-APPLICANT-ROUTES.md for the schema explanation, supported scope and manual tests. Applicant details are transient browser memory; YAML contains rules, not users' personal data.
 
+## Requirements extraction and public calendars
+
+data/admission-details/*.yaml records partial coverage, requirement entries and evidence separately from dated stages. Each real programme must have one explicit details record. Entries are extracted, needs-review or not-extracted. Sources retain checkedAt, optional updatedAt, applicability, a concise paraphrase and optional linkedFrom provenance. A document update year is not automatically an expiry or intake restriction. Current known dates remain visible even when applicant-specific matching is incomplete.
+
+SIM-linked PDF sources may use only the exact SIM production S3 host, a /onesim/media/ PDF path and an official SIM parent programme in the record's scope. This is not general permission to use cloud-hosted documents as official sources. View table layouts before promoting extracted row/column facts. An inaccessible or unverified table remains in review.
+
+Applicant board rules can name cbse, isc, ib, a-level, explicit state:board-name keys, or indian-state-boards where an official source explicitly covers the group. The group must not be inferred from one state's rules. ICSE/IGCSE selections require a subsequent final qualification. ADMISSION-EXTRACTION-REVIEW.md supersedes earlier manual expectations that unpublished personal matching would hide all institutional calendars.
+
 For unverified intake months, use month: null, not an invented August date. The page labels this explicitly; exact-month filters exclude unknown months. Different confirmed intakes in one year require separate files, such as 2027-08.yaml and 2027-09.yaml. The original eight stages are required; decision and appeal are optional additional stages. Dates with conditional wording should be read with that wording, which is displayed alongside real stages. Timed cutoffs remain in wording and are not timezone-converted.

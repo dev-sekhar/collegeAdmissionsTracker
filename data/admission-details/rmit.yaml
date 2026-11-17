@@ -1,0 +1,36 @@
+id: rmit-admission-details
+programIds: [sim-rmit-economics]
+coverage: partial
+summary: The programme page and its linked overseas-qualification PDF were checked. The India table was visually reviewed; qualifications have different published thresholds.
+requirements:
+  - label: Indian qualifications
+    status: extracted
+    text: The linked India table lists AISSC (10+2) at 65% overall across graded academic subjects, ISC at 65%, and HSC at 70%. Do not apply one threshold to every board or assume every state qualification has been individually equated to HSC.
+    sourceIds: [overseas-qualifications]
+  - label: Entry and advanced standing
+    status: extracted
+    text: The programme distinguishes full entry from advanced entry based on approved diplomas. Other qualifications and equivalence claims are assessed case by case. A school-board choice does not by itself establish advanced standing.
+    sourceIds: [programme-page]
+  - label: Missing applicant-specific conditions
+    status: not-extracted
+    text: Complete pending-result and personal applicant-category conditions could not be extracted. The published January 2027 application deadline remains visible even though it had already passed at the check date.
+    sourceIds: []
+  - label: English language alternatives
+    status: extracted
+    text: The page lists IELTS Academic 6.5 with no component below 6.0, TOEFL iBT 79 with specified section minima, and PTE Academic 58 with no communication score below 50, among alternatives. Test-based evidence is normally within two years before commencement. Education-based exemptions have additional conditions; verify the complete list on the programme page.
+    sourceIds: [programme-page]
+sources:
+  - id: programme-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current SIM RMIT Bachelor of Business page; Economics is one of its majors.
+    passage: The page distinguishes full and advanced entry, describes individual equivalence assessment and links overseas qualification information.
+  - id: overseas-qualifications
+    url: https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/ge-rmit/business/international%20qualification/int-l-qualification_business-programme-updated-1jul-2026_updated.pdf
+    linkedFrom: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business
+    checkedAt: '2026-11-17'
+    updatedAt: '2026-07-01'
+    applicability: Current programme page still links this document; the India row on page 2 was visually checked. The update date is retained separately from intake dates.
+    passage: The India row distinguishes AISSC and ISC at 65% from HSC at 70%, measured over graded academic subjects.

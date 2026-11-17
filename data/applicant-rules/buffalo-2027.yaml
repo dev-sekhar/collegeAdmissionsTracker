@@ -1,0 +1,44 @@
+universityId: sg-sim-buffalo
+cycle: 2027
+sources:
+  - id: linked-indian-criteria
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics#admission-criteria
+    checkedAt: '2026-11-17'
+    passage: The current programme page accepts IB diplomas and links the August-2026-updated international-qualification PDF. Its visually reviewed India Year 12 row includes national and state board results, recent high-school grades and Grade 10/12 statements. The page lists international and local deadlines; complete local-category and pending-result rules remain unextracted.
+rules:
+  - id: indian-school-results-available
+    routeId: international
+    programIds: [sim-buffalo-economics]
+    boards: [cbse, isc, indian-state-boards]
+    citizenships: [India]
+    singaporePr: ['no']
+    results: [available]
+    status: verified
+    sourceIds: [linked-indian-criteria]
+    notes: Indian national/state Year 12 qualifications appear in the currently linked international requirements. The international deadline is displayed for this non-PR Indian applicant; academic and English criteria are shown separately and are not assessed.
+    instructions:
+      available: Provide the available Grade 10 and Grade 12 state or national board statements and the most recent three years of school grades with the application; follow SIM's full checklist.
+  - id: indian-school-results-pending-review
+    routeId: international
+    programIds: [sim-buffalo-economics]
+    boards: [cbse, isc, indian-state-boards]
+    citizenships: [India]
+    singaporePr: ['no']
+    results: [pending]
+    status: needs-review
+    sourceIds: [linked-indian-criteria]
+    notes: Pending-result and conditional-offer details could not be extracted. Published international/local deadlines and the linked qualification criteria remain visible; no result-release deadline is guessed.
+    instructions:
+      pending: Confirm provisional or pending-results submission with SIM using the official programme page.
+  - id: ib-diploma-results-available
+    routeId: international
+    programIds: [sim-buffalo-economics]
+    boards: [ib]
+    citizenships: [India]
+    singaporePr: ['no']
+    results: [available]
+    status: verified
+    sourceIds: [linked-indian-criteria]
+    notes: The current programme page lists the IB Diploma as an accepted qualification. The international calendar applies to this non-PR Indian applicant; grades, credit exemptions and English evidence must still be checked separately.
+    instructions:
+      available: Submit the available IB Diploma results and the most recent three years of school records according to SIM's official document checklist.

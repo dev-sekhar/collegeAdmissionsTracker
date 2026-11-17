@@ -24,7 +24,7 @@ function deadline(value,where){
   else if(value.kind==='relative'){keys(value,['kind','rule'],where);text(value.rule,`${where}.rule`);}
   else throw Error(`${where}: unsupported deadline kind`);
 }
-export function compileCatalogue(universityDocuments,admissionDocuments,applicantPolicies=[]){
+export function compileCatalogue(universityDocuments,admissionDocuments,applicantPolicies=[],admissionDetails=[]){
   const universities=[];const programs=[];const admissions=[];
   for(const [index,doc] of universityDocuments.entries()){
     const where=`university[${index}]`;keys(doc,['id','name','country','city','programs','qsRanking'],where);id(doc.id,where);text(doc.name,where);text(doc.country,where);text(doc.city,where);list(doc.programs,`${where}.programs`);
@@ -53,8 +53,33 @@ export function compileCatalogue(universityDocuments,admissionDocuments,applican
   unique(admissions.map(item=>`${item.programId}:${item.cycle}:${intakeKey(item.intake)}`),'admission cycles');
   requireThat(programs.every(program=>admissions.some(item=>item.programId===program.id)),'Every program needs an admission cycle');
   validateApplicantPolicies(applicantPolicies,universities,programs,admissions);
+  validateAdmissionDetails(admissionDetails,programs,admissions);
   const modes=new Set(admissions.map(item=>item.dataType||'dummy'));
-  return {schemaVersion:1,mode:modes.size>1?'mixed':[...modes][0]||'dummy',applicantPolicies,universities:universities.sort((a,b)=>a.id.localeCompare(b.id)),programs:programs.sort((a,b)=>a.id.localeCompare(b.id)),admissions:admissions.sort((a,b)=>`${a.programId}:${a.cycle}:${intakeKey(a.intake)}`.localeCompare(`${b.programId}:${b.cycle}:${intakeKey(b.intake)}`))};
+  return {schemaVersion:1,mode:modes.size>1?'mixed':[...modes][0]||'dummy',applicantPolicies,admissionDetails,universities:universities.sort((a,b)=>a.id.localeCompare(b.id)),programs:programs.sort((a,b)=>a.id.localeCompare(b.id)),admissions:admissions.sort((a,b)=>`${a.programId}:${a.cycle}:${intakeKey(a.intake)}`.localeCompare(`${b.programId}:${b.cycle}:${intakeKey(b.intake)}`))};
+}
+function validateAdmissionDetails(details,programs,admissions){
+  requireThat(Array.isArray(details),'admissionDetails must be a list');unique(details.map(d=>d.id),'admissionDetails');
+  const covered=[];
+  for(const record of details){
+    keys(record,['id','programIds','coverage','summary','requirements','sources'],'admissionDetails');id(record.id,'admissionDetails.id');list(record.programIds,'admissionDetails.programIds');text(record.summary,'admissionDetails.summary');
+    requireThat(['partial','not-extracted'].includes(record.coverage),'admissionDetails: invalid coverage');
+    for(const programId of record.programIds){requireThat(programs.some(p=>p.id===programId),'admissionDetails: unknown programme');covered.push(programId);}
+    list(record.sources,'admissionDetails.sources');unique(record.sources.map(s=>s.id),'admissionDetails.sources');
+    for(const source of record.sources){
+      keys(source,['id','url','linkedFrom','checkedAt','updatedAt','applicability','passage'],'details.source');id(source.id,'details.source.id');text(source.passage,'details.source.passage');text(source.applicability,'details.source.applicability');requireThat(validDate(source.checkedAt),'details.source: invalid check date');
+      requireThat(source.updatedAt===null||validDate(source.updatedAt)||(typeof source.updatedAt==='string'&&/^\d{4}-(0[1-9]|1[0-2])$/u.test(source.updatedAt)),'details.source: invalid update date');
+      let url;try{url=new URL(source.url);}catch{throw Error('details.source: invalid URL');}
+      if(url.hostname==='onesim-production.s3.ap-southeast-1.amazonaws.com'){
+        requireThat(url.protocol==='https:'&&!url.username&&!url.password&&url.pathname.startsWith('/onesim/media/')&&url.pathname.endsWith('.pdf'),'details.source: invalid SIM document path');
+        officialUrl(source.linkedFrom);requireThat(new URL(source.linkedFrom).hostname==='www.sim.edu.sg','details.source: document needs an official SIM parent');
+        const parent=source.linkedFrom.split('#')[0];requireThat(record.programIds.some(id=>programs.find(p=>p.id===id).url?.split('#')[0]===parent),'details.source: document parent must be a programme in scope');
+      }else{officialUrl(source.url);if(source.linkedFrom)officialUrl(source.linkedFrom);}
+    }
+    list(record.requirements,'admissionDetails.requirements');
+    for(const entry of record.requirements){keys(entry,['label','text','status','sourceIds'],'requirement');text(entry.label,'requirement.label');text(entry.text,'requirement.text');requireThat(['extracted','needs-review','not-extracted'].includes(entry.status),'requirement: invalid status');requireThat(Array.isArray(entry.sourceIds)&&entry.sourceIds.every(id=>record.sources.some(s=>s.id===id)),'requirement: invalid evidence');if(entry.status==='extracted')requireThat(entry.sourceIds.length>0,'extracted requirements need evidence');}
+  }
+  unique(covered,'admissionDetails programme coverage');
+  if(details.length)requireThat(admissions.filter(a=>a.dataType==='real').every(a=>covered.includes(a.programId)),'Every real programme needs an explicit details/extraction record');
 }
 function validateApplicantPolicies(policies,universities,programs,admissions){
   requireThat(Array.isArray(policies),'Applicant policies must be a list');unique(policies.map(p=>`${p.universityId}:${p.cycle}`),'Applicant policies');
@@ -67,7 +92,7 @@ function validateApplicantPolicies(policies,universities,programs,admissions){
     for(const rule of policy.rules){
       keys(rule,['id','routeId','programIds','boards','citizenships','singaporePr','results','status','sourceIds','notes','instructions'],'applicantRule');id(rule.id,'applicantRule.id');id(rule.routeId,'applicantRule.routeId');
       for(const field of ['programIds','boards','citizenships','singaporePr','results','sourceIds']){list(rule[field],`applicantRule.${field}`);unique(rule[field],`applicantRule.${field}`);}
-      requireThat(rule.boards.every(b=>['cbse','isc'].includes(b)||(typeof b==='string'&&/^state:[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(b))),'applicantRule: use explicit CBSE, ISC or named state-board keys; no board wildcard');
+      requireThat(rule.boards.every(b=>['cbse','isc','ib','a-level','indian-state-boards'].includes(b)||(typeof b==='string'&&/^state:[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(b))),'applicantRule: use an explicit qualification or sourced Indian-state-board group; no generic wildcard');
       requireThat(rule.citizenships.every(c=>c==='India')&&rule.singaporePr.every(v=>['yes','no'].includes(v))&&rule.results.every(v=>['pending','available'].includes(v)),'applicantRule: invalid applicant conditions');
       requireThat(['verified','needs-review'].includes(rule.status),'applicantRule: invalid status');text(rule.notes,'applicantRule.notes');
       keys(rule.instructions,['pending','available'],'applicantRule.instructions');for(const result of rule.results)text(rule.instructions[result],`instructions.${result}`);
@@ -90,7 +115,7 @@ function validateRanking(ranking){
 }
 export const rankingLabel=ranking=>`QS World ${ranking.edition} · ${ranking.status==='verified'?`#${ranking.rank}`:'Rank not verified'}`;
 function officialUrl(value){let url;try{url=new URL(value);}catch{throw Error('Invalid official source URL');}requireThat(url.protocol==='https:'&&!url.username&&!url.password&&officialHosts.some(host=>url.hostname===host||url.hostname.endsWith(`.${host}`)),'Real evidence must use an approved official institution HTTPS domain');}
-export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,applicantPolicy:catalogue.applicantPolicies?.find(p=>p.universityId===university.id&&p.cycle===admission.cycle),key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
+export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,admissionDetails:catalogue.admissionDetails?.find(d=>d.programIds.includes(program.id)),applicantPolicy:catalogue.applicantPolicies?.find(p=>p.universityId===university.id&&p.cycle===admission.cycle),key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
 export function filterRows(rows,filters){return rows.filter(row=>(!filters.countries.length||filters.countries.includes(row.country))&&(!filters.subjects.length||row.subjects.some(s=>filters.subjects.includes(s)))&&(!filters.degree||row.degree===filters.degree)&&(!filters.intake||intakeKey(row.admission.intake)===filters.intake));}
 export const intakeKey=intake=>`${intake.year}-${intake.month===null?'unknown':String(intake.month).padStart(2,'0')}`;
 export const intakeLabel=intake=>intake.month===null?`${intake.year} · intake month not verified`:new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(intake.year,intake.month-1,1)));

@@ -1,0 +1,12 @@
+# Institution-specific source notes
+
+These are extraction hints, not substitutes for checking the current official pages.
+
+- **SIM / University at Buffalo:** the BA Economics page links an international-criteria PDF on the exact SIM production S3 bucket. The India row refers to national/state Year 12 qualifications and Grade 10/12 results. Keep that criterion separate from the international/local intake calendar, pending-result rules and English exemptions. Singapore PR alone does not establish the published English exemption. Keep the PDF update date separate from intake dates.
+- **SIM / RMIT:** follow the Bachelor of Business overseas-qualification PDF. Its India table distinguishes AISSC, ISC and HSC thresholds; do not apply one percentage to every board. Full and advanced-entry routes differ. Do not infer equivalence of every state-board title to HSC without evidence.
+- **SIM / University of London:** check each degree's page. Shared general-entry guidance does not establish every programme's mathematics or international-equivalence conditions. The awarding university is University of London; LSE academic direction does not make it an LSE award.
+- **NUS:** compare the current admissions calendar against detailed board pages. Preserve the specific year of examination instructions and conflicts in portal-status labels. Check programme prerequisites separately from broad admissions eligibility.
+- **NTU:** application periods vary by qualification. India Standard XII, IB and the January-closing qualification group must not be merged. Preserve citizen/PR versus international form guidance and final-results submission conditions.
+- **SMU:** the international-qualification page contains the Indian board section as well as the application timeline. Indian Standard XII requirements and IB test exemptions differ. A June acceptance date can apply only to a particular offer window.
+- **SUSS:** distinguish the named July intake from August teaching start. Inspect the international-qualifications PDF's test-required and predicted-results columns visually. A text-only row is insufficient to map those columns.
+- **Kaplan / Murdoch:** distinguish diploma/advanced-entry criteria from direct school-leaver admission. A recurring month pattern is not a verified dated intake calendar. Review each single/double-major page and do not substitute a general marketing description for entry rules.

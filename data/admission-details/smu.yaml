@@ -1,0 +1,25 @@
+id: smu-admission-details
+programIds: [smu-economics, smu-economics-data-science]
+coverage: partial
+summary: The current Indian qualification section names CBSE, ISC and other state boards. These are reference requirements; grades and eligibility are not evaluated by this dashboard.
+requirements:
+  - label: Indian national and state boards
+    status: extracted
+    text: The India Standard XII category includes CBSE, ISC and other state board examinations. The published criteria call for at least 90% in five subjects including English; pending applicants provide predicted or recent results and are expected to receive their final results by end July.
+    sourceIds: [international-admissions]
+  - label: Standardised test and results submission
+    status: extracted
+    text: An accepted standardised test is required for this Indian Standard XII category. For 2027, required scores and applicable school-attested predicted scores are due 31 March. Actual final results follow within three working days of release. IB has a separate test exemption and must not inherit this requirement automatically.
+    sourceIds: [international-admissions]
+  - label: PR-specific and second-major conditions
+    status: not-extracted
+    text: All PR-specific conditions and any separate second-major requirements have not been fully extracted. Check the official page; no eligibility decision is implied.
+    sourceIds: []
+sources:
+  - id: international-admissions
+    url: https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current AY2027/28 page, including the Indian Standard XII qualification section and application timeline.
+    passage: SMU names CBSE, ISC and state boards, distinguishes completed/pending results and lists standardised-score and final-result submission rules.

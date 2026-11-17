@@ -128,3 +128,15 @@ Verified coverage is CBSE/ISC at NTU and non-PR CBSE/ISC at SMU. NUS's older boa
 Shared select, text and applicant-panel components standardise the form. The compiler validates rule scope and official evidence; matching is deterministic and blocks overlapping rules. No APIs, backend, profile persistence, postgraduate matching or automatic nationality inference are added. Preview/manual checklist: INDIAN-APPLICANT-ROUTES.md. Skill assessment: project documentation is sufficient; no new skill created without confirmation. Await user review before merging.
 
 Validation: static build and 46 automated tests pass, including applicant-form and rendered route-state checks. HTTP checks on port 4181 confirm the page, new matching module and JSON are available; source YAML is not served. Browser/keyboard/mobile review remains manual at the user's choice. The user confirmed retaining project documentation rather than creating a new skill.
+
+## Admission extraction coverage and visible published calendars
+
+Draft PR #36 addresses issue #35. All 31 real programmes have partial-extraction records for their available requirements and explicit gaps. Published admission categories and deadlines remain visible even when personal matching is incomplete. The old Route not determined heading is replaced with a missing-input prompt or an explanation that applicant-specific details could not be extracted, plus a direct official programme link. Unverified stages keep their status and source wording.
+
+The source review follows programme links into requirements documents. Buffalo and RMIT PDF tables were visually checked, document update dates are retained separately from intake dates, and SUSS's blocked table remains in review. Narrow SIM-document provenance checks avoid accepting arbitrary cloud files. No APIs or runtime scraping are added; this remains a curated YAML-to-JSON static catalogue.
+
+School qualification options include CBSE, ISC, ICSE, IGCSE, IB, Cambridge A Levels and all Indian state boards. Earlier qualifications prompt for the subsequent pre-university qualification. State-board groups apply only where the institution publishes them. Buffalo matching distinguishes completed results from unresolved pending results; grades remain information rather than eligibility checks.
+
+New shared requirements, published-calendar and extraction-fallback components preserve consistency. A repository-versioned admissions-extraction skill draft covers discovery, extraction, verification and curation, with institution notes rather than duplicated skills per university. It is not globally installed. See ADMISSION-EXTRACTION-REVIEW.md for limits, the preview and manual tests. No merge before user review.
+
+Validation: the static build and all 53 tests pass, including source provenance, extraction coverage and visible-calendar behaviour. The skill passes its validator. HTTP checks confirm the preview and JSON load on port 4180 while source YAML and skill files remain unserved. Browser/keyboard/mobile checks remain manual.

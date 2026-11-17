@@ -26,7 +26,7 @@ test('editing several applicant controls preserves all draft values on Apply',()
   set('applicant-board','cbse');set('applicant-citizenship','India');set('applicant-pr','no');set('applicant-results','pending');
   assert.equal(applied,undefined);
   panel.querySelector('form').events.submit({preventDefault(){}});
-  assert.deepEqual(applied,{board:'cbse',stateBoard:'',citizenship:'India',singaporePr:'no',results:'pending'});
+  assert.deepEqual(applied,{board:'cbse',finalQualification:'',stateBoard:'',citizenship:'India',singaporePr:'no',results:'pending'});
   walk(panel).find(node=>node.tag==='button'&&node.textContent==='Clear applicant details').events.click();assert.equal(cleared,true);
 });
 
@@ -34,16 +34,28 @@ test('state board field captures text without presenting it as a verified qualif
   let draft={...emptyApplicant(),board:'state-other'};
   const panel=applicantContextPanel(draft,value=>{draft=value;},()=>{},()=>{});
   const input=walk(panel).find(node=>node.id==='applicant-state-board');input.value='Maharashtra HSC';input.events.input();
-  assert.equal(draft.stateBoard,'Maharashtra HSC');assert.match(panel.textContent,/not yet individually verified/);
+  assert.equal(draft.stateBoard,'Maharashtra HSC');assert.match(panel.textContent,/Karnataka, Maharashtra/);
 });
 
-test('timeline renders no deadline list before matching or when evidence needs review',async()=>{
+test('published deadlines and programme links remain available without personal matching',async()=>{
   const rows=catalogueRows(await buildCatalogue({check:true}));const get=id=>rows.find(row=>row.programId===id);
   const applicant={board:'cbse',citizenship:'India',singaporePr:'no',results:'pending',stateBoard:''};
   for(const [row,profile] of [[get('ntu-economics'),emptyApplicant()],[get('nus-economics'),applicant],[get('kaplan-criminal-behaviour'),applicant]]){
-    const panel=timelinePanel(row,profile);assert.match(panel.textContent,/Route not determined/);assert.equal(walk(panel).filter(node=>node.tag==='ol').length,0);
+    const panel=timelinePanel(row,profile);assert.doesNotMatch(panel.textContent,/Route not determined/);assert.match(panel.textContent,/Published deadlines by applicant category/);assert.ok(walk(panel).some(node=>node.tag==='a'&&node.href===row.url));
   }
   const matched=timelinePanel(get('ntu-economics'),applicant);
-  assert.match(matched.textContent,/Matched to verified rule/);assert.match(matched.textContent,/19 Mar 2027/);assert.equal(walk(matched).filter(node=>node.tag==='ol').length,1);
+  assert.match(matched.textContent,/Matched to verified rule/);assert.match(matched.textContent,/19 Mar 2027/);assert.ok(walk(matched).filter(node=>node.tag==='ol').length>1);
   assert.equal(walk(matched).some(node=>node.tag==='select'&&node.id==='applicant-route'),false);
+});
+
+test('Buffalo missing personal details do not hide dates or linked PDF requirements',async()=>{
+  const rows=catalogueRows(await buildCatalogue({check:true}));const row=rows.find(row=>row.programId==='sim-buffalo-economics'&&row.admission.intake.month===8);
+  const panel=timelinePanel(row,emptyApplicant());
+  assert.match(panel.textContent,/28 Jun 2027/);assert.match(panel.textContent,/12 Jul 2027/);
+  assert.match(panel.textContent,/state or national/);assert.match(panel.textContent,/Document updated 2026-08/);
+  assert.ok(walk(panel).some(node=>node.tag==='a'&&node.href?.includes('ub-admission-criteria-for-ub_august-2026.pdf')));
+});
+
+test('ICSE and IGCSE prompt for the subsequent pre-university qualification',()=>{
+  for(const board of ['icse','igcse']){const panel=applicantContextPanel({...emptyApplicant(),board},()=>{},()=>{},()=>{});assert.ok(walk(panel).some(node=>node.id==='applicant-final-qualification'));}
 });
