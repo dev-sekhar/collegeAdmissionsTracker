@@ -1,0 +1,91 @@
+# Curated official-source research; missing dates are not inferred.
+programId: smu-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 8
+  year: 2027
+sources:
+  - id: calendar
+    url: https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications
+    passage: "AY2027/28 applications: 16 November 2026–19 March 2027, 11:59 pm
+      Singapore time. Standardised scores and applicable school-attested
+      predicted results: 31 March. Actual results: within 3 working days of
+      release. Shortlisted interviews March–May; outcomes May–July;
+      second-window acceptance 16 June."
+    checkedAt: 2026-11-17
+routes:
+  - id: international-other
+    label: International / other qualifications (IB exemptions differ)
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-11-16
+        wording: Applications open.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-19
+        wording: Closes at 11:59 pm Singapore Standard Time (Asia/Singapore). The
+          displayed date is not converted to your timezone.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: verified
+        deadline:
+          kind: relative
+          rule: Final results within 3 working days of release
+        wording: School-attested predicted results, where applicable, are due 31 March
+          2027. Actual results must follow within 3 working days of release.
+        sourceIds:
+          - calendar
+      - type: tests
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-31
+        wording: Submit required standardised scores by this date. IB and specified
+          diploma holders are exempt; this is not a test requirement for every
+          applicant.
+        sourceIds:
+          - calendar
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: Shortlisted interviews/tests are expected March–May. An individual
+          invitation supplies the date.
+        sourceIds:
+          - calendar
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: Admissions decisions are expected May–July; no individual decision date
+          is guaranteed.
+        sourceIds:
+          - calendar
+      - type: acceptance
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-06-16
+        wording: ONLY for offers in the second acceptance window. Earlier offers follow
+          their own stated deadline; this date is not universal.
+        sourceIds:
+          - calendar
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []

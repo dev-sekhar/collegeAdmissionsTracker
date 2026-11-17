@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A fictional admissions dashboard demonstrating curated YAML data and stage-by-stage deadlines.">
-  <title>Admissions Atlas · Dummy data preview</title>
+  <meta name="description" content="Singapore undergraduate programmes with curated official-source admission deadlines and clearly marked data gaps.">
+  <title>Admissions Atlas · Singapore 2027 preview</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="src/static-app.js"></script>
 </head>
 <body>
-  <header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">a.</span> Admissions <strong>Atlas</strong></div><span class="edition">YOUR NEXT CHAPTER, MAPPED OUT</span><span class="demo-label"><span aria-hidden="true">●</span> Dummy data preview</span></header>
   <a class="skip-link" href="#workspace">Skip to programs and timeline</a>
-  <header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">a.</span><span>Admissions <strong>Atlas</strong></span></div><span class="edition">YOUR NEXT CHAPTER, IN VIEW</span><span class="demo-label"><span aria-hidden="true">●</span> Dummy data preview</span></header>
+  <header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">a.</span><span>Admissions <strong>Atlas</strong></span></div><span class="edition">YOUR NEXT CHAPTER, IN VIEW</span><span class="demo-label"><span aria-hidden="true">●</span> Singapore 2027 preview</span></header>
   <main class="page">
     <section class="hero"><div><p class="eyebrow">A CLEARER PATH TO UNIVERSITY</p><h1>Every deadline.<br><em>One clear timeline.</em></h1><p class="hero-copy">Explore programs across borders. See each admission step,<br class="desktop-break"> from your first application to enrolment.</p></div><div class="hero-aside"><span class="orbit" aria-hidden="true">↗</span><p>Explore the possibilities.<br>Plan the next step.</p><span class="small-caps">2027 ADMISSION CYCLES</span></div></section>
-    <aside class="demo-notice"><strong>Everything here is fictional.</strong> Universities, programs, dates and evidence are dummy examples. Use this preview to explore the workflow, not to plan an application.</aside>
-    <section class="filter-panel" aria-labelledby="filter-title"><div class="section-top"><h2 id="filter-title">Find your starting point</h2><button type="button" id="reset-filters" class="text-button">Reset filters ↺</button></div><div id="filters" class="filter-grid"></div><p id="filter-note" class="filter-note" role="status">No destination selected means all destinations. Filters apply to the dummy catalogue only.</p></section>
-    <p id="loading" role="status">Loading the dummy catalogue…</p>
+    <aside class="demo-notice"><strong>Real Singapore data · checked 17 November 2026.</strong> Published deadlines have official evidence. Unverified dates remain unavailable; source conflicts need review. Fictional examples are labelled separately. This is curated data, not a live search or an eligibility assessment.</aside>
+    <section class="filter-panel" aria-labelledby="filter-title"><div class="section-top"><h2 id="filter-title">Find your starting point</h2><button type="button" id="reset-filters" class="text-button">Reset filters ↺</button></div><div id="filters" class="filter-grid"></div><p id="filter-note" class="filter-note" role="status">Singapore/Economics selected. Change subjects to see criminology and technology combinations.</p></section>
+    <p id="loading" role="status">Loading the catalogue…</p>
     <div id="metrics" class="metrics" aria-label="Filtered catalogue summary"></div>
-    <div id="workspace" class="workspace"><section class="results" aria-labelledby="programs-title"><div class="section-top"><h2 id="programs-title">Explore programs</h2><span id="result-count" class="muted"></span></div><p class="results-hint">Choose a program to see all eight stages.</p><div id="program-list"></div></section><div id="timeline"></div></div>
+    <div id="workspace" class="workspace"><section class="results" aria-labelledby="programs-title"><div class="section-top"><h2 id="programs-title">Explore programs</h2><span id="result-count" class="muted"></span></div><p class="results-hint">Choose a program to see admission stages and source evidence.</p><div id="program-list"></div></section><div id="timeline"></div></div>
     <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
     <noscript><p>This static dashboard needs JavaScript to display its generated JSON catalogue.</p></noscript>
   </main>
-  <footer class="page footer"><span>Admissions Atlas <span aria-hidden="true">·</span> A little clarity for a big decision.</span><span>Curated YAML → validated JSON <span aria-hidden="true">·</span> Fictional content</span></footer>
+  <footer class="page footer"><span>Admissions Atlas <span aria-hidden="true">·</span> A little clarity for a big decision.</span><span>Curated YAML → validated JSON <span aria-hidden="true">·</span> Real Singapore data + labelled fictional examples</span></footer>
 </body>
 </html>

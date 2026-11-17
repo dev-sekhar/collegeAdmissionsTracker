@@ -1,0 +1,189 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-ntu
+qsRanking:
+  edition: 2027
+  rank: '12'
+  status: verified
+  institution: Nanyang Technological University, Singapore
+  url: https://www.topuniversities.com/universities/nanyang-technological-university-singapore-ntu
+  checkedAt: '2026-11-17'
+  notes: Overall university ranking, not a programme or subject ranking.
+name: Nanyang Technological University
+country: Singapore
+city: Singapore
+programs:
+  - id: ntu-economics
+    name: BSocSci (Honours) Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Behavioural Economics
+    url: https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-social-sciences-in-economics-%28honours%29
+    notes: Behavioural economics is among the published economics subject areas.
+      Current programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-economics-psychology
+    name: Economics and Psychology — double major
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Psychology
+    url: https://www.ntu.edu.sg/education/undergraduate-programme/bachelor-of-social-sciences-%28hons%29-in-double-major---economics-and-psychology
+    notes: Both majors carry substantial weight; psychology does not by itself
+      establish behavioural economics coursework. Current programme offering
+      verified; this does not confirm eligibility, availability of individual
+      electives, or a guaranteed 2027 place.
+  - id: ntu-economics-data-science
+    name: BSc Economics and Data Science
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Technology
+    url: https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-economics-and-data-science
+    notes: Integrated economics, mathematics and data science. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: ntu-mathematics-economics
+    name: BSc Mathematical Sciences and Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Mathematics
+      - Technology
+    url: https://www.ntu.edu.sg/admissions/undergraduate/undergraduate-programme/bachelor-of-science-in-mathematical-sciences-and-economics
+    notes: Double major with quantitative and computational topics. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-computer-science-economics
+    name: Computer Science and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Computer Science
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-computer-engineering-economics
+    name: Computer Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-aerospace-economics
+    name: Aerospace Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-bioengineering-economics
+    name: Bioengineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-chemical-economics
+    name: Chemical and Biomolecular Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-civil-economics
+    name: Civil Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-electrical-economics
+    name: Electrical and Electronic Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-environmental-economics
+    name: Environmental Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-information-media-economics
+    name: Information Engineering and Media and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-materials-economics
+    name: Materials Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.
+  - id: ntu-mechanical-economics
+    name: Mechanical Engineering and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Technology
+      - Engineering
+    url: https://www.ntu.edu.sg/sss/admissions/undergraduate-education/double-degree-option
+    notes: Officially listed technical/economics double-degree combination. Confirm
+      the exact 2027 programme choice in the application portal. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.

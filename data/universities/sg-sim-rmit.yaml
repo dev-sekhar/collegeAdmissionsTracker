@@ -1,0 +1,26 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-sim-rmit
+qsRanking:
+  edition: 2027
+  rank: '=119'
+  status: verified
+  institution: RMIT University — awarding university
+  url: https://www.topuniversities.com/universities/rmit-university
+  checkedAt: '2026-11-17'
+  notes: Tied overall rank of the awarding university, not a ranking of SIM or this Singapore-delivered programme.
+name: SIM / RMIT University
+country: Singapore
+city: Singapore
+programs:
+  - id: sim-rmit-economics
+    name: Bachelor of Business — Economics major
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Business
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business
+    notes: SIM also lists Business and Technology majors/minors. Compatibility with
+      Economics is not yet verified; no confirmed combined technology route is
+      claimed. Current programme offering verified; this does not confirm
+      eligibility, availability of individual electives, or a guaranteed 2027
+      place.

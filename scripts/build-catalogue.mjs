@@ -23,5 +23,5 @@ export async function buildCatalogue({check=false}={}){
   return catalogue;
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
-  try{const data=await buildCatalogue({check:process.argv.includes('--check')});console.log(`Validated ${data.universities.length} fictional universities, ${data.programs.length} programs and ${data.admissions.length} admission cycles.`);}catch(error){console.error(error.message);process.exitCode=1;}
+  try{const data=await buildCatalogue({check:process.argv.includes('--check')});console.log(`Validated ${data.universities.length} institutions/providers, ${data.programs.length} programs and ${data.admissions.length} admission cycles.`);}catch(error){console.error(error.message);process.exitCode=1;}
 }

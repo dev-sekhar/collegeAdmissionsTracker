@@ -1,0 +1,76 @@
+# Curated official-source research; missing dates are not inferred.
+programId: sim-rmit-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 1
+  year: 2027
+sources:
+  - id: calendar
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business
+    passage: The full-time January 2027 programme lists a 4 July–23 October 2026
+      application period for local and international applicants.
+    checkedAt: 2026-11-17
+routes:
+  - id: local-international
+    label: Local and international applicants
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-07-04
+        wording: Published opening for January 2027.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-23
+        wording: Published January 2027 deadline; already passed on the verification
+          date. Later 2027 intake deadlines have not been verified.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []

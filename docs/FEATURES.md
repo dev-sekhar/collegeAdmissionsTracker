@@ -108,3 +108,13 @@ Validation rejects malformed/duplicate YAML, dangling or duplicate IDs, bad date
 The authoring guide is YAML-DATA.md; acceptance checks are YAML-STATIC-MANUAL-TESTS.md. Skill assessment: retain project documentation for the first dummy-data workflow, subject to user confirmation. No new skill created.
 
 Validation: the static build, generated-JSON consistency check and all 30 automated tests pass (nine new catalogue tests plus retained regression tests). HTTP checks confirm the preview and generated JSON return 200, while source YAML and the previous collection endpoint return 404. Dependency installation reports zero known vulnerabilities. Browser interaction was interrupted by activity in the user's native browser; visual, keyboard and mobile acceptance remain manual. The new preview is available locally on port 4180 and has been requested in the Codex browser panel.
+
+## Real Singapore undergraduate admissions — 2027
+
+Draft PR #30 adds 31 real programmes across eight Singapore institution/provider records. Economics, optional behavioural economics and criminal justice study, dedicated criminology degrees, and formal technology/economics combinations are included. Multiple confirmed intake months and local/international application deadlines remain separate. The existing fictional examples stay labelled.
+
+The dashboard starts with Singapore/Economics and clearly distinguishes curated real programmes from fictional samples. Official source links, research dates, visible conditions and programme notes explain what each date means. Unknown stages say Not verified. NUS's inconsistent application-status label says Needs review; Kaplan's unconfirmed 2027 intake month stays unknown. No live search or external API has been added.
+
+Real-data validation requires checked official institution evidence for verified deadlines and prevents dummy/real evidence mixing. Additional decision stages and unknown intake months are supported. See SINGAPORE-2027-DATA.md for preview expectations and manual tests. Skill assessment: retain project documentation for now; ask the user before creating a reusable admissions-research skill. No merge until preview/manual-test confirmation.
+
+At the user's request, programme cards and timeline details now show the QS World University Rankings edition, rank, official source and check date. SIM and Kaplan records identify the awarding university being ranked. Unverified overall ranks remain clearly unavailable; regional/subject rankings and LSE's rank are not substituted. Ranking metadata lives once per university in YAML and is validated separately from admission-date evidence. The duplicate site header tracked in issue #31 has also been removed following explicit user approval of that scope.

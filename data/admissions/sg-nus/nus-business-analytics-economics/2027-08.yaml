@@ -1,0 +1,155 @@
+# Curated official-source research; missing dates are not inferred.
+programId: nus-business-analytics-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 8
+  year: 2027
+sources:
+  - id: calendar
+    url: https://nus.edu.sg/oam/admissions/important-dates
+    passage: "AY2027/28: international qualifications and IB applications run from
+      16 December 2026 to 17 February 2027. The page also displays a Closed
+      label inconsistent with the check date. Listed final-result categories
+      must upload within 3 days of release. Acceptance follows the offer
+      letter."
+    checkedAt: 2026-11-17
+  - id: criminal-justice
+    url: https://fass.nus.edu.sg/socanth/minor-in-criminal-justice/
+    passage: The Criminal Justice minor is available from semester 2 AY2026/27. It
+      is supplementary study, not a separate admission degree.
+    checkedAt: 2026-11-17
+routes:
+  - id: international-non-ib
+    label: International qualifications, excluding IB (foreign applicants)
+    stages:
+      - type: opening
+        status: needs-review
+        deadline:
+          kind: date
+          date: 2026-12-16
+        wording: Published opening date. The source’s Closed label conflicts with these
+          future dates; recheck portal status before applying.
+        sourceIds:
+          - calendar
+      - type: application
+        status: needs-review
+        deadline:
+          kind: date
+          date: 2027-02-17
+        wording: Published closing date. Source status label is inconsistent; do not
+          interpret this as confirmation that the portal is currently open.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: verified
+        deadline:
+          kind: relative
+          rule: Within 3 days of official final-result release
+        wording: "Applies to listed 2027 qualifications: AP, Gaokao, HKDSE, Indian
+          CBSE/ISC and STPM. This is not a universal supporting-document
+          deadline."
+        sourceIds:
+          - calendar
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: The source gives an expected outcome by July, not a fixed decision
+          deadline.
+        sourceIds:
+          - calendar
+      - type: acceptance
+        status: verified
+        deadline:
+          kind: relative
+          rule: By the deadline in the individual admission offer
+        wording: The offer letter controls acceptance; no common calendar date is
+          assumed.
+        sourceIds:
+          - calendar
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+  - id: ib
+    label: IB Diploma applicants
+    stages:
+      - type: opening
+        status: needs-review
+        deadline:
+          kind: date
+          date: 2026-12-16
+        wording: Published IB opening; the page’s Closed label needs review.
+        sourceIds:
+          - calendar
+      - type: application
+        status: needs-review
+        deadline:
+          kind: date
+          date: 2027-02-17
+        wording: Published IB closing date; the page’s Closed label needs review.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: For May 2027 IB exams, NUS expects outcomes by the third week of July;
+          this is not a fixed deadline.
+        sourceIds:
+          - calendar
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []

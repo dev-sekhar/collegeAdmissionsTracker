@@ -1,0 +1,54 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-sim-uol
+qsRanking:
+  edition: 2027
+  rank: null
+  status: not-verified
+  institution: University of London — awarding university
+  url: https://www.topuniversities.com/world-university-rankings
+  checkedAt: '2026-11-17'
+  notes: A separate overall rank for the federal University of London was not established. Do not substitute LSE's rank, a member university's rank, or a rank for SIM.
+name: SIM / University of London
+country: Singapore
+city: Singapore
+programs:
+  - id: sim-uol-economics
+    name: BSc (Honours) Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics
+    notes: Delivered at SIM, Singapore; awarded by University of London with LSE
+      academic direction. This is not an LSE-awarded degree. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: sim-uol-economics-and-finance
+    name: BSc (Honours) Economics and Finance
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance
+    notes: Delivered at SIM, Singapore; awarded by University of London with LSE
+      academic direction. This is not an LSE-awarded degree. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: sim-uol-economics-and-management
+    name: BSc (Honours) Economics and Management
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management
+    notes: Delivered at SIM, Singapore; awarded by University of London with LSE
+      academic direction. This is not an LSE-awarded degree. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: sim-uol-economics-and-politics
+    name: BSc (Honours) Economics and Politics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics
+    notes: Delivered at SIM, Singapore; awarded by University of London with LSE
+      academic direction. This is not an LSE-awarded degree. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.

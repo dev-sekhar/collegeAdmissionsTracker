@@ -1,0 +1,75 @@
+# Curated official-source research; missing dates are not inferred.
+programId: sim-uol-economics-and-management
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: calendar
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management
+    passage: The SIM programme page lists both August and September 2027 starts,
+      with applications closing 1 February 2027 for local and international
+      applicants.
+    checkedAt: 2026-11-17
+routes:
+  - id: local-international
+    label: Local and international applicants
+    stages:
+      - type: opening
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-02-01
+        wording: Published closing date for this listed 2027 intake. No separate opening
+          date or later-stage deadlines have been verified.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []

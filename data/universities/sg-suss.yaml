@@ -1,0 +1,26 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-suss
+qsRanking:
+  edition: 2027
+  rank: null
+  status: not-verified
+  institution: Singapore University of Social Sciences
+  url: https://www.topuniversities.com/universities/singapore-university-social-sciences
+  checkedAt: '2026-11-17'
+  notes: No overall world rank established from this source. Its South Eastern Asia ranking is a different table and is not substituted here.
+name: Singapore University of Social Sciences
+country: Singapore
+city: Singapore
+programs:
+  - id: suss-public-safety
+    name: Bachelor of Public Safety and Security + optional Criminology minor
+    degree: Bachelor’s
+    subjects:
+      - Criminology
+      - Public Safety
+    url: https://www.suss.edu.sg/programmes/detail/ft-bachelor-of-public-safety-and-security
+    notes: The programme recommends the Criminology minor. Economics is not the
+      primary subject. SUSS calls this the July intake, with teaching starting
+      in August. Current programme offering verified; this does not confirm
+      eligibility, availability of individual electives, or a guaranteed 2027
+      place.

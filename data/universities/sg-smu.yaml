@@ -1,0 +1,37 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-smu
+qsRanking:
+  edition: 2027
+  rank: '=411'
+  status: verified
+  institution: Singapore Management University
+  url: https://www.topuniversities.com/universities/singapore-management-university
+  checkedAt: '2026-11-17'
+  notes: Tied overall world rank; not the university's business or economics subject rank.
+name: Singapore Management University
+country: Singapore
+city: Singapore
+programs:
+  - id: smu-economics
+    name: BSc Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Behavioural Economics
+    url: https://economics.smu.edu.sg/bachelor-science-economics/faqs
+    notes: Behavioural Economics ECON244 has a published undergraduate course
+      outline; 2027 elective availability is not guaranteed. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: smu-economics-data-science
+    name: BSc Economics + Data Science and Analytics second major
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Technology
+    url: https://economics.smu.edu.sg/bachelor-science-economics/curriculum/2nd-major-data-science-and-analytics
+    notes: Economics primary with a second major teaching programming, databases and
+      statistical learning. Current programme offering verified; this does not
+      confirm eligibility, availability of individual electives, or a guaranteed
+      2027 place.
