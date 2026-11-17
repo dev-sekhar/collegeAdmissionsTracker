@@ -16,7 +16,7 @@ async function documents(folder){
   return output;
 }
 export async function buildCatalogue({check=false}={}){
-  const catalogue=compileCatalogue(await documents(path.join(root,'data/universities')),await documents(path.join(root,'data/admissions')));
+  const catalogue=compileCatalogue(await documents(path.join(root,'data/universities')),await documents(path.join(root,'data/admissions')),await documents(path.join(root,'data/applicant-rules')));
   const json=JSON.stringify(catalogue,null,2)+'\n';const destination=path.join(root,'data/generated/catalogue.json');
   if(check){if(await readFile(destination,'utf8')!==json)throw Error('Generated JSON is out of date. Run npm run build:data.');}
   else{await mkdir(path.dirname(destination),{recursive:true});await writeFile(destination+'.tmp',json);await rename(destination+'.tmp',destination);}

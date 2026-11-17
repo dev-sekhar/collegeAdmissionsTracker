@@ -43,3 +43,5 @@ The compiler accepts separately validated real and dummy records. Real verified 
 ## Singapore real-data preview
 
 The catalogue now includes curated Singapore undergraduate offerings and 2027 admission dates alongside labelled fictional examples. The initial view selects Singapore/Economics. This is manually checked data, not a live university search. Unverified stages remain visible without guessed dates. Coverage, source limitations and manual acceptance tests: [Singapore 2027 data](docs/SINGAPORE-2027-DATA.md).
+
+Indian Class XII applicant matching uses explicit school-board, citizenship, Singapore PR and results-status inputs. No route is selected without one verified match. Coverage and the new review preview on port 4181: [Indian applicant routes](docs/INDIAN-APPLICANT-ROUTES.md). Profile details are not persisted or sent to a server.

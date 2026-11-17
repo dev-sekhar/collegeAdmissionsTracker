@@ -1,0 +1,36 @@
+universityId: sg-ntu
+cycle: 2027
+sources:
+  - id: india-qualification
+    url: https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12
+    checkedAt: '2026-11-17'
+    passage: The India Standard XII form is for that qualification. The page supplies international and Singapore citizen/PR sample forms. Applicants awaiting 2027 results must upload actual results within three days of release; completed applicants supply the Standard XII marksheet. CBSE candidates must include their admit card with the results upload.
+rules:
+  - id: indian-class-xii
+    routeId: india-standard-12
+    programIds:
+      - ntu-economics
+      - ntu-economics-psychology
+      - ntu-economics-data-science
+      - ntu-mathematics-economics
+      - ntu-computer-science-economics
+      - ntu-computer-engineering-economics
+      - ntu-aerospace-economics
+      - ntu-bioengineering-economics
+      - ntu-chemical-economics
+      - ntu-civil-economics
+      - ntu-electrical-economics
+      - ntu-environmental-economics
+      - ntu-information-media-economics
+      - ntu-materials-economics
+      - ntu-mechanical-economics
+    boards: [cbse, isc]
+    citizenships: [India]
+    singaporePr: ['yes', 'no']
+    results: [pending, available]
+    status: verified
+    sourceIds: [india-qualification]
+    notes: The academic qualification selects the India Standard XII route. Singapore PR applicants use the citizen/PR application form; others use the international-student form. Matching does not check marks, subjects, language conditions or programme eligibility.
+    instructions:
+      pending: Upload actual Standard XII results within 3 days of official release. For CBSE, include the admit card. Admission decisions require actual results; preliminary results do not produce a provisional offer.
+      available: Submit the available Standard XII final marksheet with your application and complete the qualification-specific document checklist.

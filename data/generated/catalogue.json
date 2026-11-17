@@ -1,6 +1,198 @@
 {
   "schemaVersion": 1,
   "mode": "mixed",
+  "applicantPolicies": [
+    {
+      "universityId": "sg-ntu",
+      "cycle": 2027,
+      "sources": [
+        {
+          "id": "india-qualification",
+          "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
+          "checkedAt": "2026-11-17",
+          "passage": "The India Standard XII form is for that qualification. The page supplies international and Singapore citizen/PR sample forms. Applicants awaiting 2027 results must upload actual results within three days of release; completed applicants supply the Standard XII marksheet. CBSE candidates must include their admit card with the results upload."
+        }
+      ],
+      "rules": [
+        {
+          "id": "indian-class-xii",
+          "routeId": "india-standard-12",
+          "programIds": [
+            "ntu-economics",
+            "ntu-economics-psychology",
+            "ntu-economics-data-science",
+            "ntu-mathematics-economics",
+            "ntu-computer-science-economics",
+            "ntu-computer-engineering-economics",
+            "ntu-aerospace-economics",
+            "ntu-bioengineering-economics",
+            "ntu-chemical-economics",
+            "ntu-civil-economics",
+            "ntu-electrical-economics",
+            "ntu-environmental-economics",
+            "ntu-information-media-economics",
+            "ntu-materials-economics",
+            "ntu-mechanical-economics"
+          ],
+          "boards": [
+            "cbse",
+            "isc"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "yes",
+            "no"
+          ],
+          "results": [
+            "pending",
+            "available"
+          ],
+          "status": "verified",
+          "sourceIds": [
+            "india-qualification"
+          ],
+          "notes": "The academic qualification selects the India Standard XII route. Singapore PR applicants use the citizen/PR application form; others use the international-student form. Matching does not check marks, subjects, language conditions or programme eligibility.",
+          "instructions": {
+            "pending": "Upload actual Standard XII results within 3 days of official release. For CBSE, include the admit card. Admission decisions require actual results; preliminary results do not produce a provisional offer.",
+            "available": "Submit the available Standard XII final marksheet with your application and complete the qualification-specific document checklist."
+          }
+        }
+      ]
+    },
+    {
+      "universityId": "sg-nus",
+      "cycle": 2027,
+      "sources": [
+        {
+          "id": "indian-board-page",
+          "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/indian-standard-12-cbse-and-isc",
+          "checkedAt": "2026-11-17",
+          "passage": "The foreign-applicant page names CBSE and ISC, but its detailed instructions still refer to 2026 examinations and dates. These are not treated as verified 2027 applicant conditions."
+        },
+        {
+          "id": "current-calendar",
+          "url": "https://nus.edu.sg/oam/admissions/important-dates",
+          "checkedAt": "2026-11-17",
+          "passage": "The AY2027/28 calendar supplies international-qualification dates and a three-day final-result rule for listed 2027 exams. Its displayed Closed status conflicts with the future dates at the time of checking."
+        }
+      ],
+      "rules": [
+        {
+          "id": "indian-cbse-isc-review",
+          "routeId": "international-non-ib",
+          "programIds": [
+            "nus-economics",
+            "nus-business-economics",
+            "nus-data-science-economics",
+            "nus-business-analytics-economics",
+            "nus-information-systems-economics"
+          ],
+          "boards": [
+            "cbse",
+            "isc"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "no"
+          ],
+          "results": [
+            "pending",
+            "available"
+          ],
+          "status": "needs-review",
+          "sourceIds": [
+            "indian-board-page",
+            "current-calendar"
+          ],
+          "notes": "Route not determined for 2027. NUS's board-specific instructions still contain 2026 rules, and the current calendar has a conflicting portal-status label. These sources require review before a personalised timeline is shown.",
+          "instructions": {
+            "pending": "Await verification of 2027 board-specific instructions; do not carry forward the 2026 CBSE result-upload cutoff.",
+            "available": "Await verification of the 2027 board-specific applicant instructions."
+          }
+        }
+      ]
+    },
+    {
+      "universityId": "sg-smu",
+      "cycle": 2027,
+      "sources": [
+        {
+          "id": "indian-qualification",
+          "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
+          "checkedAt": "2026-11-17",
+          "passage": "The Indian Standard 12 section names CBSE, ISC and other state board examinations. It distinguishes completed full results from predicted or most recent school results. For AY2027/28, final results follow within three working days of release. Named state-board mappings and PR-specific conditions were not independently established for this feature."
+        }
+      ],
+      "rules": [
+        {
+          "id": "indian-cbse-isc-non-pr",
+          "routeId": "international-other",
+          "programIds": [
+            "smu-economics",
+            "smu-economics-data-science"
+          ],
+          "boards": [
+            "cbse",
+            "isc"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "no"
+          ],
+          "results": [
+            "pending",
+            "available"
+          ],
+          "status": "verified",
+          "sourceIds": [
+            "indian-qualification"
+          ],
+          "notes": "The published Indian qualification section explicitly includes CBSE and ISC. Required standardised scores still apply. This matches an application timeline, not academic eligibility.",
+          "instructions": {
+            "pending": "Submit school-attested predicted or most recent results; applicable predicted scores are due 31 March 2027. Upload actual final results within 3 working days of release.",
+            "available": "Submit the available Indian Standard 12 full results with your application; required standardised scores remain due by the published deadline."
+          }
+        },
+        {
+          "id": "indian-cbse-isc-pr-review",
+          "routeId": "international-other",
+          "programIds": [
+            "smu-economics",
+            "smu-economics-data-science"
+          ],
+          "boards": [
+            "cbse",
+            "isc"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "yes"
+          ],
+          "results": [
+            "pending",
+            "available"
+          ],
+          "status": "needs-review",
+          "sourceIds": [
+            "indian-qualification"
+          ],
+          "notes": "PR-specific applicant conditions have not been independently verified in this rule set. No non-PR timeline is substituted. Check SMU's official instructions.",
+          "instructions": {
+            "pending": "Confirm the Singapore PR instructions with SMU before using an applicant timeline.",
+            "available": "Confirm the Singapore PR instructions with SMU before using an applicant timeline."
+          }
+        }
+      ]
+    }
+  ],
   "universities": [
     {
       "id": "canal",
