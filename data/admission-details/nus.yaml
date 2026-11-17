@@ -1,0 +1,32 @@
+id: nus-admission-details
+programIds: [nus-economics, nus-business-economics, nus-data-science-economics, nus-business-analytics-economics, nus-information-systems-economics]
+coverage: partial
+summary: General NUS requirements have been captured. Programme-specific subject prerequisites and all 2027 board-specific exceptions have not been fully extracted; check the programme link before applying.
+requirements:
+  - label: Education and programme prerequisites
+    status: extracted
+    text: Complete, or expect to complete, high school with at least 12 years of general education by July in the application year. The selected programme's subject prerequisites also apply; this summary does not establish that they are met.
+    sourceIds: [general-admissions]
+  - label: CBSE and ISC — year-specific instructions
+    status: needs-review
+    text: The foreign-applicant board page distinguishes completed and pending results, but still contains 2026 examination instructions. Its old result-upload dates are not substituted for 2027. The published 2027 calendar remains visible separately.
+    sourceIds: [indian-boards]
+  - label: Other qualification details
+    status: not-extracted
+    text: Complete IB, Cambridge and state-board requirements, plus programme-specific subject rules, could not be extracted into this record. Use the official programme page and admissions sources.
+    sourceIds: []
+sources:
+  - id: general-admissions
+    url: https://nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/admission-requirements
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current general admissions page; individual programmes and applicant categories can add conditions.
+    passage: The general page describes completion of 12 years of education by July and directs applicants to programme prerequisites.
+  - id: indian-boards
+    url: https://www.nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/indian-standard-12-cbse-and-isc
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Page explicitly retains 2026 instructions; detailed 2027 applicability remains in review.
+    passage: CBSE/ISC are named, but the detailed examination year and some upload dates are 2026.

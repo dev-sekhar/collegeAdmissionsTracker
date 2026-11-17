@@ -1,0 +1,32 @@
+id: kaplan-admission-details
+programIds: [kaplan-criminal-behaviour, kaplan-psychology-criminology]
+coverage: partial
+summary: Both programme pages publish diploma-entry and English criteria. Direct Indian school-leaver equivalence and exact 2027 closing dates have not been established; these are explicit gaps rather than an absence of all admission information.
+requirements:
+  - label: Diploma entry and bridging
+    status: extracted
+    text: The pages list Kaplan, polytechnic or recognised equivalent diplomas. Diploma-based exemptions can permit Year 2 entry, and bridging units may be required. This does not establish direct entry from CBSE, ISC, IB or a state board alone.
+    sourceIds: [criminal-behaviour-page, psychology-page]
+  - label: English alternatives
+    status: extracted
+    text: Published alternatives include an approved English-medium diploma, O-level English or Literature at grade C or better, or IELTS 6.0 with no component below 6.0. Other accepted equivalents and the final admission decision remain with the university.
+    sourceIds: [criminal-behaviour-page, psychology-page]
+  - label: School-leaver entry and dated 2027 stages
+    status: not-extracted
+    text: Direct school-board equivalence and exact 2027 application deadlines could not be extracted. Recurring January, May and August starts are not converted into invented dated 2027 deadlines. Use the selected programme page for the missing details.
+    sourceIds: []
+sources:
+  - id: criminal-behaviour-page
+    url: https://www.kaplan.com.sg/bachelors-degree/bachelor-of-criminology-in-criminal-behaviour-single-major
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current programme entry and English criteria; detailed school-board equivalence and dated 2027 stages remain incomplete.
+    passage: Kaplan describes diploma qualifications, possible exemptions/bridging and English alternatives for the Murdoch criminology degree.
+  - id: psychology-page
+    url: https://www.kaplan.com.sg/bachelors-degree/bachelor-of-psychology-in-psychological-science-and-criminology
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current programme entry and English criteria; minimum conditions do not guarantee admission.
+    passage: The psychology/criminology programme publishes the same types of diploma-entry and English alternatives, with university discretion over admission.

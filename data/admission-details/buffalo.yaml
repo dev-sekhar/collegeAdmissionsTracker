@@ -1,0 +1,36 @@
+id: buffalo-admission-details
+programIds: [sim-buffalo-economics]
+coverage: partial
+summary: The current SIM programme page and its linked international-qualification PDF were checked. The PDF's India row was visually reviewed. Its August 2026 label is an update date, not a stated expiry or an August-only intake restriction.
+requirements:
+  - label: India Year 12 — national and all Indian state boards
+    status: extracted
+    text: The PDF's India Year 12 row asks for the most recent three years of high-school grades and examination results, with an average of at least 70%, plus Grade 10 and Grade 12 state or national board statements of results. This is a published criterion, not confirmation that an individual meets it.
+    sourceIds: [international-criteria]
+  - label: English language evidence
+    status: extracted
+    text: The page lists alternative English qualifications, including IELTS 6.0, TOEFL iBT 70 or 4.0, PTE 50 and Duolingo 105. Test results must be within two years of enrolment. Check the complete alternatives on the official page. PR status alone does not establish an English exemption; the published exemption also depends on Singapore schooling and O-level English.
+    sourceIds: [programme-page]
+  - label: IB and equivalent school qualifications
+    status: extracted
+    text: The page accepts IB/IBCP diplomas and qualifications equivalent to a US high-school diploma, with the stated school-grade conditions. IGCSE English can satisfy a specified English requirement; that does not make IGCSE alone a complete undergraduate entry qualification.
+    sourceIds: [programme-page]
+  - label: Pending results, local category and final offer conditions
+    status: not-extracted
+    text: Complete pending-results, local-category and offer-specific conditions could not be extracted. Published international and local intake deadlines remain available below for comparison; no personal category is guessed.
+    sourceIds: []
+sources:
+  - id: programme-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Current programme page lists 2027 intakes and links the qualification PDF below.
+    passage: SIM lists accepted school qualifications, English alternatives and conditional exemptions alongside the international/local intake calendar.
+  - id: international-criteria
+    url: https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/ge-uni-at-buffalo/ub-admission-criteria-for-ub_august-2026.pdf
+    linkedFrom: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics
+    checkedAt: '2026-11-17'
+    updatedAt: '2026-08'
+    applicability: Still linked by the current programme page. No explicit expiry was found; the India row on page 2 was visually checked. Pending-result exceptions are not established by that row.
+    passage: The India row describes Year 12, recent school grades, a 70% minimum average and state or national Grade 10/12 results.

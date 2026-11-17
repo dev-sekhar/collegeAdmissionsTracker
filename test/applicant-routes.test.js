@@ -61,13 +61,32 @@ test('named state boards require an exact independently configured rule, never a
   assert.equal(matchApplicantRoute(row,{...profile,stateBoard:'Another State XII'}).route,null);
 });
 test('all configured programme rules have scoped matching routes and no fabricated board wildcard',()=>{
-  assert.equal(catalogue.applicantPolicies.length,3);
+  assert.equal(catalogue.applicantPolicies.length,4);
   for(const policy of catalogue.applicantPolicies)for(const rule of policy.rules){
-    for(const board of rule.boards)assert.ok(['cbse','isc'].includes(board));
+    for(const board of rule.boards)assert.ok(['cbse','isc','ib','a-level','indian-state-boards'].includes(board));
     for(const id of rule.programIds){const row=get(id);assert.equal(row.universityId,policy.universityId);assert.ok(row.admission.routes.some(route=>route.id===rule.routeId));}
   }
   const options=filterRows(rows,{countries:['Singapore'],subjects:['Economics'],degree:'Bachelor’s',intake:'2027-08'});
   assert.ok(options.some(row=>matchApplicantRoute(row,applicant).status==='matched'));
+});
+
+test('state-board groups require published policy and support all named Indian states',()=>{
+  for(const stateBoard of ['Karnataka','Maharashtra','Tamil Nadu','Gujarat','Another Indian state board']){
+    const profile={...applicant,board:'state-other',stateBoard};
+    assert.equal(matchApplicantRoute(get('smu-economics'),profile).status,'matched');
+    assert.equal(matchApplicantRoute(get('sim-buffalo-economics'),{...profile,results:'available'}).route.id,'international');
+    assert.equal(matchApplicantRoute(get('ntu-economics'),profile).route,null);
+  }
+});
+
+test('ICSE/IGCSE alone do not become Class XII routes; follow-on qualification is matched',()=>{
+  for(const board of ['icse','igcse']){
+    assert.equal(matchApplicantRoute(get('ntu-economics'),{...applicant,board}).route,null);
+    assert.equal(matchApplicantRoute(get('ntu-economics'),{...applicant,board,finalQualification:'isc'}).route.id,'india-standard-12');
+  }
+  assert.equal(matchApplicantRoute(get('ntu-economics'),{...applicant,board:'ib'}).route,null);
+  const ib=matchApplicantRoute(get('sim-buffalo-economics'),{...applicant,board:'ib',results:'available'});
+  assert.equal(ib.route.id,'international');assert.match(ib.instruction,/IB Diploma/);assert.doesNotMatch(ib.instruction,/state or national/);
 });
 test('rule validation rejects foreign programme references and missing rule evidence',()=>{
   const university={id:'test-uni',name:'Test University',country:'Singapore',city:'Singapore',programs:[{id:'test-program',name:'Test Economics',degree:'Bachelor’s',subjects:['Economics']}]};

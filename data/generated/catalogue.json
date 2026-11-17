@@ -3,6 +3,105 @@
   "mode": "mixed",
   "applicantPolicies": [
     {
+      "universityId": "sg-sim-buffalo",
+      "cycle": 2027,
+      "sources": [
+        {
+          "id": "linked-indian-criteria",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics#admission-criteria",
+          "checkedAt": "2026-11-17",
+          "passage": "The current programme page accepts IB diplomas and links the August-2026-updated international-qualification PDF. Its visually reviewed India Year 12 row includes national and state board results, recent high-school grades and Grade 10/12 statements. The page lists international and local deadlines; complete local-category and pending-result rules remain unextracted."
+        }
+      ],
+      "rules": [
+        {
+          "id": "indian-school-results-available",
+          "routeId": "international",
+          "programIds": [
+            "sim-buffalo-economics"
+          ],
+          "boards": [
+            "cbse",
+            "isc",
+            "indian-state-boards"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "no"
+          ],
+          "results": [
+            "available"
+          ],
+          "status": "verified",
+          "sourceIds": [
+            "linked-indian-criteria"
+          ],
+          "notes": "Indian national/state Year 12 qualifications appear in the currently linked international requirements. The international deadline is displayed for this non-PR Indian applicant; academic and English criteria are shown separately and are not assessed.",
+          "instructions": {
+            "available": "Provide the available Grade 10 and Grade 12 state or national board statements and the most recent three years of school grades with the application; follow SIM's full checklist."
+          }
+        },
+        {
+          "id": "indian-school-results-pending-review",
+          "routeId": "international",
+          "programIds": [
+            "sim-buffalo-economics"
+          ],
+          "boards": [
+            "cbse",
+            "isc",
+            "indian-state-boards"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "no"
+          ],
+          "results": [
+            "pending"
+          ],
+          "status": "needs-review",
+          "sourceIds": [
+            "linked-indian-criteria"
+          ],
+          "notes": "Pending-result and conditional-offer details could not be extracted. Published international/local deadlines and the linked qualification criteria remain visible; no result-release deadline is guessed.",
+          "instructions": {
+            "pending": "Confirm provisional or pending-results submission with SIM using the official programme page."
+          }
+        },
+        {
+          "id": "ib-diploma-results-available",
+          "routeId": "international",
+          "programIds": [
+            "sim-buffalo-economics"
+          ],
+          "boards": [
+            "ib"
+          ],
+          "citizenships": [
+            "India"
+          ],
+          "singaporePr": [
+            "no"
+          ],
+          "results": [
+            "available"
+          ],
+          "status": "verified",
+          "sourceIds": [
+            "linked-indian-criteria"
+          ],
+          "notes": "The current programme page lists the IB Diploma as an accepted qualification. The international calendar applies to this non-PR Indian applicant; grades, credit exemptions and English evidence must still be checked separately.",
+          "instructions": {
+            "available": "Submit the available IB Diploma results and the most recent three years of school records according to SIM's official document checklist."
+          }
+        }
+      ]
+    },
+    {
       "universityId": "sg-ntu",
       "cycle": 2027,
       "sources": [
@@ -108,7 +207,7 @@
             "indian-board-page",
             "current-calendar"
           ],
-          "notes": "Route not determined for 2027. NUS's board-specific instructions still contain 2026 rules, and the current calendar has a conflicting portal-status label. These sources require review before a personalised timeline is shown.",
+          "notes": "Applicant-specific 2027 details require review. NUS's board-specific instructions still contain 2026 rules, and the current calendar has a conflicting portal-status label. Published calendar details remain available separately.",
           "instructions": {
             "pending": "Await verification of 2027 board-specific instructions; do not carry forward the 2026 CBSE result-upload cutoff.",
             "available": "Await verification of the 2027 board-specific applicant instructions."
@@ -124,7 +223,7 @@
           "id": "indian-qualification",
           "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
           "checkedAt": "2026-11-17",
-          "passage": "The Indian Standard 12 section names CBSE, ISC and other state board examinations. It distinguishes completed full results from predicted or most recent school results. For AY2027/28, final results follow within three working days of release. Named state-board mappings and PR-specific conditions were not independently established for this feature."
+          "passage": "The Indian Standard 12 section names CBSE, ISC and other state board examinations as a group. It distinguishes completed full results from predicted or most recent school results. For AY2027/28, final results follow within three working days of release. PR-specific conditions were not independently established."
         }
       ],
       "rules": [
@@ -137,7 +236,8 @@
           ],
           "boards": [
             "cbse",
-            "isc"
+            "isc",
+            "indian-state-boards"
           ],
           "citizenships": [
             "India"
@@ -153,7 +253,7 @@
           "sourceIds": [
             "indian-qualification"
           ],
-          "notes": "The published Indian qualification section explicitly includes CBSE and ISC. Required standardised scores still apply. This matches an application timeline, not academic eligibility.",
+          "notes": "The published Indian qualification section includes CBSE, ISC and other Indian state boards as a group. This does not impose a separate rule for each state. Required standardised scores still apply. This matches an application timeline, not academic eligibility.",
           "instructions": {
             "pending": "Submit school-attested predicted or most recent results; applicable predicted scores are due 31 March 2027. Upload actual final results within 3 working days of release.",
             "available": "Submit the available Indian Standard 12 full results with your application; required standardised scores remain due by the published deadline."
@@ -168,7 +268,8 @@
           ],
           "boards": [
             "cbse",
-            "isc"
+            "isc",
+            "indian-state-boards"
           ],
           "citizenships": [
             "India"
@@ -189,6 +290,484 @@
             "pending": "Confirm the Singapore PR instructions with SMU before using an applicant timeline.",
             "available": "Confirm the Singapore PR instructions with SMU before using an applicant timeline."
           }
+        }
+      ]
+    }
+  ],
+  "admissionDetails": [
+    {
+      "id": "buffalo-admission-details",
+      "programIds": [
+        "sim-buffalo-economics"
+      ],
+      "coverage": "partial",
+      "summary": "The current SIM programme page and its linked international-qualification PDF were checked. The PDF's India row was visually reviewed. Its August 2026 label is an update date, not a stated expiry or an August-only intake restriction.",
+      "requirements": [
+        {
+          "label": "India Year 12 — national and all Indian state boards",
+          "status": "extracted",
+          "text": "The PDF's India Year 12 row asks for the most recent three years of high-school grades and examination results, with an average of at least 70%, plus Grade 10 and Grade 12 state or national board statements of results. This is a published criterion, not confirmation that an individual meets it.",
+          "sourceIds": [
+            "international-criteria"
+          ]
+        },
+        {
+          "label": "English language evidence",
+          "status": "extracted",
+          "text": "The page lists alternative English qualifications, including IELTS 6.0, TOEFL iBT 70 or 4.0, PTE 50 and Duolingo 105. Test results must be within two years of enrolment. Check the complete alternatives on the official page. PR status alone does not establish an English exemption; the published exemption also depends on Singapore schooling and O-level English.",
+          "sourceIds": [
+            "programme-page"
+          ]
+        },
+        {
+          "label": "IB and equivalent school qualifications",
+          "status": "extracted",
+          "text": "The page accepts IB/IBCP diplomas and qualifications equivalent to a US high-school diploma, with the stated school-grade conditions. IGCSE English can satisfy a specified English requirement; that does not make IGCSE alone a complete undergraduate entry qualification.",
+          "sourceIds": [
+            "programme-page"
+          ]
+        },
+        {
+          "label": "Pending results, local category and final offer conditions",
+          "status": "not-extracted",
+          "text": "Complete pending-results, local-category and offer-specific conditions could not be extracted. Published international and local intake deadlines remain available below for comparison; no personal category is guessed.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "programme-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current programme page lists 2027 intakes and links the qualification PDF below.",
+          "passage": "SIM lists accepted school qualifications, English alternatives and conditional exemptions alongside the international/local intake calendar."
+        },
+        {
+          "id": "international-criteria",
+          "url": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/ge-uni-at-buffalo/ub-admission-criteria-for-ub_august-2026.pdf",
+          "linkedFrom": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics",
+          "checkedAt": "2026-11-17",
+          "updatedAt": "2026-08",
+          "applicability": "Still linked by the current programme page. No explicit expiry was found; the India row on page 2 was visually checked. Pending-result exceptions are not established by that row.",
+          "passage": "The India row describes Year 12, recent school grades, a 70% minimum average and state or national Grade 10/12 results."
+        }
+      ]
+    },
+    {
+      "id": "kaplan-admission-details",
+      "programIds": [
+        "kaplan-criminal-behaviour",
+        "kaplan-psychology-criminology"
+      ],
+      "coverage": "partial",
+      "summary": "Both programme pages publish diploma-entry and English criteria. Direct Indian school-leaver equivalence and exact 2027 closing dates have not been established; these are explicit gaps rather than an absence of all admission information.",
+      "requirements": [
+        {
+          "label": "Diploma entry and bridging",
+          "status": "extracted",
+          "text": "The pages list Kaplan, polytechnic or recognised equivalent diplomas. Diploma-based exemptions can permit Year 2 entry, and bridging units may be required. This does not establish direct entry from CBSE, ISC, IB or a state board alone.",
+          "sourceIds": [
+            "criminal-behaviour-page",
+            "psychology-page"
+          ]
+        },
+        {
+          "label": "English alternatives",
+          "status": "extracted",
+          "text": "Published alternatives include an approved English-medium diploma, O-level English or Literature at grade C or better, or IELTS 6.0 with no component below 6.0. Other accepted equivalents and the final admission decision remain with the university.",
+          "sourceIds": [
+            "criminal-behaviour-page",
+            "psychology-page"
+          ]
+        },
+        {
+          "label": "School-leaver entry and dated 2027 stages",
+          "status": "not-extracted",
+          "text": "Direct school-board equivalence and exact 2027 application deadlines could not be extracted. Recurring January, May and August starts are not converted into invented dated 2027 deadlines. Use the selected programme page for the missing details.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "criminal-behaviour-page",
+          "url": "https://www.kaplan.com.sg/bachelors-degree/bachelor-of-criminology-in-criminal-behaviour-single-major",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current programme entry and English criteria; detailed school-board equivalence and dated 2027 stages remain incomplete.",
+          "passage": "Kaplan describes diploma qualifications, possible exemptions/bridging and English alternatives for the Murdoch criminology degree."
+        },
+        {
+          "id": "psychology-page",
+          "url": "https://www.kaplan.com.sg/bachelors-degree/bachelor-of-psychology-in-psychological-science-and-criminology",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current programme entry and English criteria; minimum conditions do not guarantee admission.",
+          "passage": "The psychology/criminology programme publishes the same types of diploma-entry and English alternatives, with university discretion over admission."
+        }
+      ]
+    },
+    {
+      "id": "ntu-admission-details",
+      "programIds": [
+        "ntu-economics",
+        "ntu-economics-psychology",
+        "ntu-economics-data-science",
+        "ntu-mathematics-economics",
+        "ntu-computer-science-economics",
+        "ntu-computer-engineering-economics",
+        "ntu-aerospace-economics",
+        "ntu-bioengineering-economics",
+        "ntu-chemical-economics",
+        "ntu-civil-economics",
+        "ntu-electrical-economics",
+        "ntu-environmental-economics",
+        "ntu-information-media-economics",
+        "ntu-materials-economics",
+        "ntu-mechanical-economics"
+      ],
+      "coverage": "partial",
+      "summary": "Indian Standard XII application and document conditions have been captured. Minimum subject requirements vary by programme and must still be checked on the official programme page.",
+      "requirements": [
+        {
+          "label": "India Standard XII documents",
+          "status": "extracted",
+          "text": "Provide Standard X and XII results. Applicants taking the 2027 examinations can apply while awaiting final results, then upload actual results within three days of official release. CBSE candidates must include their admit card with that upload. Decisions require actual results.",
+          "sourceIds": [
+            "india-xii"
+          ]
+        },
+        {
+          "label": "Application form and English conditions",
+          "status": "extracted",
+          "text": "The qualification selects the India Standard XII application. Singapore citizens/PRs and international applicants use their corresponding forms. English-test evidence can be required when English was not the teaching medium or was studied as a second language.",
+          "sourceIds": [
+            "india-xii"
+          ]
+        },
+        {
+          "label": "Mathematics and programme-specific prerequisites",
+          "status": "extracted",
+          "text": "For programmes requiring senior-high mathematics, NTU states that Standard XII Business Mathematics and Applied Mathematics do not satisfy that prerequisite. The full subject requirements for each programme have not been extracted here.",
+          "sourceIds": [
+            "india-xii"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "india-xii",
+          "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "The page explicitly discusses applicants sitting Standard XII in 2027; programme-specific requirements still apply.",
+          "passage": "India Standard XII applicants provide school results, use the appropriate citizenship/PR form and follow the published actual-results upload rule."
+        }
+      ]
+    },
+    {
+      "id": "nus-admission-details",
+      "programIds": [
+        "nus-economics",
+        "nus-business-economics",
+        "nus-data-science-economics",
+        "nus-business-analytics-economics",
+        "nus-information-systems-economics"
+      ],
+      "coverage": "partial",
+      "summary": "General NUS requirements have been captured. Programme-specific subject prerequisites and all 2027 board-specific exceptions have not been fully extracted; check the programme link before applying.",
+      "requirements": [
+        {
+          "label": "Education and programme prerequisites",
+          "status": "extracted",
+          "text": "Complete, or expect to complete, high school with at least 12 years of general education by July in the application year. The selected programme's subject prerequisites also apply; this summary does not establish that they are met.",
+          "sourceIds": [
+            "general-admissions"
+          ]
+        },
+        {
+          "label": "CBSE and ISC — year-specific instructions",
+          "status": "needs-review",
+          "text": "The foreign-applicant board page distinguishes completed and pending results, but still contains 2026 examination instructions. Its old result-upload dates are not substituted for 2027. The published 2027 calendar remains visible separately.",
+          "sourceIds": [
+            "indian-boards"
+          ]
+        },
+        {
+          "label": "Other qualification details",
+          "status": "not-extracted",
+          "text": "Complete IB, Cambridge and state-board requirements, plus programme-specific subject rules, could not be extracted into this record. Use the official programme page and admissions sources.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "general-admissions",
+          "url": "https://nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/admission-requirements",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current general admissions page; individual programmes and applicant categories can add conditions.",
+          "passage": "The general page describes completion of 12 years of education by July and directs applicants to programme prerequisites."
+        },
+        {
+          "id": "indian-boards",
+          "url": "https://www.nus.edu.sg/oam/admissions/international-qualifications-for-foreigners/international-qualifications/indian-standard-12-cbse-and-isc",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Page explicitly retains 2026 instructions; detailed 2027 applicability remains in review.",
+          "passage": "CBSE/ISC are named, but the detailed examination year and some upload dates are 2026."
+        }
+      ]
+    },
+    {
+      "id": "rmit-admission-details",
+      "programIds": [
+        "sim-rmit-economics"
+      ],
+      "coverage": "partial",
+      "summary": "The programme page and its linked overseas-qualification PDF were checked. The India table was visually reviewed; qualifications have different published thresholds.",
+      "requirements": [
+        {
+          "label": "Indian qualifications",
+          "status": "extracted",
+          "text": "The linked India table lists AISSC (10+2) at 65% overall across graded academic subjects, ISC at 65%, and HSC at 70%. Do not apply one threshold to every board or assume every state qualification has been individually equated to HSC.",
+          "sourceIds": [
+            "overseas-qualifications"
+          ]
+        },
+        {
+          "label": "Entry and advanced standing",
+          "status": "extracted",
+          "text": "The programme distinguishes full entry from advanced entry based on approved diplomas. Other qualifications and equivalence claims are assessed case by case. A school-board choice does not by itself establish advanced standing.",
+          "sourceIds": [
+            "programme-page"
+          ]
+        },
+        {
+          "label": "Missing applicant-specific conditions",
+          "status": "not-extracted",
+          "text": "Complete pending-result and personal applicant-category conditions could not be extracted. The published January 2027 application deadline remains visible even though it had already passed at the check date.",
+          "sourceIds": []
+        },
+        {
+          "label": "English language alternatives",
+          "status": "extracted",
+          "text": "The page lists IELTS Academic 6.5 with no component below 6.0, TOEFL iBT 79 with specified section minima, and PTE Academic 58 with no communication score below 50, among alternatives. Test-based evidence is normally within two years before commencement. Education-based exemptions have additional conditions; verify the complete list on the programme page.",
+          "sourceIds": [
+            "programme-page"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "programme-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current SIM RMIT Bachelor of Business page; Economics is one of its majors.",
+          "passage": "The page distinguishes full and advanced entry, describes individual equivalence assessment and links overseas qualification information."
+        },
+        {
+          "id": "overseas-qualifications",
+          "url": "https://onesim-production.s3.ap-southeast-1.amazonaws.com/onesim/media/ge-rmit/business/international%20qualification/int-l-qualification_business-programme-updated-1jul-2026_updated.pdf",
+          "linkedFrom": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business",
+          "checkedAt": "2026-11-17",
+          "updatedAt": "2026-07-01",
+          "applicability": "Current programme page still links this document; the India row on page 2 was visually checked. The update date is retained separately from intake dates.",
+          "passage": "The India row distinguishes AISSC and ISC at 65% from HSC at 70%, measured over graded academic subjects."
+        }
+      ]
+    },
+    {
+      "id": "smu-admission-details",
+      "programIds": [
+        "smu-economics",
+        "smu-economics-data-science"
+      ],
+      "coverage": "partial",
+      "summary": "The current Indian qualification section names CBSE, ISC and other state boards. These are reference requirements; grades and eligibility are not evaluated by this dashboard.",
+      "requirements": [
+        {
+          "label": "Indian national and state boards",
+          "status": "extracted",
+          "text": "The India Standard XII category includes CBSE, ISC and other state board examinations. The published criteria call for at least 90% in five subjects including English; pending applicants provide predicted or recent results and are expected to receive their final results by end July.",
+          "sourceIds": [
+            "international-admissions"
+          ]
+        },
+        {
+          "label": "Standardised test and results submission",
+          "status": "extracted",
+          "text": "An accepted standardised test is required for this Indian Standard XII category. For 2027, required scores and applicable school-attested predicted scores are due 31 March. Actual final results follow within three working days of release. IB has a separate test exemption and must not inherit this requirement automatically.",
+          "sourceIds": [
+            "international-admissions"
+          ]
+        },
+        {
+          "label": "PR-specific and second-major conditions",
+          "status": "not-extracted",
+          "text": "All PR-specific conditions and any separate second-major requirements have not been fully extracted. Check the official page; no eligibility decision is implied.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "international-admissions",
+          "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Current AY2027/28 page, including the Indian Standard XII qualification section and application timeline.",
+          "passage": "SMU names CBSE, ISC and state boards, distinguishes completed/pending results and lists standardised-score and final-result submission rules."
+        }
+      ]
+    },
+    {
+      "id": "suss-admission-details",
+      "programIds": [
+        "suss-public-safety"
+      ],
+      "coverage": "partial",
+      "summary": "The general full-time undergraduate criteria page was read. Its linked qualification list was text-extracted, but direct download and visual verification of that PDF were blocked; its table remains in review.",
+      "requirements": [
+        {
+          "label": "International education and tests",
+          "status": "extracted",
+          "text": "International-qualification applicants need at least 12 years of completed formal education and an accepted test. Published examples include SAT 1260 with 630 each for Reading/Math, ACT 28 with Writing 8, IELTS Academic 6.5 and PTE Academic 58. Other alternatives and validity periods are listed on the page. Scores must be submitted by 31 March in the admission year.",
+          "sourceIds": [
+            "criteria-page"
+          ]
+        },
+        {
+          "label": "Indian Standard 12 qualification list",
+          "status": "needs-review",
+          "text": "The linked list's text mentions India Standard 12 and good passes in five subjects including English. Its predictive-score and test-requirement columns require visual review before they are used to construct an applicant match.",
+          "sourceIds": [
+            "qualification-list"
+          ]
+        },
+        {
+          "label": "Personal and programme-specific conditions",
+          "status": "not-extracted",
+          "text": "All PR, language and Public Safety and Security-specific conditions have not been fully extracted. The programme and criteria links remain available for checking them directly.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "criteria-page",
+          "url": "https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "General full-time criteria, including international qualifications; personal and programme conditions still apply.",
+          "passage": "The page lists formal-education and test requirements, validity periods and a 31 March results-submission rule."
+        },
+        {
+          "id": "qualification-list",
+          "url": "https://www.suss.edu.sg/docs/default-source/dept_s-r-a/list-of-international-qualifications.pdf?sfvrsn=6ac294c_4",
+          "linkedFrom": "https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria",
+          "checkedAt": "2026-11-17",
+          "updatedAt": "2026-11-11",
+          "applicability": "Official page links the list; text was accessible but direct download returned HTTP 403 and visual table verification is pending.",
+          "passage": "The extracted India Standard 12 row mentions five subjects including English. Its table-column applicability is not yet visually verified."
+        }
+      ]
+    },
+    {
+      "id": "uol-admission-details",
+      "programIds": [
+        "sim-uol-economics",
+        "sim-uol-economics-and-finance",
+        "sim-uol-economics-and-management",
+        "sim-uol-economics-and-politics"
+      ],
+      "coverage": "partial",
+      "summary": "Shared standard-entry and English guidance was cross-checked on all four SIM UOL economics programme pages. Full individual board equivalence and programme-specific subject conditions remain partial.",
+      "requirements": [
+        {
+          "label": "Standard-entry framework",
+          "status": "extracted",
+          "text": "The general framework requires age 17 by 30 November in the UOL registration year and an approved A-level/O-level combination or equivalent. The page also describes recognised diploma entry. These general rules do not establish an Indian board's equivalence or a programme's particular mathematics requirement.",
+          "sourceIds": [
+            "economics-page",
+            "finance-page",
+            "management-page",
+            "politics-page"
+          ]
+        },
+        {
+          "label": "Economics English and mathematics examples",
+          "status": "extracted",
+          "text": "All four checked programme pages list IELTS overall 6.0 with at least 5.5 in each component among English alternatives. Separate mathematics and qualification-equivalence conditions still need to be checked on the selected degree's page.",
+          "sourceIds": [
+            "economics-page",
+            "finance-page",
+            "management-page",
+            "politics-page"
+          ]
+        },
+        {
+          "label": "Indian board and programme-specific equivalence",
+          "status": "not-extracted",
+          "text": "Full CBSE, ISC, state-board and individual programme equivalence details could not be extracted into this record. SIM directs international applicants to its prospectus; use the selected programme page for the applicable documents and criteria.",
+          "sourceIds": []
+        },
+        {
+          "label": "Published mathematics alternatives",
+          "status": "extracted",
+          "text": "The four checked pages list mathematics requirements separately, including O-level Mathematics at C6 or better and an IB Mathematics/Mathematical Studies grade of at least 3 at the specified level, among alternatives. An Indian board's equivalence is not inferred from these examples.",
+          "sourceIds": [
+            "economics-page",
+            "finance-page",
+            "management-page",
+            "politics-page"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "General UOL standard-entry guidance; the English/mathematics examples here are specifically from Economics, not verified programme-specific rules for all four degrees.",
+          "passage": "SIM describes minimum age, qualification combinations, English and mathematics, and refers international-equivalence questions to its prospectus."
+        },
+        {
+          "id": "finance-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Standard-entry and English guidance cross-checked on the Economics and Finance page; individual equivalence remains partial.",
+          "passage": "The page lists the age and approved-qualification framework and IELTS overall 6.0 with minimum component scores of 5.5."
+        },
+        {
+          "id": "management-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Standard-entry and English guidance cross-checked on the Economics and Management page; programme-specific exceptions remain partial.",
+          "passage": "The page publishes the same general age/qualification framework and IELTS alternative with overall 6.0 and minimum components 5.5."
+        },
+        {
+          "id": "politics-page",
+          "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics#admission-criteria",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-17",
+          "updatedAt": null,
+          "applicability": "Standard-entry and English guidance cross-checked on the Economics and Politics page; programme-specific equivalence remains partial.",
+          "passage": "The page lists the shared general entry framework, IELTS alternative and separate mathematics requirements."
         }
       ]
     }

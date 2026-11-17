@@ -1,0 +1,25 @@
+id: ntu-admission-details
+programIds: [ntu-economics, ntu-economics-psychology, ntu-economics-data-science, ntu-mathematics-economics, ntu-computer-science-economics, ntu-computer-engineering-economics, ntu-aerospace-economics, ntu-bioengineering-economics, ntu-chemical-economics, ntu-civil-economics, ntu-electrical-economics, ntu-environmental-economics, ntu-information-media-economics, ntu-materials-economics, ntu-mechanical-economics]
+coverage: partial
+summary: Indian Standard XII application and document conditions have been captured. Minimum subject requirements vary by programme and must still be checked on the official programme page.
+requirements:
+  - label: India Standard XII documents
+    status: extracted
+    text: Provide Standard X and XII results. Applicants taking the 2027 examinations can apply while awaiting final results, then upload actual results within three days of official release. CBSE candidates must include their admit card with that upload. Decisions require actual results.
+    sourceIds: [india-xii]
+  - label: Application form and English conditions
+    status: extracted
+    text: The qualification selects the India Standard XII application. Singapore citizens/PRs and international applicants use their corresponding forms. English-test evidence can be required when English was not the teaching medium or was studied as a second language.
+    sourceIds: [india-xii]
+  - label: Mathematics and programme-specific prerequisites
+    status: extracted
+    text: For programmes requiring senior-high mathematics, NTU states that Standard XII Business Mathematics and Applied Mathematics do not satisfy that prerequisite. The full subject requirements for each programme have not been extracted here.
+    sourceIds: [india-xii]
+sources:
+  - id: india-xii
+    url: https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: The page explicitly discusses applicants sitting Standard XII in 2027; programme-specific requirements still apply.
+    passage: India Standard XII applicants provide school results, use the appropriate citizenship/PR form and follow the published actual-results upload rule.

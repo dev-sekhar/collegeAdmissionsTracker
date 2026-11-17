@@ -19,7 +19,7 @@ rules:
     results: [pending, available]
     status: needs-review
     sourceIds: [indian-board-page, current-calendar]
-    notes: Route not determined for 2027. NUS's board-specific instructions still contain 2026 rules, and the current calendar has a conflicting portal-status label. These sources require review before a personalised timeline is shown.
+    notes: Applicant-specific 2027 details require review. NUS's board-specific instructions still contain 2026 rules, and the current calendar has a conflicting portal-status label. Published calendar details remain available separately.
     instructions:
       pending: Await verification of 2027 board-specific instructions; do not carry forward the 2026 CBSE result-upload cutoff.
       available: Await verification of the 2027 board-specific applicant instructions.

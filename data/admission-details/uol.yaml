@@ -1,0 +1,50 @@
+id: uol-admission-details
+programIds: [sim-uol-economics, sim-uol-economics-and-finance, sim-uol-economics-and-management, sim-uol-economics-and-politics]
+coverage: partial
+summary: Shared standard-entry and English guidance was cross-checked on all four SIM UOL economics programme pages. Full individual board equivalence and programme-specific subject conditions remain partial.
+requirements:
+  - label: Standard-entry framework
+    status: extracted
+    text: The general framework requires age 17 by 30 November in the UOL registration year and an approved A-level/O-level combination or equivalent. The page also describes recognised diploma entry. These general rules do not establish an Indian board's equivalence or a programme's particular mathematics requirement.
+    sourceIds: [economics-page, finance-page, management-page, politics-page]
+  - label: Economics English and mathematics examples
+    status: extracted
+    text: All four checked programme pages list IELTS overall 6.0 with at least 5.5 in each component among English alternatives. Separate mathematics and qualification-equivalence conditions still need to be checked on the selected degree's page.
+    sourceIds: [economics-page, finance-page, management-page, politics-page]
+  - label: Indian board and programme-specific equivalence
+    status: not-extracted
+    text: Full CBSE, ISC, state-board and individual programme equivalence details could not be extracted into this record. SIM directs international applicants to its prospectus; use the selected programme page for the applicable documents and criteria.
+    sourceIds: []
+  - label: Published mathematics alternatives
+    status: extracted
+    text: The four checked pages list mathematics requirements separately, including O-level Mathematics at C6 or better and an IB Mathematics/Mathematical Studies grade of at least 3 at the specified level, among alternatives. An Indian board's equivalence is not inferred from these examples.
+    sourceIds: [economics-page, finance-page, management-page, politics-page]
+sources:
+  - id: economics-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: General UOL standard-entry guidance; the English/mathematics examples here are specifically from Economics, not verified programme-specific rules for all four degrees.
+    passage: SIM describes minimum age, qualification combinations, English and mathematics, and refers international-equivalence questions to its prospectus.
+  - id: finance-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Standard-entry and English guidance cross-checked on the Economics and Finance page; individual equivalence remains partial.
+    passage: The page lists the age and approved-qualification framework and IELTS overall 6.0 with minimum component scores of 5.5.
+  - id: management-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Standard-entry and English guidance cross-checked on the Economics and Management page; programme-specific exceptions remain partial.
+    passage: The page publishes the same general age/qualification framework and IELTS alternative with overall 6.0 and minimum components 5.5.
+  - id: politics-page
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics#admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: Standard-entry and English guidance cross-checked on the Economics and Politics page; programme-specific equivalence remains partial.
+    passage: The page lists the shared general entry framework, IELTS alternative and separate mathematics requirements.

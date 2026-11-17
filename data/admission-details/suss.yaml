@@ -1,0 +1,32 @@
+id: suss-admission-details
+programIds: [suss-public-safety]
+coverage: partial
+summary: The general full-time undergraduate criteria page was read. Its linked qualification list was text-extracted, but direct download and visual verification of that PDF were blocked; its table remains in review.
+requirements:
+  - label: International education and tests
+    status: extracted
+    text: International-qualification applicants need at least 12 years of completed formal education and an accepted test. Published examples include SAT 1260 with 630 each for Reading/Math, ACT 28 with Writing 8, IELTS Academic 6.5 and PTE Academic 58. Other alternatives and validity periods are listed on the page. Scores must be submitted by 31 March in the admission year.
+    sourceIds: [criteria-page]
+  - label: Indian Standard 12 qualification list
+    status: needs-review
+    text: The linked list's text mentions India Standard 12 and good passes in five subjects including English. Its predictive-score and test-requirement columns require visual review before they are used to construct an applicant match.
+    sourceIds: [qualification-list]
+  - label: Personal and programme-specific conditions
+    status: not-extracted
+    text: All PR, language and Public Safety and Security-specific conditions have not been fully extracted. The programme and criteria links remain available for checking them directly.
+    sourceIds: []
+sources:
+  - id: criteria-page
+    url: https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria
+    linkedFrom: null
+    checkedAt: '2026-11-17'
+    updatedAt: null
+    applicability: General full-time criteria, including international qualifications; personal and programme conditions still apply.
+    passage: The page lists formal-education and test requirements, validity periods and a 31 March results-submission rule.
+  - id: qualification-list
+    url: https://www.suss.edu.sg/docs/default-source/dept_s-r-a/list-of-international-qualifications.pdf?sfvrsn=6ac294c_4
+    linkedFrom: https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria
+    checkedAt: '2026-11-17'
+    updatedAt: '2026-11-11'
+    applicability: Official page links the list; text was accessible but direct download returned HTTP 403 and visual table verification is pending.
+    passage: The extracted India Standard 12 row mentions five subjects including English. Its table-column applicability is not yet visually verified.
