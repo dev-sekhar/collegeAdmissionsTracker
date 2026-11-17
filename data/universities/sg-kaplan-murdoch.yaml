@@ -1,0 +1,37 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-kaplan-murdoch
+qsRanking:
+  edition: 2027
+  rank: '422'
+  status: verified
+  institution: Murdoch University — awarding university
+  url: https://www.topuniversities.com/universities/murdoch-university
+  checkedAt: '2026-11-17'
+  notes: Overall rank of the awarding university, not a ranking of Kaplan or this Singapore-delivered programme.
+name: Kaplan / Murdoch University
+country: Singapore
+city: Singapore
+programs:
+  - id: kaplan-criminal-behaviour
+    name: Bachelor of Criminology in Criminal Behaviour
+    degree: Bachelor’s
+    subjects:
+      - Criminology
+    url: https://www.kaplan.com.sg/bachelors-degree/bachelor-of-criminology-in-criminal-behaviour-single-major
+    notes: Delivered at Kaplan Singapore; awarded by Murdoch University. Recurring
+      intake months are January, May and August, but specific 2027 intakes and
+      deadlines have not been verified. Current programme offering verified;
+      this does not confirm eligibility, availability of individual electives,
+      or a guaranteed 2027 place.
+  - id: kaplan-psychology-criminology
+    name: Bachelor of Psychology in Psychological Science and Criminology — double
+      major
+    degree: Bachelor’s
+    subjects:
+      - Criminology
+      - Psychology
+    url: https://www.kaplan.com.sg/bachelors-degree/bachelor-of-psychology-in-psychological-science-and-criminology
+    notes: Delivered at Kaplan Singapore; awarded by Murdoch University. Recurring
+      months do not establish specific 2027 dates. Current programme offering
+      verified; this does not confirm eligibility, availability of individual
+      electives, or a guaranteed 2027 place.

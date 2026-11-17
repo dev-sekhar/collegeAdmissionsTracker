@@ -1,0 +1,86 @@
+# Curated official-source research; missing dates are not inferred.
+programId: suss-public-safety
+dataType: real
+cycle: 2027
+intake:
+  month: 7
+  year: 2027
+sources:
+  - id: calendar
+    url: https://www.suss.edu.sg/admissions/application-process/how-to-apply/full-time-undergraduate-application-guide
+    passage: "July 2027 intake: apply 19 November 2026–19 March 2027; interviews 18
+      January–8 June; outcomes February–July; acceptance windows end 24 May and
+      16 June; matriculation 14 June–23 July; teaching begins 10 August."
+    checkedAt: 2026-11-17
+routes:
+  - id: full-time
+    label: "Full-time undergraduate: verify international eligibility"
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-11-19
+        wording: Applications open for the intake named July 2027.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-19
+        wording: Submit the application and required supporting documents according to
+          the application guide.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: verified
+        deadline:
+          kind: window
+          start: 2027-01-18
+          end: 2027-06-08
+        wording: Published selection period, not an individual interview appointment.
+        sourceIds:
+          - calendar
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: Outcome notifications are expected February–July. No fixed individual
+          date is published.
+        sourceIds:
+          - calendar
+      - type: acceptance
+        status: needs-review
+        deadline: null
+        wording: Window 1 ends 24 May 2027; window 2 ends 16 June 2027. The applicable
+          deadline depends on the offer. No single date is assigned.
+        sourceIds:
+          - calendar
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: verified
+        deadline:
+          kind: window
+          start: 2027-06-14
+          end: 2027-07-23
+        wording: Published matriculation window. Teaching starts 10 August 2027; the
+          institution calls this the July intake.
+        sourceIds:
+          - calendar

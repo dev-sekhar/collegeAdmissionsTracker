@@ -1,0 +1,25 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-sim-buffalo
+qsRanking:
+  edition: 2027
+  rank: '=416'
+  status: verified
+  institution: University at Buffalo SUNY — awarding university
+  url: https://www.topuniversities.com/universities/university-buffalo-suny
+  checkedAt: '2026-11-17'
+  notes: Tied overall rank of the awarding university, not a ranking of SIM or this Singapore-delivered programme.
+name: SIM / University at Buffalo, SUNY
+country: Singapore
+city: Singapore
+programs:
+  - id: sim-buffalo-economics
+    name: BA Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Psychology
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics
+    notes: Delivered at SIM, Singapore; awarded by University at Buffalo. Psychology
+      is an optional minor, not a required economics component. Current
+      programme offering verified; this does not confirm eligibility,
+      availability of individual electives, or a guaranteed 2027 place.

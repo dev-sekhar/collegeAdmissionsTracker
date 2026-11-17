@@ -1,0 +1,73 @@
+# Real Singapore undergraduate offerings. See docs/SINGAPORE-2027-DATA.md for verification limits.
+id: sg-nus
+qsRanking:
+  edition: 2027
+  rank: '10'
+  status: verified
+  institution: National University of Singapore
+  url: https://www.topuniversities.com/universities/national-university-singapore-nus
+  checkedAt: '2026-11-17'
+  notes: Overall university ranking, not an economics or criminology subject ranking.
+name: National University of Singapore
+country: Singapore
+city: Singapore
+programs:
+  - id: nus-economics
+    name: BSocSci (Honours) Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Behavioural Economics
+      - Criminology
+    url: https://fass.nus.edu.sg/ecs/undergraduate-overview/
+    notes: Economics primary. Behavioural Economics EC4394 is listed for AY2026/27.
+      The optional Criminal Justice minor is a separate declaration, subject to
+      course access; it is not a criminology degree. Current programme offering
+      verified; this does not confirm eligibility, availability of individual
+      electives, or a guaranteed 2027 place.
+  - id: nus-business-economics
+    name: BBA — Business Economics major
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Business
+      - Behavioural Economics
+    url: https://bba.nus.edu.sg/curriculum-ay2026-2027-onwards/
+    notes: Business-focused economics; the published curriculum includes behavioural
+      economics. Current programme offering verified; this does not confirm
+      eligibility, availability of individual electives, or a guaranteed 2027
+      place.
+  - id: nus-data-science-economics
+    name: BSc (Honours) Data Science and Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Technology
+    url: https://chs.nus.edu.sg/programmes/dse/
+    notes: Integrated four-year cross-disciplinary programme. Current programme
+      offering verified; this does not confirm eligibility, availability of
+      individual electives, or a guaranteed 2027 place.
+  - id: nus-business-analytics-economics
+    name: Business Analytics and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Business Analytics
+      - Technology
+    url: https://www.comp.nus.edu.sg/programmes/sp/ddp/
+    notes: Structured double degree; economics is a full discipline alongside
+      computing. Current programme offering verified; this does not confirm
+      eligibility, availability of individual electives, or a guaranteed 2027
+      place.
+  - id: nus-information-systems-economics
+    name: Information Systems and Economics — double degree
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Information Systems
+      - Technology
+    url: https://www.comp.nus.edu.sg/programmes/sp/ddp/
+    notes: Structured double degree. Current programme offering verified; this does
+      not confirm eligibility, availability of individual electives, or a
+      guaranteed 2027 place.

@@ -1,0 +1,223 @@
+# Curated official-source research; missing dates are not inferred.
+programId: ntu-computer-science-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 8
+  year: 2027
+sources:
+  - id: calendar
+    url: https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements
+    passage: "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027.
+      Several other listed qualifications close 20 January 2027. Select the
+      exact school qualification; nationality alone does not select the route."
+    checkedAt: 2026-11-17
+  - id: stages
+    url: https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates
+    passage: IB supporting documents are due 22 March 2027; offer acceptance follows
+      the letter. India Standard 12 outcomes are estimated for end July 2027.
+      Interview and decision estimates are not guaranteed dates.
+    checkedAt: 2026-11-17
+  - id: india-rules
+    url: https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12
+    passage: Applicants taking Standard 12 in 2027 must update actual results and
+      upload the result slip within 3 days of official release. Decisions use
+      actual results; no provisional offer based on preliminary results.
+    checkedAt: 2026-11-17
+routes:
+  - id: india-standard-12
+    label: India Standard 12 (select by qualification)
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-15
+        wording: Applications open for this qualification.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-19
+        wording: Submit the India Standard 12 application by this date.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: verified
+        deadline:
+          kind: relative
+          rule: Within 3 days of official Standard 12 result release
+        wording: Final results only; other application documents follow the
+          qualification checklist.
+        sourceIds:
+          - india-rules
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: "Estimated outcome: end July 2027. This is an approximate release
+          period, not a guaranteed deadline."
+        sourceIds:
+          - stages
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+  - id: ib
+    label: IB Diploma
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-15
+        wording: IB application opening.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-19
+        wording: IB application closing; fee also due this day.
+        sourceIds:
+          - calendar
+          - stages
+      - type: documents
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-22
+        wording: Supporting documents deadline. May IB actual results must additionally
+          be supplied within 3 days of release; authorise IBO to send results.
+        sourceIds:
+          - calendar
+          - stages
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: verified
+        deadline:
+          kind: relative
+          rule: By the date specified in the individual offer letter
+        wording: Use the date in your own admission offer.
+        sourceIds:
+          - stages
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+  - id: selected-other-qualifications
+    label: "Selected qualifications closing January: check official list"
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-15
+        wording: Opening for this qualification group.
+        sourceIds:
+          - calendar
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-01-20
+        wording: Only for the listed January-closing qualifications, including
+          Australian, Canadian, Indonesian, Malaysian UEC and other listed
+          categories. Not a universal international deadline.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []

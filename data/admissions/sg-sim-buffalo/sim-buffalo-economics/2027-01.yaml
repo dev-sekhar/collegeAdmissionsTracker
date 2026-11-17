@@ -1,0 +1,135 @@
+# Curated official-source research; missing dates are not inferred.
+programId: sim-buffalo-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 1
+  year: 2027
+sources:
+  - id: calendar
+    url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics
+    passage: "The 2027 intake starts 2027-01-18. International application closing:
+      2026-11-30; local closing: 2026-12-07. May applications open 15 December
+      2026. The other opening dates are not specified."
+    checkedAt: 2026-11-17
+routes:
+  - id: international
+    label: International applicants
+    stages:
+      - type: opening
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-11-30
+        wording: Published closing date for this intake and applicant category.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: Teaching starts 2027-01-18; this is not an enrolment deadline. A
+          separate enrolment cutoff has not been verified.
+        sourceIds:
+          - calendar
+  - id: local
+    label: Local applicants (use SIM’s category definition)
+    stages:
+      - type: opening
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-12-07
+        wording: Published closing date for this intake and applicant category.
+        sourceIds:
+          - calendar
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: decision
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Follow the
+          institution’s applicant instructions; no date is assumed.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: Teaching starts 2027-01-18; this is not an enrolment deadline. A
+          separate enrolment cutoff has not been verified.
+        sourceIds:
+          - calendar

@@ -8,7 +8,7 @@ Start with data/universities/harbour.yaml. Each university has a unique lowercas
 
 ## Annual admissions
 
-Start with data/admissions/harbour/harbour-cs/2027.yaml. programId must match an existing program. cycle is the admissions cycle, while intake records the actual start month and year; for example, a 2027 application cycle can lead to a February 2028 intake. Each program/cycle combination must be unique. Every program needs at least one cycle.
+Start with data/admissions/harbour/harbour-cs/2027.yaml. programId must match an existing program. cycle is the admissions cycle, while intake records the actual start month and year; for example, a 2027 application cycle can lead to a February 2028 intake. Each program/cycle/intake combination must be unique. Every program needs at least one cycle.
 
 Each annual file contains explicitly named applicant routes. The user selects a route; the app does not infer one from citizenship or residence. Routes contain all eight stages: opening, application, documents, tests, interview, acceptance, deposit and enrolment. Keep unavailable stages present so their absence is explained.
 
@@ -26,11 +26,12 @@ Use ISO YYYY-MM-DD dates. Invalid calendar dates and reversed windows fail valid
 | Status | Current behavior |
 | --- | --- |
 | dummy | Requires a date/rule and at least one dummy source reference; displays Illustrative date |
+| not-verified | Must have no deadline; the date has not been established |
 | not-researched | Must have no deadline; nothing has been researched |
-| not-yet-published | Must have no deadline; the dummy notice describes an unpublished date |
+| not-yet-published | Must have no deadline; a source establishes an unpublished date |
 | source-unavailable | Must have no deadline; the fictional source is unavailable |
 | needs-review | An unresolved statement; a deadline may remain null |
-| verified | Recognized as a status name, but rejected in this dummy-only catalogue |
+| verified | Requires a real-data file, a deadline/rule and checked official evidence |
 
 Every stage has wording that preserves conditions or explains a missing date. sourceIds refer to sources in the same annual file. Sources contain an ID, reserved example-domain HTTPS URL, an illustrative passage and checkedAt: null. These URLs are displayed as text, not presented as real official evidence. No dummy record may claim a real check date or verified status.
 
@@ -45,3 +46,13 @@ Every stage has wording that preserves conditions or explains a missing date. so
 The parser rejects duplicate YAML keys, aliases and files over 200 KB. The validator checks IDs, references, unsupported fields, stage completeness, status/date consistency and date validity. It checks structure; it does not establish the truth of admissions information.
 
 The GitHub workflow checks that generated JSON matches YAML before rebuilding. npm run build produces only the assets needed by the static dashboard. No source YAML or old live-collection reports are required to view it.
+
+## Real Singapore records
+
+See SINGAPORE-2027-DATA.md for coverage, source limitations and manual checks. Real annual files declare `dataType: real`. Omitted dataType retains the existing dummy-only validation rules. The generated catalogue mode is real, dummy or mixed. Real records cannot contain illustrative stages; dummy records cannot claim verified dates.
+
+Real source URLs must be HTTPS on an approved institution domain (NUS, NTU, SMU, SUSS, SIM, Kaplan or Buffalo), with a valid checkedAt date and a paraphrased evidence summary. The validator enforces structure and evidence presence, not the truth of a claim. Add new official hosts only after source review. Programme records can include an official url and plain-language notes explaining degree structure and optional subjects.
+
+University records can contain qsRanking with edition, rank (a string preserving ties or bands), status (verified or not-verified), institution, url, checkedAt and notes. Use the official www.topuniversities.com HTTPS source. Unverified ranks must be null. State the awarding university for overseas awards delivered through SIM or Kaplan. Do not copy a regional, subject, member-institution or teaching provider ranking into an overall world rank.
+
+For unverified intake months, use month: null, not an invented August date. The page labels this explicitly; exact-month filters exclude unknown months. Different confirmed intakes in one year require separate files, such as 2027-08.yaml and 2027-09.yaml. The original eight stages are required; decision and appeal are optional additional stages. Dates with conditional wording should be read with that wording, which is displayed alongside real stages. Timed cutoffs remain in wording and are not timezone-converted.
