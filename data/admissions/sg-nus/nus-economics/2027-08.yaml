@@ -13,7 +13,7 @@ sources:
       label inconsistent with the check date. Listed final-result categories
       must upload within 3 days of release. Acceptance follows the offer
       letter."
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
   - id: criminal-justice
     url: https://fass.nus.edu.sg/socanth/minor-in-criminal-justice/
     passage: The Criminal Justice minor is available from semester 2 AY2026/27. It
@@ -153,3 +153,11 @@ routes:
         wording: A 2027 deadline for this stage has not been verified. Follow the
           institution’s applicant instructions; no date is assumed.
         sourceIds: []
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

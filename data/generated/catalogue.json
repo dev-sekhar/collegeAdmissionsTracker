@@ -1871,7 +1871,7 @@
           "id": "programme",
           "url": "https://www.kaplan.com.sg/bachelors-degree/bachelor-of-criminology-in-criminal-behaviour-single-major",
           "passage": "The programme page describes full-time study for local/international applicants and recurring January, May and August starts. It does not establish a specific 2027 application closing date.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -1944,7 +1944,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "programme"
+        ],
+        "notes": "Official programme page lists recurring intake months but no scoped 2027 admission closing dates. Dates remain unverified. Unit delivery and teaching calendars are not admission deadlines."
+      }
     },
     {
       "programId": "kaplan-psychology-criminology",
@@ -1959,7 +1966,7 @@
           "id": "programme",
           "url": "https://www.kaplan.com.sg/bachelors-degree/bachelor-of-psychology-in-psychological-science-and-criminology",
           "passage": "The programme page describes full-time study for local/international applicants and recurring January, May and August starts. It does not establish a specific 2027 application closing date.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -2032,7 +2039,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "programme"
+        ],
+        "notes": "Official programme page lists recurring intake months but no scoped 2027 admission closing dates. Dates remain unverified. Unit delivery and teaching calendars are not admission deadlines."
+      }
     },
     {
       "programId": "linden-cs",
@@ -2407,19 +2421,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -2679,7 +2693,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-bioengineering-economics",
@@ -2694,19 +2717,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -2966,7 +2989,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-chemical-economics",
@@ -2981,19 +3013,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -3253,7 +3285,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-civil-economics",
@@ -3268,19 +3309,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -3540,7 +3581,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-computer-engineering-economics",
@@ -3555,19 +3605,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -3827,7 +3877,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-computer-science-economics",
@@ -3842,19 +3901,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -4114,7 +4173,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-economics-data-science",
@@ -4129,19 +4197,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -4401,7 +4469,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-economics-psychology",
@@ -4416,19 +4493,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -4688,7 +4765,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-economics",
@@ -4703,19 +4789,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -4975,7 +5061,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-electrical-economics",
@@ -4990,19 +5085,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -5262,7 +5357,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-environmental-economics",
@@ -5277,19 +5381,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -5549,7 +5653,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-information-media-economics",
@@ -5564,19 +5677,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -5836,7 +5949,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-materials-economics",
@@ -5851,19 +5973,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -6123,7 +6245,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-mathematics-economics",
@@ -6138,19 +6269,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -6410,7 +6541,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "ntu-mechanical-economics",
@@ -6425,19 +6565,19 @@
           "id": "calendar",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements",
           "passage": "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027. Several other listed qualifications close 20 January 2027. Select the exact school qualification; nationality alone does not select the route.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "stages",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates",
           "passage": "IB supporting documents are due 22 March 2027; offer acceptance follows the letter. India Standard 12 outcomes are estimated for end July 2027. Interview and decision estimates are not guaranteed dates.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "india-rules",
           "url": "https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12",
           "passage": "Applicants taking Standard 12 in 2027 must update actual results and upload the result slip within 3 days of official release. Decisions use actual results; no provisional offer based on preliminary results.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -6697,7 +6837,16 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "india-rules",
+          "stages"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "nus-business-analytics-economics",
@@ -6712,7 +6861,7 @@
           "id": "calendar",
           "url": "https://nus.edu.sg/oam/admissions/important-dates",
           "passage": "AY2027/28: international qualifications and IB applications run from 16 December 2026 to 17 February 2027. The page also displays a Closed label inconsistent with the check date. Listed final-result categories must upload within 3 days of release. Acceptance follows the offer letter.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "criminal-justice",
@@ -6894,7 +7043,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "nus-business-economics",
@@ -6909,7 +7065,7 @@
           "id": "calendar",
           "url": "https://nus.edu.sg/oam/admissions/important-dates",
           "passage": "AY2027/28: international qualifications and IB applications run from 16 December 2026 to 17 February 2027. The page also displays a Closed label inconsistent with the check date. Listed final-result categories must upload within 3 days of release. Acceptance follows the offer letter.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "criminal-justice",
@@ -7091,7 +7247,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "nus-data-science-economics",
@@ -7106,7 +7269,7 @@
           "id": "calendar",
           "url": "https://nus.edu.sg/oam/admissions/important-dates",
           "passage": "AY2027/28: international qualifications and IB applications run from 16 December 2026 to 17 February 2027. The page also displays a Closed label inconsistent with the check date. Listed final-result categories must upload within 3 days of release. Acceptance follows the offer letter.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "criminal-justice",
@@ -7288,7 +7451,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "nus-economics",
@@ -7303,7 +7473,7 @@
           "id": "calendar",
           "url": "https://nus.edu.sg/oam/admissions/important-dates",
           "passage": "AY2027/28: international qualifications and IB applications run from 16 December 2026 to 17 February 2027. The page also displays a Closed label inconsistent with the check date. Listed final-result categories must upload within 3 days of release. Acceptance follows the offer letter.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "criminal-justice",
@@ -7485,7 +7655,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "nus-information-systems-economics",
@@ -7500,7 +7677,7 @@
           "id": "calendar",
           "url": "https://nus.edu.sg/oam/admissions/important-dates",
           "passage": "AY2027/28: international qualifications and IB applications run from 16 December 2026 to 17 February 2027. The page also displays a Closed label inconsistent with the check date. Listed final-result categories must upload within 3 days of release. Acceptance follows the offer letter.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         },
         {
           "id": "criminal-justice",
@@ -7682,7 +7859,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-buffalo-economics",
@@ -7697,7 +7881,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics",
           "passage": "The 2027 intake starts 2027-01-18. International application closing: 2026-11-30; local closing: 2026-12-07. May applications open 15 December 2026. The other opening dates are not specified.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -7853,7 +8037,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-buffalo-economics",
@@ -7868,7 +8059,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics",
           "passage": "The 2027 intake starts 2027-05-24. International application closing: 2027-03-29; local closing: 2027-04-12. May applications open 15 December 2026. The other opening dates are not specified.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8034,7 +8225,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-buffalo-economics",
@@ -8049,7 +8247,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-arts-economics",
           "passage": "The 2027 intake starts 2027-08-23. International application closing: 2027-06-28; local closing: 2027-07-12. May applications open 15 December 2026. The other opening dates are not specified.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8205,7 +8403,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-rmit-economics",
@@ -8220,7 +8425,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business",
           "passage": "The full-time January 2027 programme lists a 4 July–23 October 2026 application period for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8303,7 +8508,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-finance",
@@ -8318,7 +8530,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8396,7 +8608,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-finance",
@@ -8411,7 +8630,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-finance",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8489,7 +8708,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-management",
@@ -8504,7 +8730,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8582,7 +8808,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-management",
@@ -8597,7 +8830,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-management",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8675,7 +8908,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-politics",
@@ -8690,7 +8930,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8768,7 +9008,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics-and-politics",
@@ -8783,7 +9030,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics-and-politics",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8861,7 +9108,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics",
@@ -8876,7 +9130,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -8954,7 +9208,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "sim-uol-economics",
@@ -8969,7 +9230,7 @@
           "id": "calendar",
           "url": "https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-science-honours-economics",
           "passage": "The SIM programme page lists both August and September 2027 starts, with applications closing 1 February 2027 for local and international applicants.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
         }
       ],
       "routes": [
@@ -9047,7 +9308,14 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "smu-economics-data-science",
@@ -9062,7 +9330,13 @@
           "id": "calendar",
           "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
           "passage": "AY2027/28 applications: 16 November 2026–19 March 2027, 11:59 pm Singapore time. Standardised scores and applicable school-attested predicted results: 31 March. Actual results: within 3 working days of release. Shortlisted interviews March–May; outcomes May–July; second-window acceptance 16 June.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
+        },
+        {
+          "id": "acceptance-windows",
+          "url": "https://admissions.smu.edu.sg/admissions-requirements/accept-offer",
+          "checkedAt": "2026-11-18",
+          "passage": "International qualifications use the SMU Applicant Self-Service Portal. Published joint acceptance windows close 24 May 2027 for offers made before 24 May and 16 June 2027 for offers made 25 May–16 June. Applicants offered in the first window cannot defer their choice to the second window."
         }
       ],
       "routes": [
@@ -9140,12 +9414,12 @@
               "type": "acceptance",
               "status": "verified",
               "deadline": {
-                "kind": "date",
-                "date": "2027-06-16"
+                "kind": "relative",
+                "rule": "Use your offer deadline; published windows end 24 May or 16 June 2027 when applicable"
               },
-              "wording": "ONLY for offers in the second acceptance window. Earlier offers follow their own stated deadline; this date is not universal.",
+              "wording": "International qualifications accept through SMU Applicant Self-Service. The published joint windows are conditional on the offer date: first-window offers must be accepted by 24 May; second-window offers by 16 June. Confirm the deadline in your own offer; 16 June is not universal.",
               "sourceIds": [
-                "calendar"
+                "acceptance-windows"
               ]
             },
             {
@@ -9164,7 +9438,15 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "acceptance-windows"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "smu-economics",
@@ -9179,7 +9461,13 @@
           "id": "calendar",
           "url": "https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications",
           "passage": "AY2027/28 applications: 16 November 2026–19 March 2027, 11:59 pm Singapore time. Standardised scores and applicable school-attested predicted results: 31 March. Actual results: within 3 working days of release. Shortlisted interviews March–May; outcomes May–July; second-window acceptance 16 June.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
+        },
+        {
+          "id": "acceptance-windows",
+          "url": "https://admissions.smu.edu.sg/admissions-requirements/accept-offer",
+          "checkedAt": "2026-11-18",
+          "passage": "International qualifications use the SMU Applicant Self-Service Portal. Published joint acceptance windows close 24 May 2027 for offers made before 24 May and 16 June 2027 for offers made 25 May–16 June. Applicants offered in the first window cannot defer their choice to the second window."
         }
       ],
       "routes": [
@@ -9257,12 +9545,12 @@
               "type": "acceptance",
               "status": "verified",
               "deadline": {
-                "kind": "date",
-                "date": "2027-06-16"
+                "kind": "relative",
+                "rule": "Use your offer deadline; published windows end 24 May or 16 June 2027 when applicable"
               },
-              "wording": "ONLY for offers in the second acceptance window. Earlier offers follow their own stated deadline; this date is not universal.",
+              "wording": "International qualifications accept through SMU Applicant Self-Service. The published joint windows are conditional on the offer date: first-window offers must be accepted by 24 May; second-window offers by 16 June. Confirm the deadline in your own offer; 16 June is not universal.",
               "sourceIds": [
-                "calendar"
+                "acceptance-windows"
               ]
             },
             {
@@ -9281,7 +9569,15 @@
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "acceptance-windows"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "south-coast-cs",
@@ -9415,7 +9711,13 @@
           "id": "calendar",
           "url": "https://www.suss.edu.sg/admissions/application-process/how-to-apply/full-time-undergraduate-application-guide",
           "passage": "July 2027 intake: apply 19 November 2026–19 March 2027; interviews 18 January–8 June; outcomes February–July; acceptance windows end 24 May and 16 June; matriculation 14 June–23 July; teaching begins 10 August.",
-          "checkedAt": "2026-11-17"
+          "checkedAt": "2026-11-18"
+        },
+        {
+          "id": "test-submission",
+          "url": "https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria",
+          "checkedAt": "2026-11-18",
+          "passage": "The full-time undergraduate criteria require applicable standardised and English test results to reach SUSS by 31 March of the admission year. Apply the rule to the explicitly published July 2027 intake; it is not a test requirement for every applicant."
         }
       ],
       "routes": [
@@ -9449,17 +9751,28 @@
             },
             {
               "type": "documents",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "A 2027 deadline for this stage has not been verified. Follow the institution’s applicant instructions; no date is assumed.",
-              "sourceIds": []
+              "status": "verified",
+              "deadline": {
+                "kind": "relative",
+                "rule": "Supporting documents must accompany the application"
+              },
+              "wording": "Submit supporting document copies with the application, which closes 19 March 2027. This does not replace separately requested documents.",
+              "sourceIds": [
+                "calendar"
+              ]
             },
             {
               "type": "tests",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "A 2027 deadline for this stage has not been verified. Follow the institution’s applicant instructions; no date is assumed.",
-              "sourceIds": []
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-03-31"
+              },
+              "wording": "Where required, submit standardised and English test results by 31 March of the admission year (2027 for this intake). Test requirements depend on qualification and language background.",
+              "sourceIds": [
+                "test-submission",
+                "calendar"
+              ]
             },
             {
               "type": "interview",
@@ -9485,9 +9798,12 @@
             },
             {
               "type": "acceptance",
-              "status": "needs-review",
-              "deadline": null,
-              "wording": "Window 1 ends 24 May 2027; window 2 ends 16 June 2027. The applicable deadline depends on the offer. No single date is assigned.",
+              "status": "verified",
+              "deadline": {
+                "kind": "relative",
+                "rule": "Offer-dependent: first window ends 24 May; second window ends 16 June 2027"
+              },
+              "wording": "The calendar assigns the first window to offers before 24 May, and the second to offers made 1–16 June. For any offer outside these stated groups, follow the individual offer instructions rather than assuming a window.",
               "sourceIds": [
                 "calendar"
               ]
@@ -9511,10 +9827,31 @@
               "sourceIds": [
                 "calendar"
               ]
+            },
+            {
+              "type": "appeal",
+              "status": "verified",
+              "deadline": {
+                "kind": "window",
+                "start": "2027-04-01",
+                "end": "2027-05-28"
+              },
+              "wording": "Published appeal period; applicants must already have a known admission outcome.",
+              "sourceIds": [
+                "calendar"
+              ]
             }
           ]
         }
-      ]
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-18",
+        "sourceIds": [
+          "calendar",
+          "test-submission"
+        ],
+        "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
+      }
     },
     {
       "programId": "westbridge-cs",

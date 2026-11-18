@@ -11,7 +11,14 @@ sources:
     passage: "July 2027 intake: apply 19 November 2026–19 March 2027; interviews 18
       January–8 June; outcomes February–July; acceptance windows end 24 May and
       16 June; matriculation 14 June–23 July; teaching begins 10 August."
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
+  - id: test-submission
+    url: https://www.suss.edu.sg/admissions/application-process/eligibility/full-time-undergraduate-admission-criteria
+    checkedAt: 2026-11-18
+    passage: The full-time undergraduate criteria require applicable standardised
+      and English test results to reach SUSS by 31 March of the admission year.
+      Apply the rule to the explicitly published July 2027 intake; it is not a
+      test requirement for every applicant.
 routes:
   - id: full-time
     label: "Full-time undergraduate: verify international eligibility"
@@ -34,17 +41,25 @@ routes:
         sourceIds:
           - calendar
       - type: documents
-        status: not-verified
-        deadline: null
-        wording: A 2027 deadline for this stage has not been verified. Follow the
-          institution’s applicant instructions; no date is assumed.
-        sourceIds: []
+        status: verified
+        deadline:
+          kind: relative
+          rule: Supporting documents must accompany the application
+        wording: Submit supporting document copies with the application, which closes 19
+          March 2027. This does not replace separately requested documents.
+        sourceIds:
+          - calendar
       - type: tests
-        status: not-verified
-        deadline: null
-        wording: A 2027 deadline for this stage has not been verified. Follow the
-          institution’s applicant instructions; no date is assumed.
-        sourceIds: []
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-31
+        wording: Where required, submit standardised and English test results by 31
+          March of the admission year (2027 for this intake). Test requirements
+          depend on qualification and language background.
+        sourceIds:
+          - test-submission
+          - calendar
       - type: interview
         status: verified
         deadline:
@@ -62,10 +77,15 @@ routes:
         sourceIds:
           - calendar
       - type: acceptance
-        status: needs-review
-        deadline: null
-        wording: Window 1 ends 24 May 2027; window 2 ends 16 June 2027. The applicable
-          deadline depends on the offer. No single date is assigned.
+        status: verified
+        deadline:
+          kind: relative
+          rule: "Offer-dependent: first window ends 24 May; second window ends 16 June
+            2027"
+        wording: The calendar assigns the first window to offers before 24 May, and the
+          second to offers made 1–16 June. For any offer outside these stated
+          groups, follow the individual offer instructions rather than assuming
+          a window.
         sourceIds:
           - calendar
       - type: deposit
@@ -84,3 +104,22 @@ routes:
           institution calls this the July intake.
         sourceIds:
           - calendar
+      - type: appeal
+        status: verified
+        deadline:
+          kind: window
+          start: 2027-04-01
+          end: 2027-05-28
+        wording: Published appeal period; applicants must already have a known admission
+          outcome.
+        sourceIds:
+          - calendar
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+    - test-submission
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

@@ -1,5 +1,15 @@
 # Running feature record
 
+## Singapore date review and authenticated YAML writer
+
+Draft PR #37 reviews all 31 real Singapore programmes across 37 intake records against official sources on 18 November 2026. Each admission YAML records its review date and evidence references. Unknown deadlines stay unverified; NUS's conflicting status remains in review and Kaplan has no invented 2027 cutoff. SMU acceptance now shows an offer-dependent rule rather than one universal June date (issue #38). SUSS supporting-document, applicable test-score and appeal deadlines are added. Existing requirements, applicant policies, QS rankings and programme details are retained.
+
+Everyone reads without an account. A privately configured local writer can sign in and edit an existing programme/intake/category/stage. Saving validates and updates the YAML directly, regenerates JSON and refreshes the dashboard. Manual changes are visibly unverified and retain a local audit of the previous value. Stale edits are blocked. Passwords are stored only as salted hashes in an ignored folder; no default credentials are supplied. This local server capability is not a production authentication deployment.
+
+The preview remains http://127.0.0.1:4180/. New writer controls reuse shared form components. See SINGAPORE-2027-DATE-AUDIT.md for results and WRITER-ACCESS.md for private setup and manual checks. Browser checks remain with the user; no merge until review. Skill assessment: reuse the existing admissions-extraction guidance for date verification, and keep writer setup in project documentation; confirmation requested at review rather than creating another skill.
+
+Validation: the static build, JavaScript syntax and whitespace checks pass, as do all 56 automated tests. Writer integration tests use temporary data and credentials, checking reader restrictions, origin/token checks, exact YAML persistence, preservation of adjacent data, JSON refresh, audit history, stale forms, expiry, sign-out, password rotation and login throttling. HTTP checks confirm the fixed preview serves all 37 reviewed real intake records; source YAML and private credentials return 404. No preview writer credentials have been created; private setup remains with the user.
+
 ## Step 1 — Admissions dashboard shell
 
 Status: reviewed by the user and merged into dev.

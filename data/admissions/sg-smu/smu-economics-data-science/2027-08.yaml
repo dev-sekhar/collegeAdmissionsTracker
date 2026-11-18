@@ -13,7 +13,15 @@ sources:
       predicted results: 31 March. Actual results: within 3 working days of
       release. Shortlisted interviews March–May; outcomes May–July;
       second-window acceptance 16 June."
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
+  - id: acceptance-windows
+    url: https://admissions.smu.edu.sg/admissions-requirements/accept-offer
+    checkedAt: 2026-11-18
+    passage: International qualifications use the SMU Applicant Self-Service Portal.
+      Published joint acceptance windows close 24 May 2027 for offers made
+      before 24 May and 16 June 2027 for offers made 25 May–16 June. Applicants
+      offered in the first window cannot defer their choice to the second
+      window.
 routes:
   - id: international-other
     label: International / other qualifications (IB exemptions differ)
@@ -71,12 +79,16 @@ routes:
       - type: acceptance
         status: verified
         deadline:
-          kind: date
-          date: 2027-06-16
-        wording: ONLY for offers in the second acceptance window. Earlier offers follow
-          their own stated deadline; this date is not universal.
+          kind: relative
+          rule: Use your offer deadline; published windows end 24 May or 16 June 2027 when
+            applicable
+        wording: "International qualifications accept through SMU Applicant
+          Self-Service. The published joint windows are conditional on the offer
+          date: first-window offers must be accepted by 24 May; second-window
+          offers by 16 June. Confirm the deadline in your own offer; 16 June is
+          not universal."
         sourceIds:
-          - calendar
+          - acceptance-windows
       - type: deposit
         status: not-verified
         deadline: null
@@ -89,3 +101,12 @@ routes:
         wording: A 2027 deadline for this stage has not been verified. Follow the
           institution’s applicant instructions; no date is assumed.
         sourceIds: []
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+    - acceptance-windows
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

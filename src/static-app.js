@@ -1,6 +1,7 @@
 import {catalogueRows,filterRows,intakeKey,intakeLabel,countryName} from './catalogue-model.js';
 import {el,multiField,selectField,metric,programCard,timelinePanel,applicantContextPanel} from './static-components.js';
 import {emptyApplicant} from './applicant-routes.js';
+import {mountWriter} from './writer-ui.js';
 const countriesOrder=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];
 let rows=[];let countries=[];let subjects=[];let selectedKey='';
 let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
@@ -41,4 +42,5 @@ try{
   rows=catalogueRows(catalogue).sort((a,b)=>countriesOrder.indexOf(a.country)-countriesOrder.indexOf(b.country)||a.programName.localeCompare(b.programName));
   countries=[...new Set(rows.map(row=>row.country))];subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
   renderApplicant();renderFilters();renderResults();document.querySelector('#loading').hidden=true;
+  mountWriter(catalogue,updated=>{rows=catalogueRows(updated).sort((a,b)=>countriesOrder.indexOf(a.country)-countriesOrder.indexOf(b.country)||a.programName.localeCompare(b.programName));renderResults();});
 }catch(error){live=false;document.querySelector('#loading').textContent='The catalogue could not be loaded. Run npm run build, restart the preview and reload.';document.querySelector('#loading').setAttribute('role','alert');document.querySelector('#reset-filters').disabled=true;}

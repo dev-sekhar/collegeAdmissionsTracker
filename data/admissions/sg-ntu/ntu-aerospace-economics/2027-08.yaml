@@ -11,19 +11,19 @@ sources:
     passage: "AY2027: India Standard 12 and IB apply 15 October 2026–19 March 2027.
       Several other listed qualifications close 20 January 2027. Select the
       exact school qualification; nationality alone does not select the route."
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
   - id: stages
     url: https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates
     passage: IB supporting documents are due 22 March 2027; offer acceptance follows
       the letter. India Standard 12 outcomes are estimated for end July 2027.
       Interview and decision estimates are not guaranteed dates.
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
   - id: india-rules
     url: https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements/international-qualifications/india-standard-12
     passage: Applicants taking Standard 12 in 2027 must update actual results and
       upload the result slip within 3 days of official release. Decisions use
       actual results; no provisional offer based on preliminary results.
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
 routes:
   - id: india-standard-12
     label: India Standard 12 (select by qualification)
@@ -221,3 +221,13 @@ routes:
         wording: A 2027 deadline for this stage has not been verified. Follow the
           institution’s applicant instructions; no date is assumed.
         sourceIds: []
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+    - india-rules
+    - stages
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

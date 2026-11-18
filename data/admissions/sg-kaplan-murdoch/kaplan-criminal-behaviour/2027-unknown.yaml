@@ -11,7 +11,7 @@ sources:
     passage: The programme page describes full-time study for local/international
       applicants and recurring January, May and August starts. It does not
       establish a specific 2027 application closing date.
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
 routes:
   - id: full-time
     label: "Full-time: local / international applicants"
@@ -70,3 +70,10 @@ routes:
         wording: A 2027 deadline for this stage has not been verified. Follow the
           institution’s applicant instructions; no date is assumed.
         sourceIds: []
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - programme
+  notes: Official programme page lists recurring intake months but no scoped 2027
+    admission closing dates. Dates remain unverified. Unit delivery and teaching
+    calendars are not admission deadlines.

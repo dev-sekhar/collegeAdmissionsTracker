@@ -8,7 +8,8 @@
     "test": "node --test",
     "build:data": "node scripts/build-catalogue.mjs",
     "check:data": "node scripts/build-catalogue.mjs --check",
-    "build": "node scripts/build-static.mjs"
+    "build": "node scripts/build-static.mjs",
+    "writer:setup": "node scripts/setup-writer.mjs"
   },
   "devDependencies": {
     "yaml": "2.9.1"
