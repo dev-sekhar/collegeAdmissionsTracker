@@ -27,6 +27,6 @@ export function matchApplicantRoute(row,applicant){
   if(!route)return unresolved('The matching rule references a route unavailable for this programme/intake.');
   const board=applicant.board==='state-other'?applicant.stateBoard.trim():applicant.board==='ib'?'IB Diploma':applicant.board==='a-level'?'Cambridge A Levels':applicant.board.toUpperCase();
   const evidence=sources.map(source=>({...source,id:`applicant-${source.id}`}));
-  const matchedRoute={...route,stages:route.stages.map(stage=>stage.type==='documents'&&applicant.results==='available'?{...stage,status:'verified',deadline:{kind:'relative',rule:rule.instructions.available},wording:'Your final school/diploma results are already available. Submit them with the application; the future result-release rule is not substituted.',sourceIds:evidence.map(source=>source.id)}:stage)};
+  const matchedRoute={...route,stages:route.stages.map(stage=>stage.type==='documents'&&applicant.results==='available'&&stage.status!=='manual-unverified'?{...stage,status:'verified',deadline:{kind:'relative',rule:rule.instructions.available},wording:'Your final school/diploma results are already available. Submit them with the application; the future result-release rule is not substituted.',sourceIds:evidence.map(source=>source.id)}:stage)};
   return {status:'matched',route:matchedRoute,rule,sources:evidence,reason:`${board} qualification · Indian citizenship · Singapore PR: ${applicant.singaporePr==='yes'?'yes':'no'} · results ${applicant.results}. ${rule.notes}`,instruction:rule.instructions[applicant.results]};
 }

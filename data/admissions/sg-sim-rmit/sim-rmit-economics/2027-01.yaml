@@ -10,7 +10,7 @@ sources:
     url: https://www.sim.edu.sg/degrees-diplomas/programmes/programme-listing/bachelor-of-business
     passage: The full-time January 2027 programme lists a 4 July–23 October 2026
       application period for local and international applicants.
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
 routes:
   - id: local-international
     label: Local and international applicants
@@ -74,3 +74,11 @@ routes:
         wording: A 2027 deadline for this stage has not been verified. Follow the
           institution’s applicant instructions; no date is assumed.
         sourceIds: []
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

@@ -11,7 +11,7 @@ sources:
     passage: "The 2027 intake starts 2027-08-23. International application closing:
       2027-06-28; local closing: 2027-07-12. May applications open 15 December
       2026. The other opening dates are not specified."
-    checkedAt: 2026-11-17
+    checkedAt: 2026-11-18
 routes:
   - id: international
     label: International applicants
@@ -133,3 +133,11 @@ routes:
           separate enrolment cutoff has not been verified.
         sourceIds:
           - calendar
+dateReview:
+  checkedAt: 2026-11-18
+  sourceIds:
+    - calendar
+  notes: Reviewed the official sources for this 2027 programme/intake and listed
+    applicant categories. Missing stage dates remain unverified; teaching starts
+    and approximate outcome periods are not treated as deadlines. NUS page
+    status conflicts remain flagged for review.

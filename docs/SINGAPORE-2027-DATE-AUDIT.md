@@ -1,0 +1,18 @@
+# Singapore undergraduate 2027 date review
+
+Reviewed 18 November 2026. Coverage: all 31 real programmes, represented by 37 programme/intake YAML records. Fictional examples are unchanged. Each real admission file records `dateReview`, its checked date and source references. Requirements and QS ranking data remain intact.
+
+| Provider | Programmes / intake records | Confirmed admission timing | Important limits |
+| --- | --- | --- | --- |
+| NUS | 5 / 5 | International and IB applications: 16 December 2026–17 February 2027; specified final results within three days of release | Official page also labels future windows closed: retain review flag. IB acceptance timing remains unpublished. Individual offer instructions govern acceptance. |
+| NTU | 15 / 15 | India Standard 12 and IB: 15 October 2026–19 March 2027; selected other qualifications close 20 January; IB documents 22 March; India final results within three days of release | Qualification determines the window. Approximate outcomes and missing individual interview dates stay unverified. |
+| SMU | 2 / 2 | Apply 16 November 2026–19 March 2027, 23:59 Singapore time; applicable scores/predicted results 31 March; actual results within three working days | Acceptance is conditional: published joint windows end 24 May or 16 June. International qualifications use SMU Applicant Self-Service; follow the offer’s deadline. |
+| SIM / University of London | 4 / 8 | Both August and September 2027 intake records close 1 February 2027 | No exact opening inferred from “open now”; later stages remain unverified. |
+| SIM / Buffalo | 1 / 3 | January: international 30 November 2026, local 7 December. May: opens 15 December 2026, closes international 29 March / local 12 April 2027. August: international 28 June / local 12 July 2027 | Teaching starts are not enrolment deadlines. Applicant category matters. |
+| SIM / RMIT | 1 / 1 | January 2027 applications: 4 July–23 October 2026 | This application window is already closed; it is not shifted forward a year. |
+| SUSS | 1 / 1 | Apply 19 November 2026–19 March 2027; supporting documents with application; applicable test scores 31 March; selection 18 January–8 June; appeal 1 April–28 May; matriculation 14 June–23 July | Acceptance depends on offer window, ending 24 May or 16 June. July intake teaches from August; teaching date is not an admission deadline. |
+| Kaplan / Murdoch | 2 / 2 | Recurring January, May and August starts only | No scoped 2027 admission closing dates verified; intake month and deadlines remain unknown. Staff unit-delivery deadlines are excluded. |
+
+Official evidence is linked in each YAML file and displayed in the dashboard. Start from [NUS important dates](https://nus.edu.sg/oam/admissions/important-dates), [NTU qualification requirements](https://www.ntu.edu.sg/admissions/undergraduate/admissions/general-admission-requirements), [NTU important dates](https://www.ntu.edu.sg/admissions/undergraduate/important-links/important-dates), [SMU international qualifications](https://admissions.smu.edu.sg/admissions-requirements/international-and-other-qualifications), [SMU acceptance](https://admissions.smu.edu.sg/admissions-requirements/accept-offer), and [SUSS application guide](https://www.suss.edu.sg/admissions/application-process/how-to-apply/full-time-undergraduate-application-guide). SIM and Kaplan use the exact programme links stored in their records.
+
+Verified means the cited rule/date was found for the stated scope. It does not establish the applicant’s eligibility or guarantee later deadlines. Unverified stages remain null; approximate month ranges are retained as explanatory text. Manual writer entries remain unverified until a separate source review.

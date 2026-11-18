@@ -1,4 +1,5 @@
 node_modules/
+.local-writer/
 dist/
 data/generated/*.tmp
 data/local-request.json

@@ -60,7 +60,8 @@ test('Singapore real records have checked official evidence and never use illust
   const catalogue=await buildCatalogue({check:true});const real=catalogue.admissions.filter(item=>item.dataType==='real');
   assert.equal(real.length,37);assert.equal(new Set(real.map(item=>item.programId)).size,31);
   for(const item of real){
-    assert.ok(item.sources.length);assert.ok(item.sources.every(source=>source.checkedAt==='2026-11-17'));
+    assert.ok(item.sources.length);assert.ok(item.sources.every(source=>['2026-11-17','2026-11-18'].includes(source.checkedAt)));
+    assert.equal(item.dateReview.checkedAt,'2026-11-18');assert.ok(item.dateReview.sourceIds.length);
     for(const route of item.routes)for(const stage of route.stages){
       assert.notEqual(stage.status,'dummy');
       if(stage.status==='verified'){assert.ok(stage.deadline);assert.ok(stage.sourceIds.length);}
