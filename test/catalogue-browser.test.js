@@ -14,6 +14,7 @@ class Element{
   append(...children){this.children.push(...children);}
   replaceChildren(...children){this.children=children;this.text='';}
   setAttribute(key,value){this.attributes[key]=value;}
+  getAttribute(key){return this.attributes[key]??null;}
   addEventListener(name,callback){this.events[name]=callback;}
   focus(){document.activeElement=this;}
   showModal(){this.open=true;}
@@ -42,6 +43,13 @@ test('country sections retain every university and compact ranks do not invent m
     const rank=card.querySelector('.university-rank');assert.equal(rank.textContent,university.qsRanking?.status==='verified'?`#${university.qsRanking.rank}`:'—');
     assert.equal(card.querySelector('.country-label'),null);assert.doesNotMatch(card.textContent,/QS World|awarding university|View programmes/);
   }
+});
+test('country tiles retain collapsed state across filtering and popup close without a repeated list title',t=>{
+  const f=fixture(t);const country=f.find('.university-country-group');assert.equal(country.tag,'details');assert.equal(country.open,true);assert.equal(f.find('.pane-title'),null);
+  country.open=false;f.find('#reset-filters').events.click();assert.equal(f.find('.university-country-group').open,false);
+  f.find('.university-country-group').open=true;
+  f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.click(b=>b.className.includes('close-programme'));
+  assert.equal(f.find('.university-country-group').open,true);assert.equal(f.find('.university-name').title,f.find('.university-name').textContent);
 });
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
   const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);

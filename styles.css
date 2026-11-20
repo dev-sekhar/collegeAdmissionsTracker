@@ -12,11 +12,20 @@
 @media(max-width:850px){.browse-split{grid-template-columns:275px minmax(0,1fr);gap:14px}.programmes-pane .programme-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.browse-split{grid-template-columns:1fr;height:clamp(440px,calc(100dvh - 240px),840px)}.browse-split:not(.has-selection) .programmes-pane{display:none}.browse-split.has-selection .university-pane{display:none}.mobile-back{display:block;flex-shrink:0}.programme-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:10px}.dialog-content{padding:16px}.dialog-heading{padding:12px 16px}}
 /* Compact country-grouped university rows. */
-.browse-split.compact-universities{grid-template-columns:260px minmax(0,1fr)}
+.browse-split.compact-universities{grid-template-columns:clamp(300px,37%,460px) minmax(0,1fr)}
 .compact-universities .university-list{gap:15px}.country-universities{display:grid;gap:8px}.country-heading{font-size:.8rem;font-weight:600;letter-spacing:.6px;color:var(--muted);padding:5px 2px 9px}
 .compact-universities .university-list .university-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:5px 10px;padding:10px 12px;border-radius:8px;min-height:44px}
 .compact-universities .university-list .university-name{font-size:.9rem;font-weight:500;line-height:1.45;min-height:0;overflow-wrap:anywhere}
 .university-rank{font-size:.85rem;line-height:1.55;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 .example-label{grid-column:1/-1;font-size:.75rem;color:var(--gold)}
-@media(max-width:850px){.browse-split.compact-universities{grid-template-columns:240px minmax(0,1fr)}}
+@media(max-width:850px){.browse-split.compact-universities{grid-template-columns:280px minmax(0,1fr)}}
 @media(max-width:640px){.browse-split.compact-universities{grid-template-columns:1fr}}
+.university-country-group{padding:8px;background:#e6eeea;border:1px solid #cfddd5;border-radius:12px;min-width:0}
+.country-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;list-style:none;padding:7px 5px 12px;min-height:44px}
+.country-toggle::-webkit-details-marker{display:none}.country-toggle::after{content:'+';font-size:1.25rem;color:var(--teal)}.university-country-group[open]>.country-toggle::after{content:'−'}
+.country-toggle .country-heading{padding:0;font-size:1.125rem;font-weight:600;letter-spacing:0;color:var(--ink)}
+.compact-universities .university-list .university-card{background:#d9eae2;border-color:#c0d8cb}
+.compact-universities .university-list .university-card:hover{background:#cce2d7;border-color:var(--teal)}
+.compact-universities .university-list .university-card.selected{background:#bddccc;border-color:var(--teal)}
+.compact-universities .university-list .university-name{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.university-country-group .university-rank{color:var(--ink)}
