@@ -23,6 +23,7 @@ class Element{
 }
 const walk=node=>[node,...node.children.flatMap(walk)];
 const memoryStorage=()=>{const values=new Map();return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
+function chooseCountries(f,values){const inputs=f.find('#country-filter').querySelectorAll('input');inputs.forEach(input=>{input.checked=values.includes(input.value);});inputs[0].events.change();}
 function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=null,inputCatalogue=catalogue}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
   const brand=new Element('a');brand.className='brand';root.append(brand);const filterPanel=new Element('details');filterPanel.className='filter-panel';root.append(filterPanel);
@@ -152,16 +153,16 @@ test('upcoming dates turn red at the two-day boundary and open the exact program
   f.click(b=>b.className.includes('upcoming-programme'));const popup=f.find('dialog');assert.equal(popup.open,true);assert.equal(f.find('#timeline-category').value,'international');assert.match(f.find('#workspace').textContent,/30 Nov 2026/);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');
   now=new Date('2026-11-28T16:00:00Z');f.browser.refreshDeadlines();assert.equal(f.find('dialog'),popup,'midnight refresh must not replace an open global-deadline popup');
 });
-test('upcoming list covers the full catalogue and opens hidden intakes without changing browse filters',t=>{
+test('upcoming list honors main criteria and opens matching deadlines without changing them',t=>{
   const f=fixture(t,{clock:()=>new Date('2026-11-28T04:00:00Z')});assert.ok(f.all('.upcoming-item').length>1);f.select('intake-filter','2027');assert.ok(f.all('.upcoming-item').length>1);
-  f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.ok(f.all('.upcoming-item').length>1);assert.match(f.find('.upcoming-label').textContent,/All universities/);
-  const returnId=f.find('.upcoming-programme').id;f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');assert.equal(f.find('#timeline-category').value,'international');assert.equal(f.find('#intake-filter').value,'2027');assert.equal(f.find('#degree-filter').value,'Master’s');
-  f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,returnId);assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.ok(f.all('.upcoming-item').length>1);
+  f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
+  f.select('degree-filter','Bachelor’s');const returnId=f.find('.upcoming-programme').id;f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');assert.equal(f.find('#timeline-category').value,'international');assert.equal(f.find('#intake-filter').value,'2027');assert.equal(f.find('#degree-filter').value,'Bachelor’s');
+  f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,returnId);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.ok(f.all('.upcoming-item').length>1);
 });
-test('ordinary brand clicks restore the default landing state without document navigation',t=>{
+test('ordinary brand clicks restore landing selection while preserving criteria',t=>{
   const f=fixture(t);f.select('intake-filter','2027');f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.select('applicant-board','cbse');f.click(b=>b.className.includes('close-programme'));f.find('.filter-panel').open=true;
   let prevented=false;f.find('.brand').events.click({button:0,preventDefault(){prevented=true;}});
-  assert.equal(prevented,true);assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);assert.equal(f.find('#timeline-category'),null);assert.equal(f.find('#intake-filter').value,'');assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.equal(f.find('.filter-panel').open,false);assert.equal(f.find('.university-country-group').open,false);assert.equal(document.activeElement.id,'universities-title');
+  assert.equal(prevented,true);assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);assert.equal(f.find('#timeline-category'),null);assert.equal(f.find('#intake-filter').value,'2027');assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.equal(f.find('.filter-panel').open,false);assert.equal(f.find('.university-country-group').open,false);assert.equal(document.activeElement.id,'universities-title');
   f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');assert.equal(f.find('#applicant-board').value,'');
 });
 test('modified and non-primary brand clicks keep native link behaviour',t=>{
@@ -205,14 +206,13 @@ test('a stale mixed catalogue cannot expose fictional university cards or deadli
   const f=fixture(t,{inputCatalogue});assert.equal(f.find('#university-harbour'),null);assert.doesNotMatch(f.find('#workspace').textContent,/Harbour|Fictional/);assert.deepEqual(f.all('dd').map(n=>n.textContent),['8','31']);
 });
 
-test('deadline country and university filters narrow the global list independently and persist',t=>{
-  const storage=memoryStorage();const f=fixture(t,{storage});const allCount=f.all('.upcoming-item').length;assert.ok(allCount>0);
+test('deadline controls further narrow main criteria and persist',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});chooseCountries(f,['Singapore','Netherlands']);const allCount=f.all('.upcoming-item').length;assert.ok(allCount>0);
   f.select('deadline-country','Netherlands');const nlNames=new Set(rows.filter(row=>row.country==='Netherlands').map(row=>row.universityName));
   assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-university').every(node=>nlNames.has(node.textContent)));
   const options=f.find('#deadline-university').children;assert.ok(options.every(option=>!option.value||option.value.startsWith('nl-')));
   f.select('deadline-university','nl-uva');assert.ok(f.all('.upcoming-university').every(node=>node.textContent==='University of Amsterdam'));assert.ok(f.all('.upcoming-item').length>0);
-  assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);
-  f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.ok(f.all('.upcoming-item').length>0);
+  assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['16','48']);
   f.click(b=>b.className.includes('upcoming-programme'));assert.ok(f.find('dialog').open);assert.match(f.find('#timeline-category').value,/programme-route/);
   f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('#deadline-university').value,'nl-uva');
   const next=fixture(t,{storage});assert.equal(next.find('#deadline-country').value,'Netherlands');assert.equal(next.find('#deadline-university').value,'nl-uva');
@@ -227,7 +227,7 @@ test('unknown saved deadline filters safely reset to all countries and universit
 });
 
 test('compact deadline filters combine stage and verification, preserve expansion and restore choices',t=>{
-  const storage=memoryStorage();const f=fixture(t,{storage});assert.equal(f.find('.deadline-filter-panel').open,false);
+  const storage=memoryStorage();const f=fixture(t,{storage});chooseCountries(f,['Singapore','Netherlands']);assert.equal(f.find('.deadline-filter-panel').open,false);
   f.find('.deadline-filter-panel').open=true;f.select('deadline-stage','application');assert.ok(f.all('.upcoming-item').length>0);
   assert.ok(f.all('.upcoming-item').every(item=>item.querySelector('strong').textContent==='Submit application'));
   f.select('deadline-verification','verified');assert.ok(f.all('.upcoming-item').length>0);assert.equal(f.find('.deadline-filter-panel').open,true);assert.match(f.find('.deadline-filter-panel').querySelector('summary').textContent,/2 active/);
@@ -266,4 +266,25 @@ test('annual selection includes every entry period and future intake shows shift
 
 test('saved month-based criteria migrate to annual intake without losing other preferences',t=>{
   const storage=memoryStorage();storage.setItem('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:['Singapore'],subjects:['Economics'],degree:'Bachelor’s',intake:'2027-09'}));const f=fixture(t,{storage});assert.equal(f.find('#intake-filter').value,'2027');assert.ok(f.all('.university-card').length>1);
+});
+
+test('removing a main destination removes its deadlines, clears incompatible subfilters and saves the result',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});chooseCountries(f,['Singapore','Netherlands']);f.select('deadline-country','Netherlands');f.select('deadline-university','nl-leiden');f.select('deadline-stage','application');f.select('deadline-verification','verified');assert.ok(f.all('.upcoming-item').length>0);
+  chooseCountries(f,['Singapore']);assert.equal(f.find('#deadline-country').value,'');assert.equal(f.find('#deadline-university').value,'');assert.equal(f.find('#deadline-stage').value,'application');assert.equal(f.find('#deadline-verification').value,'verified');
+  const sg=new Set(rows.filter(row=>row.country==='Singapore').map(row=>row.universityName));assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-university').every(node=>sg.has(node.textContent)));assert.ok(f.find('#deadline-country').children.every(option=>option.value!=='Netherlands'));
+  const next=fixture(t,{storage});assert.deepEqual(next.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore']);assert.equal(next.find('#deadline-country').value,'');assert.ok(next.all('.upcoming-university').every(node=>sg.has(node.textContent)));
+});
+
+test('home preserves saved search and deadline criteria; a typed year saves before blur',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});chooseCountries(f,['Netherlands']);f.select('deadline-university','nl-leiden');f.select('deadline-stage','application');f.select('deadline-verification','verified');
+  const year=f.find('#intake-filter');year.value='2027';year.events.input();f.find('.brand').events.click({preventDefault(){}});
+  assert.equal(f.find('#intake-filter').value,'2027');assert.equal(f.find('#deadline-university').value,'nl-leiden');assert.ok(f.find('.pane-overview'));
+  const next=fixture(t,{storage});assert.equal(next.find('#intake-filter').value,'2027');assert.equal(next.find('#deadline-university').value,'nl-leiden');assert.equal(next.find('#deadline-stage').value,'application');assert.equal(next.find('#deadline-verification').value,'verified');assert.deepEqual(next.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Netherlands']);
+  const note=fixture(t,{storage:{getItem:()=>null,setItem:()=>{throw Error('blocked');}}});assert.match(note.find('#filter-note').textContent,/cannot save/);
+});
+
+test('subject and intake criteria constrain deadlines as well as universities',t=>{
+  const f=fixture(t);chooseCountries(f,['Netherlands']);const subjectInputs=f.find('#subject-filter').querySelectorAll('input');subjectInputs.forEach(input=>{input.checked=input.value==='Criminology';});subjectInputs[0].events.change();
+  assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-programme').every(node=>node.textContent.includes('Criminologie')));
+  f.select('intake-filter','2025');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
 });
