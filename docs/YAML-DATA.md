@@ -4,6 +4,8 @@ YAML files are the source of truth. JSON is a generated copy for the browser. Ke
 
 ## University and program details
 
+Optional `teachingLanguages` records explicitly verified teaching languages, for example `[Dutch]`. Non-English-only programmes receive an amber card and a written language label. Missing metadata does not establish English teaching. Programmes listing English among their teaching languages are not marked as non-English-only. Keep the official programme link and supporting language notes.
+
 Start with data/universities/nl-uva.yaml. Each university has a unique lowercase ID, name, country and city. Its programs have their own globally unique IDs, names, degree levels and one or more subjects. Use Bachelor’s, Master’s or PhD for degree. The country Holland is normalized to Netherlands.
 
 ## Annual admissions

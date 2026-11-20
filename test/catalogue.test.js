@@ -8,6 +8,12 @@ function fixture(){
   const admission={programId:'dummy-cs',cycle:2027,intake:{month:8,year:2027},sources:[{id:'sample-source',url:'https://example.org/notice',passage:'Fictional evidence',checkedAt:null}],routes:[{id:'general-route',label:'Dummy route',stages:stageTypes.map(([type])=>({type,status:'dummy',deadline:{kind:'date',date:'2027-01-15'},wording:'Fictional deadline',sourceIds:['sample-source']}))}]};
   return {university,admission};
 }
+
+test('teaching-language metadata rejects empty, malformed and duplicate values',()=>{
+  const {university,admission}=fixture();const program=university.programs[0];
+  for(const value of [[],[''],['English','english'],'Dutch']){program.teachingLanguages=value;assert.throws(()=>compileCatalogue([university],[admission]));}
+  program.teachingLanguages=['Dutch'];assert.deepEqual(compileCatalogue([university],[admission]).programs[0].teachingLanguages,['Dutch']);
+});
 test('repository YAML produces deterministic real JSON',async()=>{
   const result=await buildCatalogue({check:true});assert.equal(result.mode,'real');assert.equal(result.universities.length,16);assert.equal(result.programs.length,48);assert.equal(result.admissions.length,54);
   assert.equal(JSON.stringify(result,null,2)+'\n',await readFile(new URL('../data/generated/catalogue.json',import.meta.url),'utf8'));
