@@ -276,3 +276,11 @@ Manual review: at http://127.0.0.1:4180/, select Netherlands and expand VU. Open
 The summary now lists recorded closing activities from today through three calendar months ahead, across all universities. The end date is included; short months use their last day. University-local dates, chronological ordering and red urgency within two days are retained. This updates the existing deadline component rather than adding a separate workflow or new interface. No YAML dates or verification states change.
 
 Manual checks at http://127.0.0.1:4180/: refresh and confirm Next 3 months; check January 2027 deadlines appear in November 2026; change destination filters and confirm the global deadlines remain; open a deadline and check the matching programme/category. On the two-day boundary deadlines must still turn red. Build/tests cover month-end and leap-year boundaries. No merge before confirmation.
+
+## Country and university filters for deadlines — 20 November 2026
+
+Upcoming deadlines have their own Country and University dropdowns, separate from programme-search criteria. Both default to All. Selecting a country narrows the university options and clears a university that belongs to another country. The three-month range and two-day red urgency are unchanged. These choices are remembered in this browser with the other criteria. The home link restores all deadline destinations. An empty result means no recorded deadline matches, rather than proof that no deadline exists.
+
+The existing shared dropdown is reused in a deadline-filter component. No additional filter types were implemented. Admission stage and verification status are suggested future options only.
+
+Manual checks at http://127.0.0.1:4180/: select Netherlands under Upcoming deadlines and confirm only Dutch universities appear there; select University of Amsterdam and open a deadline; change to Singapore and confirm the university selection clears; return both controls to All. Change programme-search filters and confirm deadline choices stay independent. Reopen the same browser address and confirm deadline choices return. Verify no-result selections show a clear message. No merge before user confirmation.
