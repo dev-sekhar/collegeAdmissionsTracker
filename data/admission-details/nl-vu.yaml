@@ -12,13 +12,13 @@ requirements:
     status: extracted
     text: "Economics and Business Economics: English-taught; diploma equivalence, mathematics and
       language requirements must be assessed by the university. Current offering verified. Admission
-      eligibility and optional combinations are not guaranteed. The 2027 intake month and
-      application dates remain unverified. Econometrics and Data Science: English-taught; diploma
+      eligibility and optional combinations are not guaranteed. The September 2027 admissions
+      calendar is verified separately. Econometrics and Data Science: English-taught; diploma
       equivalence, mathematics and language requirements must be assessed by the university.
       Quantitative economics with mathematical, data or computing methods; this is not a general
       computer-science degree. Current offering verified. Admission eligibility and optional
-      combinations are not guaranteed. The 2027 intake month and application dates remain
-      unverified. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and
+      combinations are not guaranteed. The September 2027 admissions calendar is verified
+      separately. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and
       foreign-diploma assessment are required. Current offering verified. Admission eligibility and
       optional combinations are not guaranteed."
     sourceIds:
@@ -37,19 +37,19 @@ sources:
     linkedFrom: null
     checkedAt: 2026-11-20
     updatedAt: null
-    applicability: Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.
-    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
-      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
-      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+    applicability: Current programme admissions instructions combined with the central 2027/28 calendar.
+    passage: Programme application closes 1 April non-EU/EEA or 1 May Dutch/EU; initial dashboard
+      completion is within six weeks and at most one week after closing. The central calendar
+      establishes 2027 applicability and visa-related exceptions.
   - id: econometrics-admissions
     url: https://vu.nl/en/education/bachelor/econometrics-and-data-science/admissions
     linkedFrom: null
     checkedAt: 2026-11-20
     updatedAt: null
-    applicability: Econometrics and Data Science; current recurring instructions; 2027 dates unconfirmed.
-    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
-      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
-      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+    applicability: Current programme admissions instructions combined with the central 2027/28 calendar.
+    passage: Programme application closes 1 April non-EU/EEA or 1 May Dutch/EU; initial dashboard
+      completion is within six weeks and at most one week after closing. The central calendar
+      establishes 2027 applicability and visa-related exceptions.
   - id: criminology-admissions
     url: https://vu.nl/nl/onderwijs/bachelor/criminologie/Toelating
     linkedFrom: null
@@ -61,3 +61,15 @@ sources:
       Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on
       27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number
       published on 15 April 2027."
+  - id: central-2027-calendar
+    url: https://vu.nl/en/education/more-about/admission-non-dutch-diploma
+    checkedAt: 2026-11-20
+    passage: The non-Dutch diploma page explicitly covers academic year 2027/28. Applications open 1
+      October 2026. The closing date is 1 April for non-EU/EEA students, or 1 May for EU/EEA
+      students and students who do not need a study visa/residence permit through VU. Non-fixus
+      certified diplomas are due 31 August for a 1 September start; A-level exceptions require
+      separate instructions.
+    linkedFrom: null
+    updatedAt: null
+    applicability: 2027/28 non-Dutch diploma calendar; the two non-fixus economics programmes only.
+      Programme-specific and A-level exceptions remain applicable.

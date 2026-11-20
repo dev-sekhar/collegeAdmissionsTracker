@@ -15,7 +15,14 @@ test('active YAML has only real records with reviewed Netherlands provenance',as
 });
 test('2027 evidence boundaries prevent annual-pattern and early-essay dates becoming final deadlines',()=>{
   const get=id=>admissions.find(a=>a.programId===id);const application=(a,i=0)=>a.routes[i].stages.find(s=>s.type==='application');
-  for(const id of ['nl-tilburg-economics','nl-tilburg-econometrics','nl-utrecht-economics','nl-vu-economics','nl-vu-econometrics']){assert.equal(application(get(id)).deadline,null);assert.equal(get(id).intake.month,null);}
+  for(const id of ['nl-tilburg-economics','nl-tilburg-econometrics','nl-utrecht-economics']){assert.equal(application(get(id)).deadline,null);assert.equal(get(id).intake.month,null);}
+  for(const id of ['nl-vu-economics','nl-vu-econometrics']){
+    const a=get(id);assert.equal(a.intake.month,9);assert.equal(a.routes.length,2);
+    assert.equal(application(a).status,'verified');assert.equal(application(a).deadline.date,'2027-04-01');
+    assert.equal(application(a,1).deadline.date,'2027-05-01');assert.match(a.routes[1].label,/no study visa/);
+    for(const route of a.routes){assert.equal(route.stages.find(s=>s.type==='opening').deadline.date,'2026-10-01');const documents=route.stages.find(s=>s.type==='documents');assert.equal(documents.status,'verified');assert.equal(documents.deadline.date,'2027-08-31');assert.match(documents.wording,/within six weeks/);assert.match(documents.wording,/A-level/);assert.equal(route.stages.find(s=>s.type==='enrolment').deadline,null);}
+    assert.ok(a.sources.some(s=>s.id==='central-2027-calendar'&&s.passage.includes('2027/28')));
+  }
   assert.equal(application(get('nl-maastricht-economics')).deadline.date,'2027-03-15');
   assert.equal(application(get('nl-maastricht-econometrics')).deadline.date,'2027-04-01');
   assert.equal(application(get('nl-maastricht-econometrics'),1).deadline.date,'2027-05-01');
