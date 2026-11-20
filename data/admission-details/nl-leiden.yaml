@@ -1,0 +1,33 @@
+id: nl-leiden-admission-details
+programIds:
+  - nl-leiden-criminology
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma
+      assessment are required. Current offering verified. Admission eligibility and optional
+      combinations are not guaranteed."
+    sourceIds:
+      - criminology-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: criminology-admissions
+    url: https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/criminologie/toelating-en-aanmelding/deadlines-voor-aanmelden
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.
+    passage: "Criminologie — Dutch-language numerus fixus: Registration opens for the 2027/28 cycle.
+      Register by 15 January 2027, 23:59 university-local time. Complete the selection effort
+      requirement and, where required, the foreign-diploma admission request by 31 January. Final
+      school results are due 31 July 2027 unless an extension is approved. Ranking number published
+      on 15 April 2027. Accept an offered place within two weeks of the offer."

@@ -8,8 +8,8 @@ function fixture(){
   const admission={programId:'dummy-cs',cycle:2027,intake:{month:8,year:2027},sources:[{id:'sample-source',url:'https://example.org/notice',passage:'Fictional evidence',checkedAt:null}],routes:[{id:'general-route',label:'Dummy route',stages:stageTypes.map(([type])=>({type,status:'dummy',deadline:{kind:'date',date:'2027-01-15'},wording:'Fictional deadline',sourceIds:['sample-source']}))}]};
   return {university,admission};
 }
-test('repository YAML produces deterministic mixed JSON',async()=>{
-  const result=await buildCatalogue({check:true});assert.equal(result.mode,'mixed');assert.equal(result.universities.length,14);assert.equal(result.programs.length,39);assert.equal(result.admissions.length,45);
+test('repository YAML produces deterministic real JSON',async()=>{
+  const result=await buildCatalogue({check:true});assert.equal(result.mode,'real');assert.equal(result.universities.length,16);assert.equal(result.programs.length,48);assert.equal(result.admissions.length,54);
   assert.equal(JSON.stringify(result,null,2)+'\n',await readFile(new URL('../data/generated/catalogue.json',import.meta.url),'utf8'));
 });
 test('YAML parsing rejects duplicate keys, invalid syntax, aliases and excessive input',()=>{
@@ -44,8 +44,8 @@ test('unknown fields catch authoring typos and programs cannot silently lack cyc
   admission.routes[0].stages[0].deadline={kind:'date',dtae:'2027-01-15'};assert.throws(()=>compileCatalogue([university],[admission]),/unknown field dtae/);
 });
 test('filters combine country, subject, degree and exact intake without inventing programs',async()=>{
-  const rows=catalogueRows(await buildCatalogue({check:true})).filter(row=>row.admission.dataType!=='real');const filters={countries:['Singapore'],subjects:['Computer Science'],degree:'Bachelor’s',intake:'2027-08'};
-  assert.deepEqual(filterRows(rows,filters).map(row=>row.programId),['harbour-cs']);
+  const rows=catalogueRows(compileCatalogue([fixture().university],[fixture().admission]));const filters={countries:['Singapore'],subjects:['Computer Science'],degree:'Bachelor’s',intake:'2027-08'};
+  assert.deepEqual(filterRows(rows,filters).map(row=>row.programId),['dummy-cs']);
   assert.equal(filterRows(rows,{...filters,countries:['Japan']}).length,0);
   assert.equal(filterRows(rows,{...filters,subjects:['Economics']}).length,0);
   assert.equal(filterRows(rows,{...filters,intake:'2027-09'}).length,0);
@@ -57,7 +57,7 @@ test('relative rules stay relative and date display stays independent of machine
 });
 
 test('Singapore real records have checked official evidence and never use illustrative dates',async()=>{
-  const catalogue=await buildCatalogue({check:true});const real=catalogue.admissions.filter(item=>item.dataType==='real');
+  const catalogue=await buildCatalogue({check:true});const real=catalogue.admissions.filter(item=>catalogue.programs.find(p=>p.id===item.programId)?.universityId.startsWith('sg-'));
   assert.equal(real.length,37);assert.equal(new Set(real.map(item=>item.programId)).size,31);
   for(const item of real){
     assert.ok(item.sources.length);assert.ok(item.sources.every(source=>['2026-11-17','2026-11-18'].includes(source.checkedAt)));
@@ -103,7 +103,7 @@ test('route deadlines, multiple intakes and source conflicts are preserved',asyn
 
 test('QS ranks retain edition, ties and awarding-university attribution without substituting missing ranks',async()=>{
   const catalogue=await buildCatalogue({check:true});const universities=catalogue.universities.filter(item=>item.qsRanking);
-  assert.equal(universities.length,8);
+  assert.equal(universities.length,16);
   const smu=universities.find(item=>item.id==='sg-smu').qsRanking;
   assert.equal(rankingLabel(smu),'QS World 2027 · #=411');
   assert.equal(universities.find(item=>item.id==='sg-sim-rmit').qsRanking.rank,'=119');

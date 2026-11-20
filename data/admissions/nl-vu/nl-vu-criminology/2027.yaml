@@ -1,0 +1,91 @@
+programId: nl-vu-criminology
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://vu.nl/nl/onderwijs/bachelor/criminologie/Toelating
+    passage: "Criminologie — Dutch-language numerus fixus: Register in Studielink by 15 January 2027,
+      23:59 CET. Complete the VU dashboard and selection form with required grades by 31 January.
+      Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on
+      27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number
+      published on 15 April 2027."
+    checkedAt: 2026-11-20
+routes:
+  - id: programme-route
+    label: Criminologie — Dutch-language numerus fixus
+    stages:
+      - type: opening
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-01-15
+        wording: Register in Studielink by 15 January 2027, 23:59 CET.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-01-31
+        wording: Complete the VU dashboard and selection form with required grades by 31 January. Meet
+          prior-education and tuition conditions by 15 July 2027.
+        sourceIds:
+          - programme-admissions
+      - type: tests
+        status: verified
+        deadline:
+          kind: relative
+          rule: Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your
+            attendance date.
+        wording: Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for
+          your attendance date.
+        sourceIds:
+          - programme-admissions
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: decision
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-04-15
+        wording: Ranking number published on 15 April 2027.
+        sourceIds:
+          - programme-admissions
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.

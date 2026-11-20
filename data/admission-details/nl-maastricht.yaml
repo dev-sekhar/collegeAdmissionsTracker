@@ -1,0 +1,51 @@
+id: nl-maastricht-admission-details
+programIds:
+  - nl-maastricht-economics
+  - nl-maastricht-econometrics
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and
+      language requirements must be assessed by the university. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed. BSc Econometrics & Operations
+      Research: English-taught; diploma equivalence, mathematics and language requirements must be
+      assessed by the university. Quantitative economics with mathematical, data or computing
+      methods; this is not a general computer-science degree. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed."
+    sourceIds:
+      - economics-admissions
+      - econometrics-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Economics and Business Economics; 2027/28 programme admissions instructions.
+    passage: "September 2027 — programme-specific application route: Applications open for September
+      2027. Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay
+      and admission tasks. The early essay date 15 January is not the final closing date. Complete
+      enrolment tasks, including required certified documents and tuition payment, by 23:59 CET.
+      Visa applicants have additional earlier requirements."
+  - id: econometrics-admissions
+    url: https://www.maastrichtuniversity.nl/education/bachelor/programmes/econometrics-operations-research/admission-requirements
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Econometrics & Operations Research; 2027/28 programme admissions instructions.
+    passage: "Non-EU/EEA and non-Swiss applicant — check visa requirements: Complete enrolment tasks by
+      31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open.
+      Complete the application and required portal tasks by 1 April 2027; consult the source for
+      residence and visa exceptions. EU/EEA or Swiss applicant: Complete enrolment tasks by 31
+      August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open.
+      Complete the application and required portal tasks by 1 May 2027."

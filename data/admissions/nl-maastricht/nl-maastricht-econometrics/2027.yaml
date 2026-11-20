@@ -1,0 +1,141 @@
+programId: nl-maastricht-econometrics
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.maastrichtuniversity.nl/education/bachelor/programmes/econometrics-operations-research/admission-requirements
+    passage: "Non-EU/EEA and non-Swiss applicant — check visa requirements: Complete enrolment tasks by
+      31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open.
+      Complete the application and required portal tasks by 1 April 2027; consult the source for
+      residence and visa exceptions. EU/EEA or Swiss applicant: Complete enrolment tasks by 31
+      August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open.
+      Complete the application and required portal tasks by 1 May 2027."
+    checkedAt: 2026-11-20
+routes:
+  - id: non-eea
+    label: Non-EU/EEA and non-Swiss applicant — check visa requirements
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-01
+        wording: Applications open.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-04-01
+        wording: Complete the application and required portal tasks by 1 April 2027; consult the source for
+          residence and visa exceptions.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-08-31
+        wording: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier
+          deadlines.
+        sourceIds:
+          - programme-admissions
+  - id: eea
+    label: EU/EEA or Swiss applicant
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-01
+        wording: Applications open.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-05-01
+        wording: Complete the application and required portal tasks by 1 May 2027.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-08-31
+        wording: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier
+          deadlines.
+        sourceIds:
+          - programme-admissions
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.

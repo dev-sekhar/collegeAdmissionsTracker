@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "mode": "mixed",
+  "mode": "real",
   "applicantPolicies": [
     {
       "universityId": "sg-sim-buffalo",
@@ -411,6 +411,385 @@
       ]
     },
     {
+      "id": "nl-erasmus-admission-details",
+      "programIds": [
+        "nl-erasmus-economics",
+        "nl-erasmus-econometrics",
+        "nl-erasmus-double-economics",
+        "nl-erasmus-criminology"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "International Bachelor Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. International Bachelor Econometrics and Operations Research: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. Double bachelor BSc² Econometrics and Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions",
+            "double-economics-admissions",
+            "criminology-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "International Bachelor Economics and Business Economics; 2027/28 programme admissions instructions.",
+          "passage": "IBEB numerus fixus — all applicants: Applications open for 2027/28. Complete Studielink AND EUR portal, including required uploads and handling fee, by 23:59 CET. Final certified diploma and grades normally due 1 August; A-level/Irish exceptions: 21 August. Initial documents are due with the 15 January application. Ranking number and first-round offers on 15 April. Accept an offered place within two weeks of the offer."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://www.eur.nl/en/bachelor/international-bachelor-econometrics-and-operations-research/application",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "International Bachelor Econometrics and Operations Research; 2027/28 programme admissions instructions.",
+          "passage": "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 May 2027."
+        },
+        {
+          "id": "double-economics-admissions",
+          "url": "https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/application",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "Double bachelor BSc² Econometrics and Economics; 2027/28 programme admissions instructions.",
+          "passage": "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 May 2027."
+        },
+        {
+          "id": "criminology-admissions",
+          "url": "https://www.eur.nl/bachelor/criminologie/toelating",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.",
+          "passage": "Criminologie — Dutch-language selection route: Registration opens for the 2027/28 selection cycle. Numerus fixus registration closes 15 January 2027. Dutch-language programme. Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed by the university; these are alternative attendance dates, not a deadline window."
+        }
+      ]
+    },
+    {
+      "id": "nl-groningen-admission-details",
+      "programIds": [
+        "nl-groningen-economics",
+        "nl-groningen-econometrics"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. BSc Econometrics and Operations Research: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Economics and Business Economics; 2027/28 programme admissions instructions.",
+          "passage": "All published nationality groups — diploma assessed individually: Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Econometrics and Operations Research; 2027/28 programme admissions instructions.",
+          "passage": "All published nationality groups — diploma assessed individually: Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal."
+        }
+      ]
+    },
+    {
+      "id": "nl-leiden-admission-details",
+      "programIds": [
+        "nl-leiden-criminology"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "criminology-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "criminology-admissions",
+          "url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/criminologie/toelating-en-aanmelding/deadlines-voor-aanmelden",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.",
+          "passage": "Criminologie — Dutch-language numerus fixus: Registration opens for the 2027/28 cycle. Register by 15 January 2027, 23:59 university-local time. Complete the selection effort requirement and, where required, the foreign-diploma admission request by 31 January. Final school results are due 31 July 2027 unless an extension is approved. Ranking number published on 15 April 2027. Accept an offered place within two weeks of the offer."
+        }
+      ]
+    },
+    {
+      "id": "nl-maastricht-admission-details",
+      "programIds": [
+        "nl-maastricht-economics",
+        "nl-maastricht-econometrics"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. BSc Econometrics & Operations Research: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Economics and Business Economics; 2027/28 programme admissions instructions.",
+          "passage": "September 2027 — programme-specific application route: Applications open for September 2027. Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay and admission tasks. The early essay date 15 January is not the final closing date. Complete enrolment tasks, including required certified documents and tuition payment, by 23:59 CET. Visa applicants have additional earlier requirements."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/econometrics-operations-research/admission-requirements",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Econometrics & Operations Research; 2027/28 programme admissions instructions.",
+          "passage": "Non-EU/EEA and non-Swiss applicant — check visa requirements: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA or Swiss applicant: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open. Complete the application and required portal tasks by 1 May 2027."
+        }
+      ]
+    },
+    {
+      "id": "nl-tilburg-admission-details",
+      "programIds": [
+        "nl-tilburg-economics",
+        "nl-tilburg-econometrics"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "BSc Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified. BSc Econometrics and Operations Research: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.tilburguniversity.edu/education/bachelors-programs/economics/application",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Economics; current recurring instructions; 2027 dates unconfirmed.",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://www.tilburguniversity.edu/education/bachelors-programs/econometrics-and-operations-research/application",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Econometrics and Operations Research; current recurring instructions; 2027 dates unconfirmed.",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+        }
+      ]
+    },
+    {
+      "id": "nl-utrecht-admission-details",
+      "programIds": [
+        "nl-utrecht-economics"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+          "sourceIds": [
+            "economics-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.uu.nl/en/bachelors/economics-and-business-economics/application-and-admission",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+        }
+      ]
+    },
+    {
+      "id": "nl-uva-admission-details",
+      "programIds": [
+        "nl-uva-economics",
+        "nl-uva-econometrics"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "Economics and Business Economics — English track: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. Econometrics and Data Science: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "Economics and Business Economics — English track; 2027/28 programme admissions instructions.",
+          "passage": "International prior education — English numerus fixus track: English-track numerus fixus application closes 15 January 2027 for September 2027. Ranking numbers are published on 15 April 2027."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/econometrics-and-data-science/application-and-admission",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "Econometrics and Data Science; 2027/28 programme admissions instructions.",
+          "passage": "International diploma — visa/residence permit required: 1 April 2027 if a visa/residence permit is required. Nationality alone does not determine the applicable route. EU/EEA international diploma — standard deadline, no university housing request: 1 May 2027 for EU/EEA international-diploma applicants without a housing request. Earlier deadlines may apply."
+        }
+      ]
+    },
+    {
+      "id": "nl-vu-admission-details",
+      "programIds": [
+        "nl-vu-economics",
+        "nl-vu-econometrics",
+        "nl-vu-criminology"
+      ],
+      "coverage": "partial",
+      "summary": "Programme and admissions pages are linked below. This is a partial extraction, not an eligibility assessment. Follow the exact programme page for language, mathematics, diploma and selection conditions.",
+      "requirements": [
+        {
+          "label": "Programme instructions and language",
+          "status": "extracted",
+          "text": "Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified. Econometrics and Data Science: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "sourceIds": [
+            "economics-admissions",
+            "econometrics-admissions",
+            "criminology-admissions"
+          ]
+        },
+        {
+          "label": "Indian school-board equivalence and individual eligibility",
+          "status": "not-extracted",
+          "text": "No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The university must assess the final qualification, subjects and language evidence. Nationality alone is insufficient.",
+          "sourceIds": []
+        }
+      ],
+      "sources": [
+        {
+          "id": "economics-admissions",
+          "url": "https://vu.nl/en/education/bachelor/economics-and-business-economics/admissions",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+        },
+        {
+          "id": "econometrics-admissions",
+          "url": "https://vu.nl/en/education/bachelor/econometrics-and-data-science/admissions",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "Econometrics and Data Science; current recurring instructions; 2027 dates unconfirmed.",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+        },
+        {
+          "id": "criminology-admissions",
+          "url": "https://vu.nl/nl/onderwijs/bachelor/criminologie/Toelating",
+          "linkedFrom": null,
+          "checkedAt": "2026-11-20",
+          "updatedAt": null,
+          "applicability": "BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.",
+          "passage": "Criminologie — Dutch-language numerus fixus: Register in Studielink by 15 January 2027, 23:59 CET. Complete the VU dashboard and selection form with required grades by 31 January. Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number published on 15 April 2027."
+        }
+      ]
+    },
+    {
       "id": "ntu-admission-details",
       "programIds": [
         "ntu-economics",
@@ -774,28 +1153,124 @@
   ],
   "universities": [
     {
-      "id": "canal",
-      "name": "Canal Technical University",
+      "id": "nl-erasmus",
+      "name": "Erasmus University Rotterdam",
       "country": "Netherlands",
-      "city": "Delft"
+      "city": "Rotterdam",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "148",
+        "status": "verified",
+        "institution": "Erasmus University Rotterdam",
+        "url": "https://www.topuniversities.com/universities/erasmus-university-rotterdam",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
     },
     {
-      "id": "harbour",
-      "name": "Harbour University",
-      "country": "Singapore",
-      "city": "Singapore"
+      "id": "nl-groningen",
+      "name": "University of Groningen",
+      "country": "Netherlands",
+      "city": "Groningen",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "157",
+        "status": "verified",
+        "institution": "University of Groningen",
+        "url": "https://www.topuniversities.com/universities/university-groningen",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
     },
     {
-      "id": "linden",
-      "name": "Linden University",
-      "country": "Germany",
-      "city": "Bonn"
+      "id": "nl-leiden",
+      "name": "Leiden University",
+      "country": "Netherlands",
+      "city": "Leiden",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "=119",
+        "status": "verified",
+        "institution": "Leiden University",
+        "url": "https://www.topuniversities.com/universities/leiden-university",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
     },
     {
-      "id": "maple",
-      "name": "Maple Ridge University",
-      "country": "Canada",
-      "city": "Vancouver"
+      "id": "nl-maastricht",
+      "name": "Maastricht University",
+      "country": "Netherlands",
+      "city": "Maastricht",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "254",
+        "status": "verified",
+        "institution": "Maastricht University",
+        "url": "https://www.topuniversities.com/universities/maastricht-university",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
+    },
+    {
+      "id": "nl-tilburg",
+      "name": "Tilburg University",
+      "country": "Netherlands",
+      "city": "Tilburg",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "429",
+        "status": "verified",
+        "institution": "Tilburg University",
+        "url": "https://www.topuniversities.com/universities/tilburg-university",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
+    },
+    {
+      "id": "nl-utrecht",
+      "name": "Utrecht University",
+      "country": "Netherlands",
+      "city": "Utrecht",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "=113",
+        "status": "verified",
+        "institution": "Utrecht University",
+        "url": "https://www.topuniversities.com/universities/utrecht-university",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
+    },
+    {
+      "id": "nl-uva",
+      "name": "University of Amsterdam",
+      "country": "Netherlands",
+      "city": "Amsterdam",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "60",
+        "status": "verified",
+        "institution": "University of Amsterdam",
+        "url": "https://www.topuniversities.com/universities/university-amsterdam",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
+    },
+    {
+      "id": "nl-vu",
+      "name": "Vrije Universiteit Amsterdam",
+      "country": "Netherlands",
+      "city": "Amsterdam",
+      "qsRanking": {
+        "edition": 2027,
+        "rank": "=185",
+        "status": "verified",
+        "institution": "Vrije Universiteit Amsterdam",
+        "url": "https://www.topuniversities.com/universities/vrije-universiteit-amsterdam",
+        "checkedAt": "2026-11-20",
+        "notes": "Overall QS World University Ranking; not a subject ranking."
+      }
     },
     {
       "id": "sg-kaplan-murdoch",
@@ -916,48 +1391,9 @@
         "checkedAt": "2026-11-17",
         "notes": "No overall world rank established from this source. Its South Eastern Asia ranking is a different table and is not substituted here."
       }
-    },
-    {
-      "id": "south-coast",
-      "name": "South Coast Institute",
-      "country": "Australia",
-      "city": "Melbourne"
-    },
-    {
-      "id": "westbridge",
-      "name": "Westbridge University",
-      "country": "United Kingdom",
-      "city": "Bristol"
     }
   ],
   "programs": [
-    {
-      "id": "canal-cs",
-      "name": "BSc Technical Computer Science",
-      "degree": "Bachelor’s",
-      "subjects": [
-        "Computer Science"
-      ],
-      "universityId": "canal"
-    },
-    {
-      "id": "harbour-business",
-      "name": "Bachelor of Business",
-      "degree": "Bachelor’s",
-      "subjects": [
-        "Business"
-      ],
-      "universityId": "harbour"
-    },
-    {
-      "id": "harbour-cs",
-      "name": "BSc Computer Science",
-      "degree": "Bachelor’s",
-      "subjects": [
-        "Computer Science"
-      ],
-      "universityId": "harbour"
-    },
     {
       "id": "kaplan-criminal-behaviour",
       "name": "Bachelor of Criminology in Criminal Behaviour",
@@ -982,31 +1418,205 @@
       "universityId": "sg-kaplan-murdoch"
     },
     {
-      "id": "linden-cs",
-      "name": "BSc Informatics",
+      "id": "nl-erasmus-criminology",
+      "name": "BSc Criminologie — Dutch-taught",
       "degree": "Bachelor’s",
       "subjects": [
-        "Computer Science"
+        "Criminology"
       ],
-      "universityId": "linden"
+      "url": "https://www.eur.nl/bachelor/criminologie",
+      "notes": "Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-erasmus"
     },
     {
-      "id": "maple-business",
-      "name": "MSc Business Analytics",
-      "degree": "Master’s",
-      "subjects": [
-        "Business"
-      ],
-      "universityId": "maple"
-    },
-    {
-      "id": "maple-cs",
-      "name": "BSc Computer Science",
+      "id": "nl-erasmus-double-economics",
+      "name": "Double bachelor BSc² Econometrics and Economics",
       "degree": "Bachelor’s",
       "subjects": [
-        "Computer Science"
+        "Economics",
+        "Data Science",
+        "Mathematics"
       ],
-      "universityId": "maple"
+      "url": "https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-erasmus"
+    },
+    {
+      "id": "nl-erasmus-econometrics",
+      "name": "International Bachelor Econometrics and Operations Research",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://www.eur.nl/en/bachelor/international-bachelor-econometrics-and-operations-research",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-erasmus"
+    },
+    {
+      "id": "nl-erasmus-economics",
+      "name": "International Bachelor Economics and Business Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-erasmus"
+    },
+    {
+      "id": "nl-groningen-econometrics",
+      "name": "BSc Econometrics and Operations Research",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-groningen"
+    },
+    {
+      "id": "nl-groningen-economics",
+      "name": "BSc Economics and Business Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-groningen"
+    },
+    {
+      "id": "nl-leiden-criminology",
+      "name": "BSc Criminologie — Dutch-taught",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Criminology"
+      ],
+      "url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/criminologie",
+      "notes": "Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-leiden"
+    },
+    {
+      "id": "nl-maastricht-econometrics",
+      "name": "BSc Econometrics & Operations Research",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/econometrics-operations-research",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-maastricht"
+    },
+    {
+      "id": "nl-maastricht-economics",
+      "name": "BSc Economics and Business Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-maastricht"
+    },
+    {
+      "id": "nl-tilburg-econometrics",
+      "name": "BSc Econometrics and Operations Research",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://www.tilburguniversity.edu/education/bachelors-programs/econometrics-and-operations-research",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "universityId": "nl-tilburg"
+    },
+    {
+      "id": "nl-tilburg-economics",
+      "name": "BSc Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.tilburguniversity.edu/education/bachelors-programs/economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "universityId": "nl-tilburg"
+    },
+    {
+      "id": "nl-utrecht-economics",
+      "name": "BSc Economics and Business Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.uu.nl/en/bachelors/economics-and-business-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "universityId": "nl-utrecht"
+    },
+    {
+      "id": "nl-uva-econometrics",
+      "name": "Econometrics and Data Science",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/econometrics-and-data-science",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-uva"
+    },
+    {
+      "id": "nl-uva-economics",
+      "name": "Economics and Business Economics — English track",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/economics--business-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-uva"
+    },
+    {
+      "id": "nl-vu-criminology",
+      "name": "BSc Criminologie — Dutch-taught",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Criminology"
+      ],
+      "url": "https://vu.nl/nl/onderwijs/bachelor/criminologie",
+      "notes": "Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+      "universityId": "nl-vu"
+    },
+    {
+      "id": "nl-vu-econometrics",
+      "name": "Econometrics and Data Science",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics",
+        "Data Science",
+        "Mathematics"
+      ],
+      "url": "https://vu.nl/en/education/bachelor/econometrics-and-data-science",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "universityId": "nl-vu"
+    },
+    {
+      "id": "nl-vu-economics",
+      "name": "Economics and Business Economics",
+      "degree": "Bachelor’s",
+      "subjects": [
+        "Economics"
+      ],
+      "url": "https://vu.nl/en/education/bachelor/economics-and-business-economics",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "universityId": "nl-vu"
     },
     {
       "id": "ntu-aerospace-economics",
@@ -1360,15 +1970,6 @@
       "universityId": "sg-smu"
     },
     {
-      "id": "south-coast-cs",
-      "name": "Bachelor of Computer Science",
-      "degree": "Bachelor’s",
-      "subjects": [
-        "Computer Science"
-      ],
-      "universityId": "south-coast"
-    },
-    {
       "id": "suss-public-safety",
       "name": "Bachelor of Public Safety and Security + optional Criminology minor",
       "degree": "Bachelor’s",
@@ -1379,485 +1980,9 @@
       "url": "https://www.suss.edu.sg/programmes/detail/ft-bachelor-of-public-safety-and-security",
       "notes": "The programme recommends the Criminology minor. Economics is not the primary subject. SUSS calls this the July intake, with teaching starting in August. Current programme offering verified; this does not confirm eligibility, availability of individual electives, or a guaranteed 2027 place.",
       "universityId": "sg-suss"
-    },
-    {
-      "id": "westbridge-cs",
-      "name": "BSc Computer Science",
-      "degree": "Bachelor’s",
-      "subjects": [
-        "Computer Science"
-      ],
-      "universityId": "westbridge"
     }
   ],
   "admissions": [
-    {
-      "programId": "canal-cs",
-      "cycle": 2027,
-      "intake": {
-        "month": 9,
-        "year": 2027
-      },
-      "routes": [
-        {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-01-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-02-01",
-                "end": "2027-04-15"
-              },
-              "wording": "Submit the sample application during this date window.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "not-yet-published",
-              "deadline": null,
-              "wording": "The fictional notice says this date has not been published yet.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-07-01",
-                "end": "2027-07-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-09-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/canal-cs/2027",
-          "passage": "Fictional admission notice for BSc Technical Computer Science. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
-    },
-    {
-      "programId": "harbour-business",
-      "cycle": 2027,
-      "intake": {
-        "month": 8,
-        "year": 2027
-      },
-      "routes": [
-        {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2026-12-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-01-01",
-                "end": "2027-03-15"
-              },
-              "wording": "Submit the sample application during this date window.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-04-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-06-01",
-                "end": "2027-06-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-07-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/harbour-business/2027",
-          "passage": "Fictional admission notice for Bachelor of Business. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
-    },
-    {
-      "programId": "harbour-cs",
-      "cycle": 2027,
-      "intake": {
-        "month": 8,
-        "year": 2027
-      },
-      "routes": [
-        {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2026-12-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-01-01",
-                "end": "2027-03-15"
-              },
-              "wording": "Submit the sample application during this date window.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-04-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-06-01",
-                "end": "2027-06-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-07-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "alternative-route",
-          "label": "Alternative qualification route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2026-12-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-01-01",
-                "end": "2027-03-05"
-              },
-              "wording": "This fictional qualification route has an earlier application closing date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-04-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-06-01",
-                "end": "2027-06-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-07-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/harbour-cs/2027",
-          "passage": "Fictional admission notice for BSc Computer Science. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
-    },
     {
       "programId": "kaplan-criminal-behaviour",
       "dataType": "real",
@@ -2049,364 +2174,1986 @@
       }
     },
     {
-      "programId": "linden-cs",
+      "programId": "nl-erasmus-criminology",
+      "dataType": "real",
       "cycle": 2027,
       "intake": {
-        "month": 10,
+        "month": 9,
         "year": 2027
       },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.eur.nl/bachelor/criminologie/toelating",
+          "passage": "Criminologie — Dutch-language selection route: Registration opens for the 2027/28 selection cycle. Numerus fixus registration closes 15 January 2027. Dutch-language programme. Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed by the university; these are alternative attendance dates, not a deadline window.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
       "routes": [
         {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
+          "id": "programme-route",
+          "label": "Criminologie — Dutch-language selection route",
           "stages": [
             {
               "type": "opening",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-02-01"
+                "date": "2026-10-01"
               },
-              "wording": "The sample application portal opens on the date shown.",
+              "wording": "Registration opens for the 2027/28 selection cycle.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "application",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
-                "kind": "window",
-                "start": "2027-03-01",
-                "end": "2027-05-15"
+                "kind": "date",
+                "date": "2027-01-15"
               },
-              "wording": "Submit the sample application during this date window.",
+              "wording": "Numerus fixus registration closes 15 January 2027. Dutch-language programme.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-06-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "tests",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
-                "kind": "date",
-                "date": "2027-07-15"
+                "kind": "relative",
+                "rule": "Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed by the university; these are alternative attendance dates, not a deadline window."
               },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
+              "wording": "Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed by the university; these are alternative attendance dates, not a deadline window.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "interview",
-              "status": "not-researched",
+              "status": "not-verified",
               "deadline": null,
-              "wording": "This stage has not been researched in this fictional example.",
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
               "sourceIds": []
             },
             {
               "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-09-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-10-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             }
           ]
         }
       ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/linden-cs/2027",
-          "passage": "Fictional admission notice for BSc Informatics. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
     },
     {
-      "programId": "maple-business",
+      "programId": "nl-erasmus-double-economics",
+      "dataType": "real",
       "cycle": 2027,
       "intake": {
         "month": 9,
         "year": 2027
       },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/application",
+          "passage": "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 May 2027.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
       "routes": [
         {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
+          "id": "non-eea",
+          "label": "Non-EU/EEA applicant — check residence/visa exceptions",
           "stages": [
             {
               "type": "opening",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-01-01"
+                "date": "2026-11-01"
               },
-              "wording": "The sample application portal opens on the date shown.",
+              "wording": "Applications open.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "application",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
-                "kind": "window",
-                "start": "2027-02-01",
-                "end": "2027-04-15"
+                "kind": "date",
+                "date": "2027-04-01"
               },
-              "wording": "Submit the sample application during this date window.",
+              "wording": "Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-06-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-07-01",
-                "end": "2027-07-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "enrolment",
-              "status": "dummy",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        },
+        {
+          "id": "eea",
+          "label": "EU/EEA applicant — check residence/visa exceptions",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-09-01"
+                "date": "2026-11-01"
               },
-              "wording": "Complete enrolment by the sample intake date.",
+              "wording": "Applications open.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "Complete the application and required portal tasks by 1 May 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             }
           ]
         }
       ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/maple-business/2027",
-          "passage": "Fictional admission notice for MSc Business Analytics. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
     },
     {
-      "programId": "maple-cs",
+      "programId": "nl-erasmus-econometrics",
+      "dataType": "real",
       "cycle": 2027,
       "intake": {
         "month": 9,
         "year": 2027
       },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.eur.nl/en/bachelor/international-bachelor-econometrics-and-operations-research/application",
+          "passage": "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the application and required portal tasks by 1 May 2027.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
       "routes": [
         {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
+          "id": "non-eea",
+          "label": "Non-EU/EEA applicant — check residence/visa exceptions",
           "stages": [
             {
               "type": "opening",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-01-01"
+                "date": "2026-11-01"
               },
-              "wording": "The sample application portal opens on the date shown.",
+              "wording": "Applications open.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "application",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
-                "kind": "window",
-                "start": "2027-02-01",
-                "end": "2027-04-15"
+                "kind": "date",
+                "date": "2027-04-01"
               },
-              "wording": "Submit the sample application during this date window.",
+              "wording": "Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "documents",
-              "status": "dummy",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        },
+        {
+          "id": "eea",
+          "label": "EU/EEA applicant — check residence/visa exceptions",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-05-10"
+                "date": "2026-11-01"
               },
-              "wording": "Upload supporting documents by the sample deadline.",
+              "wording": "Applications open.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "Complete the application and required portal tasks by 1 May 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-erasmus-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application",
+          "passage": "IBEB numerus fixus — all applicants: Applications open for 2027/28. Complete Studielink AND EUR portal, including required uploads and handling fee, by 23:59 CET. Final certified diploma and grades normally due 1 August; A-level/Irish exceptions: 21 August. Initial documents are due with the 15 January application. Ranking number and first-round offers on 15 April. Accept an offered place within two weeks of the offer.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "IBEB numerus fixus — all applicants",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications open for 2027/28.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-15"
+              },
+              "wording": "Complete Studielink AND EUR portal, including required uploads and handling fee, by 23:59 CET.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-01"
+              },
+              "wording": "Final certified diploma and grades normally due 1 August; A-level/Irish exceptions: 21 August. Initial documents are due with the 15 January application.",
+              "sourceIds": [
+                "programme-admissions"
               ]
             },
             {
               "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-06-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "interview",
-              "status": "dummy",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "decision",
+              "status": "verified",
               "deadline": {
-                "kind": "window",
-                "start": "2027-07-01",
-                "end": "2027-07-15"
+                "kind": "date",
+                "date": "2027-04-15"
               },
-              "wording": "The sample interview period spans the dates shown.",
+              "wording": "Ranking number and first-round offers on 15 April.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "acceptance",
-              "status": "dummy",
+              "status": "verified",
               "deadline": {
                 "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
+                "rule": "Accept an offered place within two weeks of the offer."
               },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
+              "wording": "Accept an offered place within two weeks of the offer.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
               ]
             },
             {
               "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
             },
             {
               "type": "enrolment",
-              "status": "dummy",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-groningen-econometrics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en",
+          "passage": "All published nationality groups — diploma assessed individually: Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "All published nationality groups — diploma assessed individually",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
               "deadline": {
                 "kind": "date",
-                "date": "2027-09-01"
+                "date": "2027-05-01"
               },
-              "wording": "Complete enrolment by the sample intake date.",
+              "wording": "Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal.",
               "sourceIds": [
-                "sample-notice"
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-groningen-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en",
+          "passage": "All published nationality groups — diploma assessed individually: Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "All published nationality groups — diploma assessed individually",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "Published application deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete Studielink and the university portal.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-leiden-criminology",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.universiteitleiden.nl/onderwijs/opleidingen/bachelor/criminologie/toelating-en-aanmelding/deadlines-voor-aanmelden",
+          "passage": "Criminologie — Dutch-language numerus fixus: Registration opens for the 2027/28 cycle. Register by 15 January 2027, 23:59 university-local time. Complete the selection effort requirement and, where required, the foreign-diploma admission request by 31 January. Final school results are due 31 July 2027 unless an extension is approved. Ranking number published on 15 April 2027. Accept an offered place within two weeks of the offer.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "Criminologie — Dutch-language numerus fixus",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Registration opens for the 2027/28 cycle.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-15"
+              },
+              "wording": "Register by 15 January 2027, 23:59 university-local time.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-31"
+              },
+              "wording": "Complete the selection effort requirement and, where required, the foreign-diploma admission request by 31 January. Final school results are due 31 July 2027 unless an extension is approved.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "decision",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-15"
+              },
+              "wording": "Ranking number published on 15 April 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "acceptance",
+              "status": "verified",
+              "deadline": {
+                "kind": "relative",
+                "rule": "Accept an offered place within two weeks of the offer."
+              },
+              "wording": "Accept an offered place within two weeks of the offer.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-maastricht-econometrics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/econometrics-operations-research/admission-requirements",
+          "passage": "Non-EU/EEA and non-Swiss applicant — check visa requirements: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open. Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions. EU/EEA or Swiss applicant: Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines. Applications open. Complete the application and required portal tasks by 1 May 2027.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "non-eea",
+          "label": "Non-EU/EEA and non-Swiss applicant — check visa requirements",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications open.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-01"
+              },
+              "wording": "Complete the application and required portal tasks by 1 April 2027; consult the source for residence and visa exceptions.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "eea",
+          "label": "EU/EEA or Swiss applicant",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications open.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "Complete the application and required portal tasks by 1 May 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Complete enrolment tasks by 31 August 2027, 23:59 CET. Visa requirements may have earlier deadlines.",
+              "sourceIds": [
+                "programme-admissions"
               ]
             }
           ]
         }
       ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-maastricht-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
       "sources": [
         {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/maple-cs/2027",
-          "passage": "Fictional admission notice for BSc Computer Science. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
+          "id": "programme-admissions",
+          "url": "https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements",
+          "passage": "September 2027 — programme-specific application route: Applications open for September 2027. Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay and admission tasks. The early essay date 15 January is not the final closing date. Complete enrolment tasks, including required certified documents and tuition payment, by 23:59 CET. Visa applicants have additional earlier requirements.",
+          "checkedAt": "2026-11-20"
         }
-      ]
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "September 2027 — programme-specific application route",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications open for September 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-03-15"
+              },
+              "wording": "Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay and admission tasks. The early essay date 15 January is not the final closing date.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Complete enrolment tasks, including required certified documents and tuition payment, by 23:59 CET. Visa applicants have additional earlier requirements.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-tilburg-econometrics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": null,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.tilburguniversity.edu/education/bachelors-programs/econometrics-and-operations-research/application",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International diploma — 2027 deadline requires confirmation",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+      }
+    },
+    {
+      "programId": "nl-tilburg-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": null,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.tilburguniversity.edu/education/bachelors-programs/economics/application",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International diploma — 2027 deadline requires confirmation",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+      }
+    },
+    {
+      "programId": "nl-utrecht-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": null,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.uu.nl/en/bachelors/economics-and-business-economics/application-and-admission",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International diploma — 2027 deadline requires confirmation",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+      }
+    },
+    {
+      "programId": "nl-uva-econometrics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/econometrics-and-data-science/application-and-admission",
+          "passage": "International diploma — visa/residence permit required: 1 April 2027 if a visa/residence permit is required. Nationality alone does not determine the applicable route. EU/EEA international diploma — standard deadline, no university housing request: 1 May 2027 for EU/EEA international-diploma applicants without a housing request. Earlier deadlines may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "non-eea",
+          "label": "International diploma — visa/residence permit required",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-01"
+              },
+              "wording": "1 April 2027 if a visa/residence permit is required. Nationality alone does not determine the applicable route.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        },
+        {
+          "id": "eea",
+          "label": "EU/EEA international diploma — standard deadline, no university housing request",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "1 May 2027 for EU/EEA international-diploma applicants without a housing request. Earlier deadlines may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-uva-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://www.uva.nl/en/bachelors/bachelorsprogrammes/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track",
+          "passage": "International prior education — English numerus fixus track: English-track numerus fixus application closes 15 January 2027 for September 2027. Ranking numbers are published on 15 April 2027.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International prior education — English numerus fixus track",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-15"
+              },
+              "wording": "English-track numerus fixus application closes 15 January 2027 for September 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "decision",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-15"
+              },
+              "wording": "Ranking numbers are published on 15 April 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-vu-criminology",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": 9,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://vu.nl/nl/onderwijs/bachelor/criminologie/Toelating",
+          "passage": "Criminologie — Dutch-language numerus fixus: Register in Studielink by 15 January 2027, 23:59 CET. Complete the VU dashboard and selection form with required grades by 31 January. Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number published on 15 April 2027.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "Criminologie — Dutch-language numerus fixus",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-15"
+              },
+              "wording": "Register in Studielink by 15 January 2027, 23:59 CET.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-01-31"
+              },
+              "wording": "Complete the VU dashboard and selection form with required grades by 31 January. Meet prior-education and tuition conditions by 15 July 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "tests",
+              "status": "verified",
+              "deadline": {
+                "kind": "relative",
+                "rule": "Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your attendance date."
+              },
+              "wording": "Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your attendance date.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "decision",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-15"
+              },
+              "wording": "Ranking number published on 15 April 2027.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and visa status are separate."
+      }
+    },
+    {
+      "programId": "nl-vu-econometrics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": null,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://vu.nl/en/education/bachelor/econometrics-and-data-science/admissions",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International diploma — 2027 deadline requires confirmation",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+      }
+    },
+    {
+      "programId": "nl-vu-economics",
+      "dataType": "real",
+      "cycle": 2027,
+      "intake": {
+        "month": null,
+        "year": 2027
+      },
+      "sources": [
+        {
+          "id": "programme-admissions",
+          "url": "https://vu.nl/en/education/bachelor/economics-and-business-economics/admissions",
+          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "checkedAt": "2026-11-20"
+        }
+      ],
+      "routes": [
+        {
+          "id": "programme-route",
+          "label": "International diploma — 2027 deadline requires confirmation",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "application",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "sourceIds": [
+                "programme-admissions"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "tests",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        }
+      ],
+      "dateReview": {
+        "checkedAt": "2026-11-20",
+        "sourceIds": [
+          "programme-admissions"
+        ],
+        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+      }
     },
     {
       "programId": "ntu-aerospace-economics",
@@ -9580,125 +11327,6 @@
       }
     },
     {
-      "programId": "south-coast-cs",
-      "cycle": 2027,
-      "intake": {
-        "month": 2,
-        "year": 2028
-      },
-      "routes": [
-        {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-06-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-07-01",
-                "end": "2027-09-15"
-              },
-              "wording": "Submit the sample application during this date window.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-10-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-11-15"
-              },
-              "wording": "Submit entrance-test or language-score evidence by this sample date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-12-01",
-                "end": "2027-12-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "source-unavailable",
-              "deadline": null,
-              "wording": "The fictional source is unavailable; no date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2028-02-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/south-coast-cs/2027",
-          "passage": "Fictional admission notice for Bachelor of Computer Science. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
-    },
-    {
       "programId": "suss-public-safety",
       "dataType": "real",
       "cycle": 2027,
@@ -9852,125 +11480,6 @@
         ],
         "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
       }
-    },
-    {
-      "programId": "westbridge-cs",
-      "cycle": 2027,
-      "intake": {
-        "month": 9,
-        "year": 2027
-      },
-      "routes": [
-        {
-          "id": "general-route",
-          "label": "General applicant route (dummy)",
-          "stages": [
-            {
-              "type": "opening",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-01-01"
-              },
-              "wording": "The sample application portal opens on the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "application",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-02-01",
-                "end": "2027-04-15"
-              },
-              "wording": "Submit the sample application during this date window.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "documents",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-05-10"
-              },
-              "wording": "Upload supporting documents by the sample deadline.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "tests",
-              "status": "needs-review",
-              "deadline": null,
-              "wording": "The fictional test deadline needs editorial review.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "interview",
-              "status": "dummy",
-              "deadline": {
-                "kind": "window",
-                "start": "2027-07-01",
-                "end": "2027-07-15"
-              },
-              "wording": "The sample interview period spans the dates shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "acceptance",
-              "status": "dummy",
-              "deadline": {
-                "kind": "relative",
-                "rule": "Within 14 days of receiving an offer"
-              },
-              "wording": "Respond within 14 days of receiving an offer. No calendar date is assumed.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "deposit",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-08-10"
-              },
-              "wording": "Pay the sample admission deposit by the date shown.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            },
-            {
-              "type": "enrolment",
-              "status": "dummy",
-              "deadline": {
-                "kind": "date",
-                "date": "2027-09-01"
-              },
-              "wording": "Complete enrolment by the sample intake date.",
-              "sourceIds": [
-                "sample-notice"
-              ]
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "sample-notice",
-          "url": "https://example.org/fictional/westbridge-cs/2027",
-          "passage": "Fictional admission notice for BSc Computer Science. All dates and conditions in this file are invented for demonstration.",
-          "checkedAt": null
-        }
-      ]
     }
   ]
 }

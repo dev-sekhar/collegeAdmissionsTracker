@@ -1,0 +1,35 @@
+id: nl-tilburg
+name: Tilburg University
+country: Netherlands
+city: Tilburg
+qsRanking:
+  edition: 2027
+  rank: "429"
+  status: verified
+  institution: Tilburg University
+  url: https://www.topuniversities.com/universities/tilburg-university
+  checkedAt: 2026-11-20
+  notes: Overall QS World University Ranking; not a subject ranking.
+programs:
+  - id: nl-tilburg-economics
+    name: BSc Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.tilburguniversity.edu/education/bachelors-programs/economics
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Current offering verified. Admission eligibility and optional combinations
+      are not guaranteed. The 2027 intake month and application dates remain unverified.
+  - id: nl-tilburg-econometrics
+    name: BSc Econometrics and Operations Research
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Mathematics
+    url: https://www.tilburguniversity.edu/education/bachelors-programs/econometrics-and-operations-research
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Quantitative economics with mathematical, data or computing methods; this
+      is not a general computer-science degree. Current offering verified. Admission eligibility and
+      optional combinations are not guaranteed. The 2027 intake month and application dates remain
+      unverified.

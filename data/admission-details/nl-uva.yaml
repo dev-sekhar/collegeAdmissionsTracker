@@ -1,0 +1,48 @@
+id: nl-uva-admission-details
+programIds:
+  - nl-uva-economics
+  - nl-uva-econometrics
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "Economics and Business Economics — English track: English-taught; diploma equivalence,
+      mathematics and language requirements must be assessed by the university. Current offering
+      verified. Admission eligibility and optional combinations are not guaranteed. Econometrics and
+      Data Science: English-taught; diploma equivalence, mathematics and language requirements must
+      be assessed by the university. Quantitative economics with mathematical, data or computing
+      methods; this is not a general computer-science degree. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed."
+    sourceIds:
+      - economics-admissions
+      - econometrics-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://www.uva.nl/en/bachelors/bachelorsprogrammes/economics--business-economics/application-and-admission/international-prior-education/international-prior-education-english-track
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: Economics and Business Economics — English track; 2027/28 programme admissions instructions.
+    passage: "International prior education — English numerus fixus track: English-track numerus fixus
+      application closes 15 January 2027 for September 2027. Ranking numbers are published on 15
+      April 2027."
+  - id: econometrics-admissions
+    url: https://www.uva.nl/en/bachelors/bachelorsprogrammes/econometrics-and-data-science/application-and-admission
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: Econometrics and Data Science; 2027/28 programme admissions instructions.
+    passage: "International diploma — visa/residence permit required: 1 April 2027 if a visa/residence
+      permit is required. Nationality alone does not determine the applicable route. EU/EEA
+      international diploma — standard deadline, no university housing request: 1 May 2027 for
+      EU/EEA international-diploma applicants without a housing request. Earlier deadlines may
+      apply."

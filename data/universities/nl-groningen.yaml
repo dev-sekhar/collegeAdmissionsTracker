@@ -1,0 +1,34 @@
+id: nl-groningen
+name: University of Groningen
+country: Netherlands
+city: Groningen
+qsRanking:
+  edition: 2027
+  rank: "157"
+  status: verified
+  institution: University of Groningen
+  url: https://www.topuniversities.com/universities/university-groningen
+  checkedAt: 2026-11-20
+  notes: Overall QS World University Ranking; not a subject ranking.
+programs:
+  - id: nl-groningen-economics
+    name: BSc Economics and Business Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Current offering verified. Admission eligibility and optional combinations
+      are not guaranteed.
+  - id: nl-groningen-econometrics
+    name: BSc Econometrics and Operations Research
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Mathematics
+    url: https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Quantitative economics with mathematical, data or computing methods; this
+      is not a general computer-science degree. Current offering verified. Admission eligibility and
+      optional combinations are not guaranteed.

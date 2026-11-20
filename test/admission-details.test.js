@@ -7,9 +7,9 @@ function universities(){return catalogue.universities.map(university=>({...unive
 function validate(details){return compileCatalogue(universities(),catalogue.admissions,catalogue.applicantPolicies,details);}
 
 test('every real programme has explicit partial extraction coverage and official links',()=>{
-  assert.equal(catalogue.admissionDetails.length,8);
+  assert.equal(catalogue.admissionDetails.length,16);
   const rows=catalogueRows(catalogue).filter(row=>row.admission.dataType==='real');
-  assert.equal(new Set(rows.map(row=>row.programId)).size,31);
+  assert.equal(new Set(rows.map(row=>row.programId)).size,48);
   for(const row of rows){assert.ok(row.admissionDetails);assert.equal(row.admissionDetails.coverage,'partial');assert.ok(row.url);}
 });
 test('SIM document provenance and update dates stay separate from intake applicability',()=>{

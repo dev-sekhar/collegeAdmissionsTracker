@@ -1,0 +1,82 @@
+id: nl-erasmus-admission-details
+programIds:
+  - nl-erasmus-economics
+  - nl-erasmus-econometrics
+  - nl-erasmus-double-economics
+  - nl-erasmus-criminology
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "International Bachelor Economics and Business Economics: English-taught; diploma equivalence,
+      mathematics and language requirements must be assessed by the university. Current offering
+      verified. Admission eligibility and optional combinations are not guaranteed. International
+      Bachelor Econometrics and Operations Research: English-taught; diploma equivalence,
+      mathematics and language requirements must be assessed by the university. Quantitative
+      economics with mathematical, data or computing methods; this is not a general computer-science
+      degree. Current offering verified. Admission eligibility and optional combinations are not
+      guaranteed. Double bachelor BSc² Econometrics and Economics: English-taught; diploma
+      equivalence, mathematics and language requirements must be assessed by the university.
+      Quantitative economics with mathematical, data or computing methods; this is not a general
+      computer-science degree. Current offering verified. Admission eligibility and optional
+      combinations are not guaranteed. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch
+      proficiency and foreign-diploma assessment are required. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed."
+    sourceIds:
+      - economics-admissions
+      - econometrics-admissions
+      - double-economics-admissions
+      - criminology-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: International Bachelor Economics and Business Economics; 2027/28 programme admissions
+      instructions.
+    passage: "IBEB numerus fixus — all applicants: Applications open for 2027/28. Complete Studielink
+      AND EUR portal, including required uploads and handling fee, by 23:59 CET. Final certified
+      diploma and grades normally due 1 August; A-level/Irish exceptions: 21 August. Initial
+      documents are due with the 15 January application. Ranking number and first-round offers on 15
+      April. Accept an offered place within two weeks of the offer."
+  - id: econometrics-admissions
+    url: https://www.eur.nl/en/bachelor/international-bachelor-econometrics-and-operations-research/application
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: International Bachelor Econometrics and Operations Research; 2027/28 programme
+      admissions instructions.
+    passage: "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the
+      application and required portal tasks by 1 April 2027; consult the source for residence and
+      visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open.
+      Complete the application and required portal tasks by 1 May 2027."
+  - id: double-economics-admissions
+    url: https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/application
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: Double bachelor BSc² Econometrics and Economics; 2027/28 programme admissions instructions.
+    passage: "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the
+      application and required portal tasks by 1 April 2027; consult the source for residence and
+      visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open.
+      Complete the application and required portal tasks by 1 May 2027."
+  - id: criminology-admissions
+    url: https://www.eur.nl/bachelor/criminologie/toelating
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.
+    passage: "Criminologie — Dutch-language selection route: Registration opens for the 2027/28
+      selection cycle. Numerus fixus registration closes 15 January 2027. Dutch-language programme.
+      Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed
+      by the university; these are alternative attendance dates, not a deadline window."

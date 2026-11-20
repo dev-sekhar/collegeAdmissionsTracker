@@ -1,0 +1,32 @@
+id: nl-utrecht-admission-details
+programIds:
+  - nl-utrecht-economics
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and
+      language requirements must be assessed by the university. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed. The 2027 intake month and
+      application dates remain unverified."
+    sourceIds:
+      - economics-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://www.uu.nl/en/bachelors/economics-and-business-economics/application-and-admission
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.
+    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
+      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
+      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."

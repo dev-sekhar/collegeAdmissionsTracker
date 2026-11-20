@@ -252,3 +252,7 @@ School qualification options include CBSE, ISC, ICSE, IGCSE, IB, Cambridge A Lev
 New shared requirements, published-calendar and extraction-fallback components preserve consistency. A repository-versioned admissions-extraction skill draft covers discovery, extraction, verification and curation, with institution notes rather than duplicated skills per university. It is not globally installed. See ADMISSION-EXTRACTION-REVIEW.md for limits, the preview and manual tests. No merge before user review.
 
 Validation: the static build and all 53 tests pass, including source provenance, extraction coverage and visible-calendar behaviour. The skill passes its validator. HTTP checks confirm the preview and JSON load on port 4180 while source YAML and skill files remain unserved. Browser/keyboard/mobile checks remain manual.
+
+# Netherlands real-data catalogue and removal of examples — 20 November 2026
+
+Added eight Netherlands universities and 17 undergraduate programmes covering economics, quantitative/data combinations and Dutch-taught criminology. Programme details show checked official sources; dates without explicit 2027 confirmation remain unknown. Added QS rankings and university-local upcoming-date handling. Singapore records and matching are preserved. Removed all fictional university and intake YAML records. Reader/writer features remain for later. Review instructions: [Netherlands data and manual checks](NETHERLANDS-2027-DATA.md).
