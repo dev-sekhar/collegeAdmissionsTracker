@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {buildCatalogue} from '../scripts/build-catalogue.mjs';
 import {catalogueRows,deadlineLabel} from '../src/catalogue-model.js';
-import {groupUniversities,groupProgrammes} from '../src/browse-components.js';
+import {groupUniversities,groupProgrammes,universityList} from '../src/browse-components.js';
 import {mountAdmissionsBrowser} from '../src/catalogue-browser.js';
 const catalogue=await buildCatalogue({check:true});
 const rows=catalogueRows(catalogue);const real=rows.filter(row=>row.admission.dataType==='real');
@@ -32,6 +32,16 @@ test('university/programme grouping deduplicates intake rows without losing any 
   assert.equal(groupUniversities(real).length,8);assert.equal(groupProgrammes(real).length,31);
   const buffalo=groupProgrammes(real).find(item=>item.programId==='sim-buffalo-economics');assert.equal(buffalo.intakes.length,3);
   assert.equal(groupProgrammes(real).filter(item=>item.universityId==='sg-sim-uol').length,4);
+});
+test('country sections retain every university and compact ranks do not invent missing values',t=>{
+  const f=fixture(t);assert.equal(f.all('.country-heading').length,1);assert.equal(f.find('.country-heading').textContent,'Singapore');
+  const list=universityList(groupUniversities(rows),'',()=>{});const groups=list.querySelectorAll('.university-country-group');
+  assert.equal(groups.length,new Set(rows.map(row=>row.country)).size);assert.equal(list.querySelectorAll('.university-card').length,groupUniversities(rows).length);
+  for(const university of groupUniversities(rows)){
+    const card=list.querySelector(`#university-${university.universityId}`);assert.equal(card.querySelector('.university-name').textContent,university.universityName);
+    const rank=card.querySelector('.university-rank');assert.equal(rank.textContent,university.qsRanking?.status==='verified'?`#${university.qsRanking.rank}`:'—');
+    assert.equal(card.querySelector('.country-label'),null);assert.doesNotMatch(card.textContent,/QS World|awarding university|View programmes/);
+  }
 });
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
   const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
