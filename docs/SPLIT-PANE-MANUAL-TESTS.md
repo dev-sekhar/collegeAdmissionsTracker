@@ -2,6 +2,12 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Minimise country to return to summary — PR #50
+
+- Select NTU, then minimise Singapore. Programme cards should disappear and the right pane should show the Universities/Programs summary and all-university upcoming deadlines. Singapore must stay collapsed.
+- Expand Singapore again: no university should be selected until you choose one. Check filters remain unchanged.
+- Repeat with keyboard Enter/Space on the country toggle; focus should remain on that toggle. With multiple countries visible, minimising a different country should leave the selected university unchanged.
+
 ## Brand home link — PR #49
 
 - Select a university, then click Admissions Atlas or its icon. Confirm the default landing summary appears with no university/programme selected. Try both the icon and name.
