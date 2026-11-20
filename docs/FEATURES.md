@@ -1,5 +1,13 @@
 # Running feature record
 
+## Brand link back to the landing page
+
+Draft PR #49 makes the Admissions Atlas name and its icon one accessible home link. Clicking either, or using Tab and Enter, reloads the default landing page with no university or programme selected, showing the summary again. As a fresh page load, filters and optional applicant details return to their defaults. No deadline or YAML data changes.
+
+The existing header/brand styling is retained with a hover cue and keyboard focus. This small navigation change uses a native link and project documentation, not a separate skill. Preview remains on port 4180; no merge before user review.
+
+Validation: build, whitespace and unchanged-data checks pass. An HTTP check confirms both icon/name are inside the home link and its landing target returns 200 on port 4180. Clicking and keyboard navigation remain manual review items; no extra tests were added for native link behaviour.
+
 ## QS-ranked university order
 
 Draft PR #48 orders universities best-ranked first within each country tile, using the verified QS rank already stored in YAML. Missing/unverified ranks appear last. Equal ranks and unavailable ranks use alphabetical order for consistency; ties and rank bands keep their original displayed labels (bands sort by their lower endpoint). No ranking or admission data is changed.

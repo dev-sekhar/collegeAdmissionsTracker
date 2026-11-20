@@ -2,6 +2,12 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Brand home link — PR #49
+
+- Select a university, then click Admissions Atlas or its icon. Confirm the default landing summary appears with no university/programme selected. Try both the icon and name.
+- Change filters first and repeat: home is a fresh page load, so default filters and empty applicant details are restored.
+- Tab to the brand link and press Enter. Confirm visible focus and the same landing-page behaviour. If a programme popup is open, close it before using the page header.
+
 ## QS ordering
 
 - Confirm Singapore lists NUS #10, NTU #12, SIM/RMIT #=119, SMU #=411, SIM/Buffalo #=416 and Kaplan/Murdoch #422 in that order, followed by SIM/UOL and SUSS with unavailable ranks.
