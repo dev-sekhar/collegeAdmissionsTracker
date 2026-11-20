@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {buildCatalogue} from '../scripts/build-catalogue.mjs';
 import {catalogueRows,deadlineLabel} from '../src/catalogue-model.js';
-import {groupUniversities,groupProgrammes,universityList} from '../src/browse-components.js';
+import {groupUniversities,groupProgrammes,universityList,nonEnglishLanguages} from '../src/browse-components.js';
 import {mountAdmissionsBrowser} from '../src/catalogue-browser.js';
 const catalogue=await buildCatalogue({check:true});
 const rows=catalogueRows(catalogue);const real=rows.filter(row=>row.admission.dataType==='real'&&row.country==='Singapore');
@@ -242,4 +242,14 @@ test('review and manual status filters distinguish actual dated records without 
   const stage=admission.routes.find(r=>r.id==='international').stages.find(s=>s.type==='application');stage.status='needs-review';
   const f=fixture(t,{inputCatalogue});f.select('deadline-verification','needs-review');assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-item').every(item=>item.textContent.includes('Needs review')));
   f.select('deadline-verification','manual-unverified');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
+});
+
+test('known non-English programmes use a coloured card and explicit label in cards, timelines and deadlines',t=>{
+  const f=fixture(t);const nl=f.find('#country-filter').querySelectorAll('input').find(i=>i.value==='Netherlands');nl.checked=true;nl.events.change();
+  for(const university of ['nl-leiden','nl-erasmus','nl-vu']){
+    f.click(b=>b.id===`university-${university}`);const card=f.find(`#programme-${university}-criminology`);assert.match(card.className,/non-english-programme/);assert.equal(card.querySelector('.language-notice').textContent,'Taught in Dutch');
+    f.click(b=>b.id===card.id);assert.match(f.find('#timeline-title').className,/non-english-title/);assert.equal(f.find('.compact-timeline').querySelector('.language-notice').textContent,'Taught in Dutch');f.click(b=>b.className.includes('close-programme'));
+  }
+  f.find('.brand').events.click({preventDefault(){}});f.select('deadline-country','Netherlands');f.select('deadline-university','nl-leiden');assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-item').every(item=>item.querySelector('.language-notice')?.textContent==='Taught in Dutch'));
+  assert.deepEqual(nonEnglishLanguages({}),[]);assert.deepEqual(nonEnglishLanguages({teachingLanguages:['English','Dutch']}),[]);assert.deepEqual(nonEnglishLanguages({teachingLanguages:['Dutch']}),['Dutch']);
 });

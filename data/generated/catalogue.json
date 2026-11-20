@@ -1429,6 +1429,9 @@
     {
       "id": "nl-erasmus-criminology",
       "name": "BSc Criminologie — Dutch-taught",
+      "teachingLanguages": [
+        "Dutch"
+      ],
       "degree": "Bachelor’s",
       "subjects": [
         "Criminology"
@@ -1501,6 +1504,9 @@
     {
       "id": "nl-leiden-criminology",
       "name": "BSc Criminologie — Dutch-taught",
+      "teachingLanguages": [
+        "Dutch"
+      ],
       "degree": "Bachelor’s",
       "subjects": [
         "Criminology"
@@ -1595,6 +1601,9 @@
     {
       "id": "nl-vu-criminology",
       "name": "BSc Criminologie — Dutch-taught",
+      "teachingLanguages": [
+        "Dutch"
+      ],
       "degree": "Bachelor’s",
       "subjects": [
         "Criminology"
