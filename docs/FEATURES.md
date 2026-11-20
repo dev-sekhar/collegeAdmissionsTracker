@@ -1,5 +1,9 @@
 # Running feature record
 
+## Brand without an underline
+
+Draft PR #52 removes the Admissions Atlas hover underline at the user's request. The name/icon still link to the landing page and retain the keyboard focus outline. This CSS-only adjustment needs no separate skill. Manual check: hover the brand, confirm there is no underline, then click it to return home. Preview remains port 4180; no merge before review.
+
 ## Country minimise returns to the summary
 
 Draft PR #50 clears university/programme selection when its country tile is minimised. The right pane immediately returns to the Universities/Programs summary and catalogue-wide upcoming deadlines. The country stays collapsed, filters remain unchanged, and expanding it again does not restore an old selection. Keyboard focus stays on the country toggle.
