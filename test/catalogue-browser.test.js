@@ -24,6 +24,7 @@ class Element{
 const walk=node=>[node,...node.children.flatMap(walk)];
 function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z')}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
+  const brand=new Element('a');brand.className='brand';root.append(brand);const filterPanel=new Element('details');filterPanel.className='filter-panel';root.append(filterPanel);
   globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
   t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(catalogue,{clock});
   const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
@@ -139,4 +140,16 @@ test('upcoming list covers the full catalogue and opens hidden intakes without c
   f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.equal(f.all('.upcoming-item').length,1);assert.match(f.find('.upcoming-label').textContent,/All universities/);
   const returnId=f.find('.upcoming-programme').id;f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');assert.equal(f.find('#timeline-category').value,'international');assert.equal(f.find('#intake-filter').value,'2027-08');assert.equal(f.find('#degree-filter').value,'Master’s');
   f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,returnId);assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.equal(f.all('.upcoming-item').length,1);
+});
+test('ordinary brand clicks restore the default landing state without document navigation',t=>{
+  const f=fixture(t);f.select('intake-filter','2027-08');f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.select('applicant-board','cbse');f.click(b=>b.className.includes('close-programme'));f.find('.filter-panel').open=true;
+  let prevented=false;f.find('.brand').events.click({button:0,preventDefault(){prevented=true;}});
+  assert.equal(prevented,true);assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);assert.equal(f.find('#timeline-category'),null);assert.equal(f.find('#intake-filter').value,'');assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.equal(f.find('.filter-panel').open,false);assert.equal(f.find('.university-country-group').open,true);assert.equal(document.activeElement.id,'universities-title');
+  f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');assert.equal(f.find('#applicant-board').value,'');
+});
+test('modified and non-primary brand clicks keep native link behaviour',t=>{
+  const f=fixture(t);f.click(b=>b.id==='university-sg-ntu');
+  for(const options of [{ctrlKey:true},{metaKey:true},{shiftKey:true},{altKey:true},{button:1},{defaultPrevented:true}]){
+    let prevented=false;f.find('.brand').events.click({button:0,...options,preventDefault(){prevented=true;}});assert.equal(prevented,false);assert.equal(f.all('.programme-choice').length,15);
+  }
 });
