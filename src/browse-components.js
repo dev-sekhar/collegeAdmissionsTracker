@@ -9,7 +9,7 @@ export function groupProgrammes(rows){const groups=new Map();for(const row of ro
 export function universityCard(university,selected,onSelect){
   const button=action('',onSelect,`university-card${selected?' selected':''}`);button.id=`university-${university.universityId}`;button.setAttribute('aria-expanded',String(selected));button.setAttribute('aria-controls','programmes-pane');
   const name=el('strong','university-name',university.universityName);name.title=university.universityName;const ranking=university.qsRanking;const verified=ranking?.status==='verified';
-  const rank=el('span','university-rank',verified?`#${ranking.rank}`:'—');const description=ranking?`${ranking.institution} · QS World ${ranking.edition} · ${verified?`Rank ${ranking.rank}`:'Rank unverified'}`:'Rank unavailable';rank.setAttribute('aria-label',description);rank.title=description;button.append(name,rank);
+  const displayedRank=String(ranking?.rank??'').replace(/^=/u,'');const rank=el('span','university-rank',verified?`#${displayedRank}`:'—');const description=ranking?`${ranking.institution} · QS World ${ranking.edition} · ${verified?`Rank ${displayedRank}`:'Rank unverified'}`:'Rank unavailable';rank.setAttribute('aria-label',description);rank.title=description;button.append(name,rank);
   if(university.admission.dataType!=='real')button.append(el('span','example-label','Fictional example'));return button;
 }
 export function universityList(universities,selectedId,onUniversity,countryOpen=new Map(),onCountryToggle=()=>{}){

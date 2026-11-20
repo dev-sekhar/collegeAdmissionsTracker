@@ -1,5 +1,9 @@
 # Running feature record
 
+## Simplified QS rank labels
+
+Draft PR #53 hides the leading equals sign in university-card rank labels, so #=119 displays as #119. Raw QS values in YAML and numeric ordering stay unchanged; missing ranks still show a dash. Manual check: refresh port 4180 and confirm SIM/RMIT #119, SMU #411 and SIM/Buffalo #416. This is a shared display-component adjustment, not a separate skill. No merge before review.
+
 ## Brand without an underline
 
 Draft PR #52 removes the Admissions Atlas hover underline at the user's request. The name/icon still link to the landing page and retain the keyboard focus outline. This CSS-only adjustment needs no separate skill. Manual check: hover the brand, confirm there is no underline, then click it to return home. Preview remains port 4180; no merge before review.
