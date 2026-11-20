@@ -204,3 +204,24 @@ test('a stale mixed catalogue cannot expose fictional university cards or deadli
   inputCatalogue.admissions.push({...structuredClone(inputCatalogue.admissions.find(a=>a.programId===original.id)),programId:'harbour-economics',dataType:'dummy'});
   const f=fixture(t,{inputCatalogue});assert.equal(f.find('#university-harbour'),null);assert.doesNotMatch(f.find('#workspace').textContent,/Harbour|Fictional/);assert.deepEqual(f.all('dd').map(n=>n.textContent),['8','31']);
 });
+
+test('deadline country and university filters narrow the global list independently and persist',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});const allCount=f.all('.upcoming-item').length;assert.ok(allCount>0);
+  f.select('deadline-country','Netherlands');const nlNames=new Set(rows.filter(row=>row.country==='Netherlands').map(row=>row.universityName));
+  assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-university').every(node=>nlNames.has(node.textContent)));
+  const options=f.find('#deadline-university').children;assert.ok(options.every(option=>!option.value||option.value.startsWith('nl-')));
+  f.select('deadline-university','nl-uva');assert.ok(f.all('.upcoming-university').every(node=>node.textContent==='University of Amsterdam'));assert.ok(f.all('.upcoming-item').length>0);
+  assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);
+  f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.ok(f.all('.upcoming-item').length>0);
+  f.click(b=>b.className.includes('upcoming-programme'));assert.ok(f.find('dialog').open);assert.match(f.find('#timeline-category').value,/programme-route/);
+  f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('#deadline-university').value,'nl-uva');
+  const next=fixture(t,{storage});assert.equal(next.find('#deadline-country').value,'Netherlands');assert.equal(next.find('#deadline-university').value,'nl-uva');
+  next.select('deadline-country','Singapore');assert.equal(next.find('#deadline-university').value,'');assert.ok(next.find('#deadline-university').children.every(option=>!option.value||option.value.startsWith('sg-')));
+  next.select('deadline-university','sg-suss');assert.ok(next.find('.upcoming-empty'));assert.equal(next.all('.upcoming-item').length,0);
+  next.select('deadline-country','');assert.equal(next.find('#deadline-university').value,'sg-suss');next.select('deadline-university','');assert.equal(next.all('.upcoming-item').length,allCount);
+});
+
+test('unknown saved deadline filters safely reset to all countries and universities',t=>{
+  const storage=memoryStorage();storage.setItem('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:['Singapore'],subjects:['Economics'],degree:'Bachelor’s',intake:'',deadlineFilters:{country:'Missing country',universityId:'deleted-university'}}));
+  const f=fixture(t,{storage});assert.equal(f.find('#deadline-country').value,'');assert.equal(f.find('#deadline-university').value,'');assert.ok(f.all('.upcoming-item').length>0);
+});

@@ -8,7 +8,7 @@ function browserStorage(){try{return globalThis.localStorage;}catch{return null;
 export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=browserStorage()}={}){
   const rows=catalogueRows(catalogue).filter(row=>row.admission.dataType==='real');const countries=[...new Set(rows.map(row=>row.country))];const order=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];countries.sort((a,b)=>order.indexOf(a)-order.indexOf(b));const subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
   const initialOptions={countries:[...countries],subjects:[...subjects]};
-  const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:''});let filters=initial();let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
+  const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:''});let filters=initial();let deadlineFilters={country:'',universityId:''};let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
   try{
     const saved=JSON.parse(storage?.getItem(criteriaKey)??'null');
     const names=value=>Array.isArray(value)&&value.length<=100&&value.every(name=>typeof name==='string'&&name.trim().length>0&&name.length<=80);
@@ -16,6 +16,12 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=b
       filters={countries:[...new Set(saved.countries.map(countryName))],subjects:[...new Set(saved.subjects.map(name=>name.trim()))],degree:saved.degree,intake:saved.intake};
       for(const value of filters.countries)if(!countries.includes(value))countries.push(value);
       for(const value of filters.subjects)if(!subjects.includes(value))subjects.push(value);
+      const savedDeadlines=saved.deadlineFilters;
+      if(savedDeadlines&&typeof savedDeadlines.country==='string'&&typeof savedDeadlines.universityId==='string'){
+        const country=countries.includes(savedDeadlines.country)?savedDeadlines.country:'';
+        const universityId=rows.some(row=>row.universityId===savedDeadlines.universityId&&(!country||row.country===country))?savedDeadlines.universityId:'';
+        deadlineFilters={country,universityId};
+      }
     }
   }catch{/* Unavailable or invalid storage falls back to the default criteria. */}
   const summaryKey=now=>[...new Set(rows.filter(row=>row.admission.dataType==='real').map(row=>deadlineTimeZone(row.country)))].map(zone=>admissionsToday(now,zone)).join(':');
@@ -36,7 +42,7 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=b
     deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';render();focus(summaryId);announce(`${country} minimised. No university selected.`);
   }
   function render({resetLayout=false}={}){
-    try{storage?.setItem(criteriaKey,JSON.stringify({version:1,...filters}));}catch{/* Browsing remains available when storage is blocked or full. */}
+    try{storage?.setItem(criteriaKey,JSON.stringify({version:1,...filters,deadlineFilters}));}catch{/* Browsing remains available when storage is blocked or full. */}
     const now=clock();summaryDay=summaryKey(now);
     const matches=filterRows(rows,filters);const universities=groupUniversities(matches);const university=universities.find(item=>item.universityId===universityId);const deadlineRow=deadlineSelection&&rows.find(row=>row.key===deadlineSelection.key);if(!university&&!deadlineRow){universityId='';programId='';selectedKey='';routeId='';}
     const programme=deadlineRow?{...deadlineRow,intakes:rows.filter(row=>row.programId===deadlineRow.programId)}:university&&groupProgrammes(university.rows).find(item=>item.programId===programId);if(!programme){deadlineSelection=null;programId='';selectedKey='';routeId='';}else if(!programme.intakes.some(item=>item.key===selectedKey)){selectedKey=programme.intakes[0].key;routeId='';}
@@ -44,7 +50,7 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=b
     if(!resetLayout)for(const section of host.querySelectorAll('.university-country-group'))countryOpen.set(section.getAttribute('data-country'),section.open);
     host.replaceChildren();document.querySelector('#filter-summary').textContent=`${filters.countries.join(', ')||'All destinations'} · ${filters.subjects.join(', ')||'All subjects'}`;
     const title=el('h1','','Explore universities');title.id='universities-title';title.tabIndex=-1;host.append(title);
-    host.append(splitBrowse(universities,universityId,item=>{const changed=universityId!==item.universityId;deadlineSelection=null;universityId=item.universityId;programId='';selectedKey='';routeId='';render();if(changed){const grid=host.querySelector('.programme-grid');if(grid)grid.scrollTop=0;}focus('programme-title');},programme=>{deadlineSelection=null;programId=programme.programId;selectedKey=programme.intakes[0].key;routeId='';render();focus('timeline-title');},()=>{const previous=universityId;universityId='';render();focus(`university-${previous}`);},countryOpen,{now,deadlineRows:rows,onCountryToggle:countryToggled,onDeadline:(activity,returnId)=>{deadlineSelection={key:activity.row.key,returnId};selectedKey=activity.row.key;routeId=activity.routeId;render();focus('timeline-title');}}));
+    host.append(splitBrowse(universities,universityId,item=>{const changed=universityId!==item.universityId;deadlineSelection=null;universityId=item.universityId;programId='';selectedKey='';routeId='';render();if(changed){const grid=host.querySelector('.programme-grid');if(grid)grid.scrollTop=0;}focus('programme-title');},programme=>{deadlineSelection=null;programId=programme.programId;selectedKey=programme.intakes[0].key;routeId='';render();focus('timeline-title');},()=>{const previous=universityId;universityId='';render();focus(`university-${previous}`);},countryOpen,{now,deadlineRows:rows,deadlineFilters,onDeadlineFiltersChange:(value,id)=>{deadlineFilters=value;render();focus(id);announce('Deadline filters updated.');},onCountryToggle:countryToggled,onDeadline:(activity,returnId)=>{deadlineSelection={key:activity.row.key,returnId};selectedKey=activity.row.key;routeId=activity.routeId;render();focus('timeline-title');}}));
     host.querySelector('.university-list').scrollTop=leftScroll;const grid=host.querySelector('.programme-grid');if(grid)grid.scrollTop=rightScroll;
     if(programme){const row=programme.intakes.find(item=>item.key===selectedKey);if(!row.admission.routes.some(route=>route.id===routeId))routeId='';const matched=matchApplicantRoute(row,applicant);const displayRow=matched.status==='matched'&&matched.route.id===routeId?{...row,personalised:true,admission:{...row.admission,sources:[...row.admission.sources,...matched.sources],routes:row.admission.routes.map(route=>route.id===routeId?matched.route:route)}}:row;const timeline=compactTimeline(displayRow,routeId,programme.intakes,key=>{selectedKey=key;routeId='';render();focus('timeline-intake');},id=>{routeId=id;render();focus('timeline-category');});if(row.country==='Singapore')timeline.append(applicantControls(row));const popup=programmeDialog(timeline,closeProgramme);host.append(popup);popup.showModal();popup.querySelector('.dialog-content').scrollTop=dialogScroll;announce(`${row.programName}, ${intakeLabel(row.admission.intake)}. ${routeId?'Category selected.':'Choose a published category.'}`);return;}
     if(!matches.length)host.append(el('p','empty-state','No programmes match. Change or reset your filters. Added options need catalogue data.'));announce(`${universities.length} universities and ${groupProgrammes(matches).length} programmes match.`);
@@ -52,7 +58,7 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=b
   document.querySelector('#reset-filters').addEventListener('click',()=>{filters=initial();deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';document.querySelector('#filter-note').textContent='Curated catalogue · added options need programme data.';renderFilters();render();focus('universities-title');});renderFilters();render();
   document.querySelector('.brand')?.addEventListener('click',event=>{
     if(event.defaultPrevented||(event.button??0)!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-    event.preventDefault();filters=initial();deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';applicant=emptyApplicant();applicantDraft=emptyApplicant();countryOpen.clear();
+    event.preventDefault();filters=initial();deadlineFilters={country:'',universityId:''};deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';applicant=emptyApplicant();applicantDraft=emptyApplicant();countryOpen.clear();
     countries.splice(0,countries.length,...initialOptions.countries);subjects.splice(0,subjects.length,...initialOptions.subjects);const panel=document.querySelector('.filter-panel');if(panel)panel.open=false;
     document.querySelector('#filter-note').textContent='Curated catalogue · added options need programme data.';renderFilters();render({resetLayout:true});focus('universities-title');announce('Home. No university selected.');
   });
