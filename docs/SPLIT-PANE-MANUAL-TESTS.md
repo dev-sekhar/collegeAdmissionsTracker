@@ -2,6 +2,12 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Home without a reload — PR #54 (current behaviour)
+
+- Refresh once to load the update. Select a university, then click Admissions Atlas. Confirm the landing summary returns without a loading flash or sideways jiggle. Repeat while already on the landing page and by clicking the icon.
+- Default filters, empty applicant details and expanded country groups should be restored. The page should keep its normal width when content height changes. Repeat with Tab/Enter.
+- Ctrl/Cmd-click and middle-click should retain normal browser new-tab behaviour. The link remains a real home URL; an ordinary click is now handled in place. This supersedes PR #49's full-reload implementation while retaining its default-home state.
+
 ## Minimise country to return to summary — PR #50
 
 - Select NTU, then minimise Singapore. Programme cards should disappear and the right pane should show the Universities/Programs summary and all-university upcoming deadlines. Singapore must stay collapsed.

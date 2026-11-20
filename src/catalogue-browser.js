@@ -5,6 +5,7 @@ import {groupUniversities,groupProgrammes,splitBrowse,programmeDialog,compactTim
 import {admissionsToday} from './upcoming-deadlines.js';
 export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date()}={}){
   const rows=catalogueRows(catalogue);const countries=[...new Set(rows.map(row=>row.country))];const order=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];countries.sort((a,b)=>order.indexOf(a)-order.indexOf(b));const subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
+  const initialOptions={countries:[...countries],subjects:[...subjects]};
   const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:''});let filters=initial();let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
   let summaryDay=admissionsToday(clock());let deadlineSelection=null;const countryOpen=new Map();const host=document.querySelector('#workspace');const announcer=document.querySelector('#announcer');const announce=message=>announcer.textContent=message;const focus=id=>document.querySelector(`#${id}`)?.focus({preventScroll:true});
   function addOption(type,raw){const value=type==='countries'?countryName(raw):raw.trim().replace(/\s+/gu,' ');const options=type==='countries'?countries:subjects;if(!value||value.length>80)return 'Enter a name of 1–80 characters.';if(options.some(item=>item.toLowerCase()===value.toLowerCase()))return 'That option already exists.';options.push(value);filters[type]=[...new Set([...filters[type],value])];renderFilters();render();document.querySelector('#filter-note').textContent=`${value} added. Results use the curated catalogue.`;return '';}
@@ -22,12 +23,12 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date()}={}){
     countryOpen.set(country,open);if(open||rows.find(row=>row.universityId===universityId)?.country!==country)return;
     deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';render();focus(summaryId);announce(`${country} minimised. No university selected.`);
   }
-  function render(){
+  function render({resetLayout=false}={}){
     const now=clock();summaryDay=admissionsToday(now);
     const matches=filterRows(rows,filters);const universities=groupUniversities(matches);const university=universities.find(item=>item.universityId===universityId);const deadlineRow=deadlineSelection&&rows.find(row=>row.key===deadlineSelection.key);if(!university&&!deadlineRow){universityId='';programId='';selectedKey='';routeId='';}
     const programme=deadlineRow?{...deadlineRow,intakes:rows.filter(row=>row.programId===deadlineRow.programId)}:university&&groupProgrammes(university.rows).find(item=>item.programId===programId);if(!programme){deadlineSelection=null;programId='';selectedKey='';routeId='';}else if(!programme.intakes.some(item=>item.key===selectedKey)){selectedKey=programme.intakes[0].key;routeId='';}
-    const leftScroll=host.querySelector('.university-list')?.scrollTop||0;const rightScroll=host.querySelector('.programme-grid')?.scrollTop||0;const dialogScroll=host.querySelector('.dialog-content')?.scrollTop||0;
-    for(const section of host.querySelectorAll('.university-country-group'))countryOpen.set(section.getAttribute('data-country'),section.open);
+    const leftScroll=resetLayout?0:host.querySelector('.university-list')?.scrollTop||0;const rightScroll=resetLayout?0:host.querySelector('.programme-grid')?.scrollTop||0;const dialogScroll=resetLayout?0:host.querySelector('.dialog-content')?.scrollTop||0;
+    if(!resetLayout)for(const section of host.querySelectorAll('.university-country-group'))countryOpen.set(section.getAttribute('data-country'),section.open);
     host.replaceChildren();document.querySelector('#filter-summary').textContent=`${filters.countries.join(', ')||'All destinations'} · ${filters.subjects.join(', ')||'All subjects'}`;
     const title=el('h1','','Explore universities');title.id='universities-title';title.tabIndex=-1;host.append(title);
     host.append(splitBrowse(universities,universityId,item=>{const changed=universityId!==item.universityId;deadlineSelection=null;universityId=item.universityId;programId='';selectedKey='';routeId='';render();if(changed){const grid=host.querySelector('.programme-grid');if(grid)grid.scrollTop=0;}focus('programme-title');},programme=>{deadlineSelection=null;programId=programme.programId;selectedKey=programme.intakes[0].key;routeId='';render();focus('timeline-title');},()=>{const previous=universityId;universityId='';render();focus(`university-${previous}`);},countryOpen,{now,deadlineRows:rows,onCountryToggle:countryToggled,onDeadline:(activity,returnId)=>{deadlineSelection={key:activity.row.key,returnId};selectedKey=activity.row.key;routeId=activity.routeId;render();focus('timeline-title');}}));
@@ -36,5 +37,11 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date()}={}){
     if(!matches.length)host.append(el('p','empty-state','No programmes match. Change or reset your filters. Added options need catalogue data.'));announce(`${universities.length} universities and ${groupProgrammes(matches).length} programmes match.`);
   }
   document.querySelector('#reset-filters').addEventListener('click',()=>{filters=initial();deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';document.querySelector('#filter-note').textContent='Curated catalogue · added options need programme data.';renderFilters();render();focus('universities-title');});renderFilters();render();
+  document.querySelector('.brand')?.addEventListener('click',event=>{
+    if(event.defaultPrevented||(event.button??0)!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    event.preventDefault();filters=initial();deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';applicant=emptyApplicant();applicantDraft=emptyApplicant();countryOpen.clear();
+    countries.splice(0,countries.length,...initialOptions.countries);subjects.splice(0,subjects.length,...initialOptions.subjects);const panel=document.querySelector('.filter-panel');if(panel)panel.open=false;
+    document.querySelector('#filter-note').textContent='Curated catalogue · added options need programme data.';renderFilters();render({resetLayout:true});focus('universities-title');announce('Home. No university selected.');
+  });
   return {refreshDeadlines(){if(!universityId&&!deadlineSelection&&admissionsToday(clock())!==summaryDay)render();}};
 }

@@ -1,5 +1,11 @@
 # Running feature record
 
+## Stable return-home navigation
+
+Draft PR #54 addresses the reported brand-click jiggle (issue #55). Ordinary clicks on Admissions Atlas now reset the landing state in place, avoiding the full reload and temporary loading-only layout. Default filters, empty applicant details, expanded country groups and initial session options are restored as before. Modified/middle-click behaviour remains native, and the link still works without the enhancement.
+
+Scrollbar space is reserved to reduce sideways shifts when page height changes. The existing brand stays underlineless and keyboard-accessible. Build, whitespace/data checks and all 17 browser-journey tests pass, including in-place home reset and modified-click handling. Actual visual stability remains a browser review item. This uses shared page-state handling and project documentation, not a separate skill. Preview stays on port 4180; no merge before review.
+
 ## Simplified QS rank labels
 
 Draft PR #53 hides the leading equals sign in university-card rank labels, so #=119 displays as #119. Raw QS values in YAML and numeric ordering stay unchanged; missing ranks still show a dash. Manual check: refresh port 4180 and confirm SIM/RMIT #119, SMU #411 and SIM/Buffalo #416. This is a shared display-component adjustment, not a separate skill. No merge before review.
