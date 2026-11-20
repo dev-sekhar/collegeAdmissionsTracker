@@ -29,3 +29,9 @@
 .compact-universities .university-list .university-card.selected{background:#bddccc;border-color:var(--teal)}
 .compact-universities .university-list .university-name{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .university-country-group .university-rank{color:var(--ink)}
+.workspace>h1{margin-bottom:20px}.summary-pane{overflow-y:auto}.pane-overview{padding:26px}
+.overview-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
+.overview-metric{padding:20px;background:var(--soft);border:1px solid var(--line);border-radius:10px;min-width:0}
+.overview-metric dt{font-size:.9rem;color:var(--muted)}.overview-metric dd{margin:8px 0 0;font-size:2.5rem;line-height:1.2;font-weight:500;font-variant-numeric:tabular-nums}
+.upcoming-placeholder{margin-top:24px;padding:20px;border:1px dashed #b8ccc2;border-radius:10px}.upcoming-placeholder h2{font-size:1rem}.upcoming-label{font-size:.8rem;color:var(--muted)}.upcoming-placeholder p,.overview-hint{font-size:.85rem;color:var(--muted);margin-bottom:0}.overview-hint{margin-top:22px}
+@media(max-width:640px){.browse-split:not(.has-selection){height:auto;grid-template-rows:auto minmax(280px,55dvh)}.browse-split:not(.has-selection) .programmes-pane{display:flex;grid-row:1}.browse-split:not(.has-selection) .university-pane{grid-row:2}.pane-overview{padding:18px}.overview-metric,.upcoming-placeholder{padding:16px}.overview-metrics{gap:10px}}
