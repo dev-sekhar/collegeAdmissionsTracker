@@ -1,5 +1,13 @@
 # Running feature record
 
+## Catalogue-wide upcoming deadlines
+
+Draft PR #47 makes Upcoming deadlines cover every real university, programme, intake and published category in the YAML catalogue, regardless of browse filters. The label explicitly says All universities. The Universities/Programs cards and browse list still follow filters; they do not restrict deadline coverage.
+
+Selecting a global deadline opens its exact programme/intake/category even when browse filters exclude that record. Filters are preserved, and closing the popup returns focus to the deadline entry. Midnight refresh does not interrupt the popup. The existing seven-day window, two-day red urgency, evidence flags and exclusion of fictional/unknown/relative dates are unchanged. No YAML data changes. This is an update to shared application components and project documentation, not a separate skill; preview remains port 4180 and requires review before merge.
+
+Validation: build, syntax, whitespace and unchanged-data checks pass; all 72 automated tests pass. The global-deadline regression checks an activity outside the chosen intake/degree filters, opens the correct hidden intake/category, and restores focus while leaving filters unchanged. Midnight refresh leaves the popup intact. HTTP checks confirm the all-university scope and full-catalogue source are served in the preview; actual browser appearance remains manual review.
+
 ## Activities ending in the next seven days
 
 Draft PR #46 replaces the Upcoming deadlines placeholder with real activities from the existing YAML-generated catalogue. It follows current filters and lists dated stages ending today through seven calendar days ahead, sorted by ending date. Date windows use their end date. Application-opening events, unknown/relative deadlines and fictional examples are excluded. Review/manual entries keep their warning labels.

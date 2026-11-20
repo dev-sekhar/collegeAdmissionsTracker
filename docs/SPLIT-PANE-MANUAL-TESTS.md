@@ -2,6 +2,13 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## All-university deadline coverage — PR #47 (current behaviour)
+
+- Upcoming deadlines must say All universities and cover the full real YAML catalogue. Country, subject, degree and intake filters affect the browse list/count cards, not the upcoming activities. This supersedes PR #46's filter-scoped deadline behaviour.
+- When an upcoming entry is present, choose filters that exclude its programme/intake. The entry must remain. Open it and confirm the exact intake/category timeline appears without changing filters. Close it and confirm focus returns to the entry with filters retained.
+- Keep the seven-day window and red urgency within two days. Unknown/relative and fictional dates remain excluded. For 20–27 November 2026 the full catalogue still has no recorded endings, so expect the all-university empty state.
+- Fixed-clock automated tests use 28 November and the 30 November Buffalo deadline, including browse filters with zero matches. They also check a midnight refresh leaves an open global-deadline popup intact.
+
 ## Upcoming deadlines — PR #46
 
 - The unselected summary now lists recorded real activities ending **today through today + 7 days, inclusive**, using Singapore calendar dates. Events ending today through **today + 2 days** are red and explicitly labelled Urgent. Relative dates are never guessed; window dates use the end, not the start. Opening events and fictional examples are excluded.
