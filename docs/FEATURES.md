@@ -1,5 +1,15 @@
 # Running feature record
 
+## University list, programme pane and details popup
+
+Draft PR #41 refines the browsing layout after user review (issue #42). Universities stay in a left-hand list; selecting one displays its programme cards immediately in the right-hand pane. Selecting a programme opens its details and admission timeline in a popup. The university and programme list remain in place behind it. Close or Escape returns to the selected programme card, preserving both pane scroll positions.
+
+On smaller screens, selecting a university opens the programme pane in place; All universities returns to the list. The popup fits the screen and scrolls independently. Existing intake/category selection, expandable evidence/requirements and optional applicant details remain available. Reader/writer controls remain deferred. No admission data changes.
+
+The split-pane shell and programme popup are shared UI components. This project-specific layout belongs in components and project documentation, not another skill. Preview remains http://127.0.0.1:4180/. Manual checks: SPLIT-PANE-MANUAL-TESTS.md. No merge before user review.
+
+Validation: build, syntax/whitespace checks and all 63 tests pass. Journey tests still cover all 31 programmes, 37 intakes and 75 category timelines, plus popup Close/Escape, keyboard-focus return and pane scroll preservation. HTTP checks confirm the new CSS and modules are served on port 4180. Data remains unchanged. Native browser geometry, keyboard trapping and mobile behaviour remain manual checks.
+
 ## University → programme → timeline browsing
 
 Draft PR #39 replaces the repeated programme/intake card list with university cards. The default Singapore undergraduate view includes Economics and Criminology: eight providers and 31 programmes. Select a university to open its programme callout, then a programme to view its timeline. Multiple intakes share one programme entry. Choose a published applicant category explicitly; changing the intake clears it.
