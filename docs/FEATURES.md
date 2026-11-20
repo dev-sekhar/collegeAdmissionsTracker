@@ -1,5 +1,13 @@
 # Running feature record
 
+## Collapsible country tiles and single-line university names
+
+Draft PR #44 turns each country group into one tinted background tile with a larger, prominent country label and native expand/collapse control. University rows also have tinted backgrounds, with a stronger selected state. Names stay on a single line; the list gets more room on desktop, while limited-width names use ellipsis with the full name available on hover, to assistive technology and in the programme pane. Short ranking labels are retained.
+
+The redundant Universities title above the country tile is removed. Country collapse state survives programme selection, popup close and filtering within the page session. Programme cards, timelines, sources and reader/writer deferral are unchanged; no data was edited. Shared country-list/card components and project documentation cover this presentation change; no separate skill is needed. Preview stays on port 4180, with review required before merging.
+
+Validation: build, unchanged-data and whitespace checks pass, along with all 65 automated tests. The country-state journey test checks collapse persistence and popup return; existing coverage still traverses all 31 real programmes, 37 intakes and 75 category timelines. HTTP checks confirm updated styles/modules are served on port 4180. Heading size, colours, truncation and keyboard/mobile behaviour remain manual review items.
+
 ## Compact university cards grouped by country
 
 Draft PR #43 groups the left university list under country headings. Each real university card shows its full name and a short rank such as #12, without repeating the country, QS label, edition, programme count or action text. Tied ranks retain their equals sign. Missing ranks show a dash; awarding-university context remains accessible and in programme sources. Fictional examples retain their label.

@@ -2,6 +2,13 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Country tiles — PR #44
+
+- Confirm Singapore is a single background tile with a larger country label and no Universities heading above it. Click the country header, or focus it and press Enter/Space, to minimise/expand its university list.
+- Check tinted university rows, a visibly selected state, short ranks and single-line names. On limited widths, hover a shortened name to see the full name; selecting it also shows the full name above its programme cards.
+- Collapse a country, change/reset filters or open/close a programme popup, and confirm the country’s expanded/collapsed state is retained. Check each country works independently when several destinations are selected.
+- Check desktop and mobile sizing, keyboard focus, country-label prominence and the existing programme-popup flow. No data or writer controls should change.
+
 ## Compact cards — PR #43
 
 - Confirm Singapore appears once as a country heading above its universities. With multiple countries selected, each country has its own heading.

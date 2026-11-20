@@ -6,21 +6,21 @@ export function groupUniversities(rows){const groups=new Map();for(const row of 
 export function groupProgrammes(rows){const groups=new Map();for(const row of rows){if(!groups.has(row.programId))groups.set(row.programId,{...row,intakes:[]});groups.get(row.programId).intakes.push(row);}return [...groups.values()].sort((a,b)=>a.programName.localeCompare(b.programName));}
 export function universityCard(university,selected,onSelect){
   const button=action('',onSelect,`university-card${selected?' selected':''}`);button.id=`university-${university.universityId}`;button.setAttribute('aria-expanded',String(selected));button.setAttribute('aria-controls','programmes-pane');
-  const name=el('strong','university-name',university.universityName);const ranking=university.qsRanking;const verified=ranking?.status==='verified';
+  const name=el('strong','university-name',university.universityName);name.title=university.universityName;const ranking=university.qsRanking;const verified=ranking?.status==='verified';
   const rank=el('span','university-rank',verified?`#${ranking.rank}`:'—');const description=ranking?`${ranking.institution} · QS World ${ranking.edition} · ${verified?`Rank ${ranking.rank}`:'Rank unverified'}`:'Rank unavailable';rank.setAttribute('aria-label',description);rank.title=description;button.append(name,rank);
   if(university.admission.dataType!=='real')button.append(el('span','example-label','Fictional example'));return button;
 }
-export function universityList(universities,selectedId,onUniversity){
+export function universityList(universities,selectedId,onUniversity,countryOpen=new Map()){
   const list=el('div','university-list');const countries=new Map();for(const university of universities){if(!countries.has(university.country))countries.set(university.country,[]);countries.get(university.country).push(university);}
-  let index=0;for(const [country,items] of countries){const section=el('section','university-country-group');const heading=el('h3','country-heading',country);heading.id=`university-country-${index++}`;section.setAttribute('aria-labelledby',heading.id);const cards=el('div','country-universities');for(const university of items)cards.append(universityCard(university,university.universityId===selectedId,()=>onUniversity(university)));section.append(heading,cards);list.append(section);}return list;
+  let index=0;for(const [country,items] of countries){const section=el('details','university-country-group');section.open=countryOpen.get(country)!==false;section.setAttribute('data-country',country);const summary=el('summary','country-toggle');const heading=el('span','country-heading',country);heading.id=`university-country-${index++}`;section.setAttribute('aria-labelledby',heading.id);summary.append(heading);const cards=el('div','country-universities');for(const university of items)cards.append(universityCard(university,university.universityId===selectedId,()=>onUniversity(university)));section.append(summary,cards);list.append(section);}return list;
 }
 export function programmeCallout(university,onSelect,onClose){
   const section=el('section','programme-callout');section.id='programme-callout';section.setAttribute('aria-labelledby','programme-title');const heading=el('div','section-top');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;heading.append(title,action('All universities',onClose,'text-button mobile-back'));section.append(heading);const list=el('div','programme-grid');
   for(const programme of groupProgrammes(university.rows)){const button=action('',()=>onSelect(programme),'programme-choice');button.id=`programme-${programme.programId}`;button.setAttribute('aria-haspopup','dialog');const main=el('span','programme-choice-main');main.append(el('strong','',programme.programName),el('span','programme-subjects',programme.subjects.join(' · ')));button.append(main,el('span','programme-intakes',programme.intakes.map(row=>intakeLabel(row.admission.intake)).join(' · ')));list.append(button);}section.append(list);return section;
 }
-export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear){
+export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear,countryOpen=new Map()){
   const split=el('div',`browse-split compact-universities${selectedId?' has-selection':''}`);
-  const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(el('h2','pane-title','Universities'),universityList(universities,selectedId,onUniversity));
+  const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(universityList(universities,selectedId,onUniversity,countryOpen));
   const right=el('section','programmes-pane');right.id='programmes-pane';right.setAttribute('aria-label','Programmes');const selected=universities.find(university=>university.universityId===selectedId);
   if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else right.append(el('p','pane-placeholder',universities.length?'Select a university to see its programmes.':'No programmes match these filters.'));
   split.append(left,right);return split;
