@@ -308,3 +308,9 @@ Exact records for the requested year take priority. Where a future year's calend
 Cards and timelines label projections Tentative, display the requested and source years, and warn that dates can change. Stage details retain original dates and source-year instructions for comparison. Original YAML, checked dates and published verification states are untouched; projections exist only in the display. Singapore applicant matching is not applied to an unverified projected intake. Global upcoming deadlines continue to use actual recorded dates, independent of programme search, so estimates cannot create real urgent alerts.
 
 Manual checks at http://127.0.0.1:4180/: enter 2027 and check all entry periods remain accessible. Enter 2028, open a programme/category and check shifted dates, Tentative labels, source-year originals and the warning. Confirm an October 2026 opening becomes October 2027. Reload and check the selected year persists. Clear the year to restore all records. Confirm exact-year records are preferred, unknown dates are not invented, and actual upcoming alerts stay unchanged. Shared year input and warning components are reused; no separate skill is proposed. No merge before confirmation.
+
+## Non-English landing deadline cards — 20 November 2026
+
+Landing-page deadlines for non-English programmes now use the same amber background and left border as their programme cards, in addition to the language badge. Urgent deadlines retain red backgrounds and date warnings; their language labels remain visible. Reuses the existing language component and colour treatment without a separate skill.
+
+Manual preview at http://127.0.0.1:4180/: filter Upcoming deadlines to Netherlands/Leiden and confirm amber Dutch-taught cards; compare a standard economics card. Where a deadline is within two days, confirm red urgency still takes priority. Open the programme to confirm consistent language labels. No merge before confirmation.
