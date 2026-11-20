@@ -2,6 +2,14 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Upcoming deadlines — PR #46
+
+- The unselected summary now lists recorded real activities ending **today through today + 7 days, inclusive**, using Singapore calendar dates. Events ending today through **today + 2 days** are red and explicitly labelled Urgent. Relative dates are never guessed; window dates use the end, not the start. Opening events and fictional examples are excluded.
+- For 20–27 November 2026, expect an empty message with the displayed range. The next recorded ending is 30 November 2026, outside this window. Do not add fake dates just to fill the preview.
+- When an entry appears, check its university, programme, stage, intake, category and date. Select its programme to open the exact intake/category timeline. Review/manual statuses must remain visible.
+- Change filters and confirm unrelated activities disappear. Check the summary remains readable on desktop/mobile. Leaving the summary open across Singapore midnight should update the date window and urgency within a minute, or when the tab becomes visible again.
+- Automated fixed-clock tests cover the live-data 30 November event: it is listed three days ahead on 27 November, turns red two days ahead on 28 November, and opens Buffalo's January 2027 / International category. Additional tests cover today/day-2/day-7 boundaries, past/out-of-range dates, relative/unknown exclusions, window ends, leap dates and category/intake separation.
+
 ## Unselected right-pane summary — PR #45
 
 - Reload with no university selected. The right pane should show **Universities 8** and **Programs 31**, plus Upcoming deadlines clearly marked Coming later. No sample deadline dates should appear.

@@ -1,5 +1,6 @@
 import {el,pill,selectField,evidenceLink,admissionRequirementsPanel} from './static-components.js';
-import {deadlineLabel,intakeLabel,statusLabels} from './catalogue-model.js';
+import {deadlineLabel,intakeLabel,statusLabels,stageTypes,optionalStageTypes} from './catalogue-model.js';
+import {upcomingActivities,admissionsToday,addCalendarDays} from './upcoming-deadlines.js';
 export function action(label,onClick,className='text-button'){const button=el('button',className,label);button.type='button';button.addEventListener('click',onClick);return button;}
 export function disclosure(label,...content){const details=el('details','supporting-details');details.append(el('summary','',label),...content);return details;}
 export function groupUniversities(rows){const groups=new Map();for(const row of rows){if(!groups.has(row.universityId))groups.set(row.universityId,{...row,rows:[]});groups.get(row.universityId).rows.push(row);}return [...groups.values()].sort((a,b)=>a.country.localeCompare(b.country)||a.universityName.localeCompare(b.universityName));}
@@ -18,16 +19,24 @@ export function programmeCallout(university,onSelect,onClose){
   const section=el('section','programme-callout');section.id='programme-callout';section.setAttribute('aria-labelledby','programme-title');const heading=el('div','section-top');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;heading.append(title,action('All universities',onClose,'text-button mobile-back'));section.append(heading);const list=el('div','programme-grid');
   for(const programme of groupProgrammes(university.rows)){const button=action('',()=>onSelect(programme),'programme-choice');button.id=`programme-${programme.programId}`;button.setAttribute('aria-haspopup','dialog');const main=el('span','programme-choice-main');main.append(el('strong','',programme.programName),el('span','programme-subjects',programme.subjects.join(' · ')));button.append(main,el('span','programme-intakes',programme.intakes.map(row=>intakeLabel(row.admission.intake)).join(' · ')));list.append(button);}section.append(list);return section;
 }
-export function catalogueOverview(universities){
+export function upcomingDeadlineList(rows,{now=new Date(),onDeadline}={}){
+  const today=admissionsToday(now);const activities=upcomingActivities(rows,{today});const section=el('section','upcoming-deadlines');section.setAttribute('aria-labelledby','upcoming-title');const heading=el('div','section-top');const title=el('h2','','Upcoming deadlines');title.id='upcoming-title';heading.append(title,el('span','upcoming-label','Next 7 days'));section.append(heading,el('p','upcoming-range',`${deadlineLabel({kind:'date',date:today})} – ${deadlineLabel({kind:'date',date:addCalendarDays(today,7)})} · Singapore dates`));
+  if(!activities.length)section.append(el('p','upcoming-empty','No recorded activities end in the next 7 days for these filters.'));
+  else{const list=el('ul','upcoming-list');for(const activity of activities){const item=el('li',`upcoming-item${activity.urgent?' urgent':''}`);const stageName=[...stageTypes,...optionalStageTypes].find(([type])=>type===activity.stage.type)?.[1]||activity.stage.type;const top=el('div','section-top');const date=el('time','upcoming-date',deadlineLabel({kind:'date',date:activity.date}));date.dateTime=activity.date;top.append(el('strong','',stageName),date);const timing=activity.daysAway===0?'Due today':`In ${activity.daysAway} ${activity.daysAway===1?'day':'days'}`;item.append(top,el('span','deadline-timing',activity.urgent?`Urgent · ${timing}`:timing),el('p','upcoming-university',activity.row.universityName));
+    item.append(onDeadline?action(activity.row.programName,()=>onDeadline(activity),'text-button upcoming-programme'):el('p','',activity.row.programName),el('p','upcoming-context',`${intakeLabel(activity.row.admission.intake)} · ${activity.routeLabel}`));
+    if(activity.stage.status!=='verified')item.append(pill(activity.stage.status==='needs-review'?'Needs review':'Manual · unverified','warning'));list.append(item);}section.append(list);}
+  return section;
+}
+export function catalogueOverview(universities,options={}){
   const section=el('section','pane-overview');section.setAttribute('aria-label','Filtered catalogue summary');const metrics=el('dl','overview-metrics');
   for(const [label,value]of [['Universities',universities.length],['Programs',groupProgrammes(universities.flatMap(university=>university.rows)).length]]){const metric=el('div','overview-metric');metric.append(el('dt','',label),el('dd','',String(value)));metrics.append(metric);}section.append(metrics);
-  const upcoming=el('section','upcoming-placeholder');upcoming.setAttribute('aria-labelledby','upcoming-title');const heading=el('div','section-top');const title=el('h2','','Upcoming deadlines');title.id='upcoming-title';heading.append(title,el('span','upcoming-label','Coming later'));upcoming.append(heading,el('p','','Upcoming dates will appear here.'));section.append(upcoming,el('p','overview-hint','Select a university to explore programs.'));return section;
+  section.append(upcomingDeadlineList(universities.flatMap(university=>university.rows),options),el('p','overview-hint','Select a university to explore programs.'));return section;
 }
-export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear,countryOpen=new Map()){
+export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear,countryOpen=new Map(),overviewOptions={}){
   const split=el('div',`browse-split compact-universities${selectedId?' has-selection':''}`);
   const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(universityList(universities,selectedId,onUniversity,countryOpen));
   const right=el('section','programmes-pane');right.id='programmes-pane';right.setAttribute('aria-label','Programmes');const selected=universities.find(university=>university.universityId===selectedId);
-  if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else{right.classList.add('summary-pane');right.append(catalogueOverview(universities));}
+  if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else{right.classList.add('summary-pane');right.append(catalogueOverview(universities,overviewOptions));}
   split.append(left,right);return split;
 }
 export function programmeDialog(content,onClose){

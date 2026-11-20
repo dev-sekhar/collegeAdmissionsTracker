@@ -1,5 +1,15 @@
 # Running feature record
 
+## Activities ending in the next seven days
+
+Draft PR #46 replaces the Upcoming deadlines placeholder with real activities from the existing YAML-generated catalogue. It follows current filters and lists dated stages ending today through seven calendar days ahead, sorted by ending date. Date windows use their end date. Application-opening events, unknown/relative deadlines and fictional examples are excluded. Review/manual entries keep their warning labels.
+
+Activities ending today or within two days are highlighted red and also say Urgent with a due-day label. Each entry names the university, programme, intake and published applicant category. Selecting its programme opens the exact matching timeline/category. Today is calculated in Singapore time for the current Singapore data, so a viewer in another country gets the same deadline window. The summary refreshes on date changes without interrupting an open programme popup.
+
+For 20–27 November 2026 there are no qualifying activities in the current records. The next recorded ending is SIM/Buffalo's international application deadline on 30 November; it is not pulled into the earlier seven-day view. No source dates or YAML records are changed. The feature is deterministic catalogue filtering in shared components, with project documentation rather than a separate research skill. Preview remains port 4180; no merge before user review.
+
+Validation: build, syntax, whitespace and unchanged-data checks pass; all 72 automated tests pass. Tests cover today/two-day/seven-day boundaries, window endings, relative/unknown exclusions, fiction exclusion, preserved review/manual labels, timezone/leap-date handling, filtered activities, date rollover and navigation to the exact intake/category. Preview HTTP checks verify the real-data empty window on 20 November and one urgent deadline with a fixed 28 November test clock. No admission data is altered for testing; browser appearance remains a manual review.
+
 ## Right-pane catalogue summary
 
 Draft PR #45 replaces the unselected right-pane prompt with Universities and Programs summary cards. Counts follow the current filters and count each programme once, regardless of its number of intakes. The default view shows eight universities/providers and 31 programmes. The repeated count line above the browsing panes has been moved into this summary.
