@@ -16,6 +16,7 @@ class Element{
   setAttribute(key,value){this.attributes[key]=value;}
   addEventListener(name,callback){this.events[name]=callback;}
   focus(){document.activeElement=this;}
+  showModal(){this.open=true;}
   querySelectorAll(selector){return walk(this).filter(node=>selector.startsWith('#')?node.id===selector.slice(1):selector.startsWith('.')?node.className.split(' ').includes(selector.slice(1)):selector==='input:checked'?node.tag==='input'&&node.checked:node.tag===selector);}
   querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
 }
@@ -32,7 +33,7 @@ test('university/programme grouping deduplicates intake rows without losing any 
   const buffalo=groupProgrammes(real).find(item=>item.programId==='sim-buffalo-economics');assert.equal(buffalo.intakes.length,3);
   assert.equal(groupProgrammes(real).filter(item=>item.universityId==='sg-sim-uol').length,4);
 });
-test('university first, programme callout, explicit category and intake reset form a complete journey',t=>{
+test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
   const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
   f.click(b=>b.className==='university-card'&&b.textContent.includes('University at Buffalo'));
   assert.equal(f.all('.programme-choice').length,1);assert.equal(document.activeElement.id,'programme-title');
@@ -42,7 +43,7 @@ test('university first, programme callout, explicit category and intake reset fo
   f.select('timeline-category','local');assert.match(f.find('#workspace').textContent,/12 Jul 2027/);
   const may=real.find(r=>r.programId===august.programId&&r.admission.intake.month===5);f.select('timeline-intake',may.key);assert.equal(f.all('.compact-stage').length,0);
   f.select('timeline-category','international');assert.match(f.find('#workspace').textContent,/29 Mar 2027/);
-  f.click(b=>b.textContent==='Universities');assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
+  f.click(b=>b.className.includes('close-programme'));assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);assert.equal(f.all('.programme-choice').length,1);
 });
 test('all 31 programmes and 75 published category timelines reproduce existing YAML dates',t=>{
   const f=fixture(t);let count=0;const before=JSON.stringify(catalogue);
@@ -54,7 +55,7 @@ test('all 31 programmes and 75 published category timelines reproduce existing Y
       f.select('timeline-category',route.id);const stages=f.all('.compact-stage');assert.equal(stages.length,route.stages.length);
       route.stages.forEach((stage,i)=>{assert.ok(stages[i].textContent.includes(stage.deadline?deadlineLabel(stage.deadline):'Date unavailable'),`${row.key} ${stage.type}`);assert.equal(stages[i].querySelector('details').open,undefined);});count++;
     }
-    f.click(b=>b.textContent==='Universities');
+    f.click(b=>b.className.includes('close-programme'));
   }
   assert.equal(count,75);assert.equal(JSON.stringify(catalogue),before);
 });
@@ -73,4 +74,15 @@ test('optional applicant form preserves matching and available-result instructio
 test('reader/writer controls are deferred and current catalogue data stays unchanged',async()=>{
   const index=await readFile(new URL('../index.html',import.meta.url),'utf8');const app=await readFile(new URL('../src/static-app.js',import.meta.url),'utf8');
   assert.doesNotMatch(index,/writer-controls/);assert.doesNotMatch(app,/mountWriter|writer-ui/);assert.equal(catalogue.admissions.length,45);
+});
+test('programme popup closes on button or Escape and preserves selection, pane scroll and keyboard focus',t=>{
+  const f=fixture(t);assert.ok(f.find('.university-pane'));assert.ok(f.find('.programmes-pane'));assert.equal(f.find('dialog'),null);
+  f.find('.university-list').scrollTop=210;
+  f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));
+  assert.equal(f.find('.university-list').scrollTop,210);assert.equal(f.all('.programme-choice').length,15);
+  f.find('.programme-grid').scrollTop=140;
+  f.click(b=>b.id==='programme-ntu-economics');assert.equal(f.find('dialog').open,true);assert.equal(f.all('.university-card').length,8);assert.equal(f.all('.programme-choice').length,15);
+  f.find('dialog').events.cancel({preventDefault(){}});
+  assert.equal(f.find('dialog'),null);assert.equal(f.find('.university-list').scrollTop,210);assert.equal(f.find('.programme-grid').scrollTop,140);assert.equal(document.activeElement.id,'programme-ntu-economics');
+  f.click(b=>b.id==='programme-ntu-economics');f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,'programme-ntu-economics');
 });
