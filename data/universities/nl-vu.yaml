@@ -19,7 +19,8 @@ programs:
     url: https://vu.nl/en/education/bachelor/economics-and-business-economics
     notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
       by the university. Current offering verified. Admission eligibility and optional combinations
-      are not guaranteed. The 2027 intake month and application dates remain unverified.
+      are not guaranteed. The September 2027 calendar is verified using the programme page and
+      central 2027/28 admissions calendar.
   - id: nl-vu-econometrics
     name: Econometrics and Data Science
     degree: Bachelor’s
@@ -31,8 +32,8 @@ programs:
     notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
       by the university. Quantitative economics with mathematical, data or computing methods; this
       is not a general computer-science degree. Current offering verified. Admission eligibility and
-      optional combinations are not guaranteed. The 2027 intake month and application dates remain
-      unverified.
+      optional combinations are not guaranteed. The September 2027 calendar is verified using the
+      programme page and central 2027/28 admissions calendar.
   - id: nl-vu-criminology
     name: BSc Criminologie — Dutch-taught
     degree: Bachelor’s

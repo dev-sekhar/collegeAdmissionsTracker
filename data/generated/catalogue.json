@@ -745,7 +745,7 @@
         {
           "label": "Programme instructions and language",
           "status": "extracted",
-          "text": "Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified. Econometrics and Data Science: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
+          "text": "Economics and Business Economics: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The September 2027 admissions calendar is verified separately. Econometrics and Data Science: English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The September 2027 admissions calendar is verified separately. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering verified. Admission eligibility and optional combinations are not guaranteed.",
           "sourceIds": [
             "economics-admissions",
             "econometrics-admissions",
@@ -766,8 +766,8 @@
           "linkedFrom": null,
           "checkedAt": "2026-11-20",
           "updatedAt": null,
-          "applicability": "Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.",
-          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+          "applicability": "Current programme admissions instructions combined with the central 2027/28 calendar.",
+          "passage": "Programme application closes 1 April non-EU/EEA or 1 May Dutch/EU; initial dashboard completion is within six weeks and at most one week after closing. The central calendar establishes 2027 applicability and visa-related exceptions."
         },
         {
           "id": "econometrics-admissions",
@@ -775,8 +775,8 @@
           "linkedFrom": null,
           "checkedAt": "2026-11-20",
           "updatedAt": null,
-          "applicability": "Econometrics and Data Science; current recurring instructions; 2027 dates unconfirmed.",
-          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+          "applicability": "Current programme admissions instructions combined with the central 2027/28 calendar.",
+          "passage": "Programme application closes 1 April non-EU/EEA or 1 May Dutch/EU; initial dashboard completion is within six weeks and at most one week after closing. The central calendar establishes 2027 applicability and visa-related exceptions."
         },
         {
           "id": "criminology-admissions",
@@ -786,6 +786,15 @@
           "updatedAt": null,
           "applicability": "BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.",
           "passage": "Criminologie — Dutch-language numerus fixus: Register in Studielink by 15 January 2027, 23:59 CET. Complete the VU dashboard and selection form with required grades by 31 January. Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on 27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number published on 15 April 2027."
+        },
+        {
+          "id": "central-2027-calendar",
+          "url": "https://vu.nl/en/education/more-about/admission-non-dutch-diploma",
+          "checkedAt": "2026-11-20",
+          "passage": "The non-Dutch diploma page explicitly covers academic year 2027/28. Applications open 1 October 2026. The closing date is 1 April for non-EU/EEA students, or 1 May for EU/EEA students and students who do not need a study visa/residence permit through VU. Non-fixus certified diplomas are due 31 August for a 1 September start; A-level exceptions require separate instructions.",
+          "linkedFrom": null,
+          "updatedAt": null,
+          "applicability": "2027/28 non-Dutch diploma calendar; the two non-fixus economics programmes only. Programme-specific and A-level exceptions remain applicable."
         }
       ]
     },
@@ -1604,7 +1613,7 @@
         "Mathematics"
       ],
       "url": "https://vu.nl/en/education/bachelor/econometrics-and-data-science",
-      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Quantitative economics with mathematical, data or computing methods; this is not a general computer-science degree. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The September 2027 calendar is verified using the programme page and central 2027/28 admissions calendar.",
       "universityId": "nl-vu"
     },
     {
@@ -1615,7 +1624,7 @@
         "Economics"
       ],
       "url": "https://vu.nl/en/education/bachelor/economics-and-business-economics",
-      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The 2027 intake month and application dates remain unverified.",
+      "notes": "English-taught; diploma equivalence, mathematics and language requirements must be assessed by the university. Current offering verified. Admission eligibility and optional combinations are not guaranteed. The September 2027 calendar is verified using the programme page and central 2027/28 admissions calendar.",
       "universityId": "nl-vu"
     },
     {
@@ -3980,44 +3989,144 @@
       "dataType": "real",
       "cycle": 2027,
       "intake": {
-        "month": null,
+        "month": 9,
         "year": 2027
       },
       "sources": [
         {
           "id": "programme-admissions",
           "url": "https://vu.nl/en/education/bachelor/econometrics-and-data-science/admissions",
-          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "passage": "The programme page gives 1 April non-EU/EEA and 1 May Dutch/EU application deadlines. Complete the VU dashboard within six weeks and no later than one week after application closing. Programme-specific mathematics and English conditions still apply.",
           "checkedAt": "2026-11-20"
+        },
+        {
+          "id": "central-2027-calendar",
+          "url": "https://vu.nl/en/education/more-about/admission-non-dutch-diploma",
+          "checkedAt": "2026-11-20",
+          "passage": "The non-Dutch diploma page explicitly covers academic year 2027/28. Applications open 1 October 2026. The closing date is 1 April for non-EU/EEA students, or 1 May for EU/EEA students and students who do not need a study visa/residence permit through VU. Non-fixus certified diplomas are due 31 August for a 1 September start; A-level exceptions require separate instructions."
         }
       ],
       "routes": [
         {
-          "id": "programme-route",
-          "label": "International diploma — 2027 deadline requires confirmation",
+          "id": "non-eea-visa",
+          "label": "Non-EU/EEA applicant requiring a study visa/residence permit through VU",
           "stages": [
             {
               "type": "opening",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
-              "sourceIds": []
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications for the 2027/28 academic year open 1 October 2026.",
+              "sourceIds": [
+                "central-2027-calendar"
+              ]
             },
             {
               "type": "application",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-01"
+              },
+              "wording": "The central 2027/28 calendar and programme admissions page establish this route. Apply by 2027-04-01. Nationality and whether a study visa/residence permit is needed through VU are separate conditions; do not choose a route from citizenship alone. Applicants needing deficiency/entrance examinations must check the earlier programme instructions.",
               "sourceIds": [
-                "programme-admissions"
+                "programme-admissions",
+                "central-2027-calendar"
               ]
             },
             {
               "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Final certified diploma deadline for a non-numerus-fixus programme starting 1 September 2027. This is not the initial upload deadline: complete the VU dashboard within six weeks and no later than one week after application closing, whichever is earlier. Applicants obtaining (I)GCE A-level results in August must consult the separate diploma-verification exceptions. Programme-specific conditions still apply.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "tests",
               "status": "not-verified",
               "deadline": null,
               "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
               "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        },
+        {
+          "id": "eea-or-no-vu-visa",
+          "label": "EU/EEA applicant, or no study visa/residence permit required through VU",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications for the 2027/28 academic year open 1 October 2026.",
+              "sourceIds": [
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "The central 2027/28 calendar and programme admissions page establish this route. Apply by 2027-05-01. Nationality and whether a study visa/residence permit is needed through VU are separate conditions; do not choose a route from citizenship alone. Applicants needing deficiency/entrance examinations must check the earlier programme instructions.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Final certified diploma deadline for a non-numerus-fixus programme starting 1 September 2027. This is not the initial upload deadline: complete the VU dashboard within six weeks and no later than one week after application closing, whichever is earlier. Applicants obtaining (I)GCE A-level results in August must consult the separate diploma-verification exceptions. Programme-specific conditions still apply.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
             },
             {
               "type": "tests",
@@ -4060,9 +4169,10 @@
       "dateReview": {
         "checkedAt": "2026-11-20",
         "sourceIds": [
-          "programme-admissions"
+          "programme-admissions",
+          "central-2027-calendar"
         ],
-        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+        "notes": "Reviewed the programme page together with the explicitly year-scoped central 2027/28 calendar. Opening, route-specific closing and final certified-diploma deadlines are verified. No unsupported test, interview, offer, payment or final-enrolment date is inferred."
       }
     },
     {
@@ -4070,44 +4180,144 @@
       "dataType": "real",
       "cycle": 2027,
       "intake": {
-        "month": null,
+        "month": 9,
         "year": 2027
       },
       "sources": [
         {
           "id": "programme-admissions",
           "url": "https://vu.nl/en/education/bachelor/economics-and-business-economics/admissions",
-          "passage": "International diploma — 2027 deadline requires confirmation: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+          "passage": "The programme page gives 1 April non-EU/EEA and 1 May Dutch/EU application deadlines. Complete the VU dashboard within six weeks and no later than one week after application closing. Programme-specific mathematics and English conditions still apply.",
           "checkedAt": "2026-11-20"
+        },
+        {
+          "id": "central-2027-calendar",
+          "url": "https://vu.nl/en/education/more-about/admission-non-dutch-diploma",
+          "checkedAt": "2026-11-20",
+          "passage": "The non-Dutch diploma page explicitly covers academic year 2027/28. Applications open 1 October 2026. The closing date is 1 April for non-EU/EEA students, or 1 May for EU/EEA students and students who do not need a study visa/residence permit through VU. Non-fixus certified diplomas are due 31 August for a 1 September start; A-level exceptions require separate instructions."
         }
       ],
       "routes": [
         {
-          "id": "programme-route",
-          "label": "International diploma — 2027 deadline requires confirmation",
+          "id": "non-eea-visa",
+          "label": "Non-EU/EEA applicant requiring a study visa/residence permit through VU",
           "stages": [
             {
               "type": "opening",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
-              "sourceIds": []
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications for the 2027/28 academic year open 1 October 2026.",
+              "sourceIds": [
+                "central-2027-calendar"
+              ]
             },
             {
               "type": "application",
-              "status": "not-verified",
-              "deadline": null,
-              "wording": "The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply.",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-04-01"
+              },
+              "wording": "The central 2027/28 calendar and programme admissions page establish this route. Apply by 2027-04-01. Nationality and whether a study visa/residence permit is needed through VU are separate conditions; do not choose a route from citizenship alone. Applicants needing deficiency/entrance examinations must check the earlier programme instructions.",
               "sourceIds": [
-                "programme-admissions"
+                "programme-admissions",
+                "central-2027-calendar"
               ]
             },
             {
               "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Final certified diploma deadline for a non-numerus-fixus programme starting 1 September 2027. This is not the initial upload deadline: complete the VU dashboard within six weeks and no later than one week after application closing, whichever is earlier. Applicants obtaining (I)GCE A-level results in August must consult the separate diploma-verification exceptions. Programme-specific conditions still apply.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "tests",
               "status": "not-verified",
               "deadline": null,
               "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
               "sourceIds": []
+            },
+            {
+              "type": "interview",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "acceptance",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "deposit",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            },
+            {
+              "type": "enrolment",
+              "status": "not-verified",
+              "deadline": null,
+              "wording": "A 2027 deadline for this stage has not been verified. Check the official programme admissions page.",
+              "sourceIds": []
+            }
+          ]
+        },
+        {
+          "id": "eea-or-no-vu-visa",
+          "label": "EU/EEA applicant, or no study visa/residence permit required through VU",
+          "stages": [
+            {
+              "type": "opening",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2026-10-01"
+              },
+              "wording": "Applications for the 2027/28 academic year open 1 October 2026.",
+              "sourceIds": [
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "application",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-05-01"
+              },
+              "wording": "The central 2027/28 calendar and programme admissions page establish this route. Apply by 2027-05-01. Nationality and whether a study visa/residence permit is needed through VU are separate conditions; do not choose a route from citizenship alone. Applicants needing deficiency/entrance examinations must check the earlier programme instructions.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
+            },
+            {
+              "type": "documents",
+              "status": "verified",
+              "deadline": {
+                "kind": "date",
+                "date": "2027-08-31"
+              },
+              "wording": "Final certified diploma deadline for a non-numerus-fixus programme starting 1 September 2027. This is not the initial upload deadline: complete the VU dashboard within six weeks and no later than one week after application closing, whichever is earlier. Applicants obtaining (I)GCE A-level results in August must consult the separate diploma-verification exceptions. Programme-specific conditions still apply.",
+              "sourceIds": [
+                "programme-admissions",
+                "central-2027-calendar"
+              ]
             },
             {
               "type": "tests",
@@ -4150,9 +4360,10 @@
       "dateReview": {
         "checkedAt": "2026-11-20",
         "sourceIds": [
-          "programme-admissions"
+          "programme-admissions",
+          "central-2027-calendar"
         ],
-        "notes": "Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All dates remain null."
+        "notes": "Reviewed the programme page together with the explicitly year-scoped central 2027/28 calendar. Opening, route-specific closing and final certified-diploma deadlines are verified. No unsupported test, interview, offer, payment or final-enrolment date is inferred."
       }
     },
     {

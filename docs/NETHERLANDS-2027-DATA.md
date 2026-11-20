@@ -12,7 +12,7 @@ This is a curated starting list, not a complete Netherlands directory. It adds e
 | University of Groningen | Economics and Business Economics; Econometrics and Operations Research | 1 May for all published nationality groups. |
 | Maastricht University | Economics and Business Economics; Econometrics & Operations Research | Economics: 15 March, including essay tasks. Econometrics: 1 April non-EU/EEA, 1 May EU/EEA/Swiss. |
 | Utrecht University | Economics and Business Economics | Unverified for 2027; current recurring April/May instructions are not year-specific confirmation. |
-| Vrije Universiteit Amsterdam | Economics and Business Economics; Econometrics and Data Science; Criminologie | Economics/quantitative programmes: unverified for 2027. Criminologie: 15 January registration, 31 January selection paperwork. |
+| Vrije Universiteit Amsterdam | Economics and Business Economics; Econometrics and Data Science; Criminologie | Economics/quantitative programmes: 1 April 2027 for non-EU/EEA applicants needing a VU study visa/residence permit; 1 May for EU/EEA applicants or those not needing one through VU. Opening: 1 October 2026; final certified diploma: 31 August 2027, with A-level exceptions. Criminologie: 15 January registration, 31 January selection paperwork. |
 | Leiden University | Criminologie | 15 January registration, 31 January selection/admission paperwork. |
 
 All three Criminologie degrees are **Dutch-taught**, rather than English-language substitutes. Each programme links directly to the official offering and its admissions instructions. QS entries retain the 2027 edition and official QS source. Unknown ranks are never inferred.
@@ -45,7 +45,7 @@ Programme-specific sources and evidence passages are stored in each annual YAML 
 2. Confirm QS order: Amsterdam, Utrecht, Leiden, Erasmus, Groningen, VU, Maastricht, Tilburg. Ranks show as #60, #113, #119, #148, #157, #185, #254, #429.
 3. Select Amsterdam, open Economics, choose its published category. Confirm 15 January 2027 application and 15 April ranking. Open a source link and compare its conditions.
 4. Open Maastricht Economics: confirm 15 March closing, with 15 January described only as the early essay date. Open Econometrics and compare the non-EU/EEA and EU/EEA/Swiss deadlines.
-5. Open Tilburg or VU Economics: confirm no guessed 2027 date or intake month appears. The recurring pattern is available in the application details.
+5. Open Tilburg: confirm no guessed 2027 date or intake month appears. Open VU Economics/Econometrics: confirm September 2027, both published visa-sensitive categories, verified opening/application/final diploma dates, and the earlier initial-upload instructions under Supporting documents.
 6. Open Leiden or VU Criminologie: confirm Dutch-taught labelling, January paperwork dates, and no Singapore PR question.
 7. Return home, collapse a country and open/close programme details. Confirm the existing layout and Singapore applicant workflow still work. No fictional university or illustrative deadline should appear.
 8. On a date within seven days of a verified closing date, confirm it appears in the global upcoming list regardless of destination filters. Two days or less is red. The current November preview need not contain Netherlands January deadlines yet.
