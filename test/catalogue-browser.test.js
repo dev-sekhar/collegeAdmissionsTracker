@@ -1,0 +1,76 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {buildCatalogue} from '../scripts/build-catalogue.mjs';
+import {catalogueRows,deadlineLabel} from '../src/catalogue-model.js';
+import {groupUniversities,groupProgrammes} from '../src/browse-components.js';
+import {mountAdmissionsBrowser} from '../src/catalogue-browser.js';
+const catalogue=await buildCatalogue({check:true});
+const rows=catalogueRows(catalogue);const real=rows.filter(row=>row.admission.dataType==='real');
+class Element{
+  constructor(tag){this.tag=tag;this.children=[];this.events={};this.attributes={};this.className='';this.text='';this.value='';this.classList={add:name=>{this.className+=' '+name;}};}
+  set textContent(value){this.text=String(value);this.children=[];}
+  get textContent(){return this.text+this.children.map(child=>child.textContent||'').join(' ');}
+  append(...children){this.children.push(...children);}
+  replaceChildren(...children){this.children=children;this.text='';}
+  setAttribute(key,value){this.attributes[key]=value;}
+  addEventListener(name,callback){this.events[name]=callback;}
+  focus(){document.activeElement=this;}
+  querySelectorAll(selector){return walk(this).filter(node=>selector.startsWith('#')?node.id===selector.slice(1):selector.startsWith('.')?node.className.split(' ').includes(selector.slice(1)):selector==='input:checked'?node.tag==='input'&&node.checked:node.tag===selector);}
+  querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
+}
+const walk=node=>[node,...node.children.flatMap(walk)];
+function fixture(t){
+  const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
+  globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
+  t.after(()=>{delete globalThis.document;});mountAdmissionsBrowser(catalogue);
+  const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
+  return {root,find,all,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
+}
+test('university/programme grouping deduplicates intake rows without losing any intake',()=>{
+  assert.equal(groupUniversities(real).length,8);assert.equal(groupProgrammes(real).length,31);
+  const buffalo=groupProgrammes(real).find(item=>item.programId==='sim-buffalo-economics');assert.equal(buffalo.intakes.length,3);
+  assert.equal(groupProgrammes(real).filter(item=>item.universityId==='sg-sim-uol').length,4);
+});
+test('university first, programme callout, explicit category and intake reset form a complete journey',t=>{
+  const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
+  f.click(b=>b.className==='university-card'&&b.textContent.includes('University at Buffalo'));
+  assert.equal(f.all('.programme-choice').length,1);assert.equal(document.activeElement.id,'programme-title');
+  f.click(b=>b.className==='programme-choice');assert.equal(f.all('.compact-stage').length,0);
+  const august=real.find(r=>r.programId==='sim-buffalo-economics'&&r.admission.intake.month===8);
+  f.select('timeline-intake',august.key);f.select('timeline-category','international');assert.match(f.find('#workspace').textContent,/28 Jun 2027/);
+  f.select('timeline-category','local');assert.match(f.find('#workspace').textContent,/12 Jul 2027/);
+  const may=real.find(r=>r.programId===august.programId&&r.admission.intake.month===5);f.select('timeline-intake',may.key);assert.equal(f.all('.compact-stage').length,0);
+  f.select('timeline-category','international');assert.match(f.find('#workspace').textContent,/29 Mar 2027/);
+  f.click(b=>b.textContent==='Universities');assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
+});
+test('all 31 programmes and 75 published category timelines reproduce existing YAML dates',t=>{
+  const f=fixture(t);let count=0;const before=JSON.stringify(catalogue);
+  for(const row of real){
+    f.click(b=>b.className.includes('university-card')&&b.textContent.includes(row.universityName));
+    f.click(b=>b.className==='programme-choice'&&b.children[0].children[0].textContent===row.programName);
+    if(f.find('#timeline-intake'))f.select('timeline-intake',row.key);
+    for(const route of row.admission.routes){
+      f.select('timeline-category',route.id);const stages=f.all('.compact-stage');assert.equal(stages.length,route.stages.length);
+      route.stages.forEach((stage,i)=>{assert.ok(stages[i].textContent.includes(stage.deadline?deadlineLabel(stage.deadline):'Date unavailable'),`${row.key} ${stage.type}`);assert.equal(stages[i].querySelector('details').open,undefined);});count++;
+    }
+    f.click(b=>b.textContent==='Universities');
+  }
+  assert.equal(count,75);assert.equal(JSON.stringify(catalogue),before);
+});
+test('filter changes cannot leave stale programmes/categories and reset restores universities',t=>{
+  const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));f.select('timeline-category','india-standard-12');
+  f.select('intake-filter','2027-09');assert.equal(f.find('#timeline-category'),null);assert.equal(f.all('.university-card').length,1);
+  f.find('#reset-filters').events.click();assert.equal(f.all('.university-card').length,8);assert.equal(f.all('.compact-stage').length,0);
+});
+test('optional applicant form preserves matching and available-result instructions without hiding evidence',t=>{
+  const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));
+  assert.equal(f.find('#applicant-context').open,undefined);
+  for(const [id,value]of [['applicant-board','cbse'],['applicant-citizenship','India'],['applicant-pr','no'],['applicant-results','available']])f.select(id,value);
+  f.find('#applicant-context').querySelector('form').events.submit({preventDefault(){}});
+  assert.equal(f.find('#timeline-category').value,'india-standard-12');assert.equal(f.find('#applicant-context').open,true);assert.match(f.find('#workspace').textContent,/already available/);assert.match(f.find('#workspace').textContent,/Applicant-rule source/);
+});
+test('reader/writer controls are deferred and current catalogue data stays unchanged',async()=>{
+  const index=await readFile(new URL('../index.html',import.meta.url),'utf8');const app=await readFile(new URL('../src/static-app.js',import.meta.url),'utf8');
+  assert.doesNotMatch(index,/writer-controls/);assert.doesNotMatch(app,/mountWriter|writer-ui/);assert.equal(catalogue.admissions.length,45);
+});
