@@ -37,7 +37,7 @@ test('university/programme grouping deduplicates intake rows without losing any 
 test('Singapore university cards display best QS rank first with unavailable ranks at the bottom',t=>{
   const f=fixture(t);assert.deepEqual(f.all('.university-card').map(card=>card.id),[
     'university-sg-nus','university-sg-ntu','university-sg-sim-rmit','university-sg-smu','university-sg-sim-buffalo','university-sg-kaplan-murdoch','university-sg-sim-uol','university-sg-suss',
-  ]);assert.deepEqual(f.all('.university-rank').map(rank=>rank.textContent),['#10','#12','#=119','#=411','#=416','#422','—','—']);
+  ]);assert.deepEqual(f.all('.university-rank').map(rank=>rank.textContent),['#10','#12','#119','#411','#416','#422','—','—']);
 });
 test('rank ordering is numeric, preserves country groups, and handles ties, bands and unverified data',()=>{
   const make=(universityName,rank,status='verified',country='Singapore')=>({universityId:universityName,universityName,country,qsRanking:rank===undefined?undefined:{rank,status}});
@@ -50,7 +50,7 @@ test('country sections retain every university and compact ranks do not invent m
   assert.equal(groups.length,new Set(rows.map(row=>row.country)).size);assert.equal(list.querySelectorAll('.university-card').length,groupUniversities(rows).length);
   for(const university of groupUniversities(rows)){
     const card=list.querySelector(`#university-${university.universityId}`);assert.equal(card.querySelector('.university-name').textContent,university.universityName);
-    const rank=card.querySelector('.university-rank');assert.equal(rank.textContent,university.qsRanking?.status==='verified'?`#${university.qsRanking.rank}`:'—');
+    const rank=card.querySelector('.university-rank');assert.equal(rank.textContent,university.qsRanking?.status==='verified'?`#${university.qsRanking.rank.replace(/^=/u,'')}`:'—');
     assert.equal(card.querySelector('.country-label'),null);assert.doesNotMatch(card.textContent,/QS World|awarding university|View programmes/);
   }
 });
