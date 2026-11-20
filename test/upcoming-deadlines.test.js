@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {admissionsToday,addCalendarDays,upcomingActivities} from '../src/upcoming-deadlines.js';
+import {admissionsToday,addCalendarDays,addCalendarMonths,upcomingActivities} from '../src/upcoming-deadlines.js';
 const date=value=>({kind:'date',date:value});
 function stage(type,deadline,status='verified'){return {type,status,deadline};}
 function row(stages,{key='p:2027:2027-08',dataType='real',routes}={}){return {key,universityName:'Example institution',programName:'Example programme',admission:{dataType,routes:routes||[{id:'international',label:'International',stages}]}};}
@@ -13,17 +13,24 @@ test('Netherlands upcoming dates use Amsterdam winter and summer midnight, indep
   assert.equal(admissionsToday(new Date('2027-01-14T23:00:00Z'),'Europe/Amsterdam'),'2027-01-15');
   assert.equal(admissionsToday(new Date('2027-07-14T22:00:00Z'),'Europe/Amsterdam'),'2027-07-15');
 });
-test('includes today through seven days ahead and marks today through two days ahead urgent',()=>{
-  const types=['documents','application','tests','interview','acceptance','deposit'];const offsets=[-1,0,2,3,7,8];
+test('includes today through three calendar months and marks today through two days ahead urgent',()=>{
+  const types=['documents','application','tests','interview','acceptance','deposit'];const offsets=[-1,0,2,3,92,93];
   const result=upcomingActivities([row(types.map((type,i)=>stage(type,date(addCalendarDays(today,offsets[i])))))],{today});
-  assert.deepEqual(result.map(a=>a.daysAway),[0,2,3,7]);assert.deepEqual(result.map(a=>a.urgent),[true,true,false,false]);
+  assert.deepEqual(result.map(a=>a.daysAway),[0,2,3,92]);assert.deepEqual(result.map(a=>a.urgent),[true,true,false,false]);
 });
 test('uses window ends, excludes openings and does not guess relative or missing deadlines',()=>{
   const result=upcomingActivities([row([
     stage('opening',date(today)),stage('documents',{kind:'relative',rule:'Within 3 days of results'}),stage('tests',null,'not-verified'),
     stage('interview',{kind:'window',start:'2026-11-01',end:'2026-11-22'}),
-    stage('application',{kind:'window',start:'2026-11-21',end:'2026-12-01'}),
+    stage('application',{kind:'window',start:'2026-11-21',end:'2027-02-21'}),
   ])],{today});assert.deepEqual(result.map(a=>[a.stage.type,a.date]),[['interview','2026-11-22']]);
+});
+
+test('calendar-month windows clamp month ends and cross leap years without assuming 90 days',()=>{
+  assert.equal(addCalendarMonths('2026-11-30',3),'2027-02-28');
+  assert.equal(addCalendarMonths('2027-11-30',3),'2028-02-29');
+  assert.equal(addCalendarMonths('2027-01-31',3),'2027-04-30');
+  assert.throws(()=>upcomingActivities([],{months:-1}),RangeError);
 });
 test('fictional data is excluded and review/manual entries retain their status',()=>{
   const result=upcomingActivities([row([stage('application',date(today),'dummy')],{dataType:'dummy'}),row([

@@ -270,3 +270,9 @@ VU Economics and Econometrics now combine the programme instructions with the ce
 Proposed treatment of remaining gaps: investigate the previous two or three matching intake years before estimating. Any supported future estimate must say Tentative, remain unverified, and record the historical years and official sources. Insufficient or conflicting history leaves the date unknown. The historical search so far has not established two matching intake years for those three programmes, so no estimate has been added or falsely described as historical evidence. An undated current rule is not proof that a university has failed to publish its calendar.
 
 Manual review: at http://127.0.0.1:4180/, select Netherlands and expand VU. Open each economics programme and compare both categories against its linked central calendar. Check 1 October 2026 opening, 1 April/1 May 2027 closing, and 31 August final diploma with earlier-upload conditions. Unknown interview, offer and payment dates must remain unverified. No merge until confirmed.
+
+## Three-month upcoming deadlines — 20 November 2026
+
+The summary now lists recorded closing activities from today through three calendar months ahead, across all universities. The end date is included; short months use their last day. University-local dates, chronological ordering and red urgency within two days are retained. This updates the existing deadline component rather than adding a separate workflow or new interface. No YAML dates or verification states change.
+
+Manual checks at http://127.0.0.1:4180/: refresh and confirm Next 3 months; check January 2027 deadlines appear in November 2026; change destination filters and confirm the global deadlines remain; open a deadline and check the matching programme/category. On the two-day boundary deadlines must still turn red. Build/tests cover month-end and leap-year boundaries. No merge before confirmation.
