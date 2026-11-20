@@ -2,6 +2,14 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Compact cards — PR #43
+
+- Confirm Singapore appears once as a country heading above its universities. With multiple countries selected, each country has its own heading.
+- Cards should show the full university name and short rank (NTU #12, NUS #10), without a repeated country or QS label. Ties retain their equals sign; unverified ranks show a dash. Ranking sources remain in the programme popup.
+- Check the narrower list and modest padding are readable on desktop/mobile, long names wrap without clipping, and selecting a university still opens the right programme pane and popup normally.
+
+## Split-pane behaviour
+
 1. On desktop, confirm universities appear as a left-hand list. Select a university near the bottom of that list: its programme cards must appear at the top of the right pane without scrolling the page down to a callout.
 2. Select NTU and confirm 15 distinct programme cards. Select a programme; its details open in a popup, with both lists visible behind it. Close it, then repeat with Escape. The same programme card should regain keyboard focus and both pane scroll positions should be retained.
 3. Open SIM/Buffalo BA Economics. Choose August 2027 and International applicants: application closes 28 June; Local applicants shows 12 July. Switch to May: category clears; International applicants shows 29 March. Close the popup and confirm the university selection is retained.

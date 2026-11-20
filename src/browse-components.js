@@ -1,4 +1,4 @@
-import {el,pill,selectField,evidenceLink,admissionRequirementsPanel,rankingBadge} from './static-components.js';
+import {el,pill,selectField,evidenceLink,admissionRequirementsPanel} from './static-components.js';
 import {deadlineLabel,intakeLabel,statusLabels} from './catalogue-model.js';
 export function action(label,onClick,className='text-button'){const button=el('button',className,label);button.type='button';button.addEventListener('click',onClick);return button;}
 export function disclosure(label,...content){const details=el('details','supporting-details');details.append(el('summary','',label),...content);return details;}
@@ -6,17 +6,21 @@ export function groupUniversities(rows){const groups=new Map();for(const row of 
 export function groupProgrammes(rows){const groups=new Map();for(const row of rows){if(!groups.has(row.programId))groups.set(row.programId,{...row,intakes:[]});groups.get(row.programId).intakes.push(row);}return [...groups.values()].sort((a,b)=>a.programName.localeCompare(b.programName));}
 export function universityCard(university,selected,onSelect){
   const button=action('',onSelect,`university-card${selected?' selected':''}`);button.id=`university-${university.universityId}`;button.setAttribute('aria-expanded',String(selected));button.setAttribute('aria-controls','programmes-pane');
-  const top=el('span','card-top');top.append(el('span','country-label',university.country),pill(university.admission.dataType==='real'?'Real data':'Fictional example',university.admission.dataType==='real'?'soft':'warning'));button.append(top,el('strong','university-name',university.universityName));
-  if(university.qsRanking)button.append(rankingBadge(university.qsRanking));
-  const count=new Set(university.rows.map(row=>row.programId)).size;const bottom=el('span','card-bottom');bottom.append(el('span','',`${count} ${count===1?'programme':'programmes'}`),el('span','card-action','View programmes'));button.append(bottom);return button;
+  const name=el('strong','university-name',university.universityName);const ranking=university.qsRanking;const verified=ranking?.status==='verified';
+  const rank=el('span','university-rank',verified?`#${ranking.rank}`:'—');const description=ranking?`${ranking.institution} · QS World ${ranking.edition} · ${verified?`Rank ${ranking.rank}`:'Rank unverified'}`:'Rank unavailable';rank.setAttribute('aria-label',description);rank.title=description;button.append(name,rank);
+  if(university.admission.dataType!=='real')button.append(el('span','example-label','Fictional example'));return button;
+}
+export function universityList(universities,selectedId,onUniversity){
+  const list=el('div','university-list');const countries=new Map();for(const university of universities){if(!countries.has(university.country))countries.set(university.country,[]);countries.get(university.country).push(university);}
+  let index=0;for(const [country,items] of countries){const section=el('section','university-country-group');const heading=el('h3','country-heading',country);heading.id=`university-country-${index++}`;section.setAttribute('aria-labelledby',heading.id);const cards=el('div','country-universities');for(const university of items)cards.append(universityCard(university,university.universityId===selectedId,()=>onUniversity(university)));section.append(heading,cards);list.append(section);}return list;
 }
 export function programmeCallout(university,onSelect,onClose){
   const section=el('section','programme-callout');section.id='programme-callout';section.setAttribute('aria-labelledby','programme-title');const heading=el('div','section-top');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;heading.append(title,action('All universities',onClose,'text-button mobile-back'));section.append(heading);const list=el('div','programme-grid');
   for(const programme of groupProgrammes(university.rows)){const button=action('',()=>onSelect(programme),'programme-choice');button.id=`programme-${programme.programId}`;button.setAttribute('aria-haspopup','dialog');const main=el('span','programme-choice-main');main.append(el('strong','',programme.programName),el('span','programme-subjects',programme.subjects.join(' · ')));button.append(main,el('span','programme-intakes',programme.intakes.map(row=>intakeLabel(row.admission.intake)).join(' · ')));list.append(button);}section.append(list);return section;
 }
 export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear){
-  const split=el('div',`browse-split${selectedId?' has-selection':''}`);
-  const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(el('h2','pane-title','Universities'));const list=el('div','university-list');for(const university of universities)list.append(universityCard(university,university.universityId===selectedId,()=>onUniversity(university)));left.append(list);
+  const split=el('div',`browse-split compact-universities${selectedId?' has-selection':''}`);
+  const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(el('h2','pane-title','Universities'),universityList(universities,selectedId,onUniversity));
   const right=el('section','programmes-pane');right.id='programmes-pane';right.setAttribute('aria-label','Programmes');const selected=universities.find(university=>university.universityId===selectedId);
   if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else right.append(el('p','pane-placeholder',universities.length?'Select a university to see its programmes.':'No programmes match these filters.'));
   split.append(left,right);return split;

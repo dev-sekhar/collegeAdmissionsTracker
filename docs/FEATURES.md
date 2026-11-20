@@ -1,5 +1,13 @@
 # Running feature record
 
+## Compact university cards grouped by country
+
+Draft PR #43 groups the left university list under country headings. Each real university card shows its full name and a short rank such as #12, without repeating the country, QS label, edition, programme count or action text. Tied ranks retain their equals sign. Missing ranks show a dash; awarding-university context remains accessible and in programme sources. Fictional examples retain their label.
+
+Cards use modest padding and wrap long names rather than truncating them. The desktop university pane is narrower, giving programme cards more space. Programme cards, detail popups, dates and reader/writer deferral are unchanged. Manual checks are added to SPLIT-PANE-MANUAL-TESTS.md. This is a shared component/style refinement; no separate skill is needed. Preview remains on port 4180; no merge until user review.
+
+Validation: the build, unchanged-data check, whitespace check and existing 63-test suite pass. The updated eight-test browser-journey file also passes, including the new country/rank check and all existing programme/intake timelines. HTTP checks confirm the compact-card module and styles are served on port 4180. Spacing and narrow-screen readability remain manual checks.
+
 ## University list, programme pane and details popup
 
 Draft PR #41 refines the browsing layout after user review (issue #42). Universities stay in a left-hand list; selecting one displays its programme cards immediately in the right-hand pane. Selecting a programme opens its details and admission timeline in a popup. The university and programme list remain in place behind it. Close or Escape returns to the selected programme card, preserving both pane scroll positions.
