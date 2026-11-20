@@ -108,8 +108,12 @@ test('programme popup closes on button or Escape and preserves selection, pane s
 test('upcoming dates turn red at the two-day boundary and open the exact programme/intake/category',t=>{
   let now=new Date('2026-11-27T15:59:00Z');const f=fixture(t,{clock:()=>now});assert.equal(f.all('.upcoming-item').length,1);assert.equal(f.all('.urgent').length,0);
   now=new Date('2026-11-27T16:00:00Z');f.browser.refreshDeadlines();assert.equal(f.all('.urgent').length,1);assert.match(f.find('.deadline-timing').textContent,/Urgent · In 2 days/);
-  f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-category').value,'international');assert.match(f.find('#workspace').textContent,/30 Nov 2026/);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');
+  f.click(b=>b.className.includes('upcoming-programme'));const popup=f.find('dialog');assert.equal(popup.open,true);assert.equal(f.find('#timeline-category').value,'international');assert.match(f.find('#workspace').textContent,/30 Nov 2026/);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');
+  now=new Date('2026-11-28T16:00:00Z');f.browser.refreshDeadlines();assert.equal(f.find('dialog'),popup,'midnight refresh must not replace an open global-deadline popup');
 });
-test('upcoming list follows the filtered intake rather than showing unrelated deadlines',t=>{
-  const f=fixture(t,{clock:()=>new Date('2026-11-28T04:00:00Z')});assert.equal(f.all('.upcoming-item').length,1);f.select('intake-filter','2027-08');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
+test('upcoming list covers the full catalogue and opens hidden intakes without changing browse filters',t=>{
+  const f=fixture(t,{clock:()=>new Date('2026-11-28T04:00:00Z')});assert.equal(f.all('.upcoming-item').length,1);f.select('intake-filter','2027-08');assert.equal(f.all('.upcoming-item').length,1);
+  f.select('degree-filter','Master’s');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.equal(f.all('.upcoming-item').length,1);assert.match(f.find('.upcoming-label').textContent,/All universities/);
+  const returnId=f.find('.upcoming-programme').id;f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');assert.equal(f.find('#timeline-category').value,'international');assert.equal(f.find('#intake-filter').value,'2027-08');assert.equal(f.find('#degree-filter').value,'Master’s');
+  f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,returnId);assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);assert.equal(f.all('.upcoming-item').length,1);
 });
