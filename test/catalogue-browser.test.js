@@ -34,6 +34,16 @@ test('university/programme grouping deduplicates intake rows without losing any 
   const buffalo=groupProgrammes(real).find(item=>item.programId==='sim-buffalo-economics');assert.equal(buffalo.intakes.length,3);
   assert.equal(groupProgrammes(real).filter(item=>item.universityId==='sg-sim-uol').length,4);
 });
+test('Singapore university cards display best QS rank first with unavailable ranks at the bottom',t=>{
+  const f=fixture(t);assert.deepEqual(f.all('.university-card').map(card=>card.id),[
+    'university-sg-nus','university-sg-ntu','university-sg-sim-rmit','university-sg-smu','university-sg-sim-buffalo','university-sg-kaplan-murdoch','university-sg-sim-uol','university-sg-suss',
+  ]);assert.deepEqual(f.all('.university-rank').map(rank=>rank.textContent),['#10','#12','#=119','#=411','#=416','#422','—','—']);
+});
+test('rank ordering is numeric, preserves country groups, and handles ties, bands and unverified data',()=>{
+  const make=(universityName,rank,status='verified',country='Singapore')=>({universityId:universityName,universityName,country,qsRanking:rank===undefined?undefined:{rank,status}});
+  const input=[make('Missing'),make('Unverified','1','not-verified'),make('Ten','10'),make('Tie B','=2'),make('Tie A','2'),make('Band','101-150'),make('Two hundred','200'),make('Canadian','999','verified','Canada')];
+  assert.deepEqual(groupUniversities(input).map(university=>university.universityName),['Canadian','Tie A','Tie B','Ten','Band','Two hundred','Missing','Unverified']);
+});
 test('country sections retain every university and compact ranks do not invent missing values',t=>{
   const f=fixture(t);assert.equal(f.all('.country-heading').length,1);assert.equal(f.find('.country-heading').textContent,'Singapore');
   const list=universityList(groupUniversities(rows),'',()=>{});const groups=list.querySelectorAll('.university-country-group');

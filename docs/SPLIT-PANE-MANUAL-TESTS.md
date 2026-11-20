@@ -2,6 +2,11 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## QS ordering
+
+- Confirm Singapore lists NUS #10, NTU #12, SIM/RMIT #=119, SMU #=411, SIM/Buffalo #=416 and Kaplan/Murdoch #422 in that order, followed by SIM/UOL and SUSS with unavailable ranks.
+- Select several countries and confirm sorting stays within each country tile. Collapse/expand a country, change/reset filters and open/close a programme popup; order should remain consistent and all previous interactions should work.
+
 ## All-university deadline coverage — PR #47 (current behaviour)
 
 - Upcoming deadlines must say All universities and cover the full real YAML catalogue. Country, subject, degree and intake filters affect the browse list/count cards, not the upcoming activities. This supersedes PR #46's filter-scoped deadline behaviour.
