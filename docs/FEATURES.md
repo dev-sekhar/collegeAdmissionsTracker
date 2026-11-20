@@ -1,5 +1,13 @@
 # Running feature record
 
+## QS-ranked university order
+
+Draft PR #48 orders universities best-ranked first within each country tile, using the verified QS rank already stored in YAML. Missing/unverified ranks appear last. Equal ranks and unavailable ranks use alphabetical order for consistency; ties and rank bands keep their original displayed labels (bands sort by their lower endpoint). No ranking or admission data is changed.
+
+Singapore's order is NUS, NTU, SIM/RMIT, SMU, SIM/Buffalo, Kaplan/Murdoch, then the two unavailable-rank entries SIM/UOL and SUSS. The programme pane, popup and all-university deadlines are unchanged. This is shared presentation logic with project documentation, not a separate skill. Preview remains port 4180; no merge before user review.
+
+Validation: build, syntax, whitespace and unchanged-data checks pass. All 13 browser-journey tests pass, including numeric rank ordering, tied/banded ranks, unavailable ranks last and existing navigation through all programme/category timelines. HTTP checks confirm the sorted module is served on port 4180. Visual review remains manual.
+
 ## Catalogue-wide upcoming deadlines
 
 Draft PR #47 makes Upcoming deadlines cover every real university, programme, intake and published category in the YAML catalogue, regardless of browse filters. The label explicitly says All universities. The Universities/Programs cards and browse list still follow filters; they do not restrict deadline coverage.
