@@ -54,3 +54,5 @@ html{scrollbar-gutter:stable}
 .non-english-title,.upcoming-programme.non-english-title,.non-english-programme .programme-choice-main>strong{color:#754613}
 .language-notice{width:fit-content;background:#f8dfb3!important;color:#633c12!important;font-weight:600;font-size:.75rem}
 .compact-timeline>.language-notice{margin-top:10px}.upcoming-item>.language-notice{display:block;margin-top:8px}
+.select-field input[type=number]{width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid #c6d5cf;border-radius:8px;background:var(--white)}
+.intake-reference-note{padding:12px 14px;background:var(--warm);border:1px solid #d8b378;border-radius:8px;color:#634313;font-size:.85rem;line-height:1.5;margin:12px 0}

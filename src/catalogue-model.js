@@ -3,7 +3,7 @@ export const stageTypes = [
   ['tests','Tests / scores'],['interview','Interview'],['acceptance','Accept offer'],['deposit','Pay deposit'],['enrolment','Enrolment'],
 ];
 export const optionalStageTypes = [['decision','Admission decision'],['appeal','Appeal']];
-export const statusLabels = {'dummy':'Illustrative date','not-researched':'Not researched','not-verified':'Not verified','not-yet-published':'Not yet published','source-unavailable':'Source unavailable','needs-review':'Needs review','verified':'Verified against source','manual-unverified':'Manual entry — unverified'};
+export const statusLabels = {'tentative':'Tentative projection — not verified for the requested intake','dummy':'Illustrative date','not-researched':'Not researched','not-verified':'Not verified','not-yet-published':'Not yet published','source-unavailable':'Source unavailable','needs-review':'Needs review','verified':'Verified against source','manual-unverified':'Manual entry — unverified'};
 export const countryName=value=>/^(holland|the netherlands|netherlands)$/iu.test(value.trim())?'Netherlands':value.trim().replace(/\s+/gu,' ');
 export function validDate(value){
   if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/u.test(value))return false;
@@ -46,7 +46,7 @@ export function compileCatalogue(universityDocuments,admissionDocuments,applican
       for(const stage of route.stages){keys(stage,['type','status','deadline','wording','sourceIds','manualEntry'],`${where}.stage`);requireThat(Object.hasOwn(statusLabels,stage.status),`${where}: unknown stage status`);requireThat(real||stage.status!=='verified',`${where}: dummy data cannot be verified`);requireThat(!real||stage.status!=='dummy',`${where}: real data cannot contain dummy dates`);deadline(stage.deadline,`${where}.${stage.type}`);text(stage.wording,'stage.wording');requireThat(Array.isArray(stage.sourceIds),`${where}: sourceIds must be a list`);unique(stage.sourceIds,'stage.sourceIds');requireThat(stage.sourceIds.every(sourceId=>doc.sources.some(source=>source.id===sourceId)),`${where}: unknown source reference`);
         if(stage.status==='manual-unverified'){requireThat(real&&stage.sourceIds.length===0&&stage.manualEntry,'Manual entries must remain unverified without claimed official evidence');keys(stage.manualEntry,['enteredAt','enteredBy','note'],'manualEntry');requireThat(typeof stage.manualEntry.enteredAt==='string'&&Number.isFinite(Date.parse(stage.manualEntry.enteredAt)),'manualEntry: invalid timestamp');text(stage.manualEntry.enteredBy,'manualEntry.enteredBy');text(stage.manualEntry.note,'manualEntry.note');}else requireThat(stage.manualEntry===undefined,'Only manual-unverified stages may contain manualEntry');
         if(['not-researched','not-verified','not-yet-published','source-unavailable'].includes(stage.status))requireThat(stage.deadline===null,`${where}: missing-data status must have a null deadline`);
-        if(stage.status==='verified')requireThat(stage.deadline!==null&&stage.sourceIds.length>0,`${where}: verified stages need a deadline and checked official evidence`);
+        if(stage.status==='tentative')requireThat(real&&stage.deadline!==null&&stage.sourceIds.length>0,'Tentative stages need a date/rule and source-year evidence');if(stage.status==='verified')requireThat(stage.deadline!==null&&stage.sourceIds.length>0,`${where}: verified stages need a deadline and checked official evidence`);
         if(stage.status==='dummy')requireThat(stage.deadline!==null&&stage.sourceIds.length>0,`${where}: illustrative dates need a deadline and dummy evidence`);
       }
     }
@@ -118,7 +118,21 @@ function validateRanking(ranking){
 export const rankingLabel=ranking=>`QS World ${ranking.edition} · ${ranking.status==='verified'?`#${ranking.rank}`:'Rank not verified'}`;
 function officialUrl(value){let url;try{url=new URL(value);}catch{throw Error('Invalid official source URL');}requireThat(url.protocol==='https:'&&!url.username&&!url.password&&officialHosts.some(host=>url.hostname===host||url.hostname.endsWith(`.${host}`)),'Real evidence must use an approved official institution HTTPS domain');}
 export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,admissionDetails:catalogue.admissionDetails?.find(d=>d.programIds.includes(program.id)),applicantPolicy:catalogue.applicantPolicies?.find(p=>p.universityId===university.id&&p.cycle===admission.cycle),key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
-export function filterRows(rows,filters){return rows.filter(row=>(!filters.countries.length||filters.countries.includes(row.country))&&(!filters.subjects.length||row.subjects.some(s=>filters.subjects.includes(s)))&&(!filters.degree||row.degree===filters.degree)&&(!filters.intake||intakeKey(row.admission.intake)===filters.intake));}
+export function annualIntakeRows(rows,year,{now=new Date()}={}){
+  if(!Number.isInteger(year)||year<2000||year>2100)return [];
+  const programmes=new Map();for(const row of rows){if(!programmes.has(row.programId))programmes.set(row.programId,[]);programmes.get(row.programId).push(row);}
+  return [...programmes.values()].flatMap(entries=>{
+    const exact=entries.filter(row=>row.admission.intake.year===year);if(exact.length)return exact;
+    if(year<=now.getUTCFullYear())return [];
+    const earlier=entries.filter(row=>row.admission.dataType==='real'&&row.admission.intake.year<year);
+    const sourceYear=Math.max(...earlier.map(row=>row.admission.intake.year));
+    const delta=year-sourceYear;
+    const shift=date=>{const value=new Date(`${date}T00:00:00Z`);const month=value.getUTCMonth();const shiftedYear=value.getUTCFullYear()+delta;const last=new Date(Date.UTC(shiftedYear,month+1,0)).getUTCDate();return new Date(Date.UTC(shiftedYear,month,Math.min(value.getUTCDate(),last))).toISOString().slice(0,10);};
+    const project=deadline=>!deadline?null:deadline.kind==='date'?{kind:'date',date:shift(deadline.date)}:deadline.kind==='window'?{kind:'window',start:shift(deadline.start),end:shift(deadline.end)}:/\b20\d{2}\b/u.test(deadline.rule)?null:{...deadline};
+    return earlier.filter(row=>row.admission.intake.year===sourceYear).map(row=>({...row,key:`${row.programId}:tentative:${year}:${row.admission.intake.month??'unknown'}`,intakeReference:{requestedYear:year,sourceYear},sourceAdmission:row.admission,admission:{...row.admission,intake:{...row.admission.intake,year},routes:row.admission.routes.map(route=>({...route,stages:route.stages.map(stage=>{const deadline=project(stage.deadline);return {...stage,deadline,status:deadline?'tentative':'not-verified'};})}))}}));
+  });
+}
+export function filterRows(rows,filters,options={}){const annual=/^\d{4}$/u.test(filters.intake||'');const candidates=annual?annualIntakeRows(rows,Number(filters.intake),options):rows;return candidates.filter(row=>(!filters.countries.length||filters.countries.includes(row.country))&&(!filters.subjects.length||row.subjects.some(s=>filters.subjects.includes(s)))&&(!filters.degree||row.degree===filters.degree)&&(annual||!filters.intake||intakeKey(row.admission.intake)===filters.intake));}
 export const intakeKey=intake=>`${intake.year}-${intake.month===null?'unknown':String(intake.month).padStart(2,'0')}`;
 export const intakeLabel=intake=>intake.month===null?`${intake.year} · intake month not verified`:new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(intake.year,intake.month-1,1)));
 const dateLabel=value=>new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(`${value}T12:00:00Z`));

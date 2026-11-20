@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {compileCatalogue,stageTypes,validDate,catalogueRows,filterRows,deadlineLabel,countryName,rankingLabel} from '../src/catalogue-model.js';
+import {compileCatalogue,stageTypes,validDate,catalogueRows,filterRows,annualIntakeRows,deadlineLabel,countryName,rankingLabel} from '../src/catalogue-model.js';
 import {buildCatalogue,parseYaml} from '../scripts/build-catalogue.mjs';
 function fixture(){
   const university={id:'dummy-uni',name:'Fictional University',country:'Singapore',city:'Singapore',programs:[{id:'dummy-cs',name:'Fictional BSc CS',degree:'Bachelor’s',subjects:['Computer Science']}]};
@@ -13,6 +13,22 @@ test('teaching-language metadata rejects empty, malformed and duplicate values',
   const {university,admission}=fixture();const program=university.programs[0];
   for(const value of [[],[''],['English','english'],'Dutch']){program.teachingLanguages=value;assert.throws(()=>compileCatalogue([university],[admission]));}
   program.teachingLanguages=['Dutch'];assert.deepEqual(compileCatalogue([university],[admission]).programs[0].teachingLanguages,['Dutch']);
+});
+
+test('annual intake filtering prioritises exact records, references only earlier real calendars and preserves dates',()=>{
+  const make=(programId,year,month,dataType='real')=>({programId,key:`${programId}:${year}:${month}`,admission:{dataType,intake:{year,month},routes:[{stages:[{status:'verified',deadline:{kind:'date',date:'2026-12-01'}}]}]}});
+  const rows=[make('first',2027,1),make('first',2027,8),make('first',2028,1),make('second',2027,null),make('fake',2027,1,'dummy')];const now=new Date('2026-11-20T00:00:00Z');const before=JSON.stringify(rows);
+  const selected=annualIntakeRows(rows,2028,{now});assert.equal(selected.filter(r=>r.programId==='first').length,1);assert.equal(selected.find(r=>r.programId==='first').intakeReference,undefined);
+  assert.deepEqual(selected.find(r=>r.programId==='second').intakeReference,{requestedYear:2028,sourceYear:2027});assert.ok(!selected.some(r=>r.programId==='fake'));
+  assert.equal(annualIntakeRows(rows,2027,{now}).filter(r=>r.programId==='first').length,2);assert.equal(annualIntakeRows(rows,2025,{now}).length,0);assert.equal(annualIntakeRows(rows,2026,{now:new Date('2027-01-01T00:00:00Z')}).length,0);assert.equal(JSON.stringify(rows),before);
+  const far=annualIntakeRows(rows,2030,{now});assert.equal(far.find(r=>r.programId==='first').intakeReference.sourceYear,2028);assert.equal(far.find(r=>r.programId==='first').admission.routes[0].stages[0].deadline.date,'2028-12-01');assert.equal(far.find(r=>r.programId==='first').sourceAdmission.routes[0].stages[0].deadline.date,'2026-12-01');assert.equal(far.find(r=>r.programId==='first').admission.routes[0].stages[0].status,'tentative');
+});
+
+test('future-year projections move opening dates into the preceding year and clamp leap days',()=>{
+  const source={programId:'sample',key:'sample',admission:{dataType:'real',intake:{year:2027,month:9},routes:[{id:'general',stages:[{type:'opening',status:'verified',deadline:{kind:'date',date:'2026-10-01'}},{type:'application',status:'verified',deadline:{kind:'window',start:'2027-01-01',end:'2027-04-01'}},{type:'tests',status:'verified',deadline:{kind:'relative',rule:'Attend 2 March 2027'}},{type:'acceptance',status:'verified',deadline:{kind:'relative',rule:'Within two weeks of offer'}}]}]}};
+  const projected=annualIntakeRows([source],2028,{now:new Date('2026-11-20T00:00:00Z')})[0];const stages=projected.admission.routes[0].stages;
+  assert.equal(stages[0].deadline.date,'2027-10-01');assert.deepEqual(stages[1].deadline,{kind:'window',start:'2028-01-01',end:'2028-04-01'});assert.equal(stages[2].deadline,null);assert.equal(stages[2].status,'not-verified');assert.equal(stages[3].deadline.rule,'Within two weeks of offer');assert.equal(projected.admission.intake.year,2028);
+  const leap=structuredClone(source);leap.admission.intake.year=2028;leap.admission.routes[0].stages[0].deadline.date='2028-02-29';assert.equal(annualIntakeRows([leap],2029,{now:new Date('2026-11-20T00:00:00Z')})[0].admission.routes[0].stages[0].deadline.date,'2029-02-28');
 });
 test('repository YAML produces deterministic real JSON',async()=>{
   const result=await buildCatalogue({check:true});assert.equal(result.mode,'real');assert.equal(result.universities.length,16);assert.equal(result.programs.length,48);assert.equal(result.admissions.length,54);

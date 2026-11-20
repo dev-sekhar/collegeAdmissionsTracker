@@ -16,6 +16,8 @@ Each annual file contains explicitly named applicant routes. The user selects a 
 
 ## Deadlines and missing dates
 
+The annual intake filter can project an unpublished future year's schedule from the latest earlier real intake for the same programme. These are temporary display objects with Tentative labels, not new verified YAML records. Original dates and source evidence remain accessible. Never replace source dates or review timestamps with projected values. A calendar projection is distinct from a research-based estimate using several historical years.
+
 | Kind | YAML fields | Meaning |
 | --- | --- | --- |
 | date | kind: date, date: '2027-01-15' | One calendar date |
