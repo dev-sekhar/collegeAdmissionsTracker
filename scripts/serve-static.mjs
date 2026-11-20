@@ -6,7 +6,7 @@ import {randomBytes} from 'node:crypto';
 import {readWriterCredentials,checkWriterPassword} from './writer-auth.mjs';
 import {createDateStore,WriterError} from './writer-store.mjs';
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
-const allowed=new Set(['index.html','styles.css','src/static-app.js','src/static-components.js','src/catalogue-browser.js','src/browse-components.js','src/catalogue-model.js','src/applicant-routes.js','src/writer-ui.js','data/generated/catalogue.json']);
+const allowed=new Set(['index.html','styles.css','src/static-app.js','src/static-components.js','src/catalogue-browser.js','src/browse-components.js','src/upcoming-deadlines.js','src/catalogue-model.js','src/applicant-routes.js','src/writer-ui.js','data/generated/catalogue.json']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8'};
 const cookieName='admissions_writer';
 async function body(request){

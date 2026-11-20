@@ -22,12 +22,12 @@ class Element{
   querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
 }
 const walk=node=>[node,...node.children.flatMap(walk)];
-function fixture(t){
+function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z')}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
   globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
-  t.after(()=>{delete globalThis.document;});mountAdmissionsBrowser(catalogue);
+  t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(catalogue,{clock});
   const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
-  return {root,find,all,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
+  return {root,find,all,browser,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
 }
 test('university/programme grouping deduplicates intake rows without losing any intake',()=>{
   assert.equal(groupUniversities(real).length,8);assert.equal(groupProgrammes(real).length,31);
@@ -52,7 +52,7 @@ test('country tiles retain collapsed state across filtering and popup close with
   assert.equal(f.find('.university-country-group').open,true);assert.equal(f.find('.university-name').title,f.find('.university-name').textContent);
 });
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
-  const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);assert.deepEqual(f.all('dt').map(node=>node.textContent),['Universities','Programs']);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.match(f.find('.upcoming-placeholder').textContent,/Coming later/);
+  const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);assert.deepEqual(f.all('dt').map(node=>node.textContent),['Universities','Programs']);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.match(f.find('.upcoming-empty').textContent,/No recorded activities end/);
   f.click(b=>b.className==='university-card'&&b.textContent.includes('University at Buffalo'));
   assert.equal(f.all('.programme-choice').length,1);assert.equal(document.activeElement.id,'programme-title');assert.equal(f.find('.pane-overview'),null);
   f.click(b=>b.className==='programme-choice');assert.equal(f.all('.compact-stage').length,0);
@@ -104,4 +104,12 @@ test('programme popup closes on button or Escape and preserves selection, pane s
   f.find('dialog').events.cancel({preventDefault(){}});
   assert.equal(f.find('dialog'),null);assert.equal(f.find('.university-list').scrollTop,210);assert.equal(f.find('.programme-grid').scrollTop,140);assert.equal(document.activeElement.id,'programme-ntu-economics');
   f.click(b=>b.id==='programme-ntu-economics');f.click(b=>b.className.includes('close-programme'));assert.equal(f.find('dialog'),null);assert.equal(document.activeElement.id,'programme-ntu-economics');
+});
+test('upcoming dates turn red at the two-day boundary and open the exact programme/intake/category',t=>{
+  let now=new Date('2026-11-27T15:59:00Z');const f=fixture(t,{clock:()=>now});assert.equal(f.all('.upcoming-item').length,1);assert.equal(f.all('.urgent').length,0);
+  now=new Date('2026-11-27T16:00:00Z');f.browser.refreshDeadlines();assert.equal(f.all('.urgent').length,1);assert.match(f.find('.deadline-timing').textContent,/Urgent · In 2 days/);
+  f.click(b=>b.className.includes('upcoming-programme'));assert.equal(f.find('dialog').open,true);assert.equal(f.find('#timeline-category').value,'international');assert.match(f.find('#workspace').textContent,/30 Nov 2026/);assert.equal(f.find('#timeline-intake').value,'sim-buffalo-economics:2027:2027-01');
+});
+test('upcoming list follows the filtered intake rather than showing unrelated deadlines',t=>{
+  const f=fixture(t,{clock:()=>new Date('2026-11-28T04:00:00Z')});assert.equal(f.all('.upcoming-item').length,1);f.select('intake-filter','2027-08');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
 });
