@@ -61,6 +61,19 @@ test('country tiles retain collapsed state across filtering and popup close with
   f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.click(b=>b.className.includes('close-programme'));
   assert.equal(f.find('.university-country-group').open,true);assert.equal(f.find('.university-name').title,f.find('.university-name').textContent);
 });
+test('minimising the selected country clears university selection and restores the summary',t=>{
+  const f=fixture(t);f.click(b=>b.id==='university-sg-ntu');assert.equal(f.all('.programme-choice').length,15);
+  const group=f.find('.university-country-group');const summaryId=group.querySelector('summary').id;group.open=false;group.events.toggle();
+  assert.ok(f.find('.pane-overview'));assert.equal(f.all('.programme-choice').length,0);assert.equal(f.all('.selected').length,0);assert.equal(f.find('.university-country-group').open,false);assert.equal(document.activeElement.id,summaryId);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.ok(f.find('.upcoming-deadlines'));
+  f.find('.university-country-group').open=true;f.find('.university-country-group').events.toggle();assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);
+});
+test('collapsing an unrelated country or receiving a detached tile event does not clear the selected university',t=>{
+  const f=fixture(t);const canada=f.find('#country-filter').querySelectorAll('input').find(input=>input.value==='Canada');canada.checked=true;canada.events.change();
+  const computing=f.find('#subject-filter').querySelectorAll('input').find(input=>input.value==='Computer Science');computing.checked=true;computing.events.change();
+  const detached=f.all('.university-country-group').find(group=>group.getAttribute('data-country')==='Singapore');f.click(b=>b.id==='university-sg-ntu');
+  const other=f.all('.university-country-group').find(group=>group.getAttribute('data-country')==='Canada');other.open=false;other.events.toggle();assert.equal(f.all('.programme-choice').length,15);
+  detached.isConnected=false;detached.open=false;detached.events.toggle();assert.equal(f.all('.programme-choice').length,15);assert.equal(f.find('.pane-overview'),null);
+});
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
   const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);assert.deepEqual(f.all('dt').map(node=>node.textContent),['Universities','Programs']);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.match(f.find('.upcoming-empty').textContent,/No recorded activities end/);
   f.click(b=>b.className==='university-card'&&b.textContent.includes('University at Buffalo'));

@@ -1,5 +1,13 @@
 # Running feature record
 
+## Country minimise returns to the summary
+
+Draft PR #50 clears university/programme selection when its country tile is minimised. The right pane immediately returns to the Universities/Programs summary and catalogue-wide upcoming deadlines. The country stays collapsed, filters remain unchanged, and expanding it again does not restore an old selection. Keyboard focus stays on the country toggle.
+
+Collapsing an unrelated country leaves the current university alone. Detached native-toggle events are ignored to avoid stale changes after a render. The existing shared country component handles the behaviour; project documentation is sufficient and no separate skill is needed. No YAML/data changes. Preview remains port 4180; no merge before review.
+
+Validation: build, whitespace and unchanged-data checks pass. All 15 browser-journey tests pass, including selected-country collapse, unselected summary restoration, focus return, unrelated countries and detached events. HTTP checks confirm the updated toggle/reset code is served on port 4180. Native browser/keyboard interactions remain manual review items.
+
 ## Brand link back to the landing page
 
 Draft PR #49 makes the Admissions Atlas name and its icon one accessible home link. Clicking either, or using Tab and Enter, reloads the default landing page with no university or programme selected, showing the summary again. As a fresh page load, filters and optional applicant details return to their defaults. No deadline or YAML data changes.
