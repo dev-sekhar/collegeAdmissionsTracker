@@ -225,3 +225,21 @@ test('unknown saved deadline filters safely reset to all countries and universit
   const storage=memoryStorage();storage.setItem('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:['Singapore'],subjects:['Economics'],degree:'Bachelor’s',intake:'',deadlineFilters:{country:'Missing country',universityId:'deleted-university'}}));
   const f=fixture(t,{storage});assert.equal(f.find('#deadline-country').value,'');assert.equal(f.find('#deadline-university').value,'');assert.ok(f.all('.upcoming-item').length>0);
 });
+
+test('compact deadline filters combine stage and verification, preserve expansion and restore choices',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});assert.equal(f.find('.deadline-filter-panel').open,false);
+  f.find('.deadline-filter-panel').open=true;f.select('deadline-stage','application');assert.ok(f.all('.upcoming-item').length>0);
+  assert.ok(f.all('.upcoming-item').every(item=>item.querySelector('strong').textContent==='Submit application'));
+  f.select('deadline-verification','verified');assert.ok(f.all('.upcoming-item').length>0);assert.equal(f.find('.deadline-filter-panel').open,true);assert.match(f.find('.deadline-filter-panel').querySelector('summary').textContent,/2 active/);
+  f.select('deadline-country','Netherlands');assert.equal(f.find('#deadline-stage').value,'application');assert.equal(f.find('#deadline-verification').value,'verified');
+  const second=fixture(t,{storage});assert.equal(second.find('#deadline-stage').value,'application');assert.equal(second.find('#deadline-verification').value,'verified');assert.equal(second.find('.deadline-filter-panel').open,false);
+  second.select('deadline-verification','tentative');assert.equal(second.all('.upcoming-item').length,0);assert.ok(second.find('.upcoming-empty'));
+  second.select('deadline-verification','');second.select('deadline-stage','documents');assert.ok(second.all('.upcoming-item').every(item=>item.querySelector('strong').textContent==='Supporting documents'));
+});
+
+test('review and manual status filters distinguish actual dated records without promoting verification',t=>{
+  const inputCatalogue=structuredClone(catalogue);const admission=inputCatalogue.admissions.find(a=>a.programId==='sim-buffalo-economics'&&a.intake.month===1);
+  const stage=admission.routes.find(r=>r.id==='international').stages.find(s=>s.type==='application');stage.status='needs-review';
+  const f=fixture(t,{inputCatalogue});f.select('deadline-verification','needs-review');assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-item').every(item=>item.textContent.includes('Needs review')));
+  f.select('deadline-verification','manual-unverified');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
+});
