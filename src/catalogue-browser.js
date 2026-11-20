@@ -3,10 +3,21 @@ import {el,multiField,selectField,applicantContextPanel,evidenceLink} from './st
 import {emptyApplicant,matchApplicantRoute} from './applicant-routes.js';
 import {groupUniversities,groupProgrammes,splitBrowse,programmeDialog,compactTimeline,disclosure} from './browse-components.js';
 import {admissionsToday,deadlineTimeZone} from './upcoming-deadlines.js';
-export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date()}={}){
-  const rows=catalogueRows(catalogue);const countries=[...new Set(rows.map(row=>row.country))];const order=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];countries.sort((a,b)=>order.indexOf(a)-order.indexOf(b));const subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
+const criteriaKey='admissions-atlas.criteria.v1';
+function browserStorage(){try{return globalThis.localStorage;}catch{return null;}}
+export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=browserStorage()}={}){
+  const rows=catalogueRows(catalogue).filter(row=>row.admission.dataType==='real');const countries=[...new Set(rows.map(row=>row.country))];const order=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];countries.sort((a,b)=>order.indexOf(a)-order.indexOf(b));const subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
   const initialOptions={countries:[...countries],subjects:[...subjects]};
   const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:''});let filters=initial();let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
+  try{
+    const saved=JSON.parse(storage?.getItem(criteriaKey)??'null');
+    const names=value=>Array.isArray(value)&&value.length<=100&&value.every(name=>typeof name==='string'&&name.trim().length>0&&name.length<=80);
+    if(saved?.version===1&&names(saved.countries)&&names(saved.subjects)&&['','Bachelor’s','Master’s','PhD'].includes(saved.degree)&&typeof saved.intake==='string'&&(saved.intake===''||rows.some(row=>intakeKey(row.admission.intake)===saved.intake))){
+      filters={countries:[...new Set(saved.countries.map(countryName))],subjects:[...new Set(saved.subjects.map(name=>name.trim()))],degree:saved.degree,intake:saved.intake};
+      for(const value of filters.countries)if(!countries.includes(value))countries.push(value);
+      for(const value of filters.subjects)if(!subjects.includes(value))subjects.push(value);
+    }
+  }catch{/* Unavailable or invalid storage falls back to the default criteria. */}
   const summaryKey=now=>[...new Set(rows.filter(row=>row.admission.dataType==='real').map(row=>deadlineTimeZone(row.country)))].map(zone=>admissionsToday(now,zone)).join(':');
   let summaryDay=summaryKey(clock());let deadlineSelection=null;const countryOpen=new Map();const host=document.querySelector('#workspace');const announcer=document.querySelector('#announcer');const announce=message=>announcer.textContent=message;const focus=id=>document.querySelector(`#${id}`)?.focus({preventScroll:true});
   function addOption(type,raw){const value=type==='countries'?countryName(raw):raw.trim().replace(/\s+/gu,' ');const options=type==='countries'?countries:subjects;if(!value||value.length>80)return 'Enter a name of 1–80 characters.';if(options.some(item=>item.toLowerCase()===value.toLowerCase()))return 'That option already exists.';options.push(value);filters[type]=[...new Set([...filters[type],value])];renderFilters();render();document.querySelector('#filter-note').textContent=`${value} added. Results use the curated catalogue.`;return '';}
@@ -25,6 +36,7 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date()}={}){
     deadlineSelection=null;universityId='';programId='';selectedKey='';routeId='';render();focus(summaryId);announce(`${country} minimised. No university selected.`);
   }
   function render({resetLayout=false}={}){
+    try{storage?.setItem(criteriaKey,JSON.stringify({version:1,...filters}));}catch{/* Browsing remains available when storage is blocked or full. */}
     const now=clock();summaryDay=summaryKey(now);
     const matches=filterRows(rows,filters);const universities=groupUniversities(matches);const university=universities.find(item=>item.universityId===universityId);const deadlineRow=deadlineSelection&&rows.find(row=>row.key===deadlineSelection.key);if(!university&&!deadlineRow){universityId='';programId='';selectedKey='';routeId='';}
     const programme=deadlineRow?{...deadlineRow,intakes:rows.filter(row=>row.programId===deadlineRow.programId)}:university&&groupProgrammes(university.rows).find(item=>item.programId===programId);if(!programme){deadlineSelection=null;programId='';selectedKey='';routeId='';}else if(!programme.intakes.some(item=>item.key===selectedKey)){selectedKey=programme.intakes[0].key;routeId='';}

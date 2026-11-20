@@ -22,11 +22,12 @@ class Element{
   querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
 }
 const walk=node=>[node,...node.children.flatMap(walk)];
-function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z')}={}){
+const memoryStorage=()=>{const values=new Map();return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
+function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=null,inputCatalogue=catalogue}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
   const brand=new Element('a');brand.className='brand';root.append(brand);const filterPanel=new Element('details');filterPanel.className='filter-panel';root.append(filterPanel);
   globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
-  t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(catalogue,{clock});
+  t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(inputCatalogue,{clock,storage});
   const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
   return {root,find,all,browser,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
 }
@@ -73,7 +74,7 @@ test('country sections retain every university and compact ranks do not invent m
   }
 });
 test('country tiles retain collapsed state across filtering and popup close without a repeated list title',t=>{
-  const f=fixture(t);const country=f.find('.university-country-group');assert.equal(country.tag,'details');assert.equal(country.open,true);assert.equal(f.find('.pane-title'),null);
+  const f=fixture(t);const country=f.find('.university-country-group');assert.equal(country.tag,'details');assert.equal(country.open,false);assert.equal(f.find('.pane-title'),null);
   country.open=false;f.find('#reset-filters').events.click();assert.equal(f.find('.university-country-group').open,false);
   f.find('.university-country-group').open=true;
   f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.click(b=>b.className.includes('close-programme'));
@@ -160,7 +161,7 @@ test('upcoming list covers the full catalogue and opens hidden intakes without c
 test('ordinary brand clicks restore the default landing state without document navigation',t=>{
   const f=fixture(t);f.select('intake-filter','2027-08');f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');f.select('applicant-board','cbse');f.click(b=>b.className.includes('close-programme'));f.find('.filter-panel').open=true;
   let prevented=false;f.find('.brand').events.click({button:0,preventDefault(){prevented=true;}});
-  assert.equal(prevented,true);assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);assert.equal(f.find('#timeline-category'),null);assert.equal(f.find('#intake-filter').value,'');assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.equal(f.find('.filter-panel').open,false);assert.equal(f.find('.university-country-group').open,true);assert.equal(document.activeElement.id,'universities-title');
+  assert.equal(prevented,true);assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);assert.equal(f.find('#timeline-category'),null);assert.equal(f.find('#intake-filter').value,'');assert.equal(f.find('#degree-filter').value,'Bachelor’s');assert.equal(f.find('.filter-panel').open,false);assert.equal(f.find('.university-country-group').open,false);assert.equal(document.activeElement.id,'universities-title');
   f.click(b=>b.id==='university-sg-ntu');f.click(b=>b.id==='programme-ntu-economics');assert.equal(f.find('#applicant-board').value,'');
 });
 test('modified and non-primary brand clicks keep native link behaviour',t=>{
@@ -168,4 +169,38 @@ test('modified and non-primary brand clicks keep native link behaviour',t=>{
   for(const options of [{ctrlKey:true},{metaKey:true},{shiftKey:true},{altKey:true},{button:1},{defaultPrevented:true}]){
     let prevented=false;f.find('.brand').events.click({button:0,...options,preventDefault(){prevented=true;}});assert.equal(prevented,false);assert.equal(f.all('.programme-choice').length,15);
   }
+});
+
+test('criteria survive a new browser mount while countries start collapsed and no university is selected',t=>{
+  const storage=memoryStorage();const first=fixture(t,{storage});
+  const country=first.find('#country-filter').querySelectorAll('input').find(input=>input.value==='Netherlands');country.checked=true;country.events.change();
+  const subject=first.find('#subject-filter').querySelectorAll('input').find(input=>input.value==='Criminology');subject.checked=false;subject.events.change();
+  first.select('degree-filter','Bachelor’s');first.select('intake-filter','2027-09');
+  first.find('.university-country-group').open=true;
+  const second=fixture(t,{storage});
+  assert.deepEqual(second.find('#country-filter').querySelectorAll('input').filter(i=>i.checked).map(i=>i.value),['Singapore','Netherlands']);
+  assert.deepEqual(second.find('#subject-filter').querySelectorAll('input').filter(i=>i.checked).map(i=>i.value),['Economics']);
+  assert.equal(second.find('#intake-filter').value,'2027-09');assert.equal(second.find('#degree-filter').value,'Bachelor’s');
+  assert.ok(second.find('.pane-overview'));assert.ok(second.all('.university-country-group').every(group=>group.open===false));
+  second.find('#reset-filters').events.click();const third=fixture(t,{storage});assert.equal(third.find('#intake-filter').value,'');assert.deepEqual(third.all('dd').map(n=>n.textContent),['8','31']);
+});
+
+test('saved custom criteria and all-destination selections survive restart without creating programme data',t=>{
+  const storage=memoryStorage();storage.setItem('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:[],subjects:['My subject'],degree:'',intake:''}));
+  const f=fixture(t,{storage});assert.equal(f.find('#degree-filter').value,'');assert.match(f.find('#filter-summary').textContent,/All destinations/);
+  assert.ok(f.find('#subject-filter').querySelectorAll('input').some(i=>i.value==='My subject'&&i.checked));assert.equal(f.all('.university-card').length,0);
+});
+
+test('corrupt, unavailable and quota-limited storage leave browsing usable',t=>{
+  for(const storage of [{getItem:()=>'{bad',setItem(){}},{getItem:()=>{throw Error('blocked');},setItem:()=>{throw Error('quota');}},{getItem:()=>JSON.stringify({version:1,countries:'bad'}),setItem(){}}]){
+    const f=fixture(t,{storage});assert.deepEqual(f.all('dd').map(n=>n.textContent),['8','31']);assert.equal(f.find('.university-country-group').open,false);
+  }
+});
+
+test('a stale mixed catalogue cannot expose fictional university cards or deadlines',t=>{
+  const inputCatalogue=structuredClone(catalogue);const original=inputCatalogue.programs.find(p=>p.id==='nus-economics');
+  inputCatalogue.universities.push({id:'harbour',name:'Harbour University',country:'Singapore',city:'Singapore'});
+  inputCatalogue.programs.push({...original,id:'harbour-economics',universityId:'harbour'});
+  inputCatalogue.admissions.push({...structuredClone(inputCatalogue.admissions.find(a=>a.programId===original.id)),programId:'harbour-economics',dataType:'dummy'});
+  const f=fixture(t,{inputCatalogue});assert.equal(f.find('#university-harbour'),null);assert.doesNotMatch(f.find('#workspace').textContent,/Harbour|Fictional/);assert.deepEqual(f.all('dd').map(n=>n.textContent),['8','31']);
 });
