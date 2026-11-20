@@ -18,11 +18,16 @@ export function programmeCallout(university,onSelect,onClose){
   const section=el('section','programme-callout');section.id='programme-callout';section.setAttribute('aria-labelledby','programme-title');const heading=el('div','section-top');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;heading.append(title,action('All universities',onClose,'text-button mobile-back'));section.append(heading);const list=el('div','programme-grid');
   for(const programme of groupProgrammes(university.rows)){const button=action('',()=>onSelect(programme),'programme-choice');button.id=`programme-${programme.programId}`;button.setAttribute('aria-haspopup','dialog');const main=el('span','programme-choice-main');main.append(el('strong','',programme.programName),el('span','programme-subjects',programme.subjects.join(' · ')));button.append(main,el('span','programme-intakes',programme.intakes.map(row=>intakeLabel(row.admission.intake)).join(' · ')));list.append(button);}section.append(list);return section;
 }
+export function catalogueOverview(universities){
+  const section=el('section','pane-overview');section.setAttribute('aria-label','Filtered catalogue summary');const metrics=el('dl','overview-metrics');
+  for(const [label,value]of [['Universities',universities.length],['Programs',groupProgrammes(universities.flatMap(university=>university.rows)).length]]){const metric=el('div','overview-metric');metric.append(el('dt','',label),el('dd','',String(value)));metrics.append(metric);}section.append(metrics);
+  const upcoming=el('section','upcoming-placeholder');upcoming.setAttribute('aria-labelledby','upcoming-title');const heading=el('div','section-top');const title=el('h2','','Upcoming deadlines');title.id='upcoming-title';heading.append(title,el('span','upcoming-label','Coming later'));upcoming.append(heading,el('p','','Upcoming dates will appear here.'));section.append(upcoming,el('p','overview-hint','Select a university to explore programs.'));return section;
+}
 export function splitBrowse(universities,selectedId,onUniversity,onProgramme,onClear,countryOpen=new Map()){
   const split=el('div',`browse-split compact-universities${selectedId?' has-selection':''}`);
   const left=el('section','university-pane');left.setAttribute('aria-label','Universities');left.append(universityList(universities,selectedId,onUniversity,countryOpen));
   const right=el('section','programmes-pane');right.id='programmes-pane';right.setAttribute('aria-label','Programmes');const selected=universities.find(university=>university.universityId===selectedId);
-  if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else right.append(el('p','pane-placeholder',universities.length?'Select a university to see its programmes.':'No programmes match these filters.'));
+  if(selected)right.append(programmeCallout(selected,onProgramme,onClear));else{right.classList.add('summary-pane');right.append(catalogueOverview(universities));}
   split.append(left,right);return split;
 }
 export function programmeDialog(content,onClose){

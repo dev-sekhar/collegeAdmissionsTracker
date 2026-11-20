@@ -52,9 +52,9 @@ test('country tiles retain collapsed state across filtering and popup close with
   assert.equal(f.find('.university-country-group').open,true);assert.equal(f.find('.university-name').title,f.find('.university-name').textContent);
 });
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
-  const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);
+  const f=fixture(t);assert.equal(f.all('.university-card').length,8);assert.equal(f.find('#timeline-category'),null);assert.deepEqual(f.all('dt').map(node=>node.textContent),['Universities','Programs']);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);assert.match(f.find('.upcoming-placeholder').textContent,/Coming later/);
   f.click(b=>b.className==='university-card'&&b.textContent.includes('University at Buffalo'));
-  assert.equal(f.all('.programme-choice').length,1);assert.equal(document.activeElement.id,'programme-title');
+  assert.equal(f.all('.programme-choice').length,1);assert.equal(document.activeElement.id,'programme-title');assert.equal(f.find('.pane-overview'),null);
   f.click(b=>b.className==='programme-choice');assert.equal(f.all('.compact-stage').length,0);
   const august=real.find(r=>r.programId==='sim-buffalo-economics'&&r.admission.intake.month===8);
   f.select('timeline-intake',august.key);f.select('timeline-category','international');assert.match(f.find('#workspace').textContent,/28 Jun 2027/);
@@ -79,8 +79,9 @@ test('all 31 programmes and 75 published category timelines reproduce existing Y
 });
 test('filter changes cannot leave stale programmes/categories and reset restores universities',t=>{
   const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));f.select('timeline-category','india-standard-12');
-  f.select('intake-filter','2027-09');assert.equal(f.find('#timeline-category'),null);assert.equal(f.all('.university-card').length,1);
-  f.find('#reset-filters').events.click();assert.equal(f.all('.university-card').length,8);assert.equal(f.all('.compact-stage').length,0);
+  f.select('intake-filter','2027-09');assert.equal(f.find('#timeline-category'),null);assert.equal(f.all('.university-card').length,1);assert.deepEqual(f.all('dd').map(node=>node.textContent),['1','4']);
+  f.select('intake-filter','2099-01');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);
+  f.find('#reset-filters').events.click();assert.equal(f.all('.university-card').length,8);assert.equal(f.all('.compact-stage').length,0);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);
 });
 test('optional applicant form preserves matching and available-result instructions without hiding evidence',t=>{
   const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));

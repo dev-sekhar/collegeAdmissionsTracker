@@ -1,5 +1,15 @@
 # Running feature record
 
+## Right-pane catalogue summary
+
+Draft PR #45 replaces the unselected right-pane prompt with Universities and Programs summary cards. Counts follow the current filters and count each programme once, regardless of its number of intakes. The default view shows eight universities/providers and 31 programmes. The repeated count line above the browsing panes has been moved into this summary.
+
+An Upcoming deadlines area is clearly marked Coming later; no deadline values are fabricated. Selecting a university replaces the summary with its programme cards, and clearing/resetting the selection restores it. The summary remains available on narrow screens above the university list. Existing country tiles, programme popup, date data and deferred reader/writer controls are unchanged.
+
+The summary uses a shared UI component. Project documentation is sufficient for this presentation change; no separate skill is needed. Preview remains http://127.0.0.1:4180/; manual checks are in SPLIT-PANE-MANUAL-TESTS.md. No merge before user review.
+
+Validation: build, unchanged-data and whitespace checks pass; all 65 automated tests pass. Existing journey tests now verify default counts, the September filter's 1/4 counts, zero matches, reset and hiding the summary when a university is selected. HTTP checks confirm the summary component/styles are served on port 4180. Desktop/mobile visual review remains manual.
+
 ## Collapsible country tiles and single-line university names
 
 Draft PR #44 turns each country group into one tinted background tile with a larger, prominent country label and native expand/collapse control. University rows also have tinted backgrounds, with a stronger selected state. Names stay on a single line; the list gets more room on desktop, while limited-width names use ellipsis with the full name available on hover, to assistive technology and in the programme pane. Short ranking labels are retained.

@@ -2,6 +2,13 @@
 
 Preview: http://127.0.0.1:4180/ — refresh after the build.
 
+## Unselected right-pane summary — PR #45
+
+- Reload with no university selected. The right pane should show **Universities 8** and **Programs 31**, plus Upcoming deadlines clearly marked Coming later. No sample deadline dates should appear.
+- Select a university: its programme cards replace the summary. Reset filters or use All universities on mobile: the summary returns. Programme popups should behave as before.
+- Change the intake filter to September 2027: the unselected summary should show **1 university and 4 programs**, rather than counting intake rows. A filter with no matches should show zeroes. Reset restores 8 and 31.
+- Check the summary fits desktop/mobile screens and the old count line no longer repeats above the panes.
+
 ## Country tiles — PR #44
 
 - Confirm Singapore is a single background tile with a larger country label and no Universities heading above it. Click the country header, or focus it and press Enter/Space, to minimise/expand its university list.
