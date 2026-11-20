@@ -4,11 +4,11 @@ YAML files are the source of truth. JSON is a generated copy for the browser. Ke
 
 ## University and program details
 
-Start with data/universities/harbour.yaml. Each university has a unique lowercase ID, name, country and city. Its programs have their own globally unique IDs, names, degree levels and one or more subjects. Use Bachelor’s, Master’s or PhD for degree. The country Holland is normalized to Netherlands.
+Start with data/universities/nl-uva.yaml. Each university has a unique lowercase ID, name, country and city. Its programs have their own globally unique IDs, names, degree levels and one or more subjects. Use Bachelor’s, Master’s or PhD for degree. The country Holland is normalized to Netherlands.
 
 ## Annual admissions
 
-Start with data/admissions/harbour/harbour-cs/2027.yaml. programId must match an existing program. cycle is the admissions cycle, while intake records the actual start month and year; for example, a 2027 application cycle can lead to a February 2028 intake. Each program/cycle/intake combination must be unique. Every program needs at least one cycle.
+Start with data/admissions/nl-uva/nl-uva-economics/2027.yaml. programId must match an existing program. cycle is the admissions cycle, while intake records the actual start month and year; for example, a 2027 application cycle can lead to a February 2028 intake. Each program/cycle/intake combination must be unique. Every program needs at least one cycle.
 
 Each annual file contains explicitly named applicant routes. The user selects a route; the app does not infer one from citizenship or residence. Routes contain all eight stages: opening, application, documents, tests, interview, acceptance, deposit and enrolment. Keep unavailable stages present so their absence is explained.
 
@@ -29,11 +29,11 @@ Use ISO YYYY-MM-DD dates. Invalid calendar dates and reversed windows fail valid
 | not-verified | Must have no deadline; the date has not been established |
 | not-researched | Must have no deadline; nothing has been researched |
 | not-yet-published | Must have no deadline; a source establishes an unpublished date |
-| source-unavailable | Must have no deadline; the fictional source is unavailable |
+| source-unavailable | Must have no deadline; the source is unavailable |
 | needs-review | An unresolved statement; a deadline may remain null |
 | verified | Requires a real-data file, a deadline/rule and checked official evidence |
 
-Every stage has wording that preserves conditions or explains a missing date. sourceIds refer to sources in the same annual file. Sources contain an ID, reserved example-domain HTTPS URL, an illustrative passage and checkedAt: null. These URLs are displayed as text, not presented as real official evidence. No dummy record may claim a real check date or verified status.
+Every stage has wording that preserves conditions or explains a missing date. sourceIds refer to sources in the same annual file. Real sources contain an ID, approved official HTTPS URL, a paraphrased evidence passage and an ISO checkedAt date. The active YAML catalogue contains real records only. Reserved example-domain fixtures remain in automated tests to validate rejection rules. A recurring annual deadline is not confirmation of its 2027 applicability.
 
 ## Publish a data change locally
 

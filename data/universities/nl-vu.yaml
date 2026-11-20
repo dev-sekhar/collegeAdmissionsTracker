@@ -1,0 +1,43 @@
+id: nl-vu
+name: Vrije Universiteit Amsterdam
+country: Netherlands
+city: Amsterdam
+qsRanking:
+  edition: 2027
+  rank: =185
+  status: verified
+  institution: Vrije Universiteit Amsterdam
+  url: https://www.topuniversities.com/universities/vrije-universiteit-amsterdam
+  checkedAt: 2026-11-20
+  notes: Overall QS World University Ranking; not a subject ranking.
+programs:
+  - id: nl-vu-economics
+    name: Economics and Business Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://vu.nl/en/education/bachelor/economics-and-business-economics
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Current offering verified. Admission eligibility and optional combinations
+      are not guaranteed. The 2027 intake month and application dates remain unverified.
+  - id: nl-vu-econometrics
+    name: Econometrics and Data Science
+    degree: Bachelor’s
+    subjects:
+      - Economics
+      - Data Science
+      - Mathematics
+    url: https://vu.nl/en/education/bachelor/econometrics-and-data-science
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Quantitative economics with mathematical, data or computing methods; this
+      is not a general computer-science degree. Current offering verified. Admission eligibility and
+      optional combinations are not guaranteed. The 2027 intake month and application dates remain
+      unverified.
+  - id: nl-vu-criminology
+    name: BSc Criminologie — Dutch-taught
+    degree: Bachelor’s
+    subjects:
+      - Criminology
+    url: https://vu.nl/nl/onderwijs/bachelor/criminologie
+    notes: Dutch-taught; Dutch proficiency and foreign-diploma assessment are required. Current offering
+      verified. Admission eligibility and optional combinations are not guaranteed.

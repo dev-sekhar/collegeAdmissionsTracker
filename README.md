@@ -1,6 +1,6 @@
 # Admissions Atlas — static admissions dashboard
 
-A new static admissions dashboard built from manually authored YAML and generated JSON. Singapore records contain manually researched official-source data. Other destinations retain labelled fictional examples. No background collection, accounts or external service APIs are used by the dashboard.
+A new static admissions dashboard built from manually authored YAML and generated JSON. Singapore and Netherlands records contain manually researched official-source data. Fictional YAML records have been removed. No background collection, accounts or external service APIs are used by the dashboard.
 
 ## Run the preview
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:4173/. If another preview already uses that port, set ADMISSIONS_PORT=4180 before starting. The current review preview is at http://127.0.0.1:4180/.
+Open http://127.0.0.1:4180/. Keep this fixed preview port.
 
 ```sh
 npm run build:data   # YAML → validated, tracked JSON
@@ -28,7 +28,7 @@ The browser loads only dist/ HTML, CSS, JavaScript and generated JSON. dist/ can
 - data/admissions/<university>/<program>/<cycle>.yaml: annual intake, applicant routes, eight stages and evidence.
 - data/generated/catalogue.json: generated output; regenerate rather than editing it.
 
-The sample set contains six fictional universities, eight programs and eight admission cycles. The default Singapore/Economics/Bachelor’s view shows 34 real programme/intake options. One Singapore program includes two explicit dummy applicant routes with different application windows.
+The real catalogue contains 16 universities/providers, 48 undergraduate programmes and 54 intake records across Singapore and the Netherlands. The default Singapore view retains 31 programmes. See docs/NETHERLANDS-2027-DATA.md for Netherlands coverage and manual checks.
 
 Countries and subjects can be added as session filters. Adding an option does not create a university, program or deadline: add the matching YAML records and rebuild. No destinations selected means all destinations; no subjects selected means all subjects. Holland is treated as Netherlands.
 
@@ -42,8 +42,8 @@ The compiler accepts separately validated real and dummy records. Real verified 
 
 ## Singapore real-data preview
 
-The catalogue now includes curated Singapore undergraduate offerings and 2027 admission dates alongside labelled fictional examples. The initial view selects Singapore/Economics. This is manually checked data, not a live university search. Unverified stages remain visible without guessed dates. Coverage, source limitations and manual acceptance tests: [Singapore 2027 data](docs/SINGAPORE-2027-DATA.md).
+The catalogue now includes curated Singapore undergraduate offerings and 2027 admission dates with no fictional records in the active YAML. The initial view selects Singapore/Economics. This is manually checked data, not a live university search. Unverified stages remain visible without guessed dates. Coverage, source limitations and manual acceptance tests: [Singapore 2027 data](docs/SINGAPORE-2027-DATA.md).
 
-Indian Class XII applicant matching uses explicit school-board, citizenship, Singapore PR and results-status inputs. No route is selected without one verified match. Coverage and the new review preview on port 4181: [Indian applicant routes](docs/INDIAN-APPLICANT-ROUTES.md). Profile details are not persisted or sent to a server.
+Indian Class XII applicant matching uses explicit school-board, citizenship, Singapore PR and results-status inputs. No route is selected without one verified match. Coverage and the new review preview on port 4180: [Indian applicant routes](docs/INDIAN-APPLICANT-ROUTES.md). Profile details are not persisted or sent to a server.
 
 The current review preview is back on http://127.0.0.1:4180/. Published category deadlines and extracted requirements now remain visible independently of personal matching, with official programme links for missing details. All real programmes have explicit partial extraction coverage. See [current review and manual tests](docs/ADMISSION-EXTRACTION-REVIEW.md) and the [shared extraction skill draft](skills/admissions-extraction/SKILL.md).

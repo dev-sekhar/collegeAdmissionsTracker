@@ -45,7 +45,7 @@ test('unsupported boards, other citizenships, postgraduate and fictional records
     assert.equal(matchApplicantRoute(get('ntu-economics'),{...applicant,...change}).route,null);
   }
   assert.equal(matchApplicantRoute({...get('ntu-economics'),degree:'Master’s'},applicant).route,null);
-  assert.equal(matchApplicantRoute(get('harbour-cs'),applicant).route,null);
+  assert.equal(matchApplicantRoute({...get('ntu-economics'),admission:{...get('ntu-economics').admission,dataType:'dummy'}},applicant).route,null);
 });
 test('ambiguous overlapping rules are blocked rather than resolved by array order',()=>{
   const row=structuredClone(get('ntu-economics'));row.applicantPolicy.rules.push({...row.applicantPolicy.rules[0],id:'overlapping-rule'});

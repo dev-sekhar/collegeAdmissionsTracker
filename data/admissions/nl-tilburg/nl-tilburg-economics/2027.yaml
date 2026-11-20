@@ -1,0 +1,73 @@
+programId: nl-tilburg-economics
+dataType: real
+cycle: 2027
+intake:
+  month: null
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.tilburguniversity.edu/education/bachelors-programs/economics/application
+    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
+      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
+      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+    checkedAt: 2026-11-20
+routes:
+  - id: programme-route
+    label: International diploma — 2027 deadline requires confirmation
+    stages:
+      - type: opening
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: application
+        status: not-verified
+        deadline: null
+        wording: The current page gives recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027
+          applicability was not explicitly confirmed. No 2027 date has been inferred.
+          Residence-permit exceptions may apply.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Current recurring dates were found, but a year-specific 2027 deadline was not confirmed. All
+    dates remain null.

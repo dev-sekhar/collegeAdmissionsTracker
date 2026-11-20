@@ -6,7 +6,7 @@ import {catalogueRows,deadlineLabel} from '../src/catalogue-model.js';
 import {groupUniversities,groupProgrammes,universityList} from '../src/browse-components.js';
 import {mountAdmissionsBrowser} from '../src/catalogue-browser.js';
 const catalogue=await buildCatalogue({check:true});
-const rows=catalogueRows(catalogue);const real=rows.filter(row=>row.admission.dataType==='real');
+const rows=catalogueRows(catalogue);const real=rows.filter(row=>row.admission.dataType==='real'&&row.country==='Singapore');
 class Element{
   constructor(tag){this.tag=tag;this.children=[];this.events={};this.attributes={};this.className='';this.text='';this.value='';this.classList={add:name=>{this.className+=' '+name;}};}
   set textContent(value){this.text=String(value);this.children=[];}
@@ -30,6 +30,23 @@ function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z')}={}){
   const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
   return {root,find,all,browser,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
 }
+
+test('Netherlands journey preserves every published category, language and source without Singapore controls',t=>{
+  const f=fixture(t);const countryInputs=f.find('#country-filter').querySelectorAll('input');
+  const sg=countryInputs.find(input=>input.value==='Singapore');sg.checked=false;sg.events.change();
+  const nl=countryInputs.find(input=>input.value==='Netherlands');nl.checked=true;nl.events.change();
+  assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','17']);
+  assert.deepEqual(f.all('.university-rank').map(node=>node.textContent),['#60','#113','#119','#148','#157','#185','#254','#429']);
+  const before=JSON.stringify(catalogue);
+  for(const row of rows.filter(row=>row.country==='Netherlands')){
+    f.click(b=>b.id===`university-${row.universityId}`);f.click(b=>b.id===`programme-${row.programId}`);
+    assert.equal(f.find('#applicant-context'),null);
+    if(row.subjects.includes('Criminology'))assert.match(row.programName,/Dutch-taught/);
+    for(const route of row.admission.routes){f.select('timeline-category',route.id);assert.equal(f.all('.compact-stage').length,route.stages.length);route.stages.forEach((stage,i)=>assert.ok(f.all('.compact-stage')[i].textContent.includes(deadlineLabel(stage.deadline))));}
+    f.click(b=>b.className.includes('close-programme'));
+  }
+  assert.equal(JSON.stringify(catalogue),before);
+});
 test('university/programme grouping deduplicates intake rows without losing any intake',()=>{
   assert.equal(groupUniversities(real).length,8);assert.equal(groupProgrammes(real).length,31);
   const buffalo=groupProgrammes(real).find(item=>item.programId==='sim-buffalo-economics');assert.equal(buffalo.intakes.length,3);
@@ -69,10 +86,9 @@ test('minimising the selected country clears university selection and restores t
   f.find('.university-country-group').open=true;f.find('.university-country-group').events.toggle();assert.ok(f.find('.pane-overview'));assert.equal(f.all('.selected').length,0);
 });
 test('collapsing an unrelated country or receiving a detached tile event does not clear the selected university',t=>{
-  const f=fixture(t);const canada=f.find('#country-filter').querySelectorAll('input').find(input=>input.value==='Canada');canada.checked=true;canada.events.change();
-  const computing=f.find('#subject-filter').querySelectorAll('input').find(input=>input.value==='Computer Science');computing.checked=true;computing.events.change();
+  const f=fixture(t);const canada=f.find('#country-filter').querySelectorAll('input').find(input=>input.value==='Netherlands');canada.checked=true;canada.events.change();
   const detached=f.all('.university-country-group').find(group=>group.getAttribute('data-country')==='Singapore');f.click(b=>b.id==='university-sg-ntu');
-  const other=f.all('.university-country-group').find(group=>group.getAttribute('data-country')==='Canada');other.open=false;other.events.toggle();assert.equal(f.all('.programme-choice').length,15);
+  const other=f.all('.university-country-group').find(group=>group.getAttribute('data-country')==='Netherlands');other.open=false;other.events.toggle();assert.equal(f.all('.programme-choice').length,15);
   detached.isConnected=false;detached.open=false;detached.events.toggle();assert.equal(f.all('.programme-choice').length,15);assert.equal(f.find('.pane-overview'),null);
 });
 test('left university list, right programme pane, modal category and intake reset form a complete journey',t=>{
@@ -116,7 +132,7 @@ test('optional applicant form preserves matching and available-result instructio
 });
 test('reader/writer controls are deferred and current catalogue data stays unchanged',async()=>{
   const index=await readFile(new URL('../index.html',import.meta.url),'utf8');const app=await readFile(new URL('../src/static-app.js',import.meta.url),'utf8');
-  assert.doesNotMatch(index,/writer-controls/);assert.doesNotMatch(app,/mountWriter|writer-ui/);assert.equal(catalogue.admissions.length,45);
+  assert.doesNotMatch(index,/writer-controls/);assert.doesNotMatch(app,/mountWriter|writer-ui/);assert.equal(catalogue.admissions.length,54);
 });
 test('programme popup closes on button or Escape and preserves selection, pane scroll and keyboard focus',t=>{
   const f=fixture(t);assert.ok(f.find('.university-pane'));assert.ok(f.find('.programmes-pane'));assert.equal(f.find('dialog'),null);

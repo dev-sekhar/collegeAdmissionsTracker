@@ -1,0 +1,133 @@
+programId: nl-erasmus-double-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.eur.nl/en/bachelor/double-bachelor-bsc2-econometrics-and-economics/application
+    passage: "Non-EU/EEA applicant — check residence/visa exceptions: Applications open. Complete the
+      application and required portal tasks by 1 April 2027; consult the source for residence and
+      visa exceptions. EU/EEA applicant — check residence/visa exceptions: Applications open.
+      Complete the application and required portal tasks by 1 May 2027."
+    checkedAt: 2026-11-20
+routes:
+  - id: non-eea
+    label: Non-EU/EEA applicant — check residence/visa exceptions
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-11-01
+        wording: Applications open.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-04-01
+        wording: Complete the application and required portal tasks by 1 April 2027; consult the source for
+          residence and visa exceptions.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+  - id: eea
+    label: EU/EEA applicant — check residence/visa exceptions
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-11-01
+        wording: Applications open.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-05-01
+        wording: Complete the application and required portal tasks by 1 May 2027.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.

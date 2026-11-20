@@ -1,0 +1,22 @@
+id: nl-utrecht
+name: Utrecht University
+country: Netherlands
+city: Utrecht
+qsRanking:
+  edition: 2027
+  rank: =113
+  status: verified
+  institution: Utrecht University
+  url: https://www.topuniversities.com/universities/utrecht-university
+  checkedAt: 2026-11-20
+  notes: Overall QS World University Ranking; not a subject ranking.
+programs:
+  - id: nl-utrecht-economics
+    name: BSc Economics and Business Economics
+    degree: Bachelor’s
+    subjects:
+      - Economics
+    url: https://www.uu.nl/en/bachelors/economics-and-business-economics
+    notes: English-taught; diploma equivalence, mathematics and language requirements must be assessed
+      by the university. Current offering verified. Admission eligibility and optional combinations
+      are not guaranteed. The 2027 intake month and application dates remain unverified.

@@ -1,0 +1,82 @@
+programId: nl-maastricht-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.maastrichtuniversity.nl/education/bachelor/programmes/economics-and-business-economics/admission-requirements
+    passage: "September 2027 — programme-specific application route: Applications open for September
+      2027. Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay
+      and admission tasks. The early essay date 15 January is not the final closing date. Complete
+      enrolment tasks, including required certified documents and tuition payment, by 23:59 CET.
+      Visa applicants have additional earlier requirements."
+    checkedAt: 2026-11-20
+routes:
+  - id: programme-route
+    label: September 2027 — programme-specific application route
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-01
+        wording: Applications open for September 2027.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-03-15
+        wording: Ultimate deadline 15 March 2027, 23:59 CET, including the International Classroom Essay and
+          admission tasks. The early essay date 15 January is not the final closing date.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-08-31
+        wording: Complete enrolment tasks, including required certified documents and tuition payment, by
+          23:59 CET. Visa applicants have additional earlier requirements.
+        sourceIds:
+          - programme-admissions
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.

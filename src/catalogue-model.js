@@ -103,7 +103,7 @@ function validateApplicantPolicies(policies,universities,programs,admissions){
     }
   }
 }
-const officialHosts=['nus.edu.sg','ntu.edu.sg','smu.edu.sg','suss.edu.sg','sim.edu.sg','kaplan.com.sg','buffalo.edu'];
+const officialHosts=['nus.edu.sg','ntu.edu.sg','smu.edu.sg','suss.edu.sg','sim.edu.sg','kaplan.com.sg','buffalo.edu','uva.nl','eur.nl','tilburguniversity.edu','rug.nl','maastrichtuniversity.nl','uu.nl','vu.nl','universiteitleiden.nl'];
 function validateRanking(ranking){
   keys(ranking,['edition','rank','status','institution','url','checkedAt','notes'],'qsRanking');
   requireThat(Number.isInteger(ranking.edition)&&ranking.edition>=2027&&ranking.edition<=2100,'qsRanking: invalid edition');

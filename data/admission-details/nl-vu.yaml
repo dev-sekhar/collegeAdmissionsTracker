@@ -1,0 +1,63 @@
+id: nl-vu-admission-details
+programIds:
+  - nl-vu-economics
+  - nl-vu-econometrics
+  - nl-vu-criminology
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "Economics and Business Economics: English-taught; diploma equivalence, mathematics and
+      language requirements must be assessed by the university. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed. The 2027 intake month and
+      application dates remain unverified. Econometrics and Data Science: English-taught; diploma
+      equivalence, mathematics and language requirements must be assessed by the university.
+      Quantitative economics with mathematical, data or computing methods; this is not a general
+      computer-science degree. Current offering verified. Admission eligibility and optional
+      combinations are not guaranteed. The 2027 intake month and application dates remain
+      unverified. BSc Criminologie — Dutch-taught: Dutch-taught; Dutch proficiency and
+      foreign-diploma assessment are required. Current offering verified. Admission eligibility and
+      optional combinations are not guaranteed."
+    sourceIds:
+      - economics-admissions
+      - econometrics-admissions
+      - criminology-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://vu.nl/en/education/bachelor/economics-and-business-economics/admissions
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: Economics and Business Economics; current recurring instructions; 2027 dates unconfirmed.
+    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
+      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
+      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+  - id: econometrics-admissions
+    url: https://vu.nl/en/education/bachelor/econometrics-and-data-science/admissions
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: Econometrics and Data Science; current recurring instructions; 2027 dates unconfirmed.
+    passage: "International diploma — 2027 deadline requires confirmation: The current page gives
+      recurring 1 April non-EU/EEA and 1 May EU/EEA deadlines, but 2027 applicability was not
+      explicitly confirmed. No 2027 date has been inferred. Residence-permit exceptions may apply."
+  - id: criminology-admissions
+    url: https://vu.nl/nl/onderwijs/bachelor/criminologie/Toelating
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Criminologie — Dutch-taught; 2027/28 programme admissions instructions.
+    passage: "Criminologie — Dutch-language numerus fixus: Register in Studielink by 15 January 2027,
+      23:59 CET. Complete the VU dashboard and selection form with required grades by 31 January.
+      Meet prior-education and tuition conditions by 15 July 2027. Mandatory matching takes place on
+      27 February OR 3 March 2027; follow the invitation for your attendance date. Ranking number
+      published on 15 April 2027."

@@ -1,0 +1,92 @@
+programId: nl-erasmus-economics
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.eur.nl/en/bachelor/international-bachelor-economics-and-business-economics/application
+    passage: "IBEB numerus fixus — all applicants: Applications open for 2027/28. Complete Studielink
+      AND EUR portal, including required uploads and handling fee, by 23:59 CET. Final certified
+      diploma and grades normally due 1 August; A-level/Irish exceptions: 21 August. Initial
+      documents are due with the 15 January application. Ranking number and first-round offers on 15
+      April. Accept an offered place within two weeks of the offer."
+    checkedAt: 2026-11-20
+routes:
+  - id: programme-route
+    label: IBEB numerus fixus — all applicants
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-01
+        wording: Applications open for 2027/28.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-01-15
+        wording: Complete Studielink AND EUR portal, including required uploads and handling fee, by 23:59
+          CET.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-08-01
+        wording: "Final certified diploma and grades normally due 1 August; A-level/Irish exceptions: 21
+          August. Initial documents are due with the 15 January application."
+        sourceIds:
+          - programme-admissions
+      - type: tests
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: verified
+        deadline:
+          kind: relative
+          rule: Accept an offered place within two weeks of the offer.
+        wording: Accept an offered place within two weeks of the offer.
+        sourceIds:
+          - programme-admissions
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: decision
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-04-15
+        wording: Ranking number and first-round offers on 15 April.
+        sourceIds:
+          - programme-admissions
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.

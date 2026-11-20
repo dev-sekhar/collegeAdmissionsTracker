@@ -1,0 +1,46 @@
+id: nl-groningen-admission-details
+programIds:
+  - nl-groningen-economics
+  - nl-groningen-econometrics
+coverage: partial
+summary: Programme and admissions pages are linked below. This is a partial extraction, not an
+  eligibility assessment. Follow the exact programme page for language, mathematics, diploma and
+  selection conditions.
+requirements:
+  - label: Programme instructions and language
+    status: extracted
+    text: "BSc Economics and Business Economics: English-taught; diploma equivalence, mathematics and
+      language requirements must be assessed by the university. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed. BSc Econometrics and Operations
+      Research: English-taught; diploma equivalence, mathematics and language requirements must be
+      assessed by the university. Quantitative economics with mathematical, data or computing
+      methods; this is not a general computer-science degree. Current offering verified. Admission
+      eligibility and optional combinations are not guaranteed."
+    sourceIds:
+      - economics-admissions
+      - econometrics-admissions
+  - label: Indian school-board equivalence and individual eligibility
+    status: not-extracted
+    text: No automatic CBSE, ISC, IB, Cambridge or Indian state-board equivalence is asserted. The
+      university must assess the final qualification, subjects and language evidence. Nationality
+      alone is insufficient.
+    sourceIds: []
+sources:
+  - id: economics-admissions
+    url: https://www.rug.nl/bachelors/economics-and-business-economics/?lang=en
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Economics and Business Economics; 2027/28 programme admissions instructions.
+    passage: "All published nationality groups — diploma assessed individually: Published application
+      deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete
+      Studielink and the university portal."
+  - id: econometrics-admissions
+    url: https://www.rug.nl/bachelors/econometrics-and-operations-research/?lang=en
+    linkedFrom: null
+    checkedAt: 2026-11-20
+    updatedAt: null
+    applicability: BSc Econometrics and Operations Research; 2027/28 programme admissions instructions.
+    passage: "All published nationality groups — diploma assessed individually: Published application
+      deadline for Dutch, EU/EEA and non-EU/EEA applicants starting 1 September 2027. Complete
+      Studielink and the university portal."

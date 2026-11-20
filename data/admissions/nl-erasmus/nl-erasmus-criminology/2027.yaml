@@ -1,0 +1,82 @@
+programId: nl-erasmus-criminology
+dataType: real
+cycle: 2027
+intake:
+  month: 9
+  year: 2027
+sources:
+  - id: programme-admissions
+    url: https://www.eur.nl/bachelor/criminologie/toelating
+    passage: "Criminologie — Dutch-language selection route: Registration opens for the 2027/28
+      selection cycle. Numerus fixus registration closes 15 January 2027. Dutch-language programme.
+      Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed
+      by the university; these are alternative attendance dates, not a deadline window."
+    checkedAt: 2026-11-20
+routes:
+  - id: programme-route
+    label: Criminologie — Dutch-language selection route
+    stages:
+      - type: opening
+        status: verified
+        deadline:
+          kind: date
+          date: 2026-10-01
+        wording: Registration opens for the 2027/28 selection cycle.
+        sourceIds:
+          - programme-admissions
+      - type: application
+        status: verified
+        deadline:
+          kind: date
+          date: 2027-01-15
+        wording: Numerus fixus registration closes 15 January 2027. Dutch-language programme.
+        sourceIds:
+          - programme-admissions
+      - type: documents
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: tests
+        status: verified
+        deadline:
+          kind: relative
+          rule: Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as instructed
+            by the university; these are alternative attendance dates, not a deadline window.
+        wording: Attend the mandatory introduction and assignment on 10 February OR 2 March 2027, as
+          instructed by the university; these are alternative attendance dates, not a deadline
+          window.
+        sourceIds:
+          - programme-admissions
+      - type: interview
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: acceptance
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: deposit
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+      - type: enrolment
+        status: not-verified
+        deadline: null
+        wording: A 2027 deadline for this stage has not been verified. Check the official programme
+          admissions page.
+        sourceIds: []
+dateReview:
+  checkedAt: 2026-11-20
+  sourceIds:
+    - programme-admissions
+  notes: Only programme-specific 2027 dates or explicit relative instructions are recorded. Missing
+    stages remain unverified. Calendar dates use Europe/Amsterdam; citizenship, qualification and
+    visa status are separate.
