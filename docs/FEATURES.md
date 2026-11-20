@@ -256,3 +256,9 @@ Validation: the static build and all 53 tests pass, including source provenance,
 # Netherlands real-data catalogue and removal of examples — 20 November 2026
 
 Added eight Netherlands universities and 17 undergraduate programmes covering economics, quantitative/data combinations and Dutch-taught criminology. Programme details show checked official sources; dates without explicit 2027 confirmation remain unknown. Added QS rankings and university-local upcoming-date handling. Singapore records and matching are preserved. Removed all fictional university and intake YAML records. Reader/writer features remain for later. Review instructions: [Netherlands data and manual checks](NETHERLANDS-2027-DATA.md).
+
+## Remembered criteria and collapsed countries — 20 November 2026
+
+Countries start minimised when the page opens. Chosen destinations, subjects, degree and intake are remembered in this browser across sessions, including custom filter names. This does not save applicant details or create programme data. Reset filters restores and saves the defaults. The existing home link also restores defaults. Blocked browser storage does not prevent browsing. Only real catalogue rows are shown, so fictional records cannot appear even if an older mixed catalogue is supplied. Harbour is absent from the active YAML and generated catalogue. Tracked report: issue #58.
+
+Manual checks at http://127.0.0.1:4180/: refresh and confirm country tiles are minimised; expand a country to view universities; change countries, subjects and intake, then close/reopen the same address and confirm the criteria return with no university selected. Confirm Harbour is absent. Use Reset filters and reopen to confirm defaults are restored. Storage belongs to this browser and address; private browsing or clearing site data removes it.
