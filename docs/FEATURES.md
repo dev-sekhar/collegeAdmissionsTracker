@@ -1,5 +1,15 @@
 # Running feature record
 
+## University → programme → timeline browsing
+
+Draft PR #39 replaces the repeated programme/intake card list with university cards. The default Singapore undergraduate view includes Economics and Criminology: eight providers and 31 programmes. Select a university to open its programme callout, then a programme to view its timeline. Multiple intakes share one programme entry. Choose a published applicant category explicitly; changing the intake clears it.
+
+The main timeline shows only stage, date and status. Conditions, requirements, source evidence, rankings and optional applicant matching remain available in collapsed details. Filters still support user-added countries/subjects. Breadcrumbs return to programmes or universities. Reader/writer controls are deferred; existing writer code is retained for later. The curated YAML/catalogue data is unchanged.
+
+The new shared cards, callout, navigation, disclosure and compact timeline components follow the approved mockup. The preview stays at http://127.0.0.1:4180/. See UNIVERSITY-BROWSE-MANUAL-TESTS.md for acceptance checks. Skill assessment: project documentation is sufficient for this presentation change; confirmation requested at review. No merge before preview/manual-test approval.
+
+Validation: build, syntax and whitespace checks pass, along with all 62 automated tests. New journey checks cover grouping, explicit categories, intake/category resets, filters, back navigation and preserved completed-result instructions, traversing all 31 real programmes, 37 intakes and 75 category timelines. HTTP checks return 200 for the page, styles, new modules and catalogue on port 4180. Git confirms no data changes. Browser/keyboard/narrow-screen review remains manual.
+
 ## Singapore date review and authenticated YAML writer
 
 Draft PR #37 reviews all 31 real Singapore programmes across 37 intake records against official sources on 18 November 2026. Each admission YAML records its review date and evidence references. Unknown deadlines stay unverified; NUS's conflicting status remains in review and Kaplan has no invented 2027 cutoff. SMU acceptance now shows an offer-dependent rule rather than one universal June date (issue #38). SUSS supporting-document, applicable test-score and appeal deadlines are added. Existing requirements, applicant policies, QS rankings and programme details are retained.
