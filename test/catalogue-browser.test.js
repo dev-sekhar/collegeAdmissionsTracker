@@ -294,3 +294,12 @@ test('projected timeline displays selected-year guidance above separately labell
   const application=f.all('.compact-stage').find(stage=>stage.querySelector('h3').textContent==='Apply by');const details=application.querySelector('.compact-stage-details');assert.match(details.children[1].textContent,/15 January 2028 for September 2028/);
   const evidence=details.children.find(child=>child.tag==='details');assert.match(evidence.querySelector('summary').textContent,/Original 2027 source evidence/);assert.match(evidence.textContent,/15 January 2027/);assert.match(evidence.textContent,/Checked 2026-11-20/);assert.match(document.title,/2028/);
 });
+
+test('saved QS rank limit filters university and deadline matches and previews the complete global list',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});f.select('qs-limit','100');assert.deepEqual(f.all('.university-card').map(card=>card.id),['university-sg-nus','university-sg-ntu']);assert.deepEqual(f.all('dd').map(n=>n.textContent),['2','20']);
+  assert.ok(f.all('.upcoming-university').every(node=>['National University of Singapore','Nanyang Technological University'].includes(node.textContent)));
+  f.click(button=>button.className.includes('qs-preview-button'));assert.equal(f.all('.qs-ranking-row').length,102);assert.match(f.find('.qs-ranking-browser').textContent,/Complete global top 100/);assert.match(f.find('.qs-ranking-browser').textContent,/Purdue University/);assert.match(f.find('.qs-ranking-browser').textContent,/Not added yet/);assert.equal(f.find('.university-list'),null);
+  f.select('qs-preview-limit','10');assert.ok(f.all('.qs-ranking-row').length>=10);assert.ok(f.all('.qs-ranking-row').every(row=>Number(row.children[0].textContent.slice(1))<=10));f.click(button=>button.textContent==='Back to programmes');assert.equal(f.find('#qs-limit').value,'10');assert.deepEqual(f.all('.university-card').map(card=>card.id),['university-sg-nus']);
+  const next=fixture(t,{storage});assert.equal(next.find('#qs-limit').value,'10');next.select('qs-limit','500');next.click(button=>button.className.includes('qs-preview-button'));assert.match(next.find('.qs-ranking-browser').textContent,/not complete here/);next.find('.brand').events.click({preventDefault(){}});assert.ok(next.find('.university-list'));assert.equal(next.find('#qs-limit').value,'500');
+  next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'');assert.equal(next.all('.university-card').length,8);
+});

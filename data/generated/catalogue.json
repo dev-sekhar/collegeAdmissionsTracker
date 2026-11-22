@@ -11701,5 +11701,523 @@
         "notes": "Reviewed the official sources for this 2027 programme/intake and listed applicant categories. Missing stage dates remain unverified; teaching starts and approximate outcome periods are not treated as deadlines. NUS page status conflicts remain flagged for review."
       }
     }
-  ]
+  ],
+  "qsRankings": {
+    "edition": 2027,
+    "maxRank": 100,
+    "sourceUrl": "https://www.topuniversities.com/student-info/choosing-university/worlds-top-100-universities",
+    "checkedAt": "2026-11-22",
+    "universities": [
+      {
+        "rank": "1",
+        "name": "Massachusetts Institute of Technology (MIT)",
+        "city": "Cambridge"
+      },
+      {
+        "rank": "=2",
+        "name": "Imperial College London",
+        "city": "London"
+      },
+      {
+        "rank": "=2",
+        "name": "Stanford University",
+        "city": "Stanford"
+      },
+      {
+        "rank": "4",
+        "name": "University of Oxford",
+        "city": "Oxford"
+      },
+      {
+        "rank": "5",
+        "name": "Harvard University",
+        "city": "Cambridge"
+      },
+      {
+        "rank": "6",
+        "name": "University of Cambridge",
+        "city": "Cambridge"
+      },
+      {
+        "rank": "7",
+        "name": "California Institute of Technology (Caltech)",
+        "city": "Pasadena"
+      },
+      {
+        "rank": "=8",
+        "name": "ETH Zurich",
+        "city": "Zürich"
+      },
+      {
+        "rank": "=8",
+        "name": "UCL",
+        "city": "London"
+      },
+      {
+        "rank": "10",
+        "name": "National University of Singapore (NUS)",
+        "city": "Singapore"
+      },
+      {
+        "rank": "11",
+        "name": "The University of Hong Kong",
+        "city": "Hong Kong"
+      },
+      {
+        "rank": "12",
+        "name": "Nanyang Technological University, Singapore (NTU Singapore)",
+        "city": "Singapore"
+      },
+      {
+        "rank": "13",
+        "name": "Peking University",
+        "city": "Beijing"
+      },
+      {
+        "rank": "14",
+        "name": "Tsinghua University",
+        "city": "Beijing"
+      },
+      {
+        "rank": "15",
+        "name": "University of Pennsylvania",
+        "city": "Philadelphia"
+      },
+      {
+        "rank": "=16",
+        "name": "Cornell University",
+        "city": "Ithaca"
+      },
+      {
+        "rank": "=16",
+        "name": "Yale University",
+        "city": "New Haven"
+      },
+      {
+        "rank": "18",
+        "name": "The Chinese University of Hong Kong (CUHK)",
+        "city": "Hong Kong"
+      },
+      {
+        "rank": "19",
+        "name": "The University of New South Wales (UNSW Sydney)",
+        "city": "Sydney"
+      },
+      {
+        "rank": "=20",
+        "name": "Johns Hopkins University",
+        "city": "Baltimore"
+      },
+      {
+        "rank": "=20",
+        "name": "University of California, Berkeley (UCB)",
+        "city": "Berkeley"
+      },
+      {
+        "rank": "=22",
+        "name": "EPFL – École polytechnique fédérale de Lausanne",
+        "city": "Lausanne"
+      },
+      {
+        "rank": "=22",
+        "name": "The University of Melbourne",
+        "city": "Melbourne"
+      },
+      {
+        "rank": "24",
+        "name": "University of Chicago",
+        "city": "Chicago"
+      },
+      {
+        "rank": "25",
+        "name": "Technical University of Munich",
+        "city": "Munich"
+      },
+      {
+        "rank": "26",
+        "name": "Fudan University",
+        "city": "Shanghai"
+      },
+      {
+        "rank": "27",
+        "name": "Princeton University",
+        "city": "Princeton"
+      },
+      {
+        "rank": "28",
+        "name": "The University of Sydney",
+        "city": "Sydney"
+      },
+      {
+        "rank": "29",
+        "name": "Australian National University (ANU)",
+        "city": "Canberra"
+      },
+      {
+        "rank": "30",
+        "name": "McGill University",
+        "city": "Montreal"
+      },
+      {
+        "rank": "31",
+        "name": "Monash University",
+        "city": "Melbourne"
+      },
+      {
+        "rank": "32",
+        "name": "University of Toronto",
+        "city": "Toronto"
+      },
+      {
+        "rank": "33",
+        "name": "The Hong Kong University of Science and Technology",
+        "city": "Hong Kong"
+      },
+      {
+        "rank": "34",
+        "name": "Université PSL",
+        "city": "Paris"
+      },
+      {
+        "rank": "35",
+        "name": "The University of Edinburgh",
+        "city": "Edinburgh"
+      },
+      {
+        "rank": "36",
+        "name": "Shanghai Jiao Tong University",
+        "city": "Shanghai"
+      },
+      {
+        "rank": "37",
+        "name": "King's College London",
+        "city": "London"
+      },
+      {
+        "rank": "38",
+        "name": "Seoul National University",
+        "city": "Seoul"
+      },
+      {
+        "rank": "39",
+        "name": "The University of Tokyo",
+        "city": "Tokyo"
+      },
+      {
+        "rank": "=40",
+        "name": "The University of Manchester",
+        "city": "Manchester"
+      },
+      {
+        "rank": "=40",
+        "name": "The University of Queensland",
+        "city": "Brisbane"
+      },
+      {
+        "rank": "42",
+        "name": "Yonsei University",
+        "city": "Seoul"
+      },
+      {
+        "rank": "=43",
+        "name": "Columbia University",
+        "city": "New York City"
+      },
+      {
+        "rank": "=43",
+        "name": "Institut Polytechnique de Paris",
+        "city": "Paris"
+      },
+      {
+        "rank": "=45",
+        "name": "Northwestern University",
+        "city": "Evanston"
+      },
+      {
+        "rank": "=45",
+        "name": "University of British Columbia",
+        "city": "Vancouver"
+      },
+      {
+        "rank": "47",
+        "name": "Zhejiang University",
+        "city": "Hangzhou"
+      },
+      {
+        "rank": "48",
+        "name": "Delft University of Technology",
+        "city": "Delft"
+      },
+      {
+        "rank": "49",
+        "name": "University of California, Los Angeles (UCLA)",
+        "city": "Los Angeles"
+      },
+      {
+        "rank": "50",
+        "name": "The Hong Kong Polytechnic University",
+        "city": "Hong Kong"
+      },
+      {
+        "rank": "51",
+        "name": "University of Michigan-Ann Arbor",
+        "city": "Ann Arbor"
+      },
+      {
+        "rank": "=52",
+        "name": "City University of Hong Kong (CityUHK)",
+        "city": "Kowloon,"
+      },
+      {
+        "rank": "=52",
+        "name": "Korea University",
+        "city": "Seoul"
+      },
+      {
+        "rank": "54",
+        "name": "National Taiwan University (NTU)",
+        "city": "Taipei"
+      },
+      {
+        "rank": "55",
+        "name": "Carnegie Mellon University",
+        "city": "Pittsburgh"
+      },
+      {
+        "rank": "56",
+        "name": "Universiti Malaya (UM)",
+        "city": "Kuala Lumpur"
+      },
+      {
+        "rank": "57",
+        "name": "University of Bristol",
+        "city": "Bristol"
+      },
+      {
+        "rank": "58",
+        "name": "New York University (NYU)",
+        "city": "New York City"
+      },
+      {
+        "rank": "59",
+        "name": "KU Leuven",
+        "city": "Leuven"
+      },
+      {
+        "rank": "60",
+        "name": "University of Amsterdam",
+        "city": "Amsterdam"
+      },
+      {
+        "rank": "61",
+        "name": "Ludwig-Maximilians-Universität München",
+        "city": "Munich"
+      },
+      {
+        "rank": "62",
+        "name": "The London School of Economics and Political Science (LSE)",
+        "city": "London"
+      },
+      {
+        "rank": "63",
+        "name": "KFUPM",
+        "city": "Dhahran"
+      },
+      {
+        "rank": "64",
+        "name": "Kyoto University",
+        "city": "Kyoto"
+      },
+      {
+        "rank": "65",
+        "name": "KAIST",
+        "city": "Daejeon"
+      },
+      {
+        "rank": "66",
+        "name": "Brown University",
+        "city": "Providence"
+      },
+      {
+        "rank": "67",
+        "name": "The University of Auckland",
+        "city": "Auckland"
+      },
+      {
+        "rank": "=68",
+        "name": "University of Warwick",
+        "city": "England"
+      },
+      {
+        "rank": "=68",
+        "name": "University of Birmingham",
+        "city": "Birmingham"
+      },
+      {
+        "rank": "70",
+        "name": "Duke University",
+        "city": "Durham"
+      },
+      {
+        "rank": "71",
+        "name": "Lund University",
+        "city": "Lund"
+      },
+      {
+        "rank": "72",
+        "name": "University of Texas at Austin",
+        "city": "Austin"
+      },
+      {
+        "rank": "73",
+        "name": "Sorbonne University",
+        "city": "Paris"
+      },
+      {
+        "rank": "74",
+        "name": "University of Illinois Urbana-Champaign",
+        "city": "Champaign"
+      },
+      {
+        "rank": "75",
+        "name": "Trinity College Dublin, The University of Dublin",
+        "city": "Dublin"
+      },
+      {
+        "rank": "76",
+        "name": "Université Paris-Saclay",
+        "city": "Paris"
+      },
+      {
+        "rank": "=77",
+        "name": "The University of Western Australia",
+        "city": "Perth"
+      },
+      {
+        "rank": "=77",
+        "name": "University of Leeds",
+        "city": "Leeds"
+      },
+      {
+        "rank": "79",
+        "name": "Adelaide University",
+        "city": "Adelaide"
+      },
+      {
+        "rank": "80",
+        "name": "University of Glasgow",
+        "city": "Glasgow"
+      },
+      {
+        "rank": "81",
+        "name": "University of California, San Diego (UCSD)",
+        "city": "San Diego"
+      },
+      {
+        "rank": "=82",
+        "name": "KTH Royal Institute of Technology",
+        "city": "Stockholm"
+      },
+      {
+        "rank": "=82",
+        "name": "The University of Sheffield",
+        "city": "Sheffield,"
+      },
+      {
+        "rank": "84",
+        "name": "Universidad de Buenos Aires (UBA)",
+        "city": "Ciudad Autónoma de Bs. A."
+      },
+      {
+        "rank": "85",
+        "name": "Durham University",
+        "city": "Durham"
+      },
+      {
+        "rank": "86",
+        "name": "Universität Heidelberg",
+        "city": "69117 Heidelberg,"
+      },
+      {
+        "rank": "=87",
+        "name": "Politecnico di Milano",
+        "city": "Milan"
+      },
+      {
+        "rank": "=87",
+        "name": "The University of Technology Sydney (UTS)",
+        "city": "Sydney"
+      },
+      {
+        "rank": "=87",
+        "name": "Uppsala University",
+        "city": "Uppsala"
+      },
+      {
+        "rank": "=90",
+        "name": "Nanjing University",
+        "city": "Nanjing"
+      },
+      {
+        "rank": "=90",
+        "name": "University of Copenhagen",
+        "city": "Copenhagen"
+      },
+      {
+        "rank": "=92",
+        "name": "Pennsylvania State University",
+        "city": "University Park"
+      },
+      {
+        "rank": "=92",
+        "name": "University of Washington",
+        "city": "Seattle"
+      },
+      {
+        "rank": "94",
+        "name": "Boston University",
+        "city": "Boston"
+      },
+      {
+        "rank": "95",
+        "name": "The University of Osaka",
+        "city": "Osaka City"
+      },
+      {
+        "rank": "96",
+        "name": "University of Alberta",
+        "city": "Edmonton,"
+      },
+      {
+        "rank": "=97",
+        "name": "Institute of Science Tokyo",
+        "city": "Tokyo"
+      },
+      {
+        "rank": "=97",
+        "name": "University of Nottingham",
+        "city": "Nottingham"
+      },
+      {
+        "rank": "=98",
+        "name": "Freie Universitaet Berlin",
+        "city": "Berlin"
+      },
+      {
+        "rank": "=98",
+        "name": "University of Zurich",
+        "city": "Zürich"
+      },
+      {
+        "rank": "=100",
+        "name": "Purdue University",
+        "city": "West Lafayette"
+      },
+      {
+        "rank": "=100",
+        "name": "University College Dublin",
+        "city": "Dublin"
+      }
+    ]
+  }
 }

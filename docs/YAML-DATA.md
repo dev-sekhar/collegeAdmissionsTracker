@@ -4,6 +4,8 @@ YAML files are the source of truth. JSON is a generated copy for the browser. Ke
 
 ## University and program details
 
+The ranking-only snapshot in `data/rankings/qs-world-2027.yaml` is separate from the admissions university list. It records the official QS global ranks 1–100, including all cutoff ties, source and check date. It adds no programme or deadline claims. Build validation checks its scope, order and 102 entries. Rank ceilings use verified overall ranks; a band qualifies only when its upper boundary is within the ceiling. Unknown ranks are excluded only when a ceiling is active.
+
 Optional `teachingLanguages` records explicitly verified teaching languages, for example `[Dutch]`. Non-English-only programmes receive an amber card and a written language label. Missing metadata does not establish English teaching. Programmes listing English among their teaching languages are not marked as non-English-only. Keep the official programme link and supporting language notes.
 
 Start with data/universities/nl-uva.yaml. Each university has a unique lowercase ID, name, country and city. Its programs have their own globally unique IDs, names, degree levels and one or more subjects. Use Bachelor’s, Master’s or PhD for degree. The country Holland is normalized to Netherlands.
