@@ -118,6 +118,18 @@ function validateRanking(ranking){
 export const rankingLabel=ranking=>`QS World ${ranking.edition} · ${ranking.status==='verified'?`#${ranking.rank}`:'Rank not verified'}`;
 function officialUrl(value){let url;try{url=new URL(value);}catch{throw Error('Invalid official source URL');}requireThat(url.protocol==='https:'&&!url.username&&!url.password&&officialHosts.some(host=>url.hostname===host||url.hostname.endsWith(`.${host}`)),'Real evidence must use an approved official institution HTTPS domain');}
 export function catalogueRows(catalogue){return catalogue.admissions.map(admission=>{const program=catalogue.programs.find(p=>p.id===admission.programId);const university=catalogue.universities.find(u=>u.id===program.universityId);return {...program,...university,programId:program.id,universityId:university.id,programName:program.name,universityName:university.name,admission,admissionDetails:catalogue.admissionDetails?.find(d=>d.programIds.includes(program.id)),applicantPolicy:catalogue.applicantPolicies?.find(p=>p.universityId===university.id&&p.cycle===admission.cycle),key:`${program.id}:${admission.cycle}:${intakeKey(admission.intake)}`};});}
+export function projectIntakeWording(value,sourceYear,requestedYear){
+  const delta=requestedYear-sourceYear;
+  return value.replace(/(?<!\d)20\d{2}-\d{2}-\d{2}\b|(?<!\d)20\d{2}(?:[/–-](?:20\d{2}|\d{2}))?\b/gu,match=>{
+    if(validDate(match)){const value=new Date(`${match}T00:00:00Z`);const year=value.getUTCFullYear()+delta;const month=value.getUTCMonth();const last=new Date(Date.UTC(year,month+1,0)).getUTCDate();return new Date(Date.UTC(year,month,Math.min(value.getUTCDate(),last))).toISOString().slice(0,10);}
+    const [,first,separator,last]=match.match(/^(20\d{2})(?:([/–-])(20\d{2}|\d{2}))?$/u)||[];
+    if(!first)return match;
+    const start=Number(first);if(!last)return String(start+delta);
+    const end=last.length===2?2000+Number(last):Number(last);
+    if(end===start+1)return `${start+delta}${separator}${last.length===2?String((end+delta)%100).padStart(2,'0'):end+delta}`;
+    return `${start+delta}${separator}${last}`;
+  });
+}
 export function annualIntakeRows(rows,year,{now=new Date()}={}){
   if(!Number.isInteger(year)||year<2000||year>2100)return [];
   const programmes=new Map();for(const row of rows){if(!programmes.has(row.programId))programmes.set(row.programId,[]);programmes.get(row.programId).push(row);}
@@ -129,7 +141,7 @@ export function annualIntakeRows(rows,year,{now=new Date()}={}){
     const delta=year-sourceYear;
     const shift=date=>{const value=new Date(`${date}T00:00:00Z`);const month=value.getUTCMonth();const shiftedYear=value.getUTCFullYear()+delta;const last=new Date(Date.UTC(shiftedYear,month+1,0)).getUTCDate();return new Date(Date.UTC(shiftedYear,month,Math.min(value.getUTCDate(),last))).toISOString().slice(0,10);};
     const project=deadline=>!deadline?null:deadline.kind==='date'?{kind:'date',date:shift(deadline.date)}:deadline.kind==='window'?{kind:'window',start:shift(deadline.start),end:shift(deadline.end)}:/\b20\d{2}\b/u.test(deadline.rule)?null:{...deadline};
-    return earlier.filter(row=>row.admission.intake.year===sourceYear).map(row=>({...row,key:`${row.programId}:tentative:${year}:${row.admission.intake.month??'unknown'}`,intakeReference:{requestedYear:year,sourceYear},sourceAdmission:row.admission,admission:{...row.admission,intake:{...row.admission.intake,year},routes:row.admission.routes.map(route=>({...route,stages:route.stages.map(stage=>{const deadline=project(stage.deadline);return {...stage,deadline,status:deadline?'tentative':'not-verified'};})}))}}));
+    return earlier.filter(row=>row.admission.intake.year===sourceYear).map(row=>({...row,key:`${row.programId}:tentative:${year}:${row.admission.intake.month??'unknown'}`,intakeReference:{requestedYear:year,sourceYear},sourceAdmission:row.admission,admission:{...row.admission,intake:{...row.admission.intake,year},routes:row.admission.routes.map(route=>({...route,label:projectIntakeWording(route.label??'',sourceYear,year),stages:route.stages.map(stage=>{const deadline=project(stage.deadline);return {...stage,deadline,status:deadline?'tentative':'not-verified',wording:deadline?`Tentative ${year} intake guidance: ${projectIntakeWording(stage.wording??'',sourceYear,year)}`:`A deadline for the ${year} intake could not be projected reliably. Check the official programme page; original source-year instructions are available below.`};})}))}}));
   });
 }
 export function filterRows(rows,filters,options={}){const annual=/^\d{4}$/u.test(filters.intake||'');const candidates=annual?annualIntakeRows(rows,Number(filters.intake),options):rows;return candidates.filter(row=>(!filters.countries.length||filters.countries.includes(row.country))&&(!filters.subjects.length||row.subjects.some(s=>filters.subjects.includes(s)))&&(!filters.degree||row.degree===filters.degree)&&(annual||!filters.intake||intakeKey(row.admission.intake)===filters.intake));}

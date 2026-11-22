@@ -43,6 +43,7 @@ export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=b
   function render({resetLayout=false}={}){
     if(resetLayout)deadlineFiltersOpen=false;else deadlineFiltersOpen=host.querySelector('.deadline-filter-panel')?.open??deadlineFiltersOpen;
     const now=clock();summaryDay=summaryKey(now);
+    const edition=document.querySelector('.edition');if(edition)edition.textContent=`Undergraduate admissions · ${filters.intake||'All intake years'}`;document.title=`Admissions Atlas · ${filters.intake||'All intake years'}`;
     const matches=filterRows(rows,filters,{now});
     if(deadlineFilters.country&&!matches.some(row=>row.country===deadlineFilters.country))deadlineFilters={...deadlineFilters,country:'',universityId:''};
     if(deadlineFilters.universityId&&!matches.some(row=>row.universityId===deadlineFilters.universityId&&(!deadlineFilters.country||row.country===deadlineFilters.country)))deadlineFilters={...deadlineFilters,universityId:''};

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {compileCatalogue,stageTypes,validDate,catalogueRows,filterRows,annualIntakeRows,deadlineLabel,countryName,rankingLabel} from '../src/catalogue-model.js';
+import {compileCatalogue,stageTypes,validDate,catalogueRows,filterRows,annualIntakeRows,projectIntakeWording,deadlineLabel,countryName,rankingLabel} from '../src/catalogue-model.js';
 import {buildCatalogue,parseYaml} from '../scripts/build-catalogue.mjs';
 function fixture(){
   const university={id:'dummy-uni',name:'Fictional University',country:'Singapore',city:'Singapore',programs:[{id:'dummy-cs',name:'Fictional BSc CS',degree:'Bachelor’s',subjects:['Computer Science']}]};
@@ -29,6 +29,13 @@ test('future-year projections move opening dates into the preceding year and cla
   const projected=annualIntakeRows([source],2028,{now:new Date('2026-11-20T00:00:00Z')})[0];const stages=projected.admission.routes[0].stages;
   assert.equal(stages[0].deadline.date,'2027-10-01');assert.deepEqual(stages[1].deadline,{kind:'window',start:'2028-01-01',end:'2028-04-01'});assert.equal(stages[2].deadline,null);assert.equal(stages[2].status,'not-verified');assert.equal(stages[3].deadline.rule,'Within two weeks of offer');assert.equal(projected.admission.intake.year,2028);
   const leap=structuredClone(source);leap.admission.intake.year=2028;leap.admission.routes[0].stages[0].deadline.date='2028-02-29';assert.equal(annualIntakeRows([leap],2029,{now:new Date('2026-11-20T00:00:00Z')})[0].admission.routes[0].stages[0].deadline.date,'2029-02-28');
+});
+
+test('projected descriptions and category labels follow the intake year across every programme without altering evidence',async()=>{
+  const catalogue=await buildCatalogue({check:true});const rows=catalogueRows(catalogue);const before=JSON.stringify(catalogue);const projected=annualIntakeRows(rows,2028,{now:new Date('2026-11-22T00:00:00Z')});assert.ok(projected.length);
+  for(const row of projected){if(!row.intakeReference)continue;for(const route of row.admission.routes){const original=row.sourceAdmission.routes.find(r=>r.id===route.id);assert.equal(route.label,projectIntakeWording(original.label,2027,2028));for(const stage of route.stages){if(!stage.deadline){assert.match(stage.wording,/2028 intake/);continue;}assert.ok(stage.wording.startsWith('Tentative 2028 intake guidance: '));assert.equal(stage.wording,'Tentative 2028 intake guidance: '+projectIntakeWording(original.stages.find(s=>s.type===stage.type).wording,2027,2028));}}}
+  const uva=projected.find(row=>row.programId==='nl-uva-economics');assert.match(uva.admission.routes[0].stages.find(s=>s.type==='application').wording,/15 January 2028 for September 2028/);assert.match(uva.sourceAdmission.routes[0].stages.find(s=>s.type==='application').wording,/15 January 2027/);
+  assert.equal(projectIntakeWording('Opens October 2026 for AY2027/28; deadline 2027-01-15.',2027,2028),'Opens October 2027 for AY2028/29; deadline 2028-01-15.');assert.equal(projectIntakeWording('2028-02-29',2028,2029),'2029-02-28');assert.equal(JSON.stringify(catalogue),before);
 });
 test('repository YAML produces deterministic real JSON',async()=>{
   const result=await buildCatalogue({check:true});assert.equal(result.mode,'real');assert.equal(result.universities.length,16);assert.equal(result.programs.length,48);assert.equal(result.admissions.length,54);
