@@ -2,7 +2,7 @@ import {parseDocument} from 'yaml';
 import {readFile,readdir,mkdir,writeFile,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {compileCatalogue} from '../src/catalogue-model.js';
+import {compileCatalogue,validateQsSnapshot} from '../src/catalogue-model.js';
 const root=fileURLToPath(new URL('../',import.meta.url));
 export function parseYaml(source,name='YAML'){
   if(Buffer.byteLength(source)>200000)throw Error(`${name}: file exceeds 200 KB`);
@@ -15,7 +15,7 @@ async function documents(folder,overrides=new Map()){
   for(const entry of (await readdir(folder,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){const file=path.join(folder,entry.name);if(entry.isSymbolicLink())throw Error('Catalogue symlinks are not supported');if(entry.isDirectory())output.push(...await documents(file,overrides));else if(/\.ya?ml$/u.test(entry.name))output.push(parseYaml(overrides.has(file)?overrides.get(file):await readFile(file,'utf8'),path.relative(root,file)));}
   return output;
 }
-export async function readCatalogue({rootDir=root,overrides=new Map()}={}){return compileCatalogue(await documents(path.join(rootDir,'data/universities'),overrides),await documents(path.join(rootDir,'data/admissions'),overrides),await documents(path.join(rootDir,'data/applicant-rules'),overrides),await documents(path.join(rootDir,'data/admission-details'),overrides));}
+export async function readCatalogue({rootDir=root,overrides=new Map()}={}){const catalogue=compileCatalogue(await documents(path.join(rootDir,'data/universities'),overrides),await documents(path.join(rootDir,'data/admissions'),overrides),await documents(path.join(rootDir,'data/applicant-rules'),overrides),await documents(path.join(rootDir,'data/admission-details'),overrides));catalogue.qsRankings=validateQsSnapshot(parseYaml(await readFile(path.join(rootDir,'data/rankings/qs-world-2027.yaml'),'utf8')));return catalogue;}
 export async function buildCatalogue({check=false,rootDir=root}={}){
   const catalogue=await readCatalogue({rootDir});
   const json=JSON.stringify(catalogue,null,2)+'\n';const destination=path.join(rootDir,'data/generated/catalogue.json');
