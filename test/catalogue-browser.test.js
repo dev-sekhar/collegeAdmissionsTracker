@@ -288,3 +288,9 @@ test('subject and intake criteria constrain deadlines as well as universities',t
   assert.ok(f.all('.upcoming-item').length>0);assert.ok(f.all('.upcoming-programme').every(node=>node.textContent.includes('Criminologie')));
   f.select('intake-filter','2025');assert.equal(f.all('.upcoming-item').length,0);assert.ok(f.find('.upcoming-empty'));
 });
+
+test('projected timeline displays selected-year guidance above separately labelled original evidence',t=>{
+  const f=fixture(t);chooseCountries(f,['Netherlands']);f.select('intake-filter','2028');f.click(b=>b.id==='university-nl-uva');f.click(b=>b.id==='programme-nl-uva-economics');f.select('timeline-category','programme-route');
+  const application=f.all('.compact-stage').find(stage=>stage.querySelector('h3').textContent==='Apply by');const details=application.querySelector('.compact-stage-details');assert.match(details.children[1].textContent,/15 January 2028 for September 2028/);
+  const evidence=details.children.find(child=>child.tag==='details');assert.match(evidence.querySelector('summary').textContent,/Original 2027 source evidence/);assert.match(evidence.textContent,/15 January 2027/);assert.match(evidence.textContent,/Checked 2026-11-20/);assert.match(document.title,/2028/);
+});
