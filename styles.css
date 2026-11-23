@@ -61,3 +61,6 @@ html{scrollbar-gutter:stable}
 .filter-grid>.select-pair{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
 @media(max-width:640px){.filter-grid>.select-pair{grid-template-columns:repeat(2,minmax(0,1fr))}.qs-filter-control{grid-column:1/-1}.qs-ranking-table th,.qs-ranking-table td{padding:8px}.qs-ranking-browser{padding:12px}.qs-ranking-table{min-width:540px}}
 @media(max-width:420px){.filter-grid>.select-pair{grid-template-columns:1fr}}
+.qs-dialog{width:min(1200px,calc(100% - 32px))}.qs-dialog .qs-ranking-browser{padding:0;border:0;background:transparent}.qs-dialog .qs-ranking-table{min-width:720px}.close-qs{min-height:44px}
+.qs-country-action{white-space:nowrap;min-height:44px;font-size:.8rem}.country-university-data{padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--soft);margin-top:16px}.country-data-list{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px;max-height:320px;overflow-y:auto}.country-data-university{display:flex;flex-direction:column;gap:5px;min-width:0;padding:12px;background:var(--white);border:1px solid var(--line);border-radius:8px;font-size:.85rem;overflow-wrap:anywhere}.country-data-university .data-caption{margin:0}
+@media(max-width:640px){.qs-dialog{width:calc(100% - 16px)}}

@@ -1,311 +1,413 @@
 edition: 2027
 maxRank: 100
 sourceUrl: https://www.topuniversities.com/student-info/choosing-university/worlds-top-100-universities
-checkedAt: '2026-11-22'
+checkedAt: 2026-11-22
 universities:
   - rank: "1"
-    name: "Massachusetts Institute of Technology (MIT)"
-    city: "Cambridge"
-  - rank: "=2"
-    name: "Imperial College London"
-    city: "London"
-  - rank: "=2"
-    name: "Stanford University"
-    city: "Stanford"
+    name: Massachusetts Institute of Technology (MIT)
+    city: Cambridge
+    country: United States
+  - rank: =2
+    name: Imperial College London
+    city: London
+    country: United Kingdom
+  - rank: =2
+    name: Stanford University
+    city: Stanford
+    country: United States
   - rank: "4"
-    name: "University of Oxford"
-    city: "Oxford"
+    name: University of Oxford
+    city: Oxford
+    country: United Kingdom
   - rank: "5"
-    name: "Harvard University"
-    city: "Cambridge"
+    name: Harvard University
+    city: Cambridge
+    country: United States
   - rank: "6"
-    name: "University of Cambridge"
-    city: "Cambridge"
+    name: University of Cambridge
+    city: Cambridge
+    country: United Kingdom
   - rank: "7"
-    name: "California Institute of Technology (Caltech)"
-    city: "Pasadena"
-  - rank: "=8"
-    name: "ETH Zurich"
-    city: "Zürich"
-  - rank: "=8"
-    name: "UCL"
-    city: "London"
+    name: California Institute of Technology (Caltech)
+    city: Pasadena
+    country: United States
+  - rank: =8
+    name: ETH Zurich
+    city: Zürich
+    country: Switzerland
+  - rank: =8
+    name: UCL
+    city: London
+    country: United Kingdom
   - rank: "10"
-    name: "National University of Singapore (NUS)"
-    city: "Singapore"
+    name: National University of Singapore (NUS)
+    city: Singapore
+    country: Singapore
   - rank: "11"
-    name: "The University of Hong Kong"
-    city: "Hong Kong"
+    name: The University of Hong Kong
+    city: Hong Kong
+    country: Hong Kong
   - rank: "12"
-    name: "Nanyang Technological University, Singapore (NTU Singapore)"
-    city: "Singapore"
+    name: Nanyang Technological University, Singapore (NTU Singapore)
+    city: Singapore
+    country: Singapore
   - rank: "13"
-    name: "Peking University"
-    city: "Beijing"
+    name: Peking University
+    city: Beijing
+    country: China
   - rank: "14"
-    name: "Tsinghua University"
-    city: "Beijing"
+    name: Tsinghua University
+    city: Beijing
+    country: China
   - rank: "15"
-    name: "University of Pennsylvania"
-    city: "Philadelphia"
-  - rank: "=16"
-    name: "Cornell University"
-    city: "Ithaca"
-  - rank: "=16"
-    name: "Yale University"
-    city: "New Haven"
+    name: University of Pennsylvania
+    city: Philadelphia
+    country: United States
+  - rank: =16
+    name: Cornell University
+    city: Ithaca
+    country: United States
+  - rank: =16
+    name: Yale University
+    city: New Haven
+    country: United States
   - rank: "18"
-    name: "The Chinese University of Hong Kong (CUHK)"
-    city: "Hong Kong"
+    name: The Chinese University of Hong Kong (CUHK)
+    city: Hong Kong
+    country: Hong Kong
   - rank: "19"
-    name: "The University of New South Wales (UNSW Sydney)"
-    city: "Sydney"
-  - rank: "=20"
-    name: "Johns Hopkins University"
-    city: "Baltimore"
-  - rank: "=20"
-    name: "University of California, Berkeley (UCB)"
-    city: "Berkeley"
-  - rank: "=22"
-    name: "EPFL – École polytechnique fédérale de Lausanne"
-    city: "Lausanne"
-  - rank: "=22"
-    name: "The University of Melbourne"
-    city: "Melbourne"
+    name: The University of New South Wales (UNSW Sydney)
+    city: Sydney
+    country: Australia
+  - rank: =20
+    name: Johns Hopkins University
+    city: Baltimore
+    country: United States
+  - rank: =20
+    name: University of California, Berkeley (UCB)
+    city: Berkeley
+    country: United States
+  - rank: =22
+    name: EPFL – École polytechnique fédérale de Lausanne
+    city: Lausanne
+    country: Switzerland
+  - rank: =22
+    name: The University of Melbourne
+    city: Melbourne
+    country: Australia
   - rank: "24"
-    name: "University of Chicago"
-    city: "Chicago"
+    name: University of Chicago
+    city: Chicago
+    country: United States
   - rank: "25"
-    name: "Technical University of Munich"
-    city: "Munich"
+    name: Technical University of Munich
+    city: Munich
+    country: Germany
   - rank: "26"
-    name: "Fudan University"
-    city: "Shanghai"
+    name: Fudan University
+    city: Shanghai
+    country: China
   - rank: "27"
-    name: "Princeton University"
-    city: "Princeton"
+    name: Princeton University
+    city: Princeton
+    country: United States
   - rank: "28"
-    name: "The University of Sydney"
-    city: "Sydney"
+    name: The University of Sydney
+    city: Sydney
+    country: Australia
   - rank: "29"
-    name: "Australian National University (ANU)"
-    city: "Canberra"
+    name: Australian National University (ANU)
+    city: Canberra
+    country: Australia
   - rank: "30"
-    name: "McGill University"
-    city: "Montreal"
+    name: McGill University
+    city: Montreal
+    country: Canada
   - rank: "31"
-    name: "Monash University"
-    city: "Melbourne"
+    name: Monash University
+    city: Melbourne
+    country: Australia
   - rank: "32"
-    name: "University of Toronto"
-    city: "Toronto"
+    name: University of Toronto
+    city: Toronto
+    country: Canada
   - rank: "33"
-    name: "The Hong Kong University of Science and Technology"
-    city: "Hong Kong"
+    name: The Hong Kong University of Science and Technology
+    city: Hong Kong
+    country: Hong Kong
   - rank: "34"
-    name: "Université PSL"
-    city: "Paris"
+    name: Université PSL
+    city: Paris
+    country: France
   - rank: "35"
-    name: "The University of Edinburgh"
-    city: "Edinburgh"
+    name: The University of Edinburgh
+    city: Edinburgh
+    country: United Kingdom
   - rank: "36"
-    name: "Shanghai Jiao Tong University"
-    city: "Shanghai"
+    name: Shanghai Jiao Tong University
+    city: Shanghai
+    country: China
   - rank: "37"
-    name: "King's College London"
-    city: "London"
+    name: King's College London
+    city: London
+    country: United Kingdom
   - rank: "38"
-    name: "Seoul National University"
-    city: "Seoul"
+    name: Seoul National University
+    city: Seoul
+    country: South Korea
   - rank: "39"
-    name: "The University of Tokyo"
-    city: "Tokyo"
-  - rank: "=40"
-    name: "The University of Manchester"
-    city: "Manchester"
-  - rank: "=40"
-    name: "The University of Queensland"
-    city: "Brisbane"
+    name: The University of Tokyo
+    city: Tokyo
+    country: Japan
+  - rank: =40
+    name: The University of Manchester
+    city: Manchester
+    country: United Kingdom
+  - rank: =40
+    name: The University of Queensland
+    city: Brisbane
+    country: Australia
   - rank: "42"
-    name: "Yonsei University"
-    city: "Seoul"
-  - rank: "=43"
-    name: "Columbia University"
-    city: "New York City"
-  - rank: "=43"
-    name: "Institut Polytechnique de Paris"
-    city: "Paris"
-  - rank: "=45"
-    name: "Northwestern University"
-    city: "Evanston"
-  - rank: "=45"
-    name: "University of British Columbia"
-    city: "Vancouver"
+    name: Yonsei University
+    city: Seoul
+    country: South Korea
+  - rank: =43
+    name: Columbia University
+    city: New York City
+    country: United States
+  - rank: =43
+    name: Institut Polytechnique de Paris
+    city: Paris
+    country: France
+  - rank: =45
+    name: Northwestern University
+    city: Evanston
+    country: United States
+  - rank: =45
+    name: University of British Columbia
+    city: Vancouver
+    country: Canada
   - rank: "47"
-    name: "Zhejiang University"
-    city: "Hangzhou"
+    name: Zhejiang University
+    city: Hangzhou
+    country: China
   - rank: "48"
-    name: "Delft University of Technology"
-    city: "Delft"
+    name: Delft University of Technology
+    city: Delft
+    country: Netherlands
   - rank: "49"
-    name: "University of California, Los Angeles (UCLA)"
-    city: "Los Angeles"
+    name: University of California, Los Angeles (UCLA)
+    city: Los Angeles
+    country: United States
   - rank: "50"
-    name: "The Hong Kong Polytechnic University"
-    city: "Hong Kong"
+    name: The Hong Kong Polytechnic University
+    city: Hong Kong
+    country: Hong Kong
   - rank: "51"
-    name: "University of Michigan-Ann Arbor"
-    city: "Ann Arbor"
-  - rank: "=52"
-    name: "City University of Hong Kong (CityUHK)"
-    city: "Kowloon,"
-  - rank: "=52"
-    name: "Korea University"
-    city: "Seoul"
+    name: University of Michigan-Ann Arbor
+    city: Ann Arbor
+    country: United States
+  - rank: =52
+    name: City University of Hong Kong (CityUHK)
+    city: Kowloon,
+    country: Hong Kong
+  - rank: =52
+    name: Korea University
+    city: Seoul
+    country: South Korea
   - rank: "54"
-    name: "National Taiwan University (NTU)"
-    city: "Taipei"
+    name: National Taiwan University (NTU)
+    city: Taipei
+    country: Taiwan
   - rank: "55"
-    name: "Carnegie Mellon University"
-    city: "Pittsburgh"
+    name: Carnegie Mellon University
+    city: Pittsburgh
+    country: United States
   - rank: "56"
-    name: "Universiti Malaya (UM)"
-    city: "Kuala Lumpur"
+    name: Universiti Malaya (UM)
+    city: Kuala Lumpur
+    country: Malaysia
   - rank: "57"
-    name: "University of Bristol"
-    city: "Bristol"
+    name: University of Bristol
+    city: Bristol
+    country: United Kingdom
   - rank: "58"
-    name: "New York University (NYU)"
-    city: "New York City"
+    name: New York University (NYU)
+    city: New York City
+    country: United States
   - rank: "59"
-    name: "KU Leuven"
-    city: "Leuven"
+    name: KU Leuven
+    city: Leuven
+    country: Belgium
   - rank: "60"
-    name: "University of Amsterdam"
-    city: "Amsterdam"
+    name: University of Amsterdam
+    city: Amsterdam
+    country: Netherlands
   - rank: "61"
-    name: "Ludwig-Maximilians-Universität München"
-    city: "Munich"
+    name: Ludwig-Maximilians-Universität München
+    city: Munich
+    country: Germany
   - rank: "62"
-    name: "The London School of Economics and Political Science (LSE)"
-    city: "London"
+    name: The London School of Economics and Political Science (LSE)
+    city: London
+    country: United Kingdom
   - rank: "63"
-    name: "KFUPM"
-    city: "Dhahran"
+    name: KFUPM
+    city: Dhahran
+    country: Saudi Arabia
   - rank: "64"
-    name: "Kyoto University"
-    city: "Kyoto"
+    name: Kyoto University
+    city: Kyoto
+    country: Japan
   - rank: "65"
-    name: "KAIST"
-    city: "Daejeon"
+    name: KAIST
+    city: Daejeon
+    country: South Korea
   - rank: "66"
-    name: "Brown University"
-    city: "Providence"
+    name: Brown University
+    city: Providence
+    country: United States
   - rank: "67"
-    name: "The University of Auckland"
-    city: "Auckland"
-  - rank: "=68"
-    name: "University of Warwick"
-    city: "England"
-  - rank: "=68"
-    name: "University of Birmingham"
-    city: "Birmingham"
+    name: The University of Auckland
+    city: Auckland
+    country: New Zealand
+  - rank: =68
+    name: University of Warwick
+    city: England
+    country: United Kingdom
+  - rank: =68
+    name: University of Birmingham
+    city: Birmingham
+    country: United Kingdom
   - rank: "70"
-    name: "Duke University"
-    city: "Durham"
+    name: Duke University
+    city: Durham
+    country: United States
   - rank: "71"
-    name: "Lund University"
-    city: "Lund"
+    name: Lund University
+    city: Lund
+    country: Sweden
   - rank: "72"
-    name: "University of Texas at Austin"
-    city: "Austin"
+    name: University of Texas at Austin
+    city: Austin
+    country: United States
   - rank: "73"
-    name: "Sorbonne University"
-    city: "Paris"
+    name: Sorbonne University
+    city: Paris
+    country: France
   - rank: "74"
-    name: "University of Illinois Urbana-Champaign"
-    city: "Champaign"
+    name: University of Illinois Urbana-Champaign
+    city: Champaign
+    country: United States
   - rank: "75"
-    name: "Trinity College Dublin, The University of Dublin"
-    city: "Dublin"
+    name: Trinity College Dublin, The University of Dublin
+    city: Dublin
+    country: Ireland
   - rank: "76"
-    name: "Université Paris-Saclay"
-    city: "Paris"
-  - rank: "=77"
-    name: "The University of Western Australia"
-    city: "Perth"
-  - rank: "=77"
-    name: "University of Leeds"
-    city: "Leeds"
+    name: Université Paris-Saclay
+    city: Paris
+    country: France
+  - rank: =77
+    name: The University of Western Australia
+    city: Perth
+    country: Australia
+  - rank: =77
+    name: University of Leeds
+    city: Leeds
+    country: United Kingdom
   - rank: "79"
-    name: "Adelaide University"
-    city: "Adelaide"
+    name: Adelaide University
+    city: Adelaide
+    country: Australia
   - rank: "80"
-    name: "University of Glasgow"
-    city: "Glasgow"
+    name: University of Glasgow
+    city: Glasgow
+    country: United Kingdom
   - rank: "81"
-    name: "University of California, San Diego (UCSD)"
-    city: "San Diego"
-  - rank: "=82"
-    name: "KTH Royal Institute of Technology"
-    city: "Stockholm"
-  - rank: "=82"
-    name: "The University of Sheffield"
-    city: "Sheffield,"
+    name: University of California, San Diego (UCSD)
+    city: San Diego
+    country: United States
+  - rank: =82
+    name: KTH Royal Institute of Technology
+    city: Stockholm
+    country: Sweden
+  - rank: =82
+    name: The University of Sheffield
+    city: Sheffield,
+    country: United Kingdom
   - rank: "84"
-    name: "Universidad de Buenos Aires (UBA)"
-    city: "Ciudad Autónoma de Bs. A."
+    name: Universidad de Buenos Aires (UBA)
+    city: Ciudad Autónoma de Bs. A.
+    country: Argentina
   - rank: "85"
-    name: "Durham University"
-    city: "Durham"
+    name: Durham University
+    city: Durham
+    country: United Kingdom
   - rank: "86"
-    name: "Universität Heidelberg"
-    city: "69117 Heidelberg,"
-  - rank: "=87"
-    name: "Politecnico di Milano"
-    city: "Milan"
-  - rank: "=87"
-    name: "The University of Technology Sydney (UTS)"
-    city: "Sydney"
-  - rank: "=87"
-    name: "Uppsala University"
-    city: "Uppsala"
-  - rank: "=90"
-    name: "Nanjing University"
-    city: "Nanjing"
-  - rank: "=90"
-    name: "University of Copenhagen"
-    city: "Copenhagen"
-  - rank: "=92"
-    name: "Pennsylvania State University"
-    city: "University Park"
-  - rank: "=92"
-    name: "University of Washington"
-    city: "Seattle"
+    name: Universität Heidelberg
+    city: 69117 Heidelberg,
+    country: Germany
+  - rank: =87
+    name: Politecnico di Milano
+    city: Milan
+    country: Italy
+  - rank: =87
+    name: The University of Technology Sydney (UTS)
+    city: Sydney
+    country: Australia
+  - rank: =87
+    name: Uppsala University
+    city: Uppsala
+    country: Sweden
+  - rank: =90
+    name: Nanjing University
+    city: Nanjing
+    country: China
+  - rank: =90
+    name: University of Copenhagen
+    city: Copenhagen
+    country: Denmark
+  - rank: =92
+    name: Pennsylvania State University
+    city: University Park
+    country: United States
+  - rank: =92
+    name: University of Washington
+    city: Seattle
+    country: United States
   - rank: "94"
-    name: "Boston University"
-    city: "Boston"
+    name: Boston University
+    city: Boston
+    country: United States
   - rank: "95"
-    name: "The University of Osaka"
-    city: "Osaka City"
+    name: The University of Osaka
+    city: Osaka City
+    country: Japan
   - rank: "96"
-    name: "University of Alberta"
-    city: "Edmonton,"
-  - rank: "=97"
-    name: "Institute of Science Tokyo"
-    city: "Tokyo"
-  - rank: "=97"
-    name: "University of Nottingham"
-    city: "Nottingham"
-  - rank: "=98"
-    name: "Freie Universitaet Berlin"
-    city: "Berlin"
-  - rank: "=98"
-    name: "University of Zurich"
-    city: "Zürich"
-  - rank: "=100"
-    name: "Purdue University"
-    city: "West Lafayette"
-  - rank: "=100"
-    name: "University College Dublin"
-    city: "Dublin"
+    name: University of Alberta
+    city: Edmonton,
+    country: Canada
+  - rank: =97
+    name: Institute of Science Tokyo
+    city: Tokyo
+    country: Japan
+  - rank: =97
+    name: University of Nottingham
+    city: Nottingham
+    country: United Kingdom
+  - rank: =98
+    name: Freie Universitaet Berlin
+    city: Berlin
+    country: Germany
+  - rank: =98
+    name: University of Zurich
+    city: Zürich
+    country: Switzerland
+  - rank: =100
+    name: Purdue University
+    city: West Lafayette
+    country: United States
+  - rank: =100
+    name: University College Dublin
+    city: Dublin
+    country: Ireland

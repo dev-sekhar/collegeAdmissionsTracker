@@ -299,7 +299,7 @@ test('projected timeline displays selected-year guidance above separately labell
 test('saved QS rank limit filters university and deadline matches and previews the complete global list',t=>{
   const storage=memoryStorage();const f=fixture(t,{storage});f.select('qs-limit','100');assert.deepEqual(f.all('.university-card').map(card=>card.id),['university-sg-nus','university-sg-ntu']);assert.deepEqual(f.all('dd').map(n=>n.textContent),['2','20']);
   assert.ok(f.all('.upcoming-university').every(node=>['National University of Singapore','Nanyang Technological University'].includes(node.textContent)));
-  f.click(button=>button.className.includes('qs-preview-button'));assert.equal(f.all('.qs-ranking-row').length,102);assert.match(f.find('.qs-ranking-browser').textContent,/Complete global top 100/);assert.match(f.find('.qs-ranking-browser').textContent,/Purdue University/);assert.match(f.find('.qs-ranking-browser').textContent,/Not added yet/);assert.equal(f.find('.university-list'),null);
+  f.click(button=>button.className.includes('qs-preview-button'));assert.equal(f.all('.qs-ranking-row').length,102);assert.match(f.find('.qs-ranking-browser').textContent,/Complete global top 100/);assert.match(f.find('.qs-ranking-browser').textContent,/Purdue University/);assert.match(f.find('.qs-ranking-browser').textContent,/Not added yet/);assert.ok(f.find('.university-list'));assert.equal(f.find('.qs-dialog').open,true);
   f.select('qs-preview-limit','10');assert.ok(f.all('.qs-ranking-row').length>=10);assert.ok(f.all('.qs-ranking-row').every(row=>Number(row.children[0].textContent.slice(1))<=10));f.click(button=>button.textContent==='Back to programmes');assert.equal(f.find('#qs-limit').value,'10');assert.deepEqual(f.all('.university-card').map(card=>card.id),['university-sg-nus']);
   const next=fixture(t,{storage});assert.equal(next.find('#qs-limit').value,'10');next.select('qs-limit','500');next.click(button=>button.className.includes('qs-preview-button'));assert.match(next.find('.qs-ranking-browser').textContent,/not complete here/);next.find('.brand').events.click({preventDefault(){}});assert.ok(next.find('.university-list'));assert.equal(next.find('#qs-limit').value,'500');
   next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'100');assert.equal(next.all('.university-card').length,2);
@@ -310,4 +310,20 @@ test('100 is an editable default rather than a fixed ranking cutoff',t=>{
   f.select('qs-limit','500');assert.ok(f.all('.university-card').length>2);f.click(button=>button.className.includes('qs-preview-button'));assert.match(f.find('.qs-ranking-browser').textContent,/top 500 list is not complete/);
   f.select('qs-preview-limit','');assert.match(f.find('.qs-ranking-browser').textContent,/No rank limit selected/);f.click(button=>button.textContent==='Back to programmes');assert.equal(f.all('.university-card').length,8);
   const next=fixture(t,{storage});assert.equal(next.find('#qs-limit').value,'');assert.equal(next.all('.university-card').length,8);next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'100');
+});
+
+test('QS popup shows countries and closes by Escape or button without replacing the dashboard',t=>{
+  const f=fixture(t);f.select('qs-limit','100');f.click(button=>button.id==='university-sg-ntu');f.click(button=>button.className.includes('qs-preview-button'));assert.ok(f.find('.qs-dialog').open);assert.equal(f.find('.qs-dialog').getAttribute('aria-labelledby'),'qs-ranking-title');assert.equal(f.all('.programme-choice').length,15);
+  assert.deepEqual(f.find('.qs-ranking-table').querySelectorAll('th').map(th=>th.textContent),['Rank','University','Country','City','Our admissions data','Country data']);
+  const mit=f.all('.qs-ranking-row').find(row=>row.children[1].textContent.includes('Massachusetts'));assert.equal(mit.children[2].textContent,'United States');const cambridge=f.all('.qs-ranking-row').find(row=>row.children[1].textContent==='University of Cambridge');assert.equal(cambridge.children[2].textContent,'United Kingdom');
+  f.find('.qs-dialog').events.cancel({preventDefault(){}});assert.equal(f.find('.qs-dialog'),null);assert.equal(f.find('#qs-limit').value,'100');assert.match(document.activeElement.className,/qs-preview-button/);assert.equal(f.all('.programme-choice').length,15);
+  f.click(button=>button.className.includes('qs-preview-button'));f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('.qs-dialog'),null);
+});
+
+test('row country actions load university-only records without inventing programmes or altering search criteria',t=>{
+  const f=fixture(t);f.select('qs-limit','100');const before=JSON.stringify(catalogue);f.click(button=>button.className.includes('qs-preview-button'));
+  assert.equal(f.all('.qs-country-action').length,102);f.click(button=>button.getAttribute('aria-label')==='Load university data for United States');
+  assert.match(f.find('#country-data-title').textContent,/United States/);assert.ok(f.all('.country-data-university').length>0);assert.ok(f.all('.country-data-university').every(item=>item.textContent.includes('University-level data only')));assert.match(f.find('.country-university-data').textContent,/not a complete country directory/);
+  f.click(button=>button.getAttribute('aria-label')==='Load university data for Netherlands');assert.equal(f.all('.country-data-university').length,9);assert.match(f.find('.country-university-data').textContent,/Delft University/);assert.match(f.find('.country-university-data').textContent,/programmes in our admissions catalogue/);assert.equal(document.activeElement.id,'country-data-title');
+  f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('#qs-limit').value,'100');assert.deepEqual(f.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore']);assert.equal(JSON.stringify(catalogue),before);
 });
