@@ -360,3 +360,9 @@ Each successful record stores the official URL, title, actual check timestamp, c
 The popup shows writer sign-in, collection progress, results, saved filename and failed checks. Writer setup is currently unconfigured on this workspace; run npm run writer:setup privately once before using the button. The server uses existing authenticated writer sessions and request tokens. No full date-editor UI was introduced.
 
 A real official-site check of the University of Copenhagen succeeded and its university-only YAML is included as a concrete example, not dummy data. Manual preview: open QS rankings, choose Denmark and Fetch fresh country data; sign in, check the fresh timestamp and saved file, reload and inspect the persisted record. Confirm a reader is prompted to sign in, failed sites are reported rather than marked successful, and existing programme/deadline data remains unchanged. Preview stays http://127.0.0.1:4180/. No merge before confirmation.
+
+## Local writer password rule — 23 November 2026
+
+Writer setup and sign-in now require six or more ASCII letters/digits only, retaining the existing 512-character maximum. Short passwords, spaces and punctuation are rejected. This is the user-requested temporary local rule. Account credentials remain salted hashes in the ignored local writer folder; no password or hash is added to source control. Existing authentication, request tokens and rate limits remain in place. The setup prompt describes the new rule. No new UI component or separate skill is needed.
+
+Manual preview at http://127.0.0.1:4180/: open QS rankings, fetch a country and sign in as writer with the privately supplied password; confirm collection succeeds and reload retains the saved university record. Reader browsing remains public. Test a short or punctuation-containing password in setup to confirm rejection. No merge before confirmation.

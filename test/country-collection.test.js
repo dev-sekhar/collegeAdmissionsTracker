@@ -27,11 +27,11 @@ test('blocked, unrelated, redirected and unsafe sources cannot be presented as f
   for(const ip of ['127.0.0.1','10.1.1.1','172.16.0.1','192.168.1.1','169.254.169.254','::1','fd00::1','::ffff:127.0.0.1'])assert.equal(publicAddress(ip),false,ip);
 });
 test('country collection requires writer authentication, correct origin and CSRF, and accepts no submitted URL',async t=>{
-  const root=await workspace(t);await configureWriter(root,'writer','test-only-long-password');const credentials=await readWriterCredentials(root);let requests=0;
+  const root=await workspace(t);await configureWriter(root,'writer','TestOnlyLongPassword');const credentials=await readWriterCredentials(root);let requests=0;
   const server=createAdmissionsServer({rootDir:root,credentialsProvider:async()=>credentials,collectionOptions:{fetchPage:async url=>{requests++;return page(url);}}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>{server.closeAllConnections();server.close(resolve);}));const base=`http://127.0.0.1:${server.address().port}`;
   const post=(route,value,headers={})=>fetch(base+route,{method:'POST',headers:{'Content-Type':'application/json',Origin:base,...headers},body:JSON.stringify(value)});
   assert.equal((await post('/writer/collect-country',{country:'Denmark'})).status,401);assert.equal(requests,0);
-  const login=await post('/writer/login',{username:'writer',password:'test-only-long-password'});const cookie=login.headers.get('set-cookie').split(';')[0];const {csrf}=await login.json();const headers={Cookie:cookie,'X-Writer-CSRF':csrf};
+  const login=await post('/writer/login',{username:'writer',password:'TestOnlyLongPassword'});const cookie=login.headers.get('set-cookie').split(';')[0];const {csrf}=await login.json();const headers={Cookie:cookie,'X-Writer-CSRF':csrf};
   assert.equal((await post('/writer/collect-country',{country:'Denmark'},{Cookie:cookie})).status,403);assert.equal((await post('/writer/collect-country',{country:'Denmark',url:'https://127.0.0.1/'},headers)).status,400);assert.equal(requests,0);
   const response=await post('/writer/collect-country',{country:'Denmark'},headers);assert.equal(response.status,200);assert.equal((await response.json()).collection.freshCount,1);assert.equal(requests,1);assert.equal((await fetch(base+'/data/country-universities/denmark.yaml')).status,404);
 });
