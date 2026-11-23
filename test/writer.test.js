@@ -7,12 +7,18 @@ import {configureWriter,readWriterCredentials,checkWriterPassword} from '../scri
 import {createAdmissionsServer} from '../scripts/serve-static.mjs';
 import {createDateStore} from '../scripts/writer-store.mjs';
 
+test('local writer passwords accept six or more letters/digits only',async()=>{
+  const {makeWriterCredentials}=await import('../scripts/writer-auth.mjs');
+  for(const password of ['abc123','abcdef','123456']){const credentials=await makeWriterCredentials('writer',password);assert.equal(await checkWriterPassword(credentials,'writer',password),true);}
+  for(const password of ['abc12','abc 123','abc-123','abc123!','éabc123','a'.repeat(513)])await assert.rejects(()=>makeWriterCredentials('writer',password),/letters and digits/);
+});
+
 test('authenticated writer saves the exact YAML and generated JSON; readers cannot write',async t=>{
   const root=await mkdtemp(path.join(tmpdir(),'admissions-writer-test-'));
   t.after(()=>rm(root,{recursive:true,force:true}));
   await cp(new URL('../data',import.meta.url),path.join(root,'data'),{recursive:true});
   await mkdir(path.join(root,'dist'),{recursive:true});
-  const password='test-only-password-2027';
+  const password='TestOnlyPassword2027';
   await configureWriter(root,'.writer',password);
   const credentials=await readWriterCredentials(root);
   assert.equal(credentials.username,'.writer');
@@ -62,13 +68,13 @@ test('authenticated writer saves the exact YAML and generated JSON; readers cann
 });
 
 test('writer sessions reject forged cookies, survive no credential rotation, and logout revokes access',async t=>{
-  const credentials=await (await import('../scripts/writer-auth.mjs')).makeWriterCredentials('writer','test-only-secure-password');
+  const credentials=await (await import('../scripts/writer-auth.mjs')).makeWriterCredentials('writer','TestOnlySecurePassword');
   let current=credentials;
   const server=createAdmissionsServer({credentialsProvider:async()=>current});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   t.after(()=>new Promise(resolve=>{server.closeAllConnections();server.close(resolve);}));
   const base=`http://127.0.0.1:${server.address().port}`;
-  const login=()=>fetch(base+'/writer/login',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:JSON.stringify({username:'writer',password:'test-only-secure-password'})});
+  const login=()=>fetch(base+'/writer/login',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:JSON.stringify({username:'writer',password:'TestOnlySecurePassword'})});
   const forged=await fetch(base+'/writer/record?key=x',{headers:{Cookie:'admissions_writer=writer'}});assert.equal(forged.status,401);
   const first=await login();const cookie=first.headers.get('set-cookie').split(';')[0];const {csrf}=await first.json();
   const logout=await fetch(base+'/writer/logout',{method:'POST',headers:{Origin:base,Cookie:cookie,'x-writer-csrf':csrf}});assert.equal(logout.status,200);
@@ -81,7 +87,7 @@ test('writer sessions reject forged cookies, survive no credential rotation, and
 });
 
 test('repeated incorrect passwords are rate limited',async t=>{
-  const credentials=await (await import('../scripts/writer-auth.mjs')).makeWriterCredentials('writer','test-only-secure-password');
+  const credentials=await (await import('../scripts/writer-auth.mjs')).makeWriterCredentials('writer','TestOnlySecurePassword');
   const server=createAdmissionsServer({credentialsProvider:async()=>credentials});
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   t.after(()=>new Promise(resolve=>{server.closeAllConnections();server.close(resolve);}));

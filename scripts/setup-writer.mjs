@@ -10,7 +10,7 @@ function secret(prompt){return new Promise((resolve,reject)=>{
 });}
 try{
   if(!process.stdin.isTTY)throw Error('Run writer:setup in your own interactive terminal. Passwords are never accepted as command-line arguments.');
-  const username=process.argv[2]||'writer';const password=await secret(`New password for ${username} (minimum 12 characters; input hidden): `);const confirmation=await secret('Repeat password (input hidden): ');
+  const username=process.argv[2]||'writer';const password=await secret(`New password for ${username} (6 or more letters/digits only; input hidden): `);const confirmation=await secret('Repeat password (input hidden): ');
   if(password!==confirmation)throw Error('Passwords did not match. Nothing saved.');
   await configureWriter(root,username,password);console.log(`Writer ${username} configured. Only a salted password hash is stored in the ignored .local-writer folder. Previous sessions are revoked on their next request. Do not share your password in chat.`);
 }catch(error){console.error(error.message);process.exitCode=1;}
