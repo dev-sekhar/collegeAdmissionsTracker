@@ -1,4 +1,4 @@
-import {catalogueRows,filterRows,intakeLabel,countryName} from './catalogue-model.js';
+import {catalogueRows,filterRows,intakeLabel,countryName,defaultQsLimit} from './catalogue-model.js';
 import {el,multiField,selectField,applicantContextPanel,evidenceLink,intakeYearField,qsLimitField} from './static-components.js';
 import {emptyApplicant,matchApplicantRoute} from './applicant-routes.js';
 import {groupUniversities,groupProgrammes,splitBrowse,programmeDialog,compactTimeline,disclosure,deadlineStageOptions,deadlineVerificationOptions,intakeReferenceNotice,qsRankingBrowser,action} from './browse-components.js';
@@ -7,12 +7,12 @@ const criteriaKey='admissions-atlas.criteria.v1';
 function browserStorage(){try{return globalThis.localStorage;}catch{return null;}}
 export function mountAdmissionsBrowser(catalogue,{clock=()=>new Date(),storage=browserStorage()}={}){
   const rows=catalogueRows(catalogue).filter(row=>row.admission.dataType==='real');const countries=[...new Set(rows.map(row=>row.country))];const order=['Singapore','Canada','United Kingdom','Australia','Netherlands','Germany'];countries.sort((a,b)=>order.indexOf(a)-order.indexOf(b));const subjects=[...new Set(rows.flatMap(row=>row.subjects))].sort();
-  const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:'',qsLimit:''});let filters=initial();let showRankings=false;let deadlineFilters={country:'',universityId:'',stage:'',verification:''};let deadlineFiltersOpen=false;let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
+  const initial=()=>({countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:'',qsLimit:defaultQsLimit});let filters=initial();let showRankings=false;let deadlineFilters={country:'',universityId:'',stage:'',verification:''};let deadlineFiltersOpen=false;let universityId='';let programId='';let selectedKey='';let routeId='';let applicant=emptyApplicant();let applicantDraft=emptyApplicant();
   try{
     const saved=JSON.parse(storage?.getItem(criteriaKey)??'null');
     const names=value=>Array.isArray(value)&&value.length<=100&&value.every(name=>typeof name==='string'&&name.trim().length>0&&name.length<=80);
     if(saved?.version===1&&names(saved.countries)&&names(saved.subjects)&&['','Bachelor’s','Master’s','PhD'].includes(saved.degree)&&typeof saved.intake==='string'&&(saved.intake===''||(/^[0-9]{4}(?:-(?:0[1-9]|1[0-2]|unknown))?$/u.test(saved.intake)&&Number(saved.intake.slice(0,4))>=2000&&Number(saved.intake.slice(0,4))<=2100))){
-      filters={countries:[...new Set(saved.countries.map(countryName))],subjects:[...new Set(saved.subjects.map(name=>name.trim()))],degree:saved.degree,intake:saved.intake.slice(0,4),qsLimit:typeof saved.qsLimit==='string'&&/^[1-9][0-9]*$/u.test(saved.qsLimit)&&Number(saved.qsLimit)<=1500?saved.qsLimit:''};
+      filters={countries:[...new Set(saved.countries.map(countryName))],subjects:[...new Set(saved.subjects.map(name=>name.trim()))],degree:saved.degree,intake:saved.intake.slice(0,4),qsLimit:saved.qsLimit===''?'':typeof saved.qsLimit==='string'&&/^[1-9][0-9]*$/u.test(saved.qsLimit)&&Number(saved.qsLimit)<=1500?saved.qsLimit:defaultQsLimit};
       for(const value of filters.countries)if(!countries.includes(value))countries.push(value);
       for(const value of filters.subjects)if(!subjects.includes(value))subjects.push(value);
       const savedDeadlines=saved.deadlineFilters;

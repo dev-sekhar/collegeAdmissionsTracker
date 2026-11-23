@@ -116,6 +116,7 @@ function validateRanking(ranking){
   else requireThat(ranking.rank===null,'qsRanking: unverified rank must be null');
 }
 export const rankingLabel=ranking=>`QS World ${ranking.edition} · ${ranking.status==='verified'?`#${ranking.rank}`:'Rank not verified'}`;
+export const defaultQsLimit='100';
 export function withinQsLimit(ranking,limit){if(!limit)return true;if(ranking?.status!=='verified'||!Number.isInteger(Number(limit))||Number(limit)<1)return false;const rank=String(ranking.rank).replace(/^=/u,'');const upper=Number(rank.includes('-')?rank.split('-')[1]:rank);return Number.isFinite(upper)&&upper<=Number(limit);}
 export function validateQsSnapshot(snapshot){
   keys(snapshot,['edition','maxRank','sourceUrl','checkedAt','universities'],'qsSnapshot');requireThat(snapshot.edition===2027&&snapshot.maxRank===100&&validDate(snapshot.checkedAt),'Invalid QS snapshot scope');requireThat(snapshot.sourceUrl==='https://www.topuniversities.com/student-info/choosing-university/worlds-top-100-universities','Invalid QS snapshot source');list(snapshot.universities,'qsSnapshot.universities');

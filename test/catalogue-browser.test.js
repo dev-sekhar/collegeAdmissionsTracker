@@ -22,9 +22,10 @@ class Element{
   querySelector(selector){return this.querySelectorAll(selector)[0]||null;}
 }
 const walk=node=>[node,...node.children.flatMap(walk)];
-const memoryStorage=()=>{const values=new Map();return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
+// Most journeys exercise an existing user's explicit Any-rank preference.
+const memoryStorage=({savedAllRanks=true}={})=>{const values=new Map();if(savedAllRanks)values.set('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:'',qsLimit:''}));return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
 function chooseCountries(f,values){const inputs=f.find('#country-filter').querySelectorAll('input');inputs.forEach(input=>{input.checked=values.includes(input.value);});inputs[0].events.change();}
-function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=null,inputCatalogue=catalogue}={}){
+function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=memoryStorage(),inputCatalogue=catalogue}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
   const brand=new Element('a');brand.className='brand';root.append(brand);const filterPanel=new Element('details');filterPanel.className='filter-panel';root.append(filterPanel);
   globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
@@ -123,7 +124,7 @@ test('filter changes cannot leave stale programmes/categories and reset restores
   const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));f.select('timeline-category','india-standard-12');
   f.select('intake-filter','2027');assert.equal(f.find('#timeline-category'),null);assert.equal(f.all('.university-card').length,8);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);
   f.select('intake-filter','2025');assert.deepEqual(f.all('dd').map(node=>node.textContent),['0','0']);
-  f.find('#reset-filters').events.click();assert.equal(f.all('.university-card').length,8);assert.equal(f.all('.compact-stage').length,0);assert.deepEqual(f.all('dd').map(node=>node.textContent),['8','31']);
+  f.find('#reset-filters').events.click();assert.equal(f.all('.university-card').length,2);assert.equal(f.all('.compact-stage').length,0);assert.deepEqual(f.all('dd').map(node=>node.textContent),['2','20']);
 });
 test('optional applicant form preserves matching and available-result instructions without hiding evidence',t=>{
   const f=fixture(t);f.click(b=>b.className==='university-card'&&b.textContent.includes('Nanyang'));f.click(b=>b.className==='programme-choice'&&b.textContent.includes('BSocSci'));
@@ -183,7 +184,7 @@ test('criteria survive a new browser mount while countries start collapsed and n
   assert.deepEqual(second.find('#subject-filter').querySelectorAll('input').filter(i=>i.checked).map(i=>i.value),['Economics']);
   assert.equal(second.find('#intake-filter').value,'2027');assert.equal(second.find('#degree-filter').value,'Bachelor’s');
   assert.ok(second.find('.pane-overview'));assert.ok(second.all('.university-country-group').every(group=>group.open===false));
-  second.find('#reset-filters').events.click();const third=fixture(t,{storage});assert.equal(third.find('#intake-filter').value,'');assert.deepEqual(third.all('dd').map(n=>n.textContent),['8','31']);
+  second.find('#reset-filters').events.click();const third=fixture(t,{storage});assert.equal(third.find('#intake-filter').value,'');assert.deepEqual(third.all('dd').map(n=>n.textContent),['2','20']);
 });
 
 test('saved custom criteria and all-destination selections survive restart without creating programme data',t=>{
@@ -194,7 +195,7 @@ test('saved custom criteria and all-destination selections survive restart witho
 
 test('corrupt, unavailable and quota-limited storage leave browsing usable',t=>{
   for(const storage of [{getItem:()=>'{bad',setItem(){}},{getItem:()=>{throw Error('blocked');},setItem:()=>{throw Error('quota');}},{getItem:()=>JSON.stringify({version:1,countries:'bad'}),setItem(){}}]){
-    const f=fixture(t,{storage});assert.deepEqual(f.all('dd').map(n=>n.textContent),['8','31']);assert.equal(f.find('.university-country-group').open,false);
+    const f=fixture(t,{storage});assert.deepEqual(f.all('dd').map(n=>n.textContent),['2','20']);assert.equal(f.find('.university-country-group').open,false);
   }
 });
 
@@ -301,5 +302,12 @@ test('saved QS rank limit filters university and deadline matches and previews t
   f.click(button=>button.className.includes('qs-preview-button'));assert.equal(f.all('.qs-ranking-row').length,102);assert.match(f.find('.qs-ranking-browser').textContent,/Complete global top 100/);assert.match(f.find('.qs-ranking-browser').textContent,/Purdue University/);assert.match(f.find('.qs-ranking-browser').textContent,/Not added yet/);assert.equal(f.find('.university-list'),null);
   f.select('qs-preview-limit','10');assert.ok(f.all('.qs-ranking-row').length>=10);assert.ok(f.all('.qs-ranking-row').every(row=>Number(row.children[0].textContent.slice(1))<=10));f.click(button=>button.textContent==='Back to programmes');assert.equal(f.find('#qs-limit').value,'10');assert.deepEqual(f.all('.university-card').map(card=>card.id),['university-sg-nus']);
   const next=fixture(t,{storage});assert.equal(next.find('#qs-limit').value,'10');next.select('qs-limit','500');next.click(button=>button.className.includes('qs-preview-button'));assert.match(next.find('.qs-ranking-browser').textContent,/not complete here/);next.find('.brand').events.click({preventDefault(){}});assert.ok(next.find('.university-list'));assert.equal(next.find('#qs-limit').value,'500');
-  next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'');assert.equal(next.all('.university-card').length,8);
+  next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'100');assert.equal(next.all('.university-card').length,2);
+});
+
+test('100 is an editable default rather than a fixed ranking cutoff',t=>{
+  const storage=memoryStorage({savedAllRanks:false});const f=fixture(t,{storage});assert.equal(f.find('#qs-limit').value,'100');assert.equal(f.all('.university-card').length,2);
+  f.select('qs-limit','500');assert.ok(f.all('.university-card').length>2);f.click(button=>button.className.includes('qs-preview-button'));assert.match(f.find('.qs-ranking-browser').textContent,/top 500 list is not complete/);
+  f.select('qs-preview-limit','');assert.match(f.find('.qs-ranking-browser').textContent,/No rank limit selected/);f.click(button=>button.textContent==='Back to programmes');assert.equal(f.all('.university-card').length,8);
+  const next=fixture(t,{storage});assert.equal(next.find('#qs-limit').value,'');assert.equal(next.all('.university-card').length,8);next.find('#reset-filters').events.click();assert.equal(next.find('#qs-limit').value,'100');
 });
