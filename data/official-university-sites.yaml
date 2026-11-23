@@ -1,0 +1,412 @@
+version: 1
+reviewedAt: 2026-11-23
+scope: Configured QS-ranked institutions; not a complete national directory.
+sites:
+  - name: Massachusetts Institute of Technology (MIT)
+    country: United States
+    city: Cambridge
+    url: https://www.mit.edu/
+  - name: Imperial College London
+    country: United Kingdom
+    city: London
+    url: https://www.imperial.ac.uk/
+  - name: Stanford University
+    country: United States
+    city: Stanford
+    url: https://www.stanford.edu/
+  - name: University of Oxford
+    country: United Kingdom
+    city: Oxford
+    url: https://www.ox.ac.uk/
+  - name: Harvard University
+    country: United States
+    city: Cambridge
+    url: https://www.harvard.edu/
+  - name: University of Cambridge
+    country: United Kingdom
+    city: Cambridge
+    url: https://www.cam.ac.uk/
+  - name: California Institute of Technology (Caltech)
+    country: United States
+    city: Pasadena
+    url: https://www.caltech.edu/
+  - name: ETH Zurich
+    country: Switzerland
+    city: Zürich
+    url: https://www.ethz.ch/
+  - name: UCL
+    country: United Kingdom
+    city: London
+    url: https://www.ucl.ac.uk/
+  - name: National University of Singapore (NUS)
+    country: Singapore
+    city: Singapore
+    url: https://www.nus.edu.sg/
+  - name: The University of Hong Kong
+    country: Hong Kong
+    city: Hong Kong
+    url: https://www.hku.hk/
+  - name: Nanyang Technological University, Singapore (NTU Singapore)
+    country: Singapore
+    city: Singapore
+    url: https://www.ntu.edu.sg/
+  - name: Peking University
+    country: China
+    city: Beijing
+    url: https://www.pku.edu.cn/
+  - name: Tsinghua University
+    country: China
+    city: Beijing
+    url: https://www.tsinghua.edu.cn/
+  - name: University of Pennsylvania
+    country: United States
+    city: Philadelphia
+    url: https://www.upenn.edu/
+  - name: Cornell University
+    country: United States
+    city: Ithaca
+    url: https://www.cornell.edu/
+  - name: Yale University
+    country: United States
+    city: New Haven
+    url: https://www.yale.edu/
+  - name: The Chinese University of Hong Kong (CUHK)
+    country: Hong Kong
+    city: Hong Kong
+    url: https://www.cuhk.edu.hk/
+  - name: The University of New South Wales (UNSW Sydney)
+    country: Australia
+    city: Sydney
+    url: https://www.unsw.edu.au/
+  - name: Johns Hopkins University
+    country: United States
+    city: Baltimore
+    url: https://www.jhu.edu/
+  - name: University of California, Berkeley (UCB)
+    country: United States
+    city: Berkeley
+    url: https://www.berkeley.edu/
+  - name: EPFL – École polytechnique fédérale de Lausanne
+    country: Switzerland
+    city: Lausanne
+    url: https://www.epfl.ch/
+  - name: The University of Melbourne
+    country: Australia
+    city: Melbourne
+    url: https://www.unimelb.edu.au/
+  - name: University of Chicago
+    country: United States
+    city: Chicago
+    url: https://www.uchicago.edu/
+  - name: Technical University of Munich
+    country: Germany
+    city: Munich
+    url: https://www.tum.de/
+  - name: Fudan University
+    country: China
+    city: Shanghai
+    url: https://www.fudan.edu.cn/
+  - name: Princeton University
+    country: United States
+    city: Princeton
+    url: https://www.princeton.edu/
+  - name: The University of Sydney
+    country: Australia
+    city: Sydney
+    url: https://www.sydney.edu.au/
+  - name: Australian National University (ANU)
+    country: Australia
+    city: Canberra
+    url: https://www.anu.edu.au/
+  - name: McGill University
+    country: Canada
+    city: Montreal
+    url: https://www.mcgill.ca/
+  - name: Monash University
+    country: Australia
+    city: Melbourne
+    url: https://www.monash.edu/
+  - name: University of Toronto
+    country: Canada
+    city: Toronto
+    url: https://www.utoronto.ca/
+  - name: The Hong Kong University of Science and Technology
+    country: Hong Kong
+    city: Hong Kong
+    url: https://www.hkust.edu.hk/
+  - name: Université PSL
+    country: France
+    city: Paris
+    url: https://www.psl.eu/
+  - name: The University of Edinburgh
+    country: United Kingdom
+    city: Edinburgh
+    url: https://www.ed.ac.uk/
+  - name: Shanghai Jiao Tong University
+    country: China
+    city: Shanghai
+    url: https://www.sjtu.edu.cn/
+  - name: King's College London
+    country: United Kingdom
+    city: London
+    url: https://www.kcl.ac.uk/
+  - name: Seoul National University
+    country: South Korea
+    city: Seoul
+    url: https://www.snu.ac.kr/
+  - name: The University of Tokyo
+    country: Japan
+    city: Tokyo
+    url: https://www.u-tokyo.ac.jp/
+  - name: The University of Manchester
+    country: United Kingdom
+    city: Manchester
+    url: https://www.manchester.ac.uk/
+  - name: The University of Queensland
+    country: Australia
+    city: Brisbane
+    url: https://www.uq.edu.au/
+  - name: Yonsei University
+    country: South Korea
+    city: Seoul
+    url: https://www.yonsei.ac.kr/
+  - name: Columbia University
+    country: United States
+    city: New York City
+    url: https://www.columbia.edu/
+  - name: Institut Polytechnique de Paris
+    country: France
+    city: Paris
+    url: https://www.ip-paris.fr/
+  - name: Northwestern University
+    country: United States
+    city: Evanston
+    url: https://www.northwestern.edu/
+  - name: University of British Columbia
+    country: Canada
+    city: Vancouver
+    url: https://www.ubc.ca/
+  - name: Zhejiang University
+    country: China
+    city: Hangzhou
+    url: https://www.zju.edu.cn/
+  - name: Delft University of Technology
+    country: Netherlands
+    city: Delft
+    url: https://www.tudelft.nl/
+  - name: University of California, Los Angeles (UCLA)
+    country: United States
+    city: Los Angeles
+    url: https://www.ucla.edu/
+  - name: The Hong Kong Polytechnic University
+    country: Hong Kong
+    city: Hong Kong
+    url: https://www.polyu.edu.hk/
+  - name: University of Michigan-Ann Arbor
+    country: United States
+    city: Ann Arbor
+    url: https://www.umich.edu/
+  - name: City University of Hong Kong (CityUHK)
+    country: Hong Kong
+    city: Kowloon,
+    url: https://www.cityu.edu.hk/
+  - name: Korea University
+    country: South Korea
+    city: Seoul
+    url: https://www.korea.edu/
+  - name: National Taiwan University (NTU)
+    country: Taiwan
+    city: Taipei
+    url: https://www.ntu.edu.tw/
+  - name: Carnegie Mellon University
+    country: United States
+    city: Pittsburgh
+    url: https://www.cmu.edu/
+  - name: Universiti Malaya (UM)
+    country: Malaysia
+    city: Kuala Lumpur
+    url: https://www.um.edu.my/
+  - name: University of Bristol
+    country: United Kingdom
+    city: Bristol
+    url: https://www.bristol.ac.uk/
+  - name: New York University (NYU)
+    country: United States
+    city: New York City
+    url: https://www.nyu.edu/
+  - name: KU Leuven
+    country: Belgium
+    city: Leuven
+    url: https://www.kuleuven.be/
+  - name: University of Amsterdam
+    country: Netherlands
+    city: Amsterdam
+    url: https://www.uva.nl/
+  - name: Ludwig-Maximilians-Universität München
+    country: Germany
+    city: Munich
+    url: https://www.lmu.de/
+  - name: The London School of Economics and Political Science (LSE)
+    country: United Kingdom
+    city: London
+    url: https://www.lse.ac.uk/
+  - name: KFUPM
+    country: Saudi Arabia
+    city: Dhahran
+    url: https://www.kfupm.edu.sa/
+  - name: Kyoto University
+    country: Japan
+    city: Kyoto
+    url: https://www.kyoto-u.ac.jp/
+  - name: KAIST
+    country: South Korea
+    city: Daejeon
+    url: https://www.kaist.ac.kr/
+  - name: Brown University
+    country: United States
+    city: Providence
+    url: https://www.brown.edu/
+  - name: The University of Auckland
+    country: New Zealand
+    city: Auckland
+    url: https://www.auckland.ac.nz/
+  - name: University of Warwick
+    country: United Kingdom
+    city: England
+    url: https://www.warwick.ac.uk/
+  - name: University of Birmingham
+    country: United Kingdom
+    city: Birmingham
+    url: https://www.birmingham.ac.uk/
+  - name: Duke University
+    country: United States
+    city: Durham
+    url: https://www.duke.edu/
+  - name: Lund University
+    country: Sweden
+    city: Lund
+    url: https://www.lu.se/
+  - name: University of Texas at Austin
+    country: United States
+    city: Austin
+    url: https://www.utexas.edu/
+  - name: Sorbonne University
+    country: France
+    city: Paris
+    url: https://www.sorbonne-universite.fr/
+  - name: University of Illinois Urbana-Champaign
+    country: United States
+    city: Champaign
+    url: https://www.illinois.edu/
+  - name: Trinity College Dublin, The University of Dublin
+    country: Ireland
+    city: Dublin
+    url: https://www.tcd.ie/
+  - name: Université Paris-Saclay
+    country: France
+    city: Paris
+    url: https://www.universite-paris-saclay.fr/
+  - name: The University of Western Australia
+    country: Australia
+    city: Perth
+    url: https://www.uwa.edu.au/
+  - name: University of Leeds
+    country: United Kingdom
+    city: Leeds
+    url: https://www.leeds.ac.uk/
+  - name: Adelaide University
+    country: Australia
+    city: Adelaide
+    url: https://www.adelaide.edu.au/
+  - name: University of Glasgow
+    country: United Kingdom
+    city: Glasgow
+    url: https://www.gla.ac.uk/
+  - name: University of California, San Diego (UCSD)
+    country: United States
+    city: San Diego
+    url: https://www.ucsd.edu/
+  - name: KTH Royal Institute of Technology
+    country: Sweden
+    city: Stockholm
+    url: https://www.kth.se/
+  - name: The University of Sheffield
+    country: United Kingdom
+    city: Sheffield,
+    url: https://www.sheffield.ac.uk/
+  - name: Universidad de Buenos Aires (UBA)
+    country: Argentina
+    city: Ciudad Autónoma de Bs. A.
+    url: https://www.uba.ar/
+  - name: Durham University
+    country: United Kingdom
+    city: Durham
+    url: https://www.durham.ac.uk/
+  - name: Universität Heidelberg
+    country: Germany
+    city: 69117 Heidelberg,
+    url: https://www.uni-heidelberg.de/
+  - name: Politecnico di Milano
+    country: Italy
+    city: Milan
+    url: https://www.polimi.it/
+  - name: The University of Technology Sydney (UTS)
+    country: Australia
+    city: Sydney
+    url: https://www.uts.edu.au/
+  - name: Uppsala University
+    country: Sweden
+    city: Uppsala
+    url: https://www.uu.se/
+  - name: Nanjing University
+    country: China
+    city: Nanjing
+    url: https://www.nju.edu.cn/
+  - name: University of Copenhagen
+    country: Denmark
+    city: Copenhagen
+    url: https://www.ku.dk/
+  - name: Pennsylvania State University
+    country: United States
+    city: University Park
+    url: https://www.psu.edu/
+  - name: University of Washington
+    country: United States
+    city: Seattle
+    url: https://www.washington.edu/
+  - name: Boston University
+    country: United States
+    city: Boston
+    url: https://www.bu.edu/
+  - name: The University of Osaka
+    country: Japan
+    city: Osaka City
+    url: https://www.osaka-u.ac.jp/
+  - name: University of Alberta
+    country: Canada
+    city: Edmonton,
+    url: https://www.ualberta.ca/
+  - name: Institute of Science Tokyo
+    country: Japan
+    city: Tokyo
+    url: https://www.isct.ac.jp/
+  - name: University of Nottingham
+    country: United Kingdom
+    city: Nottingham
+    url: https://www.nottingham.ac.uk/
+  - name: Freie Universitaet Berlin
+    country: Germany
+    city: Berlin
+    url: https://www.fu-berlin.de/
+  - name: University of Zurich
+    country: Switzerland
+    city: Zürich
+    url: https://www.uzh.ch/
+  - name: Purdue University
+    country: United States
+    city: West Lafayette
+    url: https://www.purdue.edu/
+  - name: University College Dublin
+    country: Ireland
+    city: Dublin
+    url: https://www.ucd.ie/
