@@ -1,5 +1,5 @@
 import {el,pill,selectField,evidenceLink,admissionRequirementsPanel,qsLimitField,textField} from './static-components.js';
-import {deadlineLabel,intakeLabel,statusLabels,stageTypes,optionalStageTypes} from './catalogue-model.js';
+import {deadlineLabel,intakeLabel,statusLabels,stageTypes,optionalStageTypes,withinQsLimit} from './catalogue-model.js';
 import {upcomingActivities} from './upcoming-deadlines.js';
 export function action(label,onClick,className='text-button'){const button=el('button',className,label);button.type='button';button.addEventListener('click',onClick);return button;}
 export function disclosure(label,...content){const details=el('details','supporting-details');details.append(el('summary','',label),...content);return details;}
@@ -27,23 +27,43 @@ export function qsRankingBrowser(snapshot,universities,limit,onLimit,onBack,{onC
   for(const entry of entries){const covered=matchingRankedUniversity(entry,universities);const row=el('tr','qs-ranking-row');const control=el('td');const active=!!collectionState.busy&&entry.country===collectionState.country;const button=action(active?'Fetching '+entry.country+'…':'Fetch fresh country data',()=>onCountry(entry.country),'small-button qs-country-action');button.setAttribute('aria-label',`Fetch fresh university data for ${entry.country}`);button.disabled=!!collectionState.busy;button.setAttribute('aria-busy',String(active));if(collectionState.busy&&!active)button.title='Not started. '+collectionState.country+' is being collected; wait for it to finish.';control.append(button);row.append(el('td','',`#${entry.rank.replace('=','')}`),el('td','',entry.name),el('td','',entry.country),el('td','',entry.city),el('td','',covered?'Available':'Not added yet'),control);body.append(row);}table.append(body);const scroll=el('div','qs-table-scroll');scroll.append(table);panel.append(scroll,el('p','data-caption',`QS World ${snapshot.edition} · checked ${snapshot.checkedAt}`),evidenceLink(snapshot.sourceUrl,'Source: QS top 100'),evidenceLink('https://www.topuniversities.com/world-university-rankings','Full QS ranking'));return panel;
 }
 function rankPosition(ranking){const value=ranking?.status==='verified'?Number.parseInt(String(ranking.rank).replace(/^=/u,''),10):NaN;return Number.isFinite(value)&&value>0?value:Infinity;}
+export function collectedUniversityGroups(catalogue,filters){
+  const norm=name=>name.toLowerCase().replace(/[^a-z0-9]/gu,'');const groups=new Map();
+  for(const collection of catalogue.countryCollections||[])for(const saved of collection.universities){
+    const record={...saved,country:collection.country};
+    if(filters.countries.length&&!filters.countries.includes(record.country))continue;
+    if(catalogue.universities.some(item=>item.country===record.country&&norm(item.name)===norm(record.name)))continue;
+    const ranked=catalogue.qsRankings?.universities.find(item=>item.country===record.country&&norm(item.name)===norm(record.name));
+    const qsRanking=ranked?{rank:ranked.rank,status:'verified',edition:catalogue.qsRankings.edition,institution:record.name}:undefined;
+    if(!withinQsLimit(qsRanking,filters.qsLimit))continue;
+    groups.set(record.id,{...record,universityId:record.id,universityName:record.name,qsRanking,universityOnly:true,rows:[]});
+  }
+  return [...groups.values()];
+}
+export function browseUniversityGroups(catalogue,matches,filters){return [...groupUniversities(matches),...collectedUniversityGroups(catalogue,filters)].sort((a,b)=>a.country.localeCompare(b.country)||rankPosition(a.qsRanking)-rankPosition(b.qsRanking)||a.universityName.localeCompare(b.universityName));}
 export function groupUniversities(rows){const groups=new Map();for(const row of rows){if(!groups.has(row.universityId))groups.set(row.universityId,{...row,rows:[]});groups.get(row.universityId).rows.push(row);}return [...groups.values()].sort((a,b)=>a.country.localeCompare(b.country)||rankPosition(a.qsRanking)-rankPosition(b.qsRanking)||a.universityName.localeCompare(b.universityName));}
 export function groupProgrammes(rows){const groups=new Map();for(const row of rows){if(!groups.has(row.programId))groups.set(row.programId,{...row,intakes:[]});groups.get(row.programId).intakes.push(row);}return [...groups.values()].sort((a,b)=>a.programName.localeCompare(b.programName));}
 export function universityCard(university,selected,onSelect){
   const button=action('',onSelect,`university-card${selected?' selected':''}`);button.id=`university-${university.universityId}`;button.setAttribute('aria-expanded',String(selected));button.setAttribute('aria-controls','programmes-pane');
   const name=el('strong','university-name',university.universityName);name.title=university.universityName;const ranking=university.qsRanking;const verified=ranking?.status==='verified';
   const displayedRank=String(ranking?.rank??'').replace(/^=/u,'');const rank=el('span','university-rank',verified?`#${displayedRank}`:'—');const description=ranking?`${ranking.institution} · QS World ${ranking.edition} · ${verified?`Rank ${displayedRank}`:'Rank unverified'}`:'Rank unavailable';rank.setAttribute('aria-label',description);rank.title=description;button.append(name,rank);
-  if(university.admission.dataType!=='real')button.append(el('span','example-label','Fictional example'));return button;
+  if(university.admission&&university.admission.dataType!=='real')button.append(el('span','example-label','Fictional example'));return button;
 }
 export function universityList(universities,selectedId,onUniversity,countryOpen=new Map(),onCountryToggle=()=>{}){
   const list=el('div','university-list');const countries=new Map();for(const university of universities){if(!countries.has(university.country))countries.set(university.country,[]);countries.get(university.country).push(university);}
   let index=0;for(const [country,items] of countries){const section=el('details','university-country-group');section.open=countryOpen.get(country)===true;section.setAttribute('data-country',country);const summary=el('summary','country-toggle');const heading=el('span','country-heading',country);heading.id=`university-country-${index++}`;summary.id=`${heading.id}-toggle`;section.setAttribute('aria-labelledby',heading.id);summary.append(heading);const cards=el('div','country-universities');for(const university of items)cards.append(universityCard(university,university.universityId===selectedId,()=>onUniversity(university)));section.append(summary,cards);section.addEventListener('toggle',()=>{if(section.isConnected!==false)onCountryToggle(country,section.open,summary.id);});list.append(section);}return list;
 }
 export function programmeCallout(university,onSelect,onClose){
+  if(university.universityOnly)return collectedUniversityDetails(university,onClose);
   const section=el('section','programme-callout');section.id='programme-callout';section.setAttribute('aria-labelledby','programme-title');const heading=el('div','section-top');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;heading.append(title,action('All universities',onClose,'text-button mobile-back'));section.append(heading);const list=el('div','programme-grid');
   for(const programme of groupProgrammes(university.rows)){const button=action('',()=>onSelect(programme),'programme-choice');button.id=`programme-${programme.programId}`;button.setAttribute('aria-haspopup','dialog');const languageBadge=programmeLanguageBadge(programme);if(languageBadge)button.classList.add('non-english-programme');const main=el('span','programme-choice-main');main.append(el('strong','',programme.programName),el('span','programme-subjects',programme.subjects.join(' · ')));if(languageBadge)main.append(languageBadge);button.append(main,el('span','programme-intakes',programme.intakeReference?String(programme.intakeReference.requestedYear)+' · Tentative':[...new Set(programme.intakes.map(row=>String(row.admission.intake.year)))].join(' · ')));list.append(button);}section.append(list);return section;
 }
 export const deadlineStageOptions=[['','All stages'],...[...stageTypes,...optionalStageTypes].filter(([type])=>type!=='opening')];
+export function collectedUniversityDetails(university,onClose){
+  const section=el('section','programme-callout');const title=el('h2','',university.universityName);title.id='programme-title';title.tabIndex=-1;
+  section.append(title,action('All universities',onClose),el('p','data-caption','University-level data only. Subjects, degree, intake and deadlines are not yet extracted; programme filters cannot be verified.'),el('p','data-caption',`${university.city} · Checked ${university.checkedAt}`),evidenceLink(university.website,'Official university website'));
+  for(const link of university.admissionLinks)section.append(evidenceLink(link.url,link.label));return section;
+}
 export const deadlineVerificationOptions=[['','All statuses'],['verified','Verified'],['tentative','Tentative'],['needs-review','Needs review'],['manual-unverified','Manual · unverified']];
 export function deadlineFilterControls(rows,filters,onChange=()=>{},expanded=false){
   const panel=el('details','deadline-filter-panel');panel.open=expanded;const count=[filters.country,filters.universityId,filters.stage,filters.verification].filter(Boolean).length;
