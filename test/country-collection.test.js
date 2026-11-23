@@ -35,3 +35,9 @@ test('country collection requires writer authentication, correct origin and CSRF
   assert.equal((await post('/writer/collect-country',{country:'Denmark'},{Cookie:cookie})).status,403);assert.equal((await post('/writer/collect-country',{country:'Denmark',url:'https://127.0.0.1/'},headers)).status,400);assert.equal(requests,0);
   const response=await post('/writer/collect-country',{country:'Denmark'},headers);assert.equal(response.status,200);assert.equal((await response.json()).collection.freshCount,1);assert.equal(requests,1);assert.equal((await fetch(base+'/data/country-universities/denmark.yaml')).status,404);
 });
+
+test('US collection visits every configured US target and no other country sites',async t=>{
+  const root=await workspace(t);const {parse}=await import('yaml');const configuration=parse(await readFile(path.join(root,'data/official-university-sites.yaml'),'utf8'));const targets=configuration.sites.filter(site=>site.country==='United States');const previousDenmark=await readFile(path.join(root,'data/country-universities/denmark.yaml'),'utf8');const requested=[];
+  const collector=createCountryCollector(root,{fetchPage:async url=>{requested.push(url);const seed=targets.find(site=>site.url===url);assert.ok(seed,'Only a US official source is requested');return {url,html:`<title>${seed.name}</title><body>${seed.name}</body>`};}});
+  const result=await collector.collect('United States','test-writer');assert.equal(result.collection.attempted,26);assert.equal(result.collection.freshCount,26);assert.equal(result.collection.failures.length,0);assert.deepEqual(new Set(requested),new Set(targets.map(site=>site.url)));assert.ok(result.collection.universities.every(university=>university.country==='United States'));assert.equal(await readFile(path.join(root,'data/country-universities/denmark.yaml'),'utf8'),previousDenmark);
+});
