@@ -190,7 +190,7 @@ test('criteria survive a new browser mount while countries start collapsed and n
 test('saved custom criteria and all-destination selections survive restart without creating programme data',t=>{
   const storage=memoryStorage();storage.setItem('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:[],subjects:['My subject'],degree:'',intake:''}));
   const f=fixture(t,{storage});assert.equal(f.find('#degree-filter').value,'');assert.match(f.find('#filter-summary').textContent,/All destinations/);
-  assert.ok(f.find('#subject-filter').querySelectorAll('input').some(i=>i.value==='My subject'&&i.checked));assert.equal(f.all('.university-card').length,0);
+  assert.ok(f.find('#subject-filter').querySelectorAll('input').some(i=>i.value==='My subject'&&i.checked));assert.ok(f.all('.university-card').every(card=>card.id.startsWith('university-web-')));assert.match(f.find('#workspace').textContent,/subject, degree and intake matches are not yet verified/);
 });
 
 test('corrupt, unavailable and quota-limited storage leave browsing usable',t=>{
@@ -322,11 +322,11 @@ test('QS popup shows countries and closes by Escape or button without replacing 
 
 test('country action calls authenticated fresh collection and displays saved results without inventing admissions',async t=>{
   const calls=[];const inputCatalogue=structuredClone(catalogue);const original=JSON.stringify(catalogue.programs);
-  const collection={country:'United States',attemptedAt:'2026-11-23T04:00:00Z',startedAt:'2026-11-23T04:00:00Z',freshCount:1,attempted:1,scope:'Configured official sites only.',failures:[],universities:[{id:'web-1234567890abcdef',name:'MIT',city:'Cambridge',website:'https://www.mit.edu/',checkedAt:'2026-11-23T04:00:00Z',admissionLinks:[]}]};
+  const collection={country:'United States',attemptedAt:'2026-11-23T04:00:00Z',startedAt:'2026-11-23T04:00:00Z',freshCount:1,attempted:1,scope:'Configured official sites only.',failures:[],universities:[{id:'web-1234567890abcdef',name:'Massachusetts Institute of Technology (MIT)',city:'Cambridge',website:'https://www.mit.edu/',checkedAt:'2026-11-23T04:00:00Z',admissionLinks:[]}]};
   const fetcher=async(url,options)=>{calls.push([url,options]);return {ok:true,json:async()=>url==='/writer/session'?{role:'writer',csrf:'test-csrf'}:{collection,relativeFile:'data/country-universities/united-states.yaml'}};};
   const f=fixture(t,{inputCatalogue,fetcher});f.select('qs-limit','100');f.click(button=>button.className.includes('qs-preview-button'));
   await f.click(button=>button.getAttribute('aria-label')==='Fetch fresh university data for United States');assert.equal(calls[1][0],'/writer/collect-country');assert.deepEqual(JSON.parse(calls[1][1].body),{country:'United States'});assert.equal(calls[1][1].headers['X-Writer-CSRF'],'test-csrf');assert.match(f.find('.collection-status').textContent,/saved 1 fresh/);assert.match(f.find('.country-data-university').textContent,/programmes and deadlines not extracted/);assert.equal(inputCatalogue.countryCollections.find(item=>item.country==='United States').freshCount,1);
-  f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('#qs-limit').value,'100');assert.deepEqual(f.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore']);assert.equal(JSON.stringify(catalogue.programs),original);
+  f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('#qs-limit').value,'100');assert.deepEqual(f.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore','United States']);assert.ok(f.find('#university-web-1234567890abcdef'));assert.equal(JSON.stringify(catalogue.programs),original);
 });
 
 test('reader is prompted for writer sign-in and unconfigured setup is explained',async t=>{
@@ -342,4 +342,19 @@ test('a US request marks only US rows busy and never starts another country requ
   for(const row of f.all('.qs-ranking-row')){const button=row.querySelector('button');const active=row.children[2].textContent==='United States';assert.equal(button.getAttribute('aria-busy'),String(active));assert.equal(button.disabled,true);if(active)assert.match(button.textContent,/Fetching United States/);else{assert.doesNotMatch(button.textContent,/Fetching/);assert.match(button.title,/Not started/);}}
   await f.click(button=>button.getAttribute('aria-label')==='Fetch fresh university data for Singapore');assert.deepEqual(posts,[{country:'United States'}]);
   release({ok:true,json:async()=>({relativeFile:'data/country-universities/united-states.yaml',collection:{country:'United States',freshCount:0,attempted:26,universities:[],failures:[],scope:'Configured official sites only.',startedAt:'2026-11-23T05:00:00Z'}})});await run;assert.ok(f.all('.qs-country-action').every(button=>button.getAttribute('aria-busy')==='false'&&!button.disabled));
+});
+
+
+test('saved US universities enter destination browsing, QS filtering and detail panes without fake programmes',t=>{
+  const storage=memoryStorage();const f=fixture(t,{storage});
+  const us=catalogue.countryCollections.find(item=>item.country==='United States');assert.ok(us?.universities.length);
+  assert.ok(f.find('#country-filter').querySelectorAll('input').some(input=>input.value==='United States'));
+  chooseCountries(f,['United States']);assert.equal(f.all('.university-card').length,us.universities.length);
+  assert.deepEqual(f.all('dd').map(node=>node.textContent),[String(us.universities.length),'0']);
+  f.click(button=>button.id==='university-'+us.universities[0].id);
+  assert.match(f.find('.programme-callout').textContent,/University-level data only/);
+  assert.equal(f.all('.programme-choice').length,0);assert.equal(f.all('.upcoming-item').length,0);
+  f.select('qs-limit','10');assert.ok(f.all('.university-card').length>0);assert.ok(f.all('.university-rank').every(node=>Number(node.textContent.slice(1))<=10));
+  chooseCountries(f,['Singapore']);assert.ok(f.all('.university-card').every(node=>!node.id.includes('web-')));
+  chooseCountries(f,['United States']);const next=fixture(t,{storage});assert.ok(next.all('.university-card').length>0);
 });
