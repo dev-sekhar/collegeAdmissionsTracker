@@ -12352,6 +12352,563 @@
         }
       ],
       "failures": []
+    },
+    {
+      "country": "United States",
+      "attemptedAt": "2026-11-23T11:12:51.820Z",
+      "startedAt": "2026-11-23T11:12:49.478Z",
+      "collectedBy": "codex-retry",
+      "scope": "Retry of six previously failed US official sites only; 20 previously saved records preserved unchanged. University identity and admission links only.",
+      "attempted": 6,
+      "freshCount": 0,
+      "universities": [
+        {
+          "id": "web-1d448c749458c0f2",
+          "name": "Boston University",
+          "country": "United States",
+          "city": "Boston",
+          "website": "https://www.bu.edu/",
+          "checkedAt": "2026-11-23T05:26:25.582Z",
+          "pageTitle": "Homepage | Boston University",
+          "contentHash": "8172169d9452c4ba18bc55059d10dd53cdfc0c6ceb2e97f25b4b699591ed9a19",
+          "admissionLinks": [
+            {
+              "label": "Admissions",
+              "url": "https://www.bu.edu/admissions-overview/"
+            },
+            {
+              "label": "Undergraduate",
+              "url": "https://www.bu.edu/admissions"
+            },
+            {
+              "label": "Degree Programs",
+              "url": "https://www.bu.edu/academics/degree-programs/"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-eca15aea970bbba2",
+          "name": "Brown University",
+          "country": "United States",
+          "city": "Providence",
+          "website": "https://www.brown.edu/",
+          "checkedAt": "2026-11-23T05:26:21.666Z",
+          "pageTitle": "Brown University",
+          "contentHash": "20351f1527f891b6023d35ba65ccc0fab8a3a13016f57b11003e65758ebd963a",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate",
+              "url": "https://www.brown.edu/academics/undergraduate"
+            },
+            {
+              "label": "Non-Degree Programs",
+              "url": "https://www.brown.edu/academics/non-degree"
+            },
+            {
+              "label": "Admission & Aid",
+              "url": "https://www.brown.edu/admission"
+            },
+            {
+              "label": "Graduate Admission",
+              "url": "https://www.brown.edu/admission/graduate"
+            },
+            {
+              "label": "Undergraduate Programs",
+              "url": "https://www.brown.edu/undergraduate_concentrations"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-650e3497d7eda9f2",
+          "name": "California Institute of Technology (Caltech)",
+          "country": "United States",
+          "city": "Pasadena",
+          "website": "https://www.caltech.edu/",
+          "checkedAt": "2026-11-23T05:26:17.451Z",
+          "pageTitle": "Home - www.caltech.edu",
+          "contentHash": "7d41d19311b10f938f69aa0d8be8ef0afd02e6fd836fa82a6f04493caebf1764",
+          "admissionLinks": [
+            {
+              "label": "Admissions & Aid",
+              "url": "https://www.caltech.edu/admissions-aid"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-e81e3203eaee4086",
+          "name": "Carnegie Mellon University",
+          "country": "United States",
+          "city": "Pittsburgh",
+          "website": "https://www.cmu.edu/",
+          "checkedAt": "2026-11-23T05:26:22.661Z",
+          "pageTitle": "Carnegie Mellon University | CMU",
+          "contentHash": "1c42e3011ee3393c0d4789e0a1762e7e407527a993e4f6b9b2c9043b9a3ddeb5",
+          "admissionLinks": [
+            {
+              "label": "Majors & Programs",
+              "url": "https://www.cmu.edu/admission/majors-programs"
+            },
+            {
+              "label": "Graduate Programs",
+              "url": "https://www.cmu.edu/graduate/prospective/index.html"
+            },
+            {
+              "label": "Interdisciplinary Programs",
+              "url": "https://www.cmu.edu/academics/interdisciplinary-programs"
+            },
+            {
+              "label": "Pre-College Programs",
+              "url": "https://www.cmu.edu/pre-college/"
+            },
+            {
+              "label": "Admission at CMU",
+              "url": "https://www.cmu.edu/student-admission"
+            },
+            {
+              "label": "Undergraduate Admission",
+              "url": "https://www.cmu.edu/admission/"
+            },
+            {
+              "label": "Undergraduate Research",
+              "url": "https://www.cmu.edu/uro/"
+            },
+            {
+              "label": "Undergraduate Admissions",
+              "url": "https://www.cmu.edu/admission/admission"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-89ae7f8fdbaec211",
+          "name": "Cornell University",
+          "country": "United States",
+          "city": "Ithaca",
+          "website": "https://www.cornell.edu/",
+          "checkedAt": "2026-11-23T05:26:17.909Z",
+          "pageTitle": "Cornell University",
+          "contentHash": "296b051e52db7a30722cc1e24985e09e6e957ff66c54e8d595fd6fb34d181601",
+          "admissionLinks": [
+            {
+              "label": "Admissions",
+              "url": "https://www.cornell.edu/admissions/"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-2429e14b00550f86",
+          "name": "Duke University",
+          "country": "United States",
+          "city": "Durham",
+          "website": "https://www.duke.edu/",
+          "checkedAt": "2026-11-23T05:26:24.362Z",
+          "pageTitle": "Duke University - Fueled by creativity, informed by scholarship",
+          "contentHash": "c8b16c709e86ed11c1125ec20f5e5e72728cb4b097a36a3ca9eed5a64ce47988",
+          "admissionLinks": [
+            {
+              "label": "Admissions",
+              "url": "https://www.duke.edu/admissions/"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-a0479b40bc2f32d4",
+          "name": "Harvard University",
+          "country": "United States",
+          "city": "Cambridge",
+          "website": "https://www.harvard.edu/",
+          "checkedAt": "2026-11-23T05:26:17.012Z",
+          "pageTitle": "Harvard University",
+          "contentHash": "3a37529d14931bbd96a943a02174f59326797ba9349ddc8e56d5974c0b451818",
+          "admissionLinks": [
+            {
+              "label": "Explore Harvard's degree programs",
+              "url": "https://www.harvard.edu//programs/"
+            },
+            {
+              "label": "Undergraduate Degrees",
+              "url": "https://www.harvard.edu//programs/?degree_levels=undergraduate"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-de0515fbcc4661d1",
+          "name": "Massachusetts Institute of Technology (MIT)",
+          "country": "United States",
+          "city": "Cambridge",
+          "website": "https://www.mit.edu/",
+          "checkedAt": "2026-11-23T05:26:16.927Z",
+          "pageTitle": "MIT - Massachusetts Institute of Technology",
+          "contentHash": "86ee94b1a7790cec9a345b0cf864fe4bd25d2e992876e8417420691b3896de05",
+          "admissionLinks": [
+            {
+              "label": "Admissions + Aid",
+              "url": "https://www.mit.edu/admissions-aid"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-83edc460d66aad7e",
+          "name": "Northwestern University",
+          "country": "United States",
+          "city": "Evanston",
+          "website": "https://www.northwestern.edu/",
+          "checkedAt": "2026-11-23T05:26:21.134Z",
+          "pageTitle": "Northwestern University",
+          "contentHash": "f6216500661701c535f8a450ba75493ef9723b4969a39a1ab094c028b37edb7c",
+          "admissionLinks": [
+            {
+              "label": "Graduate Degree Programs",
+              "url": "https://www.northwestern.edu/academics/graduate-a-to-z.html"
+            },
+            {
+              "label": "Continuing & Professional Programs",
+              "url": "https://www.northwestern.edu/academics/professional-studies-a-to-z.html"
+            },
+            {
+              "label": "Pre-Collegiate Programs",
+              "url": "https://www.northwestern.edu/academics/pre-collegiate-programs.html"
+            },
+            {
+              "label": "Admissions",
+              "url": "https://www.northwestern.edu/admissions/index.html"
+            },
+            {
+              "label": "Graduate Admissions",
+              "url": "https://www.northwestern.edu/admissions/graduate-admissions.html"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-ad948fc5c5db7a71",
+          "name": "Pennsylvania State University",
+          "country": "United States",
+          "city": "University Park",
+          "website": "https://www.psu.edu/",
+          "checkedAt": "2026-11-23T05:26:24.122Z",
+          "pageTitle": "The Pennsylvania State University | Penn State",
+          "contentHash": "6ed0de84edc7b998c79b17a5c6672c6dc0b665be19e8a544dcc98b95b2234950",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate Studies",
+              "url": "https://www.psu.edu/academics/undergraduate"
+            },
+            {
+              "label": "Honors Programs",
+              "url": "https://www.psu.edu/academics/undergraduate/honors-programs"
+            },
+            {
+              "label": "Admissions",
+              "url": "https://www.psu.edu/admission"
+            },
+            {
+              "label": "Undergraduate Campuses",
+              "url": "https://www.psu.edu/admission/undergraduate/explore/campuses"
+            },
+            {
+              "label": "Undergraduate",
+              "url": "https://www.psu.edu/admission/undergraduate"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-ea26720d7cfe0b37",
+          "name": "Purdue University",
+          "country": "United States",
+          "city": "West Lafayette",
+          "website": "https://www.purdue.edu/",
+          "checkedAt": "2026-11-23T05:26:26.460Z",
+          "pageTitle": "Purdue University",
+          "contentHash": "339ab157dcb8a4d1c77b08bc685795d722ac21a9f8c02987ba251255d810ea0b",
+          "admissionLinks": [
+            {
+              "label": "Online Programs",
+              "url": "https://www.purdue.edu/online/programs-of-study/"
+            },
+            {
+              "label": "Graduate Programs",
+              "url": "https://www.purdue.edu/academics/ogsps/academics/graduate-degree-programs.html"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-2026d86264b4e5ac",
+          "name": "Stanford University",
+          "country": "United States",
+          "city": "Stanford",
+          "website": "https://www.stanford.edu/",
+          "checkedAt": "2026-11-23T05:26:17.202Z",
+          "pageTitle": "Stanford University",
+          "contentHash": "30579ae3bbff46ed3f8e6ba1a6465b389561d9d110419682a6855c8e38a3cb91",
+          "admissionLinks": [
+            {
+              "label": "Admissions & Aid",
+              "url": "https://www.stanford.edu/admissions-aid"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-c51a7e96c4162248",
+          "name": "University of California, Berkeley (UCB)",
+          "country": "United States",
+          "city": "Berkeley",
+          "website": "https://www.berkeley.edu/",
+          "checkedAt": "2026-11-23T05:26:18.434Z",
+          "pageTitle": "University of California, Berkeley: Home",
+          "contentHash": "69d192ff644a27b2d00ab16dea556e90efdf34296a4d999c9334cc35f3309485",
+          "admissionLinks": [
+            {
+              "label": "Admissions Overview",
+              "url": "https://www.berkeley.edu/admissions/"
+            },
+            {
+              "label": "Academic departments &#038; programs",
+              "url": "https://www.berkeley.edu/atoz/dept/"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-330e99113781648a",
+          "name": "University of California, Los Angeles (UCLA)",
+          "country": "United States",
+          "city": "Los Angeles",
+          "website": "https://www.ucla.edu/",
+          "checkedAt": "2026-11-23T05:26:19.957Z",
+          "pageTitle": "A World Leader in Education and Research Excellence | UCLA",
+          "contentHash": "d0903d17e53e5d19749b4f2400411716d12412b47f275557ac354cfeb87f2d4d",
+          "admissionLinks": [
+            {
+              "label": "Admission",
+              "url": "https://www.ucla.edu/admission"
+            },
+            {
+              "label": "Graduate Admission",
+              "url": "https://www.ucla.edu/admission/graduate-admission"
+            },
+            {
+              "label": "Degree Programs & Majors",
+              "url": "https://www.ucla.edu/academics/programs-and-majors"
+            },
+            {
+              "label": "Undergraduate Education",
+              "url": "https://www.ucla.edu/academics/undergraduate-education"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-02b952128f2ee5e2",
+          "name": "University of California, San Diego (UCSD)",
+          "country": "United States",
+          "city": "San Diego",
+          "website": "https://www.ucsd.edu/",
+          "checkedAt": "2026-11-23T05:26:24.599Z",
+          "pageTitle": "University of California San Diego",
+          "contentHash": "c39800e62aa88511747df0ab5e3a879fdee97e1252cbc18b5a909a1d9ad81ce5",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate Degrees",
+              "url": "https://www.ucsd.edu/_archive-old-pages/undergraduate-degrees.html"
+            },
+            {
+              "label": "Admissions and Aid",
+              "url": "https://ucsd.edu/admissions-aid/index.html"
+            },
+            {
+              "label": "Learn More About Admissions",
+              "url": "https://ucsd.edu/admissions-aid/"
+            },
+            {
+              "label": "Learn More About Degrees and Programs",
+              "url": "https://www.ucsd.edu/academics/index.html"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-21eda45f8e2ee04f",
+          "name": "University of Chicago",
+          "country": "United States",
+          "city": "Chicago",
+          "website": "https://www.uchicago.edu/",
+          "checkedAt": "2026-11-23T05:26:20.275Z",
+          "pageTitle": "The University of Chicago",
+          "contentHash": "c4317d067864f010d42d776dd44b2dd54e96035502932420adf6c0bee8b115de",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate Programs",
+              "url": "https://www.uchicago.edu/academics/undergraduate-programs"
+            },
+            {
+              "label": "Graduate Programs",
+              "url": "https://www.uchicago.edu/academics/graduate-programs"
+            },
+            {
+              "label": "Admissions",
+              "url": "https://www.uchicago.edu/admissions"
+            },
+            {
+              "label": "Arts Institutions & Programs",
+              "url": "https://www.uchicago.edu/life-at-uchicago/arts"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-60ef4c1597ac9ba5",
+          "name": "University of Pennsylvania",
+          "country": "United States",
+          "city": "Philadelphia",
+          "website": "https://www.upenn.edu/",
+          "checkedAt": "2026-11-23T05:26:17.530Z",
+          "pageTitle": "University of Pennsylvania",
+          "contentHash": "012ceb3db77045f2d9d4dc420ac3843fec431e3f34fd068b29f540737a003a00",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate",
+              "url": "https://www.upenn.edu/academics/undergraduate"
+            },
+            {
+              "label": "Admissions & Aid",
+              "url": "https://www.upenn.edu/admissions"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-32b69e727036462d",
+          "name": "University of Texas at Austin",
+          "country": "United States",
+          "city": "Austin",
+          "website": "https://www.utexas.edu/",
+          "checkedAt": "2026-11-23T05:26:22.347Z",
+          "pageTitle": "The University of Texas at Austin",
+          "contentHash": "b56b77a4e6b36a6a77ff25136571d86ec0979a4f801f442150ae30d600d1bb28",
+          "admissionLinks": [
+            {
+              "label": "More Admission & Aid pages",
+              "url": "https://www.utexas.edu/"
+            },
+            {
+              "label": "Explore Degree Programs",
+              "url": "https://www.utexas.edu/academics/areas-of-study"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-93ed2beaf876bd5b",
+          "name": "University of Washington",
+          "country": "United States",
+          "city": "Seattle",
+          "website": "https://www.washington.edu/",
+          "checkedAt": "2026-11-23T05:26:26.392Z",
+          "pageTitle": "UW Homepage &#8211; University of Washington",
+          "contentHash": "94de3efcecc683b48eb5d655ba86eafc290b52f67a4177895c8624b4058a24c2",
+          "admissionLinks": [
+            {
+              "label": "Graduate &#038; professional programs",
+              "url": "https://www.washington.edu/admissions/"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        },
+        {
+          "id": "web-2cbd4514d583d0c3",
+          "name": "Yale University",
+          "country": "United States",
+          "city": "New Haven",
+          "website": "https://www.yale.edu/",
+          "checkedAt": "2026-11-23T05:26:18.184Z",
+          "pageTitle": "Yale University",
+          "contentHash": "56b3b9fe15b76cdf4ba209230882eb9f3adc459baaacbf51e8aa00359dbf95b0",
+          "admissionLinks": [
+            {
+              "label": "Undergraduate Study",
+              "url": "https://www.yale.edu/academics/undergraduate-study"
+            },
+            {
+              "label": "Departments & Programs",
+              "url": "https://www.yale.edu/academics/departments-programs"
+            },
+            {
+              "label": "Admissions",
+              "url": "https://www.yale.edu/admissions"
+            }
+          ],
+          "programmesStatus": "not-extracted",
+          "deadlinesStatus": "not-extracted"
+        }
+      ],
+      "failures": [
+        {
+          "name": "Columbia University",
+          "url": "https://www.columbia.edu/",
+          "checkedAt": "2026-11-23T11:12:49.673Z",
+          "reason": "Official page returned HTTP 403 or unsupported content"
+        },
+        {
+          "name": "Johns Hopkins University",
+          "url": "https://www.jhu.edu/",
+          "checkedAt": "2026-11-23T11:12:49.977Z",
+          "reason": "Official page returned HTTP 403 or unsupported content"
+        },
+        {
+          "name": "New York University (NYU)",
+          "url": "https://www.nyu.edu/",
+          "checkedAt": "2026-11-23T11:12:50.302Z",
+          "reason": "Official page returned HTTP 202 or unsupported content"
+        },
+        {
+          "name": "Princeton University",
+          "url": "https://www.princeton.edu/",
+          "checkedAt": "2026-11-23T11:12:50.424Z",
+          "reason": "Official page returned HTTP 403 or unsupported content"
+        },
+        {
+          "name": "University of Illinois Urbana-Champaign",
+          "url": "https://www.illinois.edu/",
+          "checkedAt": "2026-11-23T11:12:50.960Z",
+          "reason": "unable to verify the first certificate"
+        },
+        {
+          "name": "University of Michigan-Ann Arbor",
+          "url": "https://www.umich.edu/",
+          "checkedAt": "2026-11-23T11:12:51.102Z",
+          "reason": "Official page returned HTTP 403 or unsupported content"
+        }
+      ]
     }
   ]
 }
