@@ -9,7 +9,7 @@ export class WriterError extends Error{constructor(status,message){super(message
 async function optionalRead(file){try{return await readFile(file,'utf8');}catch(error){if(error.code==='ENOENT')return null;throw error;}}
 function within(root,file){const relative=path.relative(root,file);if(relative.startsWith('..')||path.isAbsolute(relative))throw new WriterError(400,'File is outside the admissions workspace');}
 async function admissionFiles(folder){const output=[];for(const entry of await readdir(folder,{withFileTypes:true})){if(entry.isSymbolicLink())throw new WriterError(400,'Admissions symlinks are not supported');const file=path.join(folder,entry.name);if(entry.isDirectory())output.push(...await admissionFiles(file));else if(/\.ya?ml$/u.test(entry.name))output.push(file);}return output;}
-async function atomicBatch(updates){
+export async function atomicBatch(updates){
   const prepared=[];const installed=[];
   try{
     for(const [file,content] of updates){await mkdir(path.dirname(file),{recursive:true});const original=await optionalRead(file);const temporary=`${file}.writer-${randomBytes(12).toString('hex')}.tmp`;await writeFile(temporary,content,{flag:'wx',mode:0o600});prepared.push({file,content,original,temporary});}
@@ -19,8 +19,9 @@ async function atomicBatch(updates){
     throw error;
   }finally{for(const item of prepared)await unlink(item.temporary).catch(()=>{});}
 }
+const catalogueQueues=new Map();
+export function withCatalogueWrite(root,operation){const key=path.resolve(root);const previous=catalogueQueues.get(key)||Promise.resolve();const run=previous.then(operation);const tail=run.catch(()=>{});catalogueQueues.set(key,tail);return run.finally(()=>{if(catalogueQueues.get(key)===tail)catalogueQueues.delete(key);});}
 export function createDateStore(root){
-  let queue=Promise.resolve();
   async function record(key){
     if(typeof key!=='string'||key.length>180)throw new WriterError(400,'Invalid programme/intake key');
     const catalogue=await readCatalogue({rootDir:root});const base=await realpath(path.join(root,'data/admissions'));
@@ -45,5 +46,5 @@ export function createDateStore(root){
     await atomicBatch([[current.file,next],[path.join(root,'data/generated/catalogue.json'),json],[path.join(root,'dist/data/generated/catalogue.json'),json],[log,(await optionalRead(log)||'')+audit+'\n']]);
     return {ok:true,relativeFile:current.relativeFile,revision:revisionOf(next),catalogue};
   }
-  return {async getRecord(key){const item=await record(key);return {doc:item.doc,revision:item.revision,relativeFile:item.relativeFile};},save(input,username){const run=queue.then(()=>save(input,username));queue=run.catch(()=>{});return run;}};
+  return {async getRecord(key){const item=await record(key);return {doc:item.doc,revision:item.revision,relativeFile:item.relativeFile};},save(input,username){return withCatalogueWrite(root,()=>save(input,username));}};
 }

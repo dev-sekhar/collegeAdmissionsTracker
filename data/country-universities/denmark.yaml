@@ -1,0 +1,23 @@
+country: Denmark
+attemptedAt: 2026-11-23T04:36:34.812Z
+startedAt: 2026-11-23T04:36:33.569Z
+collectedBy: codex-source-check
+scope: Configured official university sites; university identity and admission links only. Not a
+  complete country directory.
+attempted: 1
+freshCount: 1
+universities:
+  - id: web-3b858d28ea7b2852
+    name: University of Copenhagen
+    country: Denmark
+    city: Copenhagen
+    website: https://www.ku.dk/
+    checkedAt: 2026-11-23T04:36:34.506Z
+    pageTitle: Københavns Universitet - Københavns Universitet
+    contentHash: 0f3186b0020bff57cc6f33f124dc34d14bfa219cb1b53183d6cfc93e3db9a1ac
+    admissionLinks:
+      - label: Bachelor
+        url: https://www.ku.dk/studier/bachelor
+    programmesStatus: not-extracted
+    deadlinesStatus: not-extracted
+failures: []

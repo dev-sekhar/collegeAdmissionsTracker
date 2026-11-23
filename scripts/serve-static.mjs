@@ -5,6 +5,7 @@ import path from 'node:path';
 import {randomBytes} from 'node:crypto';
 import {readWriterCredentials,checkWriterPassword} from './writer-auth.mjs';
 import {createDateStore,WriterError} from './writer-store.mjs';
+import {createCountryCollector} from './collect-country.mjs';
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const allowed=new Set(['index.html','styles.css','src/static-app.js','src/static-components.js','src/catalogue-browser.js','src/browse-components.js','src/upcoming-deadlines.js','src/catalogue-model.js','src/applicant-routes.js','src/writer-ui.js','data/generated/catalogue.json']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8'};
@@ -15,8 +16,8 @@ async function body(request){
   let text='';for await(const chunk of request){text+=chunk;if(Buffer.byteLength(text)>16000)throw new WriterError(413,'Request is too large');}
   try{return JSON.parse(text);}catch{throw new WriterError(400,'Invalid JSON');}
 }
-export function createAdmissionsServer({rootDir=projectRoot,credentialsProvider=()=>readWriterCredentials(rootDir),clock=()=>Date.now(),sessionLifetime=30*60*1000}={}){
-  const sessions=new Map();const attempts=new Map();const store=createDateStore(rootDir);
+export function createAdmissionsServer({rootDir=projectRoot,credentialsProvider=()=>readWriterCredentials(rootDir),clock=()=>Date.now(),sessionLifetime=30*60*1000,collectionOptions={}}={}){
+  const sessions=new Map();const attempts=new Map();const store=createDateStore(rootDir);const collector=createCountryCollector(rootDir,collectionOptions);
   return http.createServer(async(request,response)=>{
     response.setHeader('Cache-Control','no-store');response.setHeader('X-Content-Type-Options','nosniff');
     const json=(status,value)=>{response.writeHead(status,{'Content-Type':'application/json; charset=utf-8'}).end(JSON.stringify(value));};
@@ -43,6 +44,7 @@ export function createAdmissionsServer({rootDir=projectRoot,credentialsProvider=
         if(request.method==='POST'&&request.headers['x-writer-csrf']!==session.csrf)throw new WriterError(403,'Writer request token is invalid');
         if(pathname==='/writer/logout'&&request.method==='POST'){sessions.delete(token);response.setHeader('Set-Cookie',`${cookieName}=; HttpOnly; SameSite=Strict; Path=/writer; Max-Age=0`);json(200,{role:'reader'});return;}
         if(pathname==='/writer/record'&&request.method==='GET'){json(200,await store.getRecord(url.searchParams.get('key')));return;}
+        if(pathname==='/writer/collect-country'&&request.method==='POST'){const input=await body(request);if(!input||Object.keys(input).some(key=>key!=='country'))throw new WriterError(400,'Only a configured country is accepted');json(200,await collector.collect(input.country,session.username));return;}
         if(pathname==='/writer/save-date'&&request.method==='POST'){json(200,await store.save(await body(request),session.username));return;}
         throw new WriterError(404,'Writer action not found');
       }

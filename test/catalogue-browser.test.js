@@ -25,13 +25,13 @@ const walk=node=>[node,...node.children.flatMap(walk)];
 // Most journeys exercise an existing user's explicit Any-rank preference.
 const memoryStorage=({savedAllRanks=true}={})=>{const values=new Map();if(savedAllRanks)values.set('admissions-atlas.criteria.v1',JSON.stringify({version:1,countries:['Singapore'],subjects:['Economics','Criminology'],degree:'Bachelor’s',intake:'',qsLimit:''}));return {getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,value)};};
 function chooseCountries(f,values){const inputs=f.find('#country-filter').querySelectorAll('input');inputs.forEach(input=>{input.checked=values.includes(input.value);});inputs[0].events.change();}
-function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=memoryStorage(),inputCatalogue=catalogue}={}){
+function fixture(t,{clock=()=>new Date('2026-11-20T04:00:00Z'),storage=memoryStorage(),inputCatalogue=catalogue,fetcher=async()=>({ok:true,json:async()=>({role:'reader',configured:false})})}={}){
   const root=new Element('main');for(const id of ['workspace','announcer','filters','filter-summary','filter-note','reset-filters']){const e=new Element(id==='reset-filters'?'button':'div');e.id=id;root.append(e);}
   const brand=new Element('a');brand.className='brand';root.append(brand);const filterPanel=new Element('details');filterPanel.className='filter-panel';root.append(filterPanel);
   globalThis.document={createElement:tag=>new Element(tag),createTextNode:text=>{const node=new Element('text');node.textContent=text;return node;},querySelector:selector=>root.querySelector(selector)};
-  t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(inputCatalogue,{clock,storage});
+  t.after(()=>{delete globalThis.document;});const browser=mountAdmissionsBrowser(inputCatalogue,{clock,storage,fetcher});
   const find=selector=>root.querySelector(selector);const all=selector=>root.querySelectorAll(selector);
-  return {root,find,all,browser,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
+  return {root,find,all,browser,click(predicate){const b=all('button').find(predicate);assert.ok(b,'button exists');return b.events.click();},select(id,value){const e=find('#'+id);assert.ok(e,`${id} exists`);e.value=value;e.events.change();}};
 }
 
 test('Netherlands journey preserves every published category, language and source without Singapore controls',t=>{
@@ -320,10 +320,15 @@ test('QS popup shows countries and closes by Escape or button without replacing 
   f.click(button=>button.className.includes('qs-preview-button'));f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('.qs-dialog'),null);
 });
 
-test('row country actions load university-only records without inventing programmes or altering search criteria',t=>{
-  const f=fixture(t);f.select('qs-limit','100');const before=JSON.stringify(catalogue);f.click(button=>button.className.includes('qs-preview-button'));
-  assert.equal(f.all('.qs-country-action').length,102);f.click(button=>button.getAttribute('aria-label')==='Load university data for United States');
-  assert.match(f.find('#country-data-title').textContent,/United States/);assert.ok(f.all('.country-data-university').length>0);assert.ok(f.all('.country-data-university').every(item=>item.textContent.includes('University-level data only')));assert.match(f.find('.country-university-data').textContent,/not a complete country directory/);
-  f.click(button=>button.getAttribute('aria-label')==='Load university data for Netherlands');assert.equal(f.all('.country-data-university').length,9);assert.match(f.find('.country-university-data').textContent,/Delft University/);assert.match(f.find('.country-university-data').textContent,/programmes in our admissions catalogue/);assert.equal(document.activeElement.id,'country-data-title');
-  f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('#qs-limit').value,'100');assert.deepEqual(f.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore']);assert.equal(JSON.stringify(catalogue),before);
+test('country action calls authenticated fresh collection and displays saved results without inventing admissions',async t=>{
+  const calls=[];const inputCatalogue=structuredClone(catalogue);const original=JSON.stringify(catalogue.programs);
+  const collection={country:'United States',attemptedAt:'2026-11-23T04:00:00Z',startedAt:'2026-11-23T04:00:00Z',freshCount:1,attempted:1,scope:'Configured official sites only.',failures:[],universities:[{id:'web-1234567890abcdef',name:'MIT',city:'Cambridge',website:'https://www.mit.edu/',checkedAt:'2026-11-23T04:00:00Z',admissionLinks:[]}]};
+  const fetcher=async(url,options)=>{calls.push([url,options]);return {ok:true,json:async()=>url==='/writer/session'?{role:'writer',csrf:'test-csrf'}:{collection,relativeFile:'data/country-universities/united-states.yaml'}};};
+  const f=fixture(t,{inputCatalogue,fetcher});f.select('qs-limit','100');f.click(button=>button.className.includes('qs-preview-button'));
+  await f.click(button=>button.getAttribute('aria-label')==='Fetch fresh university data for United States');assert.equal(calls[1][0],'/writer/collect-country');assert.deepEqual(JSON.parse(calls[1][1].body),{country:'United States'});assert.equal(calls[1][1].headers['X-Writer-CSRF'],'test-csrf');assert.match(f.find('.collection-status').textContent,/Saved 1 fresh/);assert.match(f.find('.country-data-university').textContent,/programmes and deadlines not extracted/);assert.equal(inputCatalogue.countryCollections.find(item=>item.country==='United States').freshCount,1);
+  f.click(button=>button.className.includes('close-qs'));assert.equal(f.find('#qs-limit').value,'100');assert.deepEqual(f.find('#country-filter').querySelectorAll('input').filter(input=>input.checked).map(input=>input.value),['Singapore']);assert.equal(JSON.stringify(catalogue.programs),original);
+});
+
+test('reader is prompted for writer sign-in and unconfigured setup is explained',async t=>{
+  const f=fixture(t);f.click(button=>button.className.includes('qs-preview-button'));await f.click(button=>button.className.includes('qs-country-action'));assert.ok(f.find('.collection-login'));assert.match(f.find('.country-university-data').textContent,/not configured/);assert.equal(f.find('.collection-login').querySelector('button').disabled,true);
 });
